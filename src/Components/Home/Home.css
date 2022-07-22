@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+.Home-title{
+    font-size: 1.5em;
+}
+.Home-kiosk-button{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+.Home-dictionary-button{
+    font-size: 1.5em;
+    margin-top: 15px;
+
+}
