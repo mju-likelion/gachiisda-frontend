@@ -5,7 +5,7 @@ const Lotteria = () => {
     return (
         <>
         <div>
-            롯데리아 입니다.
+            롯데리아 입니다.!
         </div>
             
         </>
