@@ -1,6 +1,8 @@
 import React from "react";
-import Home from "./Components/Home/Home";
+// import Home from "./Components/Home/Home";
+import Korail from "./Components/Korail/DifficultySelection";
+
 function App() {
-  return <Home />;
+  return <Korail />;
 }
 export default App;
