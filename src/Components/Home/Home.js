@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import './Home.css';
 import Kiosk from './images/키오스크아이콘.svg';
