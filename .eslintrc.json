@@ -26,6 +26,8 @@
     "plugins": [
         "react"
     ],
+    
+
     // "rules": {
     //     // suppress errors for missing 'import React' in files
     //    "react/react-in-jsx-scope": "off",
@@ -34,10 +36,11 @@
     //   }
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/function-component-definition":[2, {"namedcomponents":"arrow-function"}]
+        "react/function-component-definition":[2, {"namedcomponents":"arrow-function"}],
+        "quotes": "off"
 
-        
+
       }
-      
     
+
 }
