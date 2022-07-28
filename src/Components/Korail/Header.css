@@ -1,0 +1,49 @@
+body{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+.Header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    background-color: #B3D5F2;
+}
+.Header_BackIcon{
+    
+
+}
+.Header_HomeIcon{
+    
+}
+
+.Header_BackIcon_Ment{
+    float: left;
+    margin-top: 30px;
+    margin-left: 1rem;
+    color: #686868;
+    text-align: center;
+
+
+}
+.Header_HomeIcon_img{
+    float: right;
+    margin-top: 30px;
+    margin-right: 1rem;
+}
+
+.Header_HomeIcon_Ment{
+    float: right;
+    margin-top: 30px;
+    margin-right: 1rem;
+    color: #686868;
+    text-align: center;
+
+
+}
+.Header_BackIcon_img{
+    float: left;
+    margin-top: 30px;
+    margin-left: 1rem;
+}
+

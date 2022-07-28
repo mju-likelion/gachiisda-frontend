@@ -1,8 +1,14 @@
 import React from "react";
 // import Home from "./Components/Home/Home";
-import Korail from "./Components/Korail/DifficultySelection";
+import DifficultySelection from './Components/Korail/DifficultySelection';
+// import Header from "./Components/Korail/Header";
 
 function App() {
-  return <Korail />;
+  return (
+  // <Header>
+    <DifficultySelection />
+  // </Header>
+
+  );
 }
 export default App;
