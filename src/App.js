@@ -1,8 +1,8 @@
 import React from "react";
-import Home from "./Components/Home/Home";
+import Main from "./Components/Korail/Main";
 
 function App() {
-  return <Home />;
+  return <Main />;
 }
 
 export default App;
