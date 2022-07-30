@@ -1,0 +1,133 @@
+body{
+    text-align: center;
+    background-color: #F9F9F9;
+}
+.Main_Way_DIV{
+    
+}
+.Main_OneWay{
+    background-color: white;
+    color: #064A87;
+    font-size: 25px;
+    float: left;
+    width: 50%;
+    height: 50px;
+    
+}
+.Main_Around{
+    background-color: white;
+    color: #064A87;
+    font-size: 25px;
+    float: right;
+    width: 50%;
+    height: 50px;
+
+    /* margin: 25px; */
+}
+.Main_Go_Start_ment{
+    font-size: 12px;
+    color: #686868;
+    float: left;
+    width: 45%;
+
+}
+.Main_Go_Arrived_ment{
+    font-size: 12px;
+    color: #686868;
+    float: right;
+    width: 45%;
+
+}
+
+.Main_Switch_button{
+    border: 0.5px solid #3F9CF1;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 10%;
+
+}
+.Main_KTX_Select{
+    background-color: white;
+    border-radius: 20px;
+    color:#686868;
+    border: 1px solid #686868;
+    width: 90%;
+    height: 29px;
+
+}
+.Main_Go_Start{
+    color: #064A87;
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    width: 45%;
+    /* margin-top: 20px; */
+
+}
+.Main_Go_Arrived{
+    color: #064A87;
+    font-size: 30px;
+    font-weight: bold;
+    float:right;
+    width: 45%;
+
+
+}
+.Main_Go_DIV{
+
+
+
+}
+.Main_Go_arrow{
+    
+}
+.Main_Go_Info{
+    color:#3F9CF1
+    ;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.Main_arrow{
+    color: #3F9CF1;    
+}
+.Main_Train_Inquire{
+    background-color: #C6DFEE;
+    color:#064A87;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.Main_Train_btn{
+    background-color: #F9F9F9;
+    border: 0px;
+    float: left;
+    /* padding: 10px; */
+    width: 25%;
+
+
+}
+.Main_Ticket_btn{
+    background-color: #F9F9F9;
+    border: 0px;
+    float: left;
+    /* padding: 10px; */
+    width: 25%;
+
+
+
+}
+.Main_NoneAct_btn{
+    float: left;
+    /* padding: 10px; */
+    width: 25%;
+
+}
+.Main_Go_DIV{
+    width: 100%;
+    height: 98px;
+    color: #000000;
+    border-bottom: 1px solid #686868;
+
+}
