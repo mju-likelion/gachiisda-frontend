@@ -1,22 +1,66 @@
 import React from "react";
-import "./Home.css";
+import styled from 'styled-components';
 import Kiosk from "./images/KioskIcon.svg";
 import Dict from "./images/DictionaryIcon.svg";
 
 function Home() {
   return (
     <div>
-      <h1 className="Home-h1">원하는 기능을 눌러주세요</h1>
-      <div className="Home-Icon">
-        <img alt="kiosk" src={Kiosk} />
-        <div className="Home-IconMent">키오스크 연습</div>
-      </div>
-      <div className="Home-Icon">
-        <img alt="dictionaryIcon" src={Dict} />
-        <div className="Home-IconMent">외래어 사전</div>
-      </div>
+      <HomeAll>
+        <HomeTitleDiv>
+          <HomeTitle>원하는 기능을</HomeTitle>
+          <HomeTitle>눌러주세요</HomeTitle>
+        </HomeTitleDiv>
+        <HomeIcon>
+          <HomeIconImg><img alt="Kiosk" src={Kiosk} /></HomeIconImg>
+          <HomeIconBtn>키오스크 연습</HomeIconBtn>
+        </HomeIcon>
+        <HomeIcon>
+          <HomeIconImg><img alt="DictionaryIcon" src={Dict} /></HomeIconImg>
+          <HomeIconBtn>외래어 사전</HomeIconBtn>
+        </HomeIcon>
+      </HomeAll>
     </div>
   );
 }
+const HomeTitleDiv = styled.div`
+padding-top : 50px;
+`;
+const HomeTitle = styled.div`
+font-size:31px;
+font-weight:bold;
+
+
+`;
+
+const HomeIconImg = styled.div`
+padding-bottom : 20px;
+padding-top : 20px;
+`;
+
+const HomeIconBtn = styled.button`
+width: 216px;
+    height: 70px;
+    background-color: #B3D5F2;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    font-size: 2em;
+    font-weight:bold;
+    align-items: center;
+    border:0;
+    cursor : pointer;
+    `;
+
+const HomeIcon = styled.div`
+    padding-top: 50px;
+    padding-bottom:30px;
+    `;
+
+const HomeAll = styled.div`
+text-align: center;
+background-color: #EFF3FA;
+padding-bottom: 80px;
+`;
 
 export default Home;
