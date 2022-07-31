@@ -1,13 +1,13 @@
-import React from "react";
-import Home from "./Components/Home/Home";
-import Korail from "./Components/Korail/PeopleSection";
+import React from 'react';
+import Home from './Components/Home/Home';
 
 function App() {
-	console.log('d');
-	return (
-		,.z
-		<Home />
-	);
+  return (
+    <div>
+      <Home />
+      <p>가치잇다</p>
+    </div>
+  );
 }
 
 export default App;
