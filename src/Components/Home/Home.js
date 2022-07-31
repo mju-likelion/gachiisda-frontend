@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import Kiosk from "./images/KioskIcon.svg";
-import Dict from "./images/DictionaryIcon.svg";
+import Kiosk from './images/KioskIcon.svg';
+import Dict from './images/DictionaryIcon.svg';
 
 function Home() {
+  console.log('test입니다');
   return (
     <div>
       <HomeAll>
@@ -12,11 +13,15 @@ function Home() {
           <HomeTitle>눌러주세요</HomeTitle>
         </HomeTitleDiv>
         <HomeIcon>
-          <HomeIconImg><img alt="Kiosk" src={Kiosk} /></HomeIconImg>
+          <HomeIconImg>
+            <img alt='Kiosk' src={Kiosk} />
+          </HomeIconImg>
           <HomeIconBtn>키오스크 연습</HomeIconBtn>
         </HomeIcon>
         <HomeIcon>
-          <HomeIconImg><img alt="DictionaryIcon" src={Dict} /></HomeIconImg>
+          <HomeIconImg>
+            <img alt='DictionaryIcon' src={Dict} />
+          </HomeIconImg>
           <HomeIconBtn>외래어 사전</HomeIconBtn>
         </HomeIcon>
       </HomeAll>
@@ -24,43 +29,41 @@ function Home() {
   );
 }
 const HomeTitleDiv = styled.div`
-padding-top : 50px;
+  padding-top: 50px;
 `;
 const HomeTitle = styled.div`
-font-size:31px;
-font-weight:bold;
-
-
+  font-size: 31px;
+  font-weight: bold;
 `;
 
 const HomeIconImg = styled.div`
-padding-bottom : 20px;
-padding-top : 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 `;
 
 const HomeIconBtn = styled.button`
-width: 216px;
-    height: 70px;
-    background-color: #B3D5F2;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    font-size: 2em;
-    font-weight:bold;
-    align-items: center;
-    border:0;
-    cursor : pointer;
-    `;
+  width: 216px;
+  height: 70px;
+  background-color: #b3d5f2;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+`;
 
 const HomeIcon = styled.div`
-    padding-top: 50px;
-    padding-bottom:30px;
-    `;
+  padding-top: 50px;
+  padding-bottom: 30px;
+`;
 
 const HomeAll = styled.div`
-text-align: center;
-background-color: #EFF3FA;
-padding-bottom: 80px;
+  text-align: center;
+  background-color: #eff3fa;
+  padding-bottom: 80px;
 `;
 
 export default Home;
