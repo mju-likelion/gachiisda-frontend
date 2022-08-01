@@ -1,19 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import BackIcon from '../images/HeaderBackIcon.svg';
-import HomeIcon from '../images/HeaderHomeIcon.svg';
+import BackIcon from '../images/BackIcon';
+import { ReactComponent as HomeIcon } from '../images/HomeIcon.svg';
+// import HomeIcon from '../images/HomeIcon';
 
 function Header() {
   return (
     <div>
       <HeaderAll>
         <HeaderBackIcon>
-          <HeaderBackIconImg alt='BackIcon' src={BackIcon} />
+          <HeaderBackIconImg>
+            <BackIcon />
+          </HeaderBackIconImg>
           <HeaderBackIconMent>이전화면</HeaderBackIconMent>
         </HeaderBackIcon>
         <HeaderHomeIcon>
           <HeaderHomeIconMent>처음화면</HeaderHomeIconMent>
-          <HeaderHomeIconImg alt='HomeIcon' src={HomeIcon} />
+          {/* <HeaderHomeIconImg>
+            <img alt='HomeIcon' src={HomeIcon} />
+          </HeaderHomeIconImg> */}
+          <HeaderHomeIconImg>
+            <HomeIcon />
+          </HeaderHomeIconImg>
         </HeaderHomeIcon>
       </HeaderAll>
     </div>
@@ -51,13 +59,13 @@ const HeaderHomeIconMent = styled.div`
   font-weight: bold;
 `;
 
-const HeaderBackIconImg = styled.img`
+const HeaderBackIconImg = styled.div`
   float: left;
   margin-top: 30px;
   margin-left: 1rem;
 `;
 
-const HeaderHomeIconImg = styled.img`
+const HeaderHomeIconImg = styled.div`
   float: right;
   margin-top: 30px;
   margin-right: 1rem;

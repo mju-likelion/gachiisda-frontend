@@ -5,10 +5,9 @@ import Header from './Components/Korail/layout/Header';
 function App() {
   return (
     <div>
-      <Header>
-        <Home />
-        <p>가치잇다</p>
-      </Header>
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }
