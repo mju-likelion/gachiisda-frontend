@@ -1,11 +1,11 @@
 import React from 'react';
-import Home from './Components/Home/Home';
+// import Home from './Components/Home/Home';
+import TicketConfirm from './Components/Korail/TicketConfirm';
 
 function App() {
   return (
     <div>
-      <Home />
-      <p>가치잇다</p>
+      <TicketConfirm />
     </div>
   );
 }
