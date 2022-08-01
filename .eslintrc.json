@@ -1,46 +1,49 @@
 {
-    "settings": {
-        "import/resolver": {
-          "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-          }
-        }
-      },
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    
-
-    // "rules": {
-    //     // suppress errors for missing 'import React' in files
-    //    "react/react-in-jsx-scope": "off",
-    //     // allow jsx syntax in js files (for next.js project)
-    //    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] //should add ".ts" if typescript project
-    //   }
-    "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/function-component-definition":[2, {"namedcomponents":"arrow-function"}],
-        "quotes": "off"
-
-
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
       }
-    
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
 
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "react/react-in-jsx-scope": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/prefer-default-export": 0,
+    "no-use-before-define": 0,
+    "import/no-unresolved": 0,
+    "react/jsx-no-bind": 0,
+    "consistent-return": 0,
+    "default-case": 0,
+    "react/require-default-props": 0,
+    "react/function-component-definition": 0,
+    "react/prop-types": 0,
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  }
 }
