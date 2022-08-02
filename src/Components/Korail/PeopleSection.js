@@ -15,55 +15,56 @@ function PeopleSection() {
         <Total>어른 1명</Total>
         <Age> △ </Age>
       </SeatBox>
-      <AtLeast>최소 1명 - 최대 9명</AtLeast>
-      <div className='m'>
+      <MiddleBox>
+        <AtLeast>최소 1명 - 최대 9명</AtLeast>
+
         <ByAge>
-          <div>어른(만 13세 이상)</div>
+          <Type>어른(만 13세 이상)</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
 
         <ByAge>
-          <div>어린이(만 6세 ~12세)</div>
+          <Type>어린이(만 6세 ~12세)</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
         <ByAge>
-          <div>유아(만 6세 미만)</div>
+          <Type>유아(만 6세 미만)</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
         <ByAge>
-          <div>경로(만 65세 이상)</div>
+          <Type>경로(만 65세 이상)</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
         <ByAge>
-          <div>중증 장애인</div>
+          <Type>중증 장애인</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
         <ByAge>
-          <div>경증 장애인</div>
+          <Type>경증 장애인</Type>
           <Minus>
-            - 0 <Plus>+</Plus>
+            － 0 <Plus>＋</Plus>
           </Minus>
         </ByAge>
-      </div>
+      </MiddleBox>
 
-      <div className='x'>
+      <OptionBox>
         <Age>상세 옵션</Age>
-        <div className='u'>인접역 표출, SR연계 표출</div>
+        <Total>인접역 표출, SR연계 표출</Total>
         <Age>▽</Age>
-      </div>
+      </OptionBox>
 
-      <div className='line' />
-      <div className='f'>열차 조회하기</div>
+      <Line></Line>
+      <Inquiry>열차 조회하기</Inquiry>
     </StartSectionWrapper>
   );
 }
@@ -82,6 +83,8 @@ const FirstBox = styled.div`
   background-color: white;
   justify-content: space-around;
   display: flex;
+  width: 375px;
+  height: 45px;
 `;
 
 const AtLeast = styled.div`
@@ -121,12 +124,14 @@ const OneWay = styled.div`
   color: #064a87;
   font-weight: medium;
   font-size: 25px;
+  text-align: center;
 `;
 
 const BothWay = styled.div`
   color: #686868;
   font-weight: medium;
   font-size: 25px;
+  text-align: center;
 `;
 
 const Total = styled.div`
@@ -142,4 +147,46 @@ const ByAge = styled.div`
 `;
 
 const Blanck = styled.div``;
+
+const MiddleBox = styled.div`
+  height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: flex-start; */
+  font-weight: bold;
+  background-color: #ededed;
+`;
+
+const OptionBox = styled.div`
+  background-color: #f5f5f5;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+
+const Line = styled.div`
+  height: 1.5px;
+  background-color: gray;
+`;
+
+const Inquiry = styled.div`
+  background-color: #c6dfee;
+  font-weight: bold;
+  font-size: 25px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #064a87;
+`;
+
+const Type = styled.div`
+  font-weight: Medium;
+  font-sixe: 18px;
+  color: #000000;
+`;
+
 export default PeopleSection;
