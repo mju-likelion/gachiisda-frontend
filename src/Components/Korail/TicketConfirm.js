@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
-import { ReactComponent as QR } from './images/QR.svg';
 import { ReactComponent as MinAgo } from './images/MinAgo.svg';
+import { ReactComponent as Qr } from './images/Qr.svg';
 
+import { ReactComponent as Train } from './images/Train.svg';
+import { ReactComponent as Ticket } from './images/Ticket.svg';
+import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 function TicketConfirm() {
   return (
     <div>
@@ -30,9 +34,9 @@ function TicketConfirm() {
           </StationDIV>
         </StationDIVWrap>
 
-        <TrainNumDIV>
-          <TrainNum>무궁화호 1211</TrainNum>
-        </TrainNumDIV>
+        <TrainNameDIV>
+          <TrainName>무궁화호 1211</TrainName>
+        </TrainNameDIV>
 
         <SeatDIV>
           <SeatTitleDIV>
@@ -42,12 +46,40 @@ function TicketConfirm() {
             <SeatTitle>운임 영수증</SeatTitle>
           </SeatTitleDIV>
 
-          <SetContentsDIV>
-            <MinAgo />
-
-            <QR />
-          </SetContentsDIV>
+          <SeatContentsDIV>
+            <SeatContentsWrap>
+              <MinAgo />
+            </SeatContentsWrap>
+            <SeatContentsWrap>
+              <TrainNumWrap>
+                <TrainNum>1</TrainNum>
+                <TrainNumFix>호차</TrainNumFix>
+              </TrainNumWrap>
+            </SeatContentsWrap>
+            <SeatContentsWrap>
+              <SeatNum>13</SeatNum>
+            </SeatContentsWrap>
+            <SeatContentsWrap>
+              <Qr />
+            </SeatContentsWrap>
+          </SeatContentsDIV>
         </SeatDIV>
+        <ConfirmFooter>
+          <MainTrainbtn>
+            <Train />
+            <div>승차권예매</div>
+          </MainTrainbtn>
+          <MainNoneActbtn>
+            <NoneTicket />
+          </MainNoneActbtn>
+          <MainNoneActbtn>
+            <NoneTicket2 />
+          </MainNoneActbtn>
+          <MainTicketbtn>
+            <Ticket />
+            <div>승차권확인</div>
+          </MainTicketbtn>
+        </ConfirmFooter>
       </All>
     </div>
   );
@@ -56,8 +88,12 @@ const All = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  margin-top: 64px;
+  width: 100%;
+  height: 100%;
 
-  background-color: #f4f4f4;
+  background-color: #ededed;
 `;
 const ConfirmHeaderWrap = styled.div``;
 
@@ -96,15 +132,18 @@ const Day = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-top: 10px;
+  margin-left: 10px;
 `;
 
 const StationDIV = styled.div`
   background-color: #ffffff;
-  width: 100%;
+  width: 95%;
   height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 `;
 const GoStation = styled.div`
   color: #064a87;
@@ -155,18 +194,24 @@ const StationDIVWrap = styled.div`
   display: flex;
   justify-content: center;
 `;
-const TrainNumDIV = styled.div`
+const TrainNameDIV = styled.div`
   background-color: #e1e9f6;
   height: 52px;
   display: flex;
   justify-content: left;
   align-items: center;
   padding-left: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+  margin-left: 10px;
 `;
-const TrainNum = styled.div`
+const TrainName = styled.div`
   font-size: 16px;
 `;
-const SeatDIV = styled.div``;
+const SeatDIV = styled.div`
+  width: 95%;
+  margin-left: 10px;
+`;
 const SeatTitleDIV = styled.div`
   display: flex;
   align-items: center;
@@ -183,10 +228,64 @@ const SeatTitle = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const SetContentsDIV = styled.div``;
-// const StationDIV = styled.div``;
-// const StationDIV = styled.div``;
-// const StationDIV = styled.div``;
-// const StationDIV = styled.div``;
+const SeatContentsDIV = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.65px solid #686868;
+`;
+const TrainNum = styled.div`
+  font-size: 30px;
+  color: #064a87;
+`;
+const TrainNumFix = styled.div`
+  font-size: 13px;
+  color: #064a87;
+  padding-bottom: 4px;
+`;
+const SeatNum = styled.div`
+  font-size: 30px;
+  color: #064a87;
+`;
+const TrainNumWrap = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
 
+const SeatContentsWrap = styled.div`
+  background-color: #ffffff;
+  width: 25%;
+  height: 91px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const MainTrainbtn = styled.button`
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
+`;
+const MainNoneActbtn = styled.div`
+  background-color: #f9f9f9;
+  height: 54px;
+  float: left;
+  width: 25%;
+`;
+const MainTicketbtn = styled.button`
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
+`;
+
+const ConfirmFooter = styled.div`
+  display: flex;
+  position: fixed;
+  bottom: 140px;
+  background-color: #f9f9f9;
+  width: 100%;
+`;
 export default TicketConfirm;
