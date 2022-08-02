@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
+import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
 
 function paymentPage1() {
   return (
@@ -36,7 +37,9 @@ function paymentPage1() {
             <TicketInfo>내 승차권 정보</TicketInfo>
             <TicketInfo>(호차/좌석번호)</TicketInfo>
           </TicketInfoWrap>
-          {/* <Detail>상세</Detail> */}
+          <DetailWrap>
+            <Detail>상세</Detail>
+          </DetailWrap>
         </TicketInfoDIV>
 
         <PriceDiscountDIV>
@@ -53,6 +56,9 @@ function paymentPage1() {
             </DiscountWrap>
           </DiscountDIV>
         </PriceDiscountDIV>
+        <AnotherDiscountDIV>
+          <AnotherDiscount width='100%' />
+        </AnotherDiscountDIV>
       </All>
     </div>
   );
@@ -62,8 +68,9 @@ const All = styled.div`
   display: flex;
   justify-content: center;
   background-color: #f4f4f4;
-  height: 100%;
+  width: 100%;
   flex-direction: column;
+  margin-top: 64px;
 `;
 const PaymentHeader = styled.div`
   height: 64px;
@@ -77,6 +84,8 @@ const PaymentHeader = styled.div`
 const Day = styled.div`
   font-size: 15px;
   color: #70139c;
+  margin-top: 15px;
+  margin-bottom: 4px;
 `;
 const TrainType = styled.div`
   font-size: 12px;
@@ -91,6 +100,7 @@ const DayDIV = styled.div`
   text-align: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 15px;
 `;
 const TrainWrap = styled.div`
   display: flex;
@@ -151,32 +161,37 @@ const StationDIVWrap = styled.div`
   justify-content: center;
 `;
 const TicketInfoDIV = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: green; */
   height: 66px;
   border-top: 1px solid #686868;
   border-bottom: 1px solid #686868;
 `;
 const TicketInfo = styled.div``;
-// const Detail = styled.div`
-//   font-size: 16px;
-//   color: #686868;
-//   background-color: #b3d5f2;
-//   width: 47px;
-//   height: 33px;
-// `;
+const Detail = styled.div`
+  font-size: 16px;
+  color: #686868;
+  background-color: #b3d5f2;
+  width: 47px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const TicketInfoWrap = styled.div`
   display: flex;
+  flex-direction: column;
+  float: left;
+  margin-left: 140px;
+  margin-top: 13px;
 `;
 const PriceDIV = styled.div`
   width: 220px;
   height: 26px;
+  margin-top: 10px;
 `;
 const DiscountDIV = styled.div`
   width: 375px;
   height: 23px;
+  margin-bottom: 10px;
 `;
 
 const PriceTitle = styled.div`
@@ -198,9 +213,16 @@ const Discount = styled.div`
 `;
 const PriceWrap = styled.div``;
 const DiscountWrap = styled.div``;
-const PriceDiscountDIV = styled.div``;
-// const All = styled.div``;
-// const All = styled.div``;
-// const All = styled.div``;
+const PriceDiscountDIV = styled.div`
+  padding-left: 10px;
+  border-bottom: 1px solid #686868;
+`;
+const AnotherDiscountDIV = styled.div``;
+
+const DetailWrap = styled.div`
+  float: right;
+  margin-right: 20px;
+  margin-top: 18px;
+`;
 
 export default paymentPage1;
