@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Ktximage from './images/Ktximage.svg';
 
 function ResultSection() {
   return (
@@ -22,7 +23,7 @@ function ResultSection() {
           }}
         ></div>
       </Header>
-      {/* <Ktximage src={ktx} width='95' height='95'></Ktximage> */}
+      {<Ktx img alt='Ktximage' width='95' height='95' src={Ktximage}></Ktx>}
       <PractiseText>(해당 연습 항목)</PractiseText>
       <PractiseText>(해당 난이도)</PractiseText>
       <Body>
@@ -79,9 +80,9 @@ const Header = styled.div`
   align-items: flex-end;
 `;
 
-/**const Ktximage = styled.img`
+const Ktx = styled.img`
   margin-top: 10px;
-`;*/
+`;
 
 const PractiseText = styled.div`
   font-size: 20px;
