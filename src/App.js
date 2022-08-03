@@ -1,12 +1,14 @@
 import React from 'react';
-import Home from './Components/Home/Home';
+// import Home from './Components/Home/Home';
+import Completion from './Components/Korail/Completion';
 
 function App() {
   return (
-    <div>
+    /*<div>
       <Home />
       <p>가치잇다</p>
-    </div>
+    </div>*/
+    <Completion />
   );
 }
 
