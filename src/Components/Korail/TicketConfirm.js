@@ -10,78 +10,76 @@ import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 function TicketConfirm() {
   return (
-    <div>
-      <All>
-        <ConfirmHeaderWrap>
-          <ConfirmHeader>승차권(1)</ConfirmHeader>
-          <ConfirmHeader2>정기권패스</ConfirmHeader2>
-        </ConfirmHeaderWrap>
+    <All>
+      <ConfirmHeaderWrap>
+        <ConfirmHeader>승차권(1)</ConfirmHeader>
+        <ConfirmHeader2>정기권패스</ConfirmHeader2>
+      </ConfirmHeaderWrap>
 
-        <Day>2022년 n월 nn일 (요일)</Day>
-        <StationDIVWrap>
-          <StationDIV>
-            <GoWrap>
-              <GoStation>서울</GoStation>
-              <GoTime>출발 : 시간</GoTime>
-            </GoWrap>
-            <ArrowWrap>
-              <Arrow />
-            </ArrowWrap>
-            <ArrivedWrap>
-              <ArrivedStation>부산</ArrivedStation>
-              <ArrivedTime>도착 : 시간</ArrivedTime>
-            </ArrivedWrap>
-          </StationDIV>
-        </StationDIVWrap>
+      <Day>2022년 n월 nn일 (요일)</Day>
+      <StationDIVWrap>
+        <StationDIV>
+          <GoWrap>
+            <GoStation>서울</GoStation>
+            <GoTime>출발 : 시간</GoTime>
+          </GoWrap>
+          <ArrowWrap>
+            <Arrow />
+          </ArrowWrap>
+          <ArrivedWrap>
+            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedTime>도착 : 시간</ArrivedTime>
+          </ArrivedWrap>
+        </StationDIV>
+      </StationDIVWrap>
 
-        <TrainNameDIV>
-          <TrainName>무궁화호 1211</TrainName>
-        </TrainNameDIV>
+      <TrainNameDIV>
+        <TrainName>무궁화호 1211</TrainName>
+      </TrainNameDIV>
 
-        <SeatDIV>
-          <SeatTitleDIV>
-            <SeatTitle>타는 곳 번호</SeatTitle>
-            <SeatTitle>호차 번호</SeatTitle>
-            <SeatTitle>좌석 번호</SeatTitle>
-            <SeatTitle>운임 영수증</SeatTitle>
-          </SeatTitleDIV>
+      <SeatDIV>
+        <SeatTitleDIV>
+          <SeatTitle>타는 곳 번호</SeatTitle>
+          <SeatTitle>호차 번호</SeatTitle>
+          <SeatTitle>좌석 번호</SeatTitle>
+          <SeatTitle>운임 영수증</SeatTitle>
+        </SeatTitleDIV>
 
-          <SeatContentsDIV>
-            <SeatContentsWrap>
-              <MinAgo />
-            </SeatContentsWrap>
-            <SeatContentsWrap>
-              <TrainNumWrap>
-                <TrainNum>1</TrainNum>
-                <TrainNumFix>호차</TrainNumFix>
-              </TrainNumWrap>
-            </SeatContentsWrap>
-            <SeatContentsWrap>
-              <SeatNum>13</SeatNum>
-            </SeatContentsWrap>
-            <SeatContentsWrap>
-              <Qr />
-            </SeatContentsWrap>
-          </SeatContentsDIV>
-        </SeatDIV>
-        <ConfirmFooter>
-          <MainTrainbtn>
-            <Train />
-            <div>승차권예매</div>
-          </MainTrainbtn>
-          <MainNoneActbtn>
-            <NoneTicket />
-          </MainNoneActbtn>
-          <MainNoneActbtn>
-            <NoneTicket2 />
-          </MainNoneActbtn>
-          <MainTicketbtn>
-            <Ticket />
-            <div>승차권확인</div>
-          </MainTicketbtn>
-        </ConfirmFooter>
-      </All>
-    </div>
+        <SeatContentsDIV>
+          <SeatContentsWrap>
+            <MinAgo />
+          </SeatContentsWrap>
+          <SeatContentsWrap>
+            <TrainNumWrap>
+              <TrainNum>1</TrainNum>
+              <TrainNumFix>호차</TrainNumFix>
+            </TrainNumWrap>
+          </SeatContentsWrap>
+          <SeatContentsWrap>
+            <SeatNum>13</SeatNum>
+          </SeatContentsWrap>
+          <SeatContentsWrap>
+            <Qr />
+          </SeatContentsWrap>
+        </SeatContentsDIV>
+      </SeatDIV>
+      <ConfirmFooter>
+        <MainTrainbtn>
+          <Train />
+          <div>승차권예매</div>
+        </MainTrainbtn>
+        <MainNoneActbtn>
+          <NoneTicket />
+        </MainNoneActbtn>
+        <MainNoneActbtn>
+          <NoneTicket2 />
+        </MainNoneActbtn>
+        <MainTicketbtn>
+          <Ticket />
+          <div>승차권확인</div>
+        </MainTicketbtn>
+      </ConfirmFooter>
+    </All>
   );
 }
 const All = styled.div`
