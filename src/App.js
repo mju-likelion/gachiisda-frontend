@@ -1,10 +1,11 @@
 import React from 'react';
-import Home from './Components/Home/Home';
+//import Home from './Components/Home/Home';
+import Korail from './Components/Korail/ChooseSection';
 
 function App() {
   return (
     <div>
-      <Home />
+      <Korail />
       <p>가치잇다</p>
     </div>
   );
