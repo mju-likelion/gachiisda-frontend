@@ -5,7 +5,7 @@ import styled from 'styled-components';
 function StartSection() {
 	return (
 		<div>
-			<APP>
+			<StartSectionWrapper>
 				<div className="a" />
 				<B>
 					<div>편도</div>
@@ -105,12 +105,12 @@ function StartSection() {
 
 				<div className="line" />
 				<div className="f">열차 조회하기</div>
-			</APP>
+			</StartSectionWrapper>
 		</div>
 	);
 }
 
-const APP = styled.div`
+const StartSectionWrapper = styled.div`
 text-align: center;`;
 
 const B = styled.div`
