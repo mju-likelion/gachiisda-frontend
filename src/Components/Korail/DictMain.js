@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BookImg from './images/BookImg';
-import Enter from './images/Enter';
+import SearchEnter from './images/SearchEnter';
 
 const Item = ({ text }) => text;
 
@@ -19,7 +19,7 @@ function DictMain() {
       <SearchBar>
         <SearchInput placeholder='검색할 외래어를 입력해주세요.' />
         <SearchIcon>
-          <Enter />
+          <SearchEnter />
         </SearchIcon>{' '}
       </SearchBar>{' '}
     </All>
@@ -28,8 +28,7 @@ function DictMain() {
 
 const All = styled.div`
   background-color: #eff3fa;
-  padding-top: 60px;
-  padding-bottom: 100%;
+  padding: 60px 0px 100% 0px;
 `;
 
 const IconWrap = styled.div`

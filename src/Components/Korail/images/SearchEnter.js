@@ -1,4 +1,4 @@
-const Enter = ({ width = '37', height = '24' }) => {
+const SearchEnter = ({ width = '37', height = '24' }) => {
   return (
     <svg
       width={width}
@@ -37,4 +37,4 @@ const Enter = ({ width = '37', height = '24' }) => {
   );
 };
 
-export default Enter;
+export default SearchEnter;
