@@ -13,11 +13,11 @@ const Qr = ({ width = '78', height = '83' }) => {
         y='0.866699'
         width='76.173'
         height='81.4628'
-        fill='url(#pattern1)'
+        fill='url(#QrImg)'
       />
       <defs>
         <pattern
-          id='pattern1'
+          id='QrImg'
           patternContentUnits='objectBoundingBox'
           width='1'
           height='1'

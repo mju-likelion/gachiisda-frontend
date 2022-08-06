@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-// import ImageBar from './images/ImageBar';
 import BlackArrow from './images/BlackArrow';
 import TimeImage from './images/TimeImage';
 import Qr from './images/Qr';
+import { ReactComponent as FooterImg } from './images/FooterImg.svg';
 
 const Item = ({ text }) => text;
 
@@ -18,6 +18,7 @@ function Completion() {
       </MiddleMent>
       <EnddingMent>해당 큐알코드를 보여주시면 됩니다.</EnddingMent>
       <ImageWrap>
+        <FooterImg />
         <Arrow>
           <BlackArrow />
         </Arrow>
@@ -82,13 +83,12 @@ const ImageWrap = styled.div`
 `;
 
 const Arrow = styled.div`
-  margin-left: 296px;
+  margin: 1px 0px 0px 215px;
 `;
 
 const SeatTable = styled.div`
   width: 95%;
   margin-left: 10px;
-  margin-top: 63px;
 `;
 
 const SeatTitleWrap = styled.div`

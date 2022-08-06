@@ -12,11 +12,11 @@ const TimeImage = ({ width = '71', height = '77' }) => {
         y='0.51123'
         width='69.8253'
         height='76.173'
-        fill='url(#pattern0)'
+        fill='url(#Time)'
       />
       <defs>
         <pattern
-          id='pattern0'
+          id='Time'
           patternContentUnits='objectBoundingBox'
           width='1'
           height='1'
