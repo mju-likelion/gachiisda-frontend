@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BiSearchAlt } from 'react-icons/bi';
+import SearchEnter from './images/SearchEnter';
 import ChangeArrow from './images/ChangeArrow.js';
 import Arrow from './images/Arrow.js';
 import Frame from './images/Frame.js';
@@ -9,70 +9,83 @@ function StationClick() {
   return (
     <StationClickWrapper>
       <KtxHeader>
-        <Way>편도</Way>
+        <OneWay>편도</OneWay>
         <Way>왕복</Way>
       </KtxHeader>
-      <StationChoiceBox>
+      <StationWrap>
         <Start>
           <DirectionText>출발</DirectionText>
-          <p>서울</p>
         </Start>
         <ChangeBox>
           <ChangeArrow />
         </ChangeBox>
+        <Arrival>
+          <DirectionText>도착</DirectionText>
+        </Arrival>
+      </StationWrap>
+      <StationNameWrap>
+        <StationStart>
+          <StationName>서울</StationName>
+        </StationStart>
         <ArrowIcon>
           <Arrow />
         </ArrowIcon>
-        <Arrival>
-          <DirectionText>도착</DirectionText>
-          <p>부산</p>
-        </Arrival>
-        <KtxMap>KTX역 선택 지도</KtxMap>
-      </StationChoiceBox>
+        <StationArrival>
+          <StationName>부산</StationName>
+        </StationArrival>
+      </StationNameWrap>
+      <KtxMap>KTX역 선택 지도</KtxMap>
       <MainStationBox>
         <Frame />
         <SearchBar>
-          <input
-            type='text'
-            className='input-search'
-            placeholder='역 명을 입력해주세요.'
-          />
-          <button type='submit'>
-            <BiSearchAlt size='34' color='black' />
-          </button>
+          <SearchInput placeholder='역 명을 입력해주세요.' />
+          <SearchIcon>
+            <SearchEnter />
+          </SearchIcon>{' '}
         </SearchBar>
-        <div className='stationListBox'>
-          <p className='station-title'>주요 역</p>
-          <p>역 이름</p>
-        </div>
+        <StationListBox>
+          <StationTitle>주요 역</StationTitle>
+          <StationDetail>역 이름</StationDetail>
+        </StationListBox>
       </MainStationBox>
     </StationClickWrapper>
   );
 }
 
 const StationClickWrapper = styled.div`
-  flex-direction: column;
-  width: 375px;
-  height: 45px;
+  background: #f4f4f4;
 `;
 
 const KtxHeader = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
+  background: #ffffff;
+`;
+
+const OneWay = styled.div`
+  width: 157px;
+  height: 45px;
+  font-weight: bold;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #064a87;
+  border-bottom: 2px solid #064a87;
 `;
 
 const Way = styled.div`
   width: 157px;
   height: 45px;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const StationChoiceBox = styled.div`
+const StationWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,19 +93,34 @@ const StationChoiceBox = styled.div`
 
 const Start = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 67px;
 `;
 
 const Arrival = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 67px;
 `;
 
-const DirectionText = styled.p`
+const StationNameWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const StationStart = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 70px;
+`;
+
+const StationArrival = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 70px;
+`;
+
+const StationName = styled.div`
   font-weight: 700;
   font-size: 30px;
   line-height: 43px;
@@ -100,16 +128,26 @@ const DirectionText = styled.p`
   justify-content: center;
 `;
 
-const ChangeBox = styled.button`
+const DirectionText = styled.p`
+  font-weight: 500px;
+  font-size: 12px;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  color: #686868;
+  margin: 16px 0px 10px 0px;
+`;
+
+const ChangeBox = styled.button`
+  width: 60px;
+  height: 30px;
+  display: flex;
   justify-content: center;
   align-items: center;
   border: 0.5px solid #3f9cf1;
   border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 10%;
+  padding: 0px 10px;
+  background: transparent;
+  margin-top: 20px;
 `;
 
 const ArrowIcon = styled.div`
@@ -128,12 +166,11 @@ const KtxMap = styled.div`
   border-radius: 20px;
   font-weight: 500;
   font-size: 15px;
-  line-height: 22px;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
   color: #686868;
+  margin: 14px 34px 11px 34px;
 `;
 
 const MainStationBox = styled.div`
@@ -147,6 +184,40 @@ const SearchBar = styled.div`
   width: 375px;
   height: 60px;
   background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SearchInput = styled.input`
+  background: transparent;
+  border: none;
+  width: 70%;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-size: 16px;
+  border: 2px solid #d9d9d9;
+  padding: 10px;
+`;
+
+const SearchIcon = styled.button`
+  border: none;
+  background: transparent;
+`;
+
+const StationListBox = styled.div``;
+
+const StationTitle = styled.div`
+  background: #ededed;
+  color: #064a87;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 9px 290px 9px 20px;
+`;
+
+const StationDetail = styled.div`
+  font-weight: 500;
+  font-size: 18px;
 `;
 
 export default StationClick;
