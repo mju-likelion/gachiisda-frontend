@@ -14,19 +14,19 @@ function CheckSection() {
         <Line></Line>
         <Body1>
           <Body1Text>2022년 8월 2일 (화) 1매</Body1Text>
-          <Body1Text_Bottom>무궁화호 1211 열차</Body1Text_Bottom>
-          <Body1Text_Bottom>서울(11:23) -{'>'} 부산(17:21)</Body1Text_Bottom>
-          <Body1Text_Bottom>일반실</Body1Text_Bottom>
-          <Body1Text_Bottom>1호차 13,14</Body1Text_Bottom>
+          <Body1TextBottom>무궁화호 1211 열차</Body1TextBottom>
+          <Body1TextBottom>서울(11:23) -{'>'} 부산(17:21)</Body1TextBottom>
+          <Body1TextBottom>일반실</Body1TextBottom>
+          <Body1TextBottom>1호차 13,14</Body1TextBottom>
         </Body1>
         <Body2>
-          <Body2Text_Bottom>
+          <Body2TextBottom>
             비회원은 예약 완료 후, 바로 결제하지 않으면 자동으로 예약이
             취소됩니다.
-          </Body2Text_Bottom>
-          <Body2Text_Bottom>
+          </Body2TextBottom>
+          <Body2TextBottom>
             승차권을 발권받은 스마트폰에서만 확인할 수 있습니다.
-          </Body2Text_Bottom>
+          </Body2TextBottom>
         </Body2>
         <BodyBox>
           <Box1>
@@ -93,14 +93,14 @@ const Body1Text = styled.div`
   font-size: 16px;
   font-weight: bold;
 `;
-const Body1Text_Bottom = styled.div`
+const Body1TextBottom = styled.div`
   font-size: 16px;
   font-weight: bold;
   margin-left: 10px;
   margin-top: 6px;
 `;
 
-const Body2Text_Bottom = styled.div`
+const Body2TextBottom = styled.div`
   margin-bottom: 10px;
 `;
 const BodyText = styled.div`
