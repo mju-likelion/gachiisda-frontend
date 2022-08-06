@@ -6,105 +6,106 @@ function StartSection() {
 	return (
 		<div>
 			<StartSectionWrapper>
-				<div className="a" />
-				<B>
-					<div>편도</div>
-					<div>왕복</div>
-				</B>
-				<C>
-					<div>출발일</div>
-					<div>2022년 n월 nn일 (화요일) 12시:12분</div>
-				</C>
+				<Blanck />
+				<FirstBox>
+					<OneWay>편도</OneWay>
+					<BothWay>왕복</BothWay>
+				</FirstBox>
+				<DateBox>
+					<Type>출발일</Type>
+					<Total>2022년 n월 nn일 (요일) 시:분</Total>
+					<Type>△</Type>
+				</DateBox>
 
-				<div className="ekffur">
-					<div className="ekffurqjxms">달력에서 날짜 선택</div>
-				</div>
-				<div className="d">
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
-							날짜 <span className="wkrdmsdydlf">월요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+				<CalendarBox>
+					<Calendar>달력에서 날짜 선택</Calendar>
+				</CalendarBox>
+				<MiddleBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date >
+							날짜 <Week>월요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date>
 							날짜
-							<span className="wkrdmsdydlf">화요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+							<Week>화요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date >
 							날짜
-							<span className="wkrdmsdydlf">수요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+							<Week>수요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date >
 							날짜
-							<span className="wkrdmsdydlf">목요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+							<Week>목요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date >
 							날짜
-							<span className="wkrdmsdydlf">금요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+							<Week>금요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date>
 							날짜
-							<span className="wkrdmsdydlf">토요일</span>
-						</div>
-					</div>
-					<div className="dydlf">
-						<div>요일</div>
-						<div className="skfWk">
+							<Week>토요일</Week>
+						</Date >
+					</DayBox>
+					<DayBox>
+						<DayDay>요일</DayDay>
+						<Date >
 							날짜
-							<span className="wkrdmsdydlf">일요일</span>
-						</div>
-					</div>
-				</div>
+							<Week>일요일</Week>
+						</Date >
+					</DayBox>
+				</MiddleBox>
 
-				<div className="e">
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-					<div className="etntwk">
-						숫자<span className="wkrtl">시</span>
-					</div>
-				</div>
-				<div className="line_2" />
-				<div className="i">
-					<div className="p">승객 연령 및 좌석수</div>
-					<div className="u">어른 1명</div>
-					<div>▽</div>
-				</div>
-				<div className="line" />
-				<div className="x">
-					<div className="p">상세 옵션</div>
-					<div className="u">인접역 표출, SR연계 표출</div>
-					<div>▽</div>
-				</div>
+				<SecondMiddleBox>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+					<Number>
+						숫자<Si>시</Si>
+					</Number>
+				</SecondMiddleBox>
+				<LineTwo />
+				<FirstThirdBox>
+					<Type>승객 연령 및 좌석수</Type>
+					<Total>어른 1명</Total>
+					<Type>▽</Type>
+				</FirstThirdBox>
+				<Line />
+				<SecondThirdBox>
+					<Type>상세 옵션</Type>
+					<Total>인접역 표출, SR연계 표출</Total>
+					<Type>▽</Type>
+				</SecondThirdBox>
 
-				<div className="line" />
-				<div className="f">열차 조회하기</div>
+				<Line />
+				<Inquiry>열차 조회하기</Inquiry>
 			</StartSectionWrapper>
 		</div>
 	);
@@ -113,14 +114,14 @@ function StartSection() {
 const StartSectionWrapper = styled.div`
 text-align: center;`;
 
-const B = styled.div`
+const FirstBox = styled.div`
 background-color: white;
 justify-content: space-around;
 display: flex;
 height: 43px;
 align-items: center;`;
 
-const C = styled.div`
+const DateBox = styled.div`
 background-color: #E1E9F6;
 height: 98px;
 display: flex;
@@ -128,8 +129,126 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;`;
 
+const CalendarBox = styled.div`
+background-color: #EDEDED;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 90px;`;
+
+const Calendar = styled.div`
+border-radius: 20px;
+width: 300px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white;
+border: 1px solid black;`;
+
+const DayBox = styled.div`
+display: flex;
+flex-direction: column;`;
+
+const Date  = styled.div`
+height: 50px;
+display: flex;
+font-size: 13px;
+flex-direction: column;
+/* align-items: center; */
+justify-content: center;
+/* background-color: gray; */
+font-weight: bold;`;
+
+const Week = styled.span`
+font-size: 10px;
+font-weight: 400;`;
+
+const MiddleBox = styled.div`
+display: flex;
+background-color: #EDEDED;
+justify-content: space-around;
+height: 90px;`;
+
+const SecondMiddleBox = styled.div`
+display: flex;
+align-items: center;
+background-color: #D9D9D9;
+justify-content: space-around;
+height: 60px;`;
+
+const Number = styled.div`
+font-size: 22px;
+font-weight: bold;
+height: 60px;
+display: flex;
+align-items: center;`;
+
+const Si = styled.span`
+font-size: 15px;`;
+
+const Type = styled.div`
+font-weight: bold;
+font-size: 15px;
+color: #3F9CF1;`;
 
 
+const Total = styled.div`
+font-size: Mixed;
+font-weight: 600;`;
+
+const Inquiry = styled.div`
+background-color: #C6DFEE;
+font-weight: bold;
+font-size: 25px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #064A87;`;
+
+const LineTwo = styled.div`
+background-color: #EDEDED;
+height: 10px;`;
+
+const Line = styled.div`
+height: 1.5px;
+background-color: gray;`;
+
+const FirstThirdBox = styled.div`
+height: 98px;
+background-color: #F5F5F5;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;`;
+
+const SecondThirdBox = styled.div`
+background-color: #F5F5F5;
+height: 98px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;`;
+
+const OneWay = styled.div`
+  color: #064a87;
+  font-weight: medium;
+  font-size: 25px;
+`;
+
+const BothWay = styled.div`
+  color: #686868;
+  font-weight: medium;
+  font-size: 25px;
+`;
+
+const Blanck = styled.div`
+background-color: #B3D5F2;
+height: 64px;`;
+
+const DayDay = styled.div`
+font-size: 8px;
+font-weight: bold;
+color:#000000;`;
 
 export default StartSection;
 
