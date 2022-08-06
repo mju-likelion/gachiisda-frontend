@@ -2,6 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Arrow from './images/Arrow';
+import { ReactComponent as Train } from './images/Train.svg';
+import { ReactComponent as Ticket } from './images/Ticket.svg';
+import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -81,6 +85,22 @@ function StationSelect() {
           </EtcWrap>
         </TableContent>
       </ListWrap>
+      <PageFooter>
+        <TrainBtn>
+          <Train />
+          <TrainMent>승차권예매</TrainMent>
+        </TrainBtn>
+        <NoneBtnWrap>
+          <NoneTicket />
+        </NoneBtnWrap>
+        <NoneBtnWrap>
+          <NoneTicket2 />
+        </NoneBtnWrap>
+        <TicketBtn>
+          <Ticket />
+          <TicketMent>승차권확인</TicketMent>
+        </TicketBtn>
+      </PageFooter>
     </All>
   );
 }
@@ -117,7 +137,6 @@ const DayWrap = styled.div`
 
 const DayButton = styled.button`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 4px;
@@ -129,10 +148,7 @@ const DayButton = styled.button`
 `;
 
 const Date = styled.div`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 36px;
-  margin-left: 36px;
+  margin: 20px 36px;
   align-items: center;
   font-weight: bold;
   font-size: 18px;
@@ -240,7 +256,6 @@ const Price = styled.div`
   font-size: 15px;
   color: #064a87;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 10px 2px;
@@ -248,6 +263,48 @@ const Price = styled.div`
   width: 67px;
   height: 42px;
   border: 1px solid #064a87;
+`;
+
+const PageFooter = styled.div`
+  display: flex;
+  position: fixed;
+  bottom: 140px;
+  background-color: #f9f9f9;
+  width: 100%;
+`;
+
+const TrainBtn = styled.button`
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
+`;
+
+const TrainMent = styled.div`
+  color: #064a87;
+  font-weight: bold;
+  font-size: 11px;
+`;
+
+const TicketBtn = styled.button`
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
+`;
+
+const TicketMent = styled.div`
+  font-size: 11px;
+  font-weight: bold;
+`;
+
+const NoneBtnWrap = styled.div`
+  background-color: #f9f9f9;
+  height: 54px;
+  float: left;
+  width: 25%;
 `;
 
 export default StationSelect;
