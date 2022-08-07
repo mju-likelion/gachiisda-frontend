@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Korail />
-      <p>가치잇다</p>
+      {/* <p>가치잇다</p> */}
     </div>
   );
 }

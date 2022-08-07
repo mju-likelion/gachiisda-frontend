@@ -1,0 +1,355 @@
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+import arrow from '../Home/images/Arrow.svg';
+import seat2 from '../Home/images/Seat2.svg';
+import seat1 from '../Home/images/Seat1.svg';
+
+function ChooseSectionFirst() {
+  console.log('render');
+  const [lis, setlis] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
+  const [nsns, setnsns] = useState(0);
+
+  const SelectBox = () => {
+    return (
+      <Selectn>
+        <option key='second' value='second'>
+          2호차 (23석)
+        </option>
+        <option key='third' value='third'>
+          3호차 (23석)
+        </option>
+        <option key='fourth' value='fourth'>
+          4호차 (23석)
+        </option>
+      </Selectn>
+    );
+  };
+
+  const Appendlis = (num) => {
+    let ls = lis;
+    ls[num] = !ls[num];
+    console.log(ls);
+    setlis(ls);
+  };
+
+  useEffect(() => {}, [lis]);
+
+  const returnimg2 = () => {
+    return <IImg img alt='seat1' src={seat1}></IImg>;
+  };
+
+  const returnimg1 = (num) => {
+    return (
+      <img
+        img
+        alt='seat2'
+        src={seat2}
+        width={67}
+        height={67}
+        onClick={() => {
+          Appendlis(num);
+          setnsns(nsns + 1);
+        }}
+        style={{
+          marginleft: 10,
+          marginbottom: 10,
+          backgroundColor: lis[num] == true ? '#064A87a1' : null,
+          borderRadius: 20,
+        }}
+      ></img>
+    );
+  };
+
+  const show = () => {
+    return (
+      <>
+        <ListDiv>
+          <SelectDiv2>
+            <span
+              style={{
+                color: '#B3D5F2',
+              }}
+            >
+              선택좌석
+            </span>
+            <span>▲</span>
+            <span
+              style={{
+                color: 'white',
+              }}
+            >
+              1명 좌석 선택 / 총 2명 1호차 10
+            </span>
+          </SelectDiv2>
+          <SelectDiv>
+            <span>선택 완료</span>
+          </SelectDiv>
+        </ListDiv>
+      </>
+    );
+  };
+
+  return (
+    <All>
+      <Body>
+        {SelectBox()}
+        <Body2>
+          <DayBotton>이전칸</DayBotton>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              // backgroundColor: "gray",
+              alignItems: 'center',
+              // justifycontent: "space-around",
+            }}
+          >
+            <TrainNumber>해당열차 열차번호 (일반실)</TrainNumber>
+            <LeftSeat>잔여 23석 / 전체 72석</LeftSeat>
+          </div>
+          <DayBotton>다음칸</DayBotton>
+        </Body2>
+      </Body>
+
+      <SectionBar>
+        <SectionBardiv>
+          <Circle></Circle>
+          <span>선택불가</span>
+          <Circlewhite></Circlewhite>
+          <span>선택가능</span>
+        </SectionBardiv>
+        <SectionBardiv>
+          <U>U</U>
+          <span
+            style={{
+              marginRight: 10,
+            }}
+          >
+            순방향
+          </span>
+          <UReserve>U</UReserve>
+
+          <span>역방향</span>
+        </SectionBardiv>
+      </SectionBar>
+      <MainBody>
+        <ImgBody>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(0)}
+          </ImgBody2>
+
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(1)}
+          </ImgBody2>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(2)}
+          </ImgBody2>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(3)}
+          </ImgBody2>
+        </ImgBody>
+        <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
+        <ImgBody>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(4)}
+          </ImgBody2>
+
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(5)}
+          </ImgBody2>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(6)}
+          </ImgBody2>
+          <ImgBody2>
+            {returnimg2()}
+            {returnimg1(7)}
+          </ImgBody2>
+        </ImgBody>
+      </MainBody>
+      {lis.includes(true) == true ? show() : null}
+    </All>
+  );
+}
+
+export default ChooseSectionFirst;
+
+const All = styled.div`
+  height: '100%';
+  width: '100%';
+  background-color: #f5f5f5;
+`;
+
+const Body = styled.div`
+  height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 12px;
+  margin-right: 12px;
+`;
+
+/*const Body_1 = styled.div`
+  height: 30px;
+  background-color: gray;
+`;*/
+
+const Body2 = styled.div`
+  height: 39px;
+  // background-color: red;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DayBotton = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid #064a87;
+  border-radius: 15px;
+  color: #064a87;
+  font-weight: 400;
+  font-size: 15px;
+`;
+
+const TrainNumber = styled.span`
+  font-weight: bold;
+  font-size: 15px;
+`;
+
+const LeftSeat = styled.span`
+  font-weight: bold;
+  font-size: 12px;
+  color: #686868;
+`;
+
+const SectionBar = styled.div`
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const SectionBardiv = styled.div`
+  display: flex;
+  margin-left: 12px;
+  margin-right: 12px;
+`;
+
+const Circle = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #d9d9d9;
+  border-radius: 100px;
+`;
+
+const U = styled.span`
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+`;
+
+const UReserve = styled.span`
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transform: rotate(180deg); // 사파리, 크롬, 오페라 브라우저 사용
+  transform: rotate(180deg);
+`;
+
+const Circlewhite = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 100px;
+  border: 0.5px solid gray;
+  margin-left: 10px;
+`;
+
+const MainBody = styled.div`
+  height: 380px;
+  // background-color: skyblue;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+`;
+
+const ImgBody = styled.div`
+  height: 284px;
+  // background-color: skyblue;
+
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-evenly;
+  // margin-left: 12px;
+  // margin-right: 12px;
+`;
+
+const ImgBody2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+
+  // justify-content: space-evenly;
+  // margin-left: 12px;
+  // margin-right: 12px;
+`;
+
+const IImg = styled.img`
+  margin-left: 10px;
+  margin-bottom: ${(props) => (props.current ? 10 : null)}px;
+`;
+
+const ListDiv = styled.div`
+  height: 150px;
+  background-color: gray;
+
+  // display: flex;
+  // align-items: flex-start;
+  // justify-content: space-evenly;
+`;
+
+const SelectDiv = styled.div`
+  height: 60px;
+  background-color: #c6dfee;
+  color: #064a87;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+const SelectDiv2 = styled.div`
+  height: 90px;
+  background-color: #00000040;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Selectn = styled.select`
+  border: 1px solid;
+  height: 30px;
+`;
