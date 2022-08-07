@@ -1,5 +1,4 @@
 import React from 'react';
-// import Home from './Components/Home/Home';
 import TicketConfirm from './Components/Korail/TicketConfirm';
 
 function App() {
