@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Switch from './images/MainSwitchBtn.svg';
-import Train from './images/MainTrain.svg';
-import Ticket from './images/MainTicket.svg';
-import Arrow from './images/BlueArrow.svg';
-import NoneTicket from './images/NoneClickTicketBtn.svg';
-import NoneTicket2 from './images/NoneClickTicketBtn2.svg';
-// import "./Main.css";
-
+import { ReactComponent as Switch } from './images/MainSwitchBtn.svg';
+import { ReactComponent as Train } from './images/MainTrain.svg';
+import { ReactComponent as Ticket } from './images/MainTicket.svg';
+import { ReactComponent as Arrow } from './images/BlueArrow.svg';
+import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 function Main() {
   return (
     <div>
@@ -21,26 +19,24 @@ function Main() {
             <MainGoStationDIV>
               <MainGoMentDIV>
                 <MainGoMent>출발</MainGoMent>
-                <MainGoStation>
-                  서울
-                </MainGoStation>
+                <MainGoStation>서울</MainGoStation>
               </MainGoMentDIV>
 
               <ArrowDIV>
-                <MainSwitchBtn><img alt="switctButton" src={Switch} /></MainSwitchBtn>
-                <GoArrow><img alt="blueArrow" src={Arrow} /></GoArrow>
+                <MainSwitchBtn>
+                  <Switch />
+                </MainSwitchBtn>
+                <GoArrow>
+                  <Arrow />
+                </GoArrow>
               </ArrowDIV>
               <MainArrivedMentDIV>
                 <MainArrivedMent>도착</MainArrivedMent>
-                <MainArrivedStation>
-                  부산
-                </MainArrivedStation>
+                <MainArrivedStation>부산</MainArrivedStation>
               </MainArrivedMentDIV>
-
             </MainGoStationDIV>
             <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
           </MainGoStationDIVStyle>
-
         </div>
         <MainGoDIV>
           <MainInfoMent>출발일</MainInfoMent>
@@ -60,17 +56,17 @@ function Main() {
         <div />
         <MainTrainInquire>열차 조회하기</MainTrainInquire>
         <MainTrainbtn>
-          <img alt="MainTrain" height="25px" src={Train} />
+          <Train height='25px' />
           <div>승차권예매</div>
         </MainTrainbtn>
         <MainNoneActbtn>
-          <img alt="NoneClickTicketBtn" src={NoneTicket} />
+          <NoneTicket />
         </MainNoneActbtn>
         <MainNoneActbtn>
-          <img alt="NoneClickTicketBtn2" src={NoneTicket2} />
+          <NoneTicket2 />
         </MainNoneActbtn>
         <MainTicketbtn>
-          <img alt="MainTicket" height="30px" src={Ticket} />
+          <Ticket height='30px' />
           <div>승차권확인</div>
         </MainTicketbtn>
       </MainAll>
@@ -78,211 +74,161 @@ function Main() {
   );
 }
 
-const MainWaySelect = styled.div`
-`;
+const MainWaySelect = styled.div``;
 
-const MainOneWay = styled.div`
-background-color: white;
-    color: #064A87;
-    font-size: 25px;
-    float: left;
-    width: 50%;
-    height: 40px;
-    border-bottom: 2px solid #064A87;
-    padding-top: 5px;
-
-
-
-`;
 const MainAroundWay = styled.div`
-background-color: white;
-color: #064A87;
-font-size: 25px;
-float: right;
-width: 50%;
-height: 40px;
-    padding-top: 5px;
+  background-color: white;
+  color: #064a87;
+  font-size: 25px;
+  float: right;
+  width: 50%;
+  height: 40px;
+  padding-top: 5px;
 `;
 
-// 출발역div
 const MainGoMentDIV = styled.div`
-display:flex;
-width:50%;
-height:40%;
+  display: flex;
+  width: 50%;
+  height: 40%;
 
-
-flex-direction:column;
-// background-color:red;
+  flex-direction: column;
 `;
-// 화살표div
 const ArrowDIV = styled.div`
-display:flex;
-width:15%;
-height:40%;
+  display: flex;
+  width: 15%;
+  height: 40%;
 
-
-flex-direction:column;
-// background-color:yellow;
-
-
+  flex-direction: column;
 `;
-// 도착역div
 const MainArrivedMentDIV = styled.div`
-display:flex;
-width:50%;
-height:40%;
+  display: flex;
+  width: 50%;
+  height: 40%;
 
-flex-direction:column;
-// background-color:green;
-
-
+  flex-direction: column;
 `;
-// 출발역 ment, 역
 const MainGoMent = styled.div`
-font-size: 12px;
-color: #686868;
-display:flex;
-justify-content:center;
-align-items:center;
-// padding-top:10px;
-// margin-top:5px;
-
-
+  font-size: 12px;
+  color: #686868;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const MainGoStation = styled.div`
-color: #064A87;
-    font-size: 30px;
-    font-weight: bold;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding-top:10px;
+  color: #064a87;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
 `;
 
-// 도착역 ment,역
 const MainArrivedMent = styled.div`
-font-size: 12px;
-    color: #686868;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-
+  font-size: 12px;
+  color: #686868;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const MainArrivedStation = styled.div`
-color: #064A87;
-font-size: 30px;
-font-weight: bold;
-float:right;
-display:flex;
-justify-content:center;
-align-items:center;
-padding-top:10px;
-
+  color: #064a87;
+  font-size: 30px;
+  font-weight: bold;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
 `;
 
-// 화살표 둘
 const MainSwitchBtn = styled.div`
-border: 0.5px solid #3F9CF1;
-    border-radius: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top:5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-
-
+  border: 0.5px solid #3f9cf1;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const GoArrow = styled.div`
-padding-top:15px;
+  padding-top: 15px;
 `;
 
 const MainInfoMent = styled.div`
-color:#3F9CF1
-;
-font-size: 15px;
-font-weight: bold;
-}
+  color: #3f9cf1;
+  font-size: 15px;
+  font-weight: bold;
 `;
 const MainInfoArrow = styled.div`
-color: #3F9CF1;
-
+  color: #3f9cf1;
 `;
 const MainTrainInquire = styled.div`
-background-color: #C6DFEE;
-    color:#064A87;
-    font-size: 25px;
-    font-weight: bold;
+  background-color: #c6dfee;
+  color: #064a87;
+  font-size: 25px;
+  font-weight: bold;
 `;
 const MainTrainbtn = styled.button`
-background-color: #F9F9F9;
-border: 0px;
-float: left;
-/* padding: 10px; */
-width: 25%;
-height:54px;
-
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
 `;
 const MainNoneActbtn = styled.div`
-background-color: #F9F9F9;
-height:54px;
-float: left;
-width: 25%;
-// margin-top:0px;
+  background-color: #f9f9f9;
+  height: 54px;
+  float: left;
+  width: 25%;
 `;
 const MainTicketbtn = styled.button`
-background-color: #F9F9F9;
-    border: 0px;
-    float: left;
-    width: 25%;
-    height:54px;
-
+  background-color: #f9f9f9;
+  border: 0px;
+  float: left;
+  width: 25%;
+  height: 54px;
 `;
-// 감싸는 div
 const MainGoStationDIV = styled.div`
-width: 100%;
-height: 130px;
+  width: 100%;
+  height: 130px;
 
-
-display:flex;
-justify-content:center;
-align-items:center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-// 감싸는 div style
 const MainGoStationDIVStyle = styled.div`
-color: #000000;
-border-bottom: 1px solid #686868;
-padding-bottom:10px;
+  color: #000000;
+  border-bottom: 1px solid #686868;
+  padding-bottom: 10px;
 `;
 
 const MainGoDIV = styled.div`
-width: 100%;
-    height: 98px;
-    color: #000000;
-    border-bottom: 1px solid #686868;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    `;
+  width: 100%;
+  height: 98px;
+  color: #000000;
+  border-bottom: 1px solid #686868;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 const MainSelectKTX = styled.button`
-background-color: white;
-    border-radius: 20px;
-    color:#686868;
-    border: 1px solid #686868;
-    width: 90%;
-    height: 29px;
-    cursor:pointer;
+  background-color: white;
+  border-radius: 20px;
+  color: #686868;
+  border: 1px solid #686868;
+  width: 90%;
+  height: 29px;
+  cursor: pointer;
 `;
 
 const MainAll = styled.div`
-background-color: #F7F7F7;
-text-align:center;
+  background-color: #f7f7f7;
+  text-align: center;
 `;
 
+const MainOneWay = styled.div``;
 export default Main;

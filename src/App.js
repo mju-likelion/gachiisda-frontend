@@ -1,6 +1,5 @@
-import React from "react";
-import Main from "./Components/Korail/Main";
-// import Main from "./Components/Korail/alignPrac";
+import React from 'react';
+import Main from './Components/Korail/Main';
 
 function App() {
   return <Main />;
