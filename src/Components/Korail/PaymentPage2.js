@@ -4,121 +4,122 @@ import { ReactComponent as ReturnImg } from './images/ReturnImg.svg';
 
 function PaymentPage2() {
   return (
-    <div>
-      <All>
-        <PaymentHeader>결제</PaymentHeader>
-        <PaySelectDIV>
-          <Card>카드결제</Card>
-          <Easy>간편결제</Easy>
-        </PaySelectDIV>
+    <All>
+      <PaymentHeader>결제</PaymentHeader>
+      <PaySelectDIV>
+        <Card>카드결제</Card>
+        <Easy>간편결제</Easy>
+      </PaySelectDIV>
 
-        <PriceDiscountDIV>
-          <PriceDIV>
-            <PriceTitle>승차권</PriceTitle>
-            <PriceWrap>
-              <Price>XX,XXX원</Price>
-            </PriceWrap>
-          </PriceDIV>
-          <DiscountDIV>
-            <DiscountTitle>할인 적용 전</DiscountTitle>
-            <DiscountWrap>
-              <Discount>XX,XXX원 (총 XX,XXX원 할인)</Discount>
-            </DiscountWrap>
-          </DiscountDIV>
-        </PriceDiscountDIV>
+      <PriceDiscountDIV>
+        <PriceDIV>
+          <PriceTitle>승차권</PriceTitle>
+          <PriceWrap>
+            <Price>XX,XXX원</Price>
+          </PriceWrap>
+        </PriceDIV>
+        <DiscountDIV>
+          <DiscountTitle>할인 적용 전</DiscountTitle>
+          <DiscountWrap>
+            <Discount>XX,XXX원 (총 XX,XXX원 할인)</Discount>
+          </DiscountWrap>
+        </DiscountDIV>
+      </PriceDiscountDIV>
 
-        <PointDIV>
-          <PointTitle>포인트 사용 </PointTitle>
-          <PointContent>미사용</PointContent>
+      <PointDIV>
+        <PointTitle>포인트 사용 </PointTitle>
+        <PointContent>미사용</PointContent>
+        <PointArrow>▽</PointArrow>
+      </PointDIV>
+      <CardInfoDIV>
+        <CheckCardDIV>
+          <CheckCard>신용(체크) 카드 결제</CheckCard>
           <PointArrow>▽</PointArrow>
-        </PointDIV>
-        <CardInfoDIV>
-          <CheckCardDIV>
-            <CheckCard>신용(체크) 카드 결제</CheckCard>
-            <PointArrow>▽</PointArrow>
-          </CheckCardDIV>
+        </CheckCardDIV>
 
-          <ReturnDIV>
-            <ReturnInput>다시 입력</ReturnInput>
-            <ReturnImgWrap>
-              <ReturnImg />
-            </ReturnImgWrap>
-          </ReturnDIV>
-          <Wrap>
-            <UsuallyDIV>
-              <Usually>자주쓰는 카드</Usually>
-              <CardNumTitle>카드번호</CardNumTitle>
-              <DdayTitle>유효기간</DdayTitle>
-              <PasswordTitle>비밀번호</PasswordTitle>
-              <PasswordTitle>인증번호</PasswordTitle>
-              <PasswordTitle>할부기간</PasswordTitle>
-              <AgreeCheck>
-                <input type='checkbox'></input>
-              </AgreeCheck>
-            </UsuallyDIV>
+        <ReturnDIV>
+          <ReturnInput>다시 입력</ReturnInput>
+          <ReturnImgWrap>
+            <ReturnImg />
+          </ReturnImgWrap>
+        </ReturnDIV>
+        <Wrap>
+          <UsuallyDIV>
+            <Usually>자주쓰는 카드</Usually>
+            <CardNumTitle>카드번호</CardNumTitle>
+            <DdayTitle>유효기간</DdayTitle>
+            <PasswordTitle>비밀번호</PasswordTitle>
+            <PasswordTitle>인증번호</PasswordTitle>
+            <PasswordTitle>할부기간</PasswordTitle>
+            <AgreeCheck>
+              <input type='checkbox'></input>
+            </AgreeCheck>
+          </UsuallyDIV>
 
-            <InputWrap>
-              <UsuInput>
-                <select placeholder='등록된 카드가 없습니다.'>
-                  <option value='직접입력'>+ 직접입력</option>
+          <InputWrap>
+            <UsuInput>
+              <select placeholder='등록된 카드가 없습니다.'>
+                <option value='직접입력'>+ 직접입력</option>
+              </select>
+            </UsuInput>
+
+            <CardNumDIV>
+              <CardNum>
+                <input type='text' size='4' placeholder='5365'></input>
+              </CardNum>
+              <CardNum>
+                <input type='text' size='4'></input>
+              </CardNum>
+              <CardNum>
+                <input type='text' size='4'></input>
+              </CardNum>
+              <CardNum>
+                <input type='text' size='4' placeholder='5365'></input>
+              </CardNum>
+            </CardNumDIV>
+
+            <DdayDIV>
+              <DdayInput>
+                <input type='text' size='2'></input>
+              </DdayInput>
+              <DdayFix>월</DdayFix>
+              <DdayInput>
+                <input type='text' size='4'></input>
+              </DdayInput>
+              <DdayFix>년</DdayFix>
+            </DdayDIV>
+
+            <PasswordDIV>
+              <PasswordInput>
+                <input type='text' size='2'></input>
+              </PasswordInput>
+              <PasswordFix>**</PasswordFix>
+            </PasswordDIV>
+
+            <PasswordDIV>
+              <PasswordInput>
+                <input type='radio' value='개인'></input>개인
+                <input type='radio' value='법인'></input>법인
+              </PasswordInput>
+            </PasswordDIV>
+
+            <PasswordDIV>
+              <PasswordInput>
+                <select>
+                  <option value='일시불'>일시불</option>
+                  <option value='2개월'>2개월</option>
+                  <option value='3개월'>3개월</option>
                 </select>
-              </UsuInput>
+              </PasswordInput>
+            </PasswordDIV>
 
-              <CardNumDIV>
-                <CardNum>
-                  <input type='text' size='4' placeholder='5365'></input>
-                </CardNum>
-                <CardNum>
-                  <input type='text' size='4'></input>
-                </CardNum>
-                <CardNum>
-                  <input type='text' size='4'></input>
-                </CardNum>
-                <CardNum>
-                  <input type='text' size='4' placeholder='5365'></input>
-                </CardNum>
-              </CardNumDIV>
-              <DdayDIV>
-                <DdayInput>
-                  <input type='text' size='2'></input>
-                </DdayInput>
-                <DdayFix>월</DdayFix>
-                <DdayInput>
-                  <input type='text' size='4'></input>
-                </DdayInput>
-                <DdayFix>년</DdayFix>
-              </DdayDIV>
-
-              <PasswordDIV>
-                <PasswordInput>
-                  <input type='text' size='2'></input>
-                </PasswordInput>
-                <PasswordFix>**</PasswordFix>
-              </PasswordDIV>
-
-              <PasswordDIV>
-                <PasswordInput>
-                  <input type='radio' value='개인'></input>개인
-                  <input type='radio' value='법인'></input>법인
-                </PasswordInput>
-              </PasswordDIV>
-              <PasswordDIV>
-                <PasswordInput>
-                  <select>
-                    <option value='일시불'>일시불</option>
-                    <option value='2개월'>2개월</option>
-                    <option value='3개월'>3개월</option>
-                  </select>
-                </PasswordInput>
-              </PasswordDIV>
-              <AgreeDIV>
-                <Agree>개인정보 수집 및 이용 동의</Agree>
-              </AgreeDIV>
-            </InputWrap>
-          </Wrap>
-        </CardInfoDIV>
-      </All>
-    </div>
+            <AgreeDIV>
+              <Agree>개인정보 수집 및 이용 동의</Agree>
+            </AgreeDIV>
+          </InputWrap>
+        </Wrap>
+      </CardInfoDIV>
+    </All>
   );
 }
 const All = styled.div`
@@ -141,7 +142,6 @@ const Card = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 45px;
   border-bottom: 2px solid #70139c;
 `;
@@ -155,9 +155,7 @@ const Easy = styled.div`
   align-items: center;
   height: 45px;
 `;
-// const All = styled.div`
-// text-align: center;
-// `;
+
 const PaymentHeader = styled.div`
   height: 64px;
   background-color: #b285c8;
@@ -301,9 +299,6 @@ const PasswordInput = styled.div`
 const PasswordFix = styled.div``;
 const Wrap = styled.div`
   display: flex;
-  /*flex-direction: center;
-  justify-content: center;
-  align-items: center; */
   background-color: #ededed;
 `;
 
