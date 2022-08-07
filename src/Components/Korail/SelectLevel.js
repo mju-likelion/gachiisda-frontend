@@ -3,23 +3,23 @@ import styled from 'styled-components';
 
 function DifficultySelection() {
   return (
-    <div>
-      <LevelAll>
-        <LevelMent>
-          <h1>난이도를 선택해주세요</h1>
-        </LevelMent>
-        <LevelBeginner>
-          <LevelBeginnerBtn>초급</LevelBeginnerBtn>
-          <LevelBeginnerMent>안내에 따라 사용법을 배웁니다</LevelBeginnerMent>
-        </LevelBeginner>
-        <LevelAdvancer>
-          <LevelAdvancerBtn>고급</LevelAdvancerBtn>
-          <LevelAdvancerMent>
-            도움 없이 혼자서 사용법을 익힙니다
-          </LevelAdvancerMent>
-        </LevelAdvancer>
-      </LevelAll>
-    </div>
+    <LevelAll>
+      <LevelMent>
+        <h1>난이도를 선택해주세요</h1>
+      </LevelMent>
+
+      <LevelBeginner>
+        <LevelBeginnerBtn>초급</LevelBeginnerBtn>
+        <LevelBeginnerMent>안내에 따라 사용법을 배웁니다</LevelBeginnerMent>
+      </LevelBeginner>
+
+      <LevelAdvancer>
+        <LevelAdvancerBtn>고급</LevelAdvancerBtn>
+        <LevelAdvancerMent>
+          도움 없이 혼자서 사용법을 익힙니다
+        </LevelAdvancerMent>
+      </LevelAdvancer>
+    </LevelAll>
   );
 }
 
@@ -79,7 +79,7 @@ const LevelAdvancerMent = styled.div`
 const LevelAll = styled.div`
   text-align: center;
   background-color: #eff3fa;
-  padding-bottom: 180px;
+  padding-bottom: 220px;
 `;
 
 export default DifficultySelection;
