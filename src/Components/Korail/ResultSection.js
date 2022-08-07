@@ -29,27 +29,27 @@ function ResultSection() {
       <Body>
         <Body1>
           <Body1Text>
-            <Body1Text_Left>총 걸린 시간</Body1Text_Left>
+            <Body1TextLeft>총 걸린 시간</Body1TextLeft>
 
-            <Body1Text_Right>: 158초</Body1Text_Right>
+            <Body1TextRight>: 158초</Body1TextRight>
           </Body1Text>
           <Body1Text>
-            <Body1Text_Left>총 누른 수</Body1Text_Left>
-            <Body1Text_Right>: 35번</Body1Text_Right>
+            <Body1TextLeft>총 누른 수</Body1TextLeft>
+            <Body1TextRight>: 35번</Body1TextRight>
           </Body1Text>
           <Body1Text>
-            <Body1Text_Left>잘못 누른 수</Body1Text_Left>
-            <Body1Text_Right>: 23번</Body1Text_Right>
+            <Body1TextLeft>잘못 누른 수</Body1TextLeft>
+            <Body1TextRight>: 23번</Body1TextRight>
           </Body1Text>
           <Body1Text>
-            <Body1Text_Left>바르게 누른 수</Body1Text_Left>
-            <Body1Text_Right>: 12번</Body1Text_Right>
+            <Body1TextLeft>바르게 누른 수</Body1TextLeft>
+            <Body1TextRight>: 12번</Body1TextRight>
           </Body1Text>
         </Body1>
         <Body2>
           <Body2Text>
             <span>내 주문 실력:</span>
-            <Body2Text_Right>열혈 학구파</Body2Text_Right>
+            <Body2TextRight>열혈 학구파</Body2TextRight>
           </Body2Text>
         </Body2>
         <Body3>
@@ -62,14 +62,13 @@ function ResultSection() {
   );
 }
 
-styled.button`
-  // <button> HTML 엘리먼트에 대한 스타일 정의
-`;
+styled.button``;
 
 const All = styled.div`
   text-align: center;
   height: '100%';
   width: '100%';
+  background-color: #eff3fa;
 `;
 
 const Header = styled.div`
@@ -142,14 +141,14 @@ const Body1Text = styled.div`
   justify-content: space-between;
 `;
 
-const Body1Text_Right = styled.span`
+const Body1TextRight = styled.span`
   font-size: 23px;
   font-weight: 600;
   color: #064a87;
   margin-right: 20px;
 `;
 
-const Body1Text_Left = styled.span`
+const Body1TextLeft = styled.span`
   margin-left: 20px;
 `;
 
@@ -158,7 +157,7 @@ const Body2Text = styled.div`
   font-weight: 500;
 `;
 
-const Body2Text_Right = styled.span`
+const Body2TextRight = styled.span`
   color: #f2b544ff;
 `;
 
