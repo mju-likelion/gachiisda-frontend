@@ -2,29 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import BackIcon from '../images/BackIcon';
 import { ReactComponent as HomeIcon } from '../images/HomeIcon.svg';
-// import HomeIcon from '../images/HomeIcon';
 
 function Header() {
   return (
-    <div>
-      <HeaderAll>
-        <HeaderBackIcon>
-          <HeaderBackIconImg>
-            <BackIcon />
-          </HeaderBackIconImg>
-          <HeaderBackIconMent>이전화면</HeaderBackIconMent>
-        </HeaderBackIcon>
-        <HeaderHomeIcon>
-          <HeaderHomeIconMent>처음화면</HeaderHomeIconMent>
-          {/* <HeaderHomeIconImg>
-            <img alt='HomeIcon' src={HomeIcon} />
-          </HeaderHomeIconImg> */}
-          <HeaderHomeIconImg>
-            <HomeIcon />
-          </HeaderHomeIconImg>
-        </HeaderHomeIcon>
-      </HeaderAll>
-    </div>
+    <HeaderAll>
+      <HeaderBackIcon>
+        <HeaderBackIconImg>
+          <BackIcon />
+        </HeaderBackIconImg>
+        <HeaderBackIconMent>이전화면</HeaderBackIconMent>
+      </HeaderBackIcon>
+
+      <HeaderHomeIcon>
+        <HeaderHomeIconMent>처음화면</HeaderHomeIconMent>
+        <HeaderHomeIconImg>
+          <HomeIcon />
+        </HeaderHomeIconImg>
+      </HeaderHomeIcon>
+    </HeaderAll>
   );
 }
 
@@ -72,7 +67,7 @@ const HeaderHomeIconImg = styled.div`
 `;
 
 const HeaderAll = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 64px;
