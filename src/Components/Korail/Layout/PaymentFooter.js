@@ -27,8 +27,7 @@ const Cost = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: #ffffff;
-  position: absolute;
-  right: 10px;
+  padding-left: 260px;
 `;
 const CostDIV = styled.div`
   background-color: #000000;
