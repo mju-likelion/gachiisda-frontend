@@ -85,7 +85,16 @@ const MainAroundWay = styled.div`
   height: 40px;
   padding-top: 5px;
 `;
-
+const MainOneWay = styled.div`
+  background-color: white;
+  color: #064a87;
+  font-size: 25px;
+  float: left;
+  width: 50%;
+  height: 40px;
+  padding-top: 5px;
+  border-bottom: 2px solid #064a87;
+`;
 const MainGoMentDIV = styled.div`
   display: flex;
   width: 50%;
@@ -161,6 +170,7 @@ const MainInfoMent = styled.div`
   color: #3f9cf1;
   font-size: 15px;
   font-weight: bold;
+  padding-bottom: 5px;
 `;
 const MainInfoArrow = styled.div`
   color: #3f9cf1;
@@ -226,9 +236,9 @@ const MainSelectKTX = styled.button`
 `;
 
 const MainAll = styled.div`
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
   text-align: center;
+  margin-top: 64px;
 `;
 
-const MainOneWay = styled.div``;
 export default Main;
