@@ -13,6 +13,7 @@ function DictionaryExplan() {
           </SearchBtn>
         </InputDIV>
       </InputWrap>
+
       <ExplanDIV>
         <Fix>쉬운 우리말</Fix>
         <Foreign>오픈 스페이스</Foreign>
@@ -21,7 +22,8 @@ function DictionaryExplan() {
           <Korean>열린 쉼터</Korean>
         </KoreanWrap>
       </ExplanDIV>
-      <ExpalanWrapWrap>
+
+      <ExplanExampleDIV>
         <ExplanWrap>
           <ExampleFix>바꾸어 쓴 예문</ExampleFix>
           <ExampleDIV>
@@ -34,7 +36,7 @@ function DictionaryExplan() {
             </ExampleKorean>
           </ExampleDIV>
         </ExplanWrap>
-      </ExpalanWrapWrap>
+      </ExplanExampleDIV>
     </All>
   );
 }
@@ -45,12 +47,11 @@ const All = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  /* align-items: center; */
-  /* text-align: center; */
   background-color: #eff3fa;
   margin-top: 64px;
   padding-bottom: 250px;
 `;
+
 const InputDIV = styled.div`
   background-color: #b3d5f2;
   color: #7a7a7a;
@@ -62,6 +63,7 @@ const InputDIV = styled.div`
   padding: 5px;
   width: 80%;
 `;
+
 const Input = styled.input`
   border: none;
   background: transparent;
@@ -84,6 +86,7 @@ const ExplanDIV = styled.div`
   padding-bottom: 50px;
   padding-left: 30px;
 `;
+
 const Fix = styled.div`
   background-color: #f2b544;
   font-size: 16px;
@@ -97,6 +100,7 @@ const Fix = styled.div`
 const Foreign = styled.div`
   font-size: 25px;
 `;
+
 const Korean = styled.div`
   font-size: 50px;
   font-weight: bold;
@@ -107,20 +111,17 @@ const ExampleDIV = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-left: 10px;
-  padding-top: 30px;
+  padding: 30px 0 0 10px;
   font-size: 20px;
 `;
+
 const ExplanWrap = styled.div`
   background-color: #e1e9f6;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px 20px 40px 20px;
   width: 80%;
 `;
 
-const ExpalanWrapWrap = styled.div`
+const ExplanExampleDIV = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,14 +136,17 @@ const ExampleFix = styled.div`
   align-items: center;
   font-size: 20px;
 `;
+
 const ExampleForeign = styled.div`
   color: #686868;
   font-weight: bold;
 `;
+
 const Arrow = styled.div`
   color: #b3d5f2;
   font-weight: bold;
 `;
+
 const ExampleKorean = styled.div`
   color: #686868;
   font-weight: bold;
