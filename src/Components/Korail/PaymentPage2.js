@@ -144,6 +144,7 @@ const Card = styled.div`
   justify-content: center;
   height: 45px;
   border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 const Easy = styled.div`
   text-align: center;
@@ -300,6 +301,7 @@ const PasswordFix = styled.div``;
 const Wrap = styled.div`
   display: flex;
   background-color: #ededed;
+  border: 5px solid #3f9cf1;
 `;
 
 const InputWrap = styled.div`
