@@ -1,12 +1,13 @@
 import React from 'react';
-import PaymentPage1 from './Components/Korail/PaymentPage1';
-import PaymentFooter from './Components/Korail/Layout/PaymentFooter';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
 
 function App() {
   return (
     <div>
-      <PaymentPage1 />
-      <PaymentFooter />
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }
