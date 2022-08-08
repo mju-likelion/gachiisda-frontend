@@ -1,10 +1,13 @@
 import React from 'react';
-import TicketConfirm from './Components/Korail/TicketConfirm';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/layout/Header';
 
 function App() {
   return (
     <div>
-      <TicketConfirm />
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
 import { ReactComponent as MinAgo } from './images/MinAgo.svg';
-import { ReactComponent as Qr } from './images/Qr.svg';
+import { ReactComponent as QR } from './images/QR.svg';
 
 import { ReactComponent as Train } from './images/Train.svg';
 import { ReactComponent as Ticket } from './images/Ticket.svg';
@@ -60,7 +60,7 @@ function TicketConfirm() {
             <SeatNum>13</SeatNum>
           </SeatContentsWrap>
           <SeatContentsWrap>
-            <Qr />
+            <QR />
           </SeatContentsWrap>
         </SeatContentsDIV>
       </SeatDIV>
