@@ -1,10 +1,13 @@
 import React from 'react';
-import DictionaryExplan from './Components/Korail/DictionaryExplan';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
 
 function App() {
   return (
     <div>
-      <DictionaryExplan />
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }
