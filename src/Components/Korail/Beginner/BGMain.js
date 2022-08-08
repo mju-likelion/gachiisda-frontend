@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Switch } from './images/MainSwitchBtn.svg';
-import { ReactComponent as Train } from './images/MainTrain.svg';
-import { ReactComponent as Ticket } from './images/MainTicket.svg';
-import { ReactComponent as Arrow } from './images/BlueArrow.svg';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import { ReactComponent as Switch } from '../images/MainSwitchBtn.svg';
+import { ReactComponent as Train } from '../images/MainTrain.svg';
+import { ReactComponent as Ticket } from '../images/MainTicket.svg';
+import { ReactComponent as Arrow } from '../images/BlueArrow.svg';
+import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 function Main() {
   return (
     <div>
