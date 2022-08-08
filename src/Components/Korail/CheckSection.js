@@ -14,10 +14,10 @@ function CheckSection() {
         <Line></Line>
         <Body1>
           <Body1Text>2022년 8월 2일 (화) 1매</Body1Text>
-          <Body1TextBottom>무궁화호 1211 열차</Body1TextBottom>
-          <Body1TextBottom>서울(11:23) -{'>'} 부산(17:21)</Body1TextBottom>
-          <Body1TextBottom>일반실</Body1TextBottom>
-          <Body1TextBottom>1호차 13,14</Body1TextBottom>
+          <Body1TextInfo>무궁화호 1211 열차</Body1TextInfo>
+          <Body1TextInfo>서울(11:23) -{'>'} 부산(17:21)</Body1TextInfo>
+          <Body1TextInfo>일반실</Body1TextInfo>
+          <Body1TextInfo>1호차 13,14</Body1TextInfo>
         </Body1>
         <Body2>
           <Body2TextBottom>
@@ -93,7 +93,7 @@ const Body1Text = styled.div`
   font-size: 16px;
   font-weight: bold;
 `;
-const Body1TextBottom = styled.div`
+const Body1TextInfo = styled.div`
   font-size: 16px;
   font-weight: bold;
   margin-left: 10px;
