@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Arrow } from './images/Arrow.svg';
-import { ReactComponent as MinAgo } from './images/MinAgo.svg';
-import { ReactComponent as Qr } from './images/Qr.svg';
+import { ReactComponent as Arrow } from '../images/Arrow.svg';
+import { ReactComponent as MinAgo } from '../images/MinAgo.svg';
+import { ReactComponent as Qr } from '../images/Qr.svg';
 
-import { ReactComponent as Train } from './images/Train.svg';
-import { ReactComponent as Ticket } from './images/Ticket.svg';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import { ReactComponent as Train } from '../images/Train.svg';
+import { ReactComponent as Ticket } from '../images/Ticket.svg';
+import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 
 function TicketConfirm() {
   return (
