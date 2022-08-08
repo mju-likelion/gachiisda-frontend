@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ReturnImg } from './images/ReturnImg.svg';
+import PaymentFooter from './Layout/PaymentFooter';
 
 function PaymentPage2() {
   return (
@@ -119,6 +120,7 @@ function PaymentPage2() {
           </InputWrap>
         </Wrap>
       </CardInfoDIV>
+      <PaymentFooter />
     </All>
   );
 }

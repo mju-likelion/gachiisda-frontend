@@ -17,18 +17,21 @@ function PaymentFooter() {
     </div>
   );
 }
+
 const Number = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: #b3d5f2;
   padding-left: 10px;
 `;
+
 const Cost = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: #ffffff;
   padding-left: 260px;
 `;
+
 const CostDIV = styled.div`
   background-color: #000000;
   opacity: 70%;
@@ -37,6 +40,7 @@ const CostDIV = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const Cancel = styled.div`
   font-size: 20px;
   font-weight: bold;
@@ -46,6 +50,7 @@ const Cancel = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const Next = styled.div`
   font-size: 20px;
   font-weight: bold;
@@ -55,11 +60,13 @@ const Next = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const BtnDIV = styled.div`
   background-color: #c6dfee;
   display: flex;
   height: 42px;
 `;
+
 const FooterDIV = styled.div`
   position: absolute;
   width: 100%;

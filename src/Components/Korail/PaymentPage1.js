@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
 import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
+import PaymentFooter from './Layout/PaymentFooter';
 
 function paymentPage1() {
   return (
@@ -58,6 +59,7 @@ function paymentPage1() {
       <AnotherDiscountDIV>
         <AnotherDiscount width='100%' />
       </AnotherDiscountDIV>
+      <PaymentFooter />
     </All>
   );
 }

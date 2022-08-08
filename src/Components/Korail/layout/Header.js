@@ -29,6 +29,7 @@ const HeaderBackIcon = styled.button`
   cursor: pointer;
   font-size: 15px;
 `;
+
 const HeaderBackIconMent = styled.div`
   float: left;
   margin-top: 30px;
@@ -45,6 +46,7 @@ const HeaderHomeIcon = styled.button`
   cursor: pointer;
   font-size: 15px;
 `;
+
 const HeaderHomeIconMent = styled.div`
   float: left;
   margin-top: 30px;
