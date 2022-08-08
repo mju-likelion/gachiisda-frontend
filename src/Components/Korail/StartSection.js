@@ -22,48 +22,48 @@ function StartSection() {
 				</CalendarBox>
 				<MiddleBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date >
 							날짜 <Week>월요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date>
 							날짜
 							<Week>화요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date >
 							날짜
 							<Week>수요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date >
 							날짜
 							<Week>목요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date >
 							날짜
 							<Week>금요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date>
 							날짜
 							<Week>토요일</Week>
 						</Date >
 					</DayBox>
 					<DayBox>
-						<DayDay>요일</DayDay>
+						<DifferDay>요일</DifferDay>
 						<Date >
 							날짜
 							<Week>일요일</Week>
@@ -155,9 +155,6 @@ height: 50px;
 display: flex;
 font-size: 13px;
 flex-direction: column;
-/* align-items: center; */
-justify-content: center;
-/* background-color: gray; */
 font-weight: bold;`;
 
 const Week = styled.span`
@@ -245,7 +242,7 @@ const Blanck = styled.div`
 background-color: #B3D5F2;
 height: 64px;`;
 
-const DayDay = styled.div`
+const DifferDay = styled.div`
 font-size: 8px;
 font-weight: bold;
 color:#000000;`;
