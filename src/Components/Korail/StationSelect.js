@@ -12,9 +12,29 @@ function StationSelect() {
   const selectSeatList = ['일반석', '우등석', '특석'];
   const selectList = ['직통', '..'];
   const [Selected, setSelected] = useState('');
+  const [modal, setModal] = useState(false);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
+  };
+
+  const modalPage = () => {
+    return (
+      <div>
+        <SelectModal>
+          <TimeWrap>
+            <TimeMent>일반식 5시간 58분 소요</TimeMent>
+            <CloseBtn onClick={() => setModal(false)}>x</CloseBtn>
+          </TimeWrap>
+          <DetailBtnWrap>
+            <BtnMent>열차시각</BtnMent>
+            <BtnMent>운임요금</BtnMent>
+            <BtnMent>좌석선택</BtnMent>
+          </DetailBtnWrap>
+        </SelectModal>
+        <TicketingBtn>예매</TicketingBtn>
+      </div>
+    );
   };
 
   return (
@@ -64,7 +84,11 @@ function StationSelect() {
           <Title>일반실</Title>
           <Title>특/우등</Title>
         </TableHeader>
-        <TableContent>
+        <TableContent
+          onClick={() => {
+            setModal(!modal);
+          }}
+        >
           <TrainWrap>
             <TrainName>해당 열차</TrainName>
             <TrainNum>열차 번호</TrainNum>
@@ -85,6 +109,7 @@ function StationSelect() {
           </EtcWrap>
         </TableContent>
       </ListWrap>
+      {modal === true ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
           <Train />
@@ -196,7 +221,7 @@ const Title = styled.div`
   height: 22px;
 `;
 
-const TableContent = styled.div`
+const TableContent = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,6 +231,7 @@ const TrainWrap = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 25%;
 `;
 
 const TrainName = styled.div`
@@ -220,12 +246,14 @@ const StartTimeWrap = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 25%;
 `;
 
 const ArrivalTimeWrap = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 25%;
 `;
 
 const Time = styled.div`
@@ -240,23 +268,25 @@ const NormalWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 25%;
 `;
 
 const EtcWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 25%;
 `;
 
 const Price = styled.div`
-  font-size: 15px;
+  font-size: 13px;
   color: #064a87;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 2px;
   margin: 8px;
-  width: 67px;
+  width: 60px;
   height: 42px;
   border: 1px solid #064a87;
 `;
@@ -300,6 +330,60 @@ const NoneBtnWrap = styled.div`
   background-color: #f9f9f9;
   height: 54px;
   width: 25%;
+`;
+
+const SelectModal = styled.div`
+  background: rgba(0, 0, 0, 0.7);
+`;
+
+const TimeMent = styled.div`
+  padding: 10px;
+  align-items: flex-start;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+`;
+
+const CloseBtn = styled.button`
+  border-style: none;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  background: transparent;
+  margin-left: 50%;
+`;
+
+const TimeWrap = styled.div`
+  display: flex;
+`;
+
+const DetailBtnWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const BtnMent = styled.button`
+  width: 33%;
+  width: 100%;
+  height: 42px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: #ffffff;
+`;
+
+const TicketingBtn = styled.button`
+  background: #c6dfee;
+  width: 100%;
+  height: 40px;
+  font-weight: 700;
+  font-size: 25px;
+  color: #064a87;
+  border: none;
 `;
 
 export default StationSelect;
