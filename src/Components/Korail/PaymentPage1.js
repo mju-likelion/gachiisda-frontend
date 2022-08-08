@@ -237,6 +237,7 @@ const DiscountWrap = styled.div``;
 const PriceDiscountDIV = styled.div`
   padding-left: 10px;
   border-bottom: 1px solid #686868;
+  border: 5px solid #3f9cf1;
 `;
 
 const AnotherDiscountDIV = styled.div``;

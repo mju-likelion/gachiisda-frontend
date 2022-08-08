@@ -54,6 +54,7 @@ const Next = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 5px solid #3f9cf1;
 `;
 const BtnDIV = styled.div`
   background-color: #c6dfee;
