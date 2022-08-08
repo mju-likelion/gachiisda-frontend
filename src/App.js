@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentPage1 from './Components/Korail/PaymentPage1';
+import PaymentPage1 from './Components/Korail/Beginner/BGPaymentPage1';
 import PaymentFooter from './Components/Korail/Layout/PaymentFooter';
 
 function App() {

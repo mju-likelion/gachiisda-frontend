@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Arrow } from './images/Arrow.svg';
-import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
+import { ReactComponent as Arrow } from '../images/Arrow.svg';
+import { ReactComponent as AnotherDiscount } from '../images/AnotherDiscount.svg';
 
 function paymentPage1() {
   return (
