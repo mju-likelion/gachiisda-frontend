@@ -43,10 +43,10 @@ function BeginStationClick() {
             <SearchEnter />
           </SearchIcon>{' '}
         </SearchBar>
-        <StationListBox>
+        <div className='StationListBox'>
           <StationTitle>주요 역</StationTitle>
           <StationDetail>역 이름</StationDetail>
-        </StationListBox>
+        </div>
       </MainStationBox>
     </StationClickWrapper>
   );
@@ -108,6 +108,7 @@ const StationNameWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const StationStart = styled.div`
   display: flex;
   align-items: center;
@@ -134,7 +135,7 @@ const DirectionText = styled.p`
   display: flex;
   justify-content: center;
   color: #686868;
-  margin: 16px 0px 10px 0px;
+  margin: 16px 0 10px;
 `;
 
 const ChangeBox = styled.button`
@@ -170,7 +171,7 @@ const KtxMap = styled.div`
   align-items: center;
   justify-content: center;
   color: #686868;
-  margin: 14px 34px 11px 34px;
+  margin: 14px 34px 11px;
 `;
 
 const MainStationBox = styled.div`
@@ -191,7 +192,7 @@ const SearchBar = styled.div`
 
 const SearchInput = styled.input`
   background: transparent;
-  border: none;
+  border-style: none;
   width: 70%;
   color: #7a7a7a;
   font-weight: 400;
@@ -204,8 +205,6 @@ const SearchIcon = styled.button`
   border: none;
   background: transparent;
 `;
-
-const StationListBox = styled.div``;
 
 const StationTitle = styled.div`
   background: #ededed;
