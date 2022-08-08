@@ -98,9 +98,9 @@ const MainOneWay = styled.div`
 const MainGoMentDIV = styled.div`
   display: flex;
   width: 50%;
-  height: 40%;
-
+  height: 50%;
   flex-direction: column;
+  border: 5px solid #3f9cf1;
 `;
 const ArrowDIV = styled.div`
   display: flex;
