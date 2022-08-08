@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ReturnImg } from './images/ReturnImg.svg';
+import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
 
 function PaymentPage2() {
   return (
