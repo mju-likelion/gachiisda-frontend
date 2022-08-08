@@ -6,7 +6,6 @@ import seat2 from '../Home/images/Seat2.svg';
 import seat1 from '../Home/images/Seat1.svg';
 
 function ChooseSectionFirst() {
-  console.log('render');
   const [lis, setlis] = useState([
     false,
     false,
@@ -38,7 +37,7 @@ function ChooseSectionFirst() {
   const Appendlis = (num) => {
     let ls = lis;
     ls[num] = !ls[num];
-    console.log(ls);
+
     setlis(ls);
   };
 
@@ -109,9 +108,7 @@ function ChooseSectionFirst() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              // backgroundColor: "gray",
               alignItems: 'center',
-              // justifycontent: "space-around",
             }}
           >
             <TrainNumber>해당열차 열차번호 (일반실)</TrainNumber>
@@ -129,7 +126,7 @@ function ChooseSectionFirst() {
           <span>선택가능</span>
         </SectionBardiv>
         <SectionBardiv>
-          <U>U</U>
+          <FowardDirection>U</FowardDirection>
           <span
             style={{
               marginRight: 10,
@@ -137,7 +134,7 @@ function ChooseSectionFirst() {
           >
             순방향
           </span>
-          <UReserve>U</UReserve>
+          <ReverseDirection>U</ReverseDirection>
 
           <span>역방향</span>
         </SectionBardiv>
@@ -205,14 +202,8 @@ const Body = styled.div`
   margin-right: 12px;
 `;
 
-/*const Body_1 = styled.div`
-  height: 30px;
-  background-color: gray;
-`;*/
-
 const Body2 = styled.div`
   height: 39px;
-  // background-color: red;
   display: flex;
   justify-content: space-between;
 `;
@@ -251,8 +242,7 @@ const SectionBar = styled.div`
 
 const SectionBardiv = styled.div`
   display: flex;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin: 12px 12px;
 `;
 
 const Circle = styled.div`
@@ -262,17 +252,17 @@ const Circle = styled.div`
   border-radius: 100px;
 `;
 
-const U = styled.span`
+const FowardDirection = styled.span`
   color: black;
   font-weight: bold;
   font-size: 15px;
 `;
 
-const UReserve = styled.span`
+const ReverseDirection = styled.span`
   color: black;
   font-weight: bold;
   font-size: 15px;
-  -webkit-transform: rotate(180deg); // 사파리, 크롬, 오페라 브라우저 사용
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 `;
 
@@ -287,8 +277,6 @@ const Circlewhite = styled.div`
 
 const MainBody = styled.div`
   height: 380px;
-  // background-color: skyblue;
-
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
@@ -296,8 +284,6 @@ const MainBody = styled.div`
 
 const ImgBody = styled.div`
   height: 284px;
-  // background-color: skyblue;
-
   display: flex;
   flex-direction: column;
   // justify-content: space-evenly;
@@ -309,10 +295,6 @@ const ImgBody2 = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-
-  // justify-content: space-evenly;
-  // margin-left: 12px;
-  // margin-right: 12px;
 `;
 
 const IImg = styled.img`
@@ -323,10 +305,6 @@ const IImg = styled.img`
 const ListDiv = styled.div`
   height: 150px;
   background-color: gray;
-
-  // display: flex;
-  // align-items: flex-start;
-  // justify-content: space-evenly;
 `;
 
 const SelectDiv = styled.div`
