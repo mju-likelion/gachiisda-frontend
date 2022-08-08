@@ -26,36 +26,36 @@ function ResultSection() {
       {<Ktx img alt='Ktximage' width='95' height='95' src={Ktximage}></Ktx>}
       <PractiseText>(해당 연습 항목)</PractiseText>
       <PractiseText>(해당 난이도)</PractiseText>
-      <Body>
+      <Result>
         <Body1>
           <Body1Text>
-            <Body1TextLeft>총 걸린 시간</Body1TextLeft>
+            <Total>총 걸린 시간</Total>
 
-            <Body1TextRight>: 158초</Body1TextRight>
+            <Number>: 158초</Number>
           </Body1Text>
           <Body1Text>
-            <Body1TextLeft>총 누른 수</Body1TextLeft>
-            <Body1TextRight>: 35번</Body1TextRight>
+            <Total>총 누른 수</Total>
+            <Number>: 35번</Number>
           </Body1Text>
           <Body1Text>
-            <Body1TextLeft>잘못 누른 수</Body1TextLeft>
-            <Body1TextRight>: 23번</Body1TextRight>
+            <Total>잘못 누른 수</Total>
+            <Number>: 23번</Number>
           </Body1Text>
           <Body1Text>
-            <Body1TextLeft>바르게 누른 수</Body1TextLeft>
-            <Body1TextRight>: 12번</Body1TextRight>
+            <Total>바르게 누른 수</Total>
+            <Number>: 12번</Number>
           </Body1Text>
         </Body1>
         <Body2>
           <Body2Text>
             <span>내 주문 실력:</span>
-            <Body2TextRight>열혈 학구파</Body2TextRight>
+            <Nametag>열혈 학구파!</Nametag>
           </Body2Text>
         </Body2>
         <Body3>
           <span>아직은 실수가 많지만 앞으로는 더 잘 하실 거에요~</span>
         </Body3>
-      </Body>
+      </Result>
       <ReChallenge>다시 도전하기</ReChallenge>
       <ReChallenge>처음 화면으로 돌아가기</ReChallenge>
     </All>
@@ -88,7 +88,7 @@ const PractiseText = styled.div`
   font-weight: 500;
 `;
 
-const Body = styled.div`
+const Result = styled.div`
   background-color: #e1e3f6;
   height: 335px;
   margin-left: 20px;
@@ -98,7 +98,6 @@ const Body = styled.div`
 const Body1 = styled.div`
   height: 167px;
   width: 278px;
-  // background-color: #b3d5f2;
   margin-top: 10px;
 
   margin-left: 14%;
@@ -110,7 +109,6 @@ const Body1 = styled.div`
 const Body2 = styled.div`
   height: 53px;
   width: 278px;
-  // background-color: #b3d5f2;
   margin-left: 14%;
   margin-top: 20px;
   display: flex;
@@ -123,7 +121,7 @@ const Body2 = styled.div`
 const Body3 = styled.div`
   height: 63px;
   width: 278px;
-  // background-color: #b3d5f2;
+
   margin-left: 14%;
   margin-top: 20px;
   display: flex;
@@ -141,14 +139,14 @@ const Body1Text = styled.div`
   justify-content: space-between;
 `;
 
-const Body1TextRight = styled.span`
+const Number = styled.span`
   font-size: 23px;
   font-weight: 600;
   color: #064a87;
   margin-right: 20px;
 `;
 
-const Body1TextLeft = styled.span`
+const Total = styled.span`
   margin-left: 20px;
 `;
 
@@ -157,18 +155,15 @@ const Body2Text = styled.div`
   font-weight: 500;
 `;
 
-const Body2TextRight = styled.span`
+const Nametag = styled.span`
   color: #f2b544ff;
 `;
 
 const ReChallenge = styled.div`
   background-color: #b3d5f2;
   height: 57px;
-  margin-bottom: 10px;
-  margin-top: 22px;
+  margin: 22px 20px 10px 20px;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
