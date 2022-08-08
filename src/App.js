@@ -1,10 +1,13 @@
 import React from 'react';
-import SelectLevel from './Components/Korail/SelectLevel';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
 
 function App() {
   return (
     <div>
-      <SelectLevel />
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }
