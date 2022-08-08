@@ -18,12 +18,12 @@ function StationSelect() {
   };
 
   return (
-    <All>
+    <div>
       <PageHeader>
         <StationName>서울</StationName>
-        <ArrowWrap>
+        <div>
           <Arrow />
-        </ArrowWrap>
+        </div>
         <StationName>부산</StationName>
       </PageHeader>
       <SelectWrap>
@@ -101,11 +101,9 @@ function StationSelect() {
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>
-    </All>
+    </div>
   );
 }
-
-const All = styled.div``;
 
 const PageHeader = styled.div`
   background-color: #dcf3f6;
@@ -120,8 +118,6 @@ const StationName = styled.div`
   font-size: 20px;
   color: #064a87;
 `;
-
-const ArrowWrap = styled.div``;
 
 const SelectWrap = styled.div`
   background-color: #f4f4f4;
@@ -303,7 +299,6 @@ const TicketMent = styled.div`
 const NoneBtnWrap = styled.div`
   background-color: #f9f9f9;
   height: 54px;
-  float: left;
   width: 25%;
 `;
 
