@@ -59,9 +59,9 @@ function TicketConfirm() {
           <SeatContentsWrap>
             <SeatNum>13</SeatNum>
           </SeatContentsWrap>
-          <SeatContentsWrap>
+          <QrWrap>
             <Qr />
-          </SeatContentsWrap>
+          </QrWrap>
         </SeatContentsDIV>
       </SeatDIV>
       <ConfirmFooter>
@@ -76,7 +76,7 @@ function TicketConfirm() {
           <NoneTicket2 />
         </MainNoneActbtn>
         <MainTicketbtn>
-          <Ticket />
+          <Ticket height='27px' />
           <div>승차권확인</div>
         </MainTicketbtn>
       </ConfirmFooter>
@@ -294,6 +294,7 @@ const MainTicketbtn = styled.button`
   float: left;
   width: 25%;
   height: 54px;
+  border: 5px solid #3f9cf1;
 `;
 
 const ConfirmFooter = styled.div`
@@ -302,6 +303,10 @@ const ConfirmFooter = styled.div`
   bottom: 140px;
   background-color: #f9f9f9;
   width: 100%;
+`;
+
+const QrWrap = styled.div`
+  border: 5px solid #3f9cf1;
 `;
 
 export default TicketConfirm;
