@@ -15,57 +15,36 @@ function PeopleSection() {
         <Total>어른 1명</Total>
         <Age> △ </Age>
       </SeatBox>
+      <AtLeast>최소 1명 - 최대 9명</AtLeast>
+
       <MiddleBox>
-        <AtLeast>최소 1명 - 최대 9명</AtLeast>
-
         <ByAge>
-          <Type>어른(만 13세 이상)</Type>
-
-          <Minus>－ </Minus>
-          <Add>0</Add>
-          <Plus>＋</Plus>
-        </ByAge>
-
-        <ByAge>
-          <Type>어린이(만 6세 ~12세)</Type>
-          <Add>
-            <Minus>－ </Minus>
-            <Add>0</Add>
-            <Plus>＋</Plus>
-          </Add>
-        </ByAge>
-        <ByAge>
+          <Type>어른(만 13세 이상)</Type> <Type>어린이(만 6세 ~12세)</Type>
           <Type>유아(만 6세 미만)</Type>
-          <Add>
-            <Minus>－ </Minus>
-            <Add>0</Add>
-            <Plus>＋</Plus>
-          </Add>
-        </ByAge>
-        <ByAge>
           <Type>경로(만 65세 이상)</Type>
-          <Add>
-            <Minus>－ </Minus>
-            <Add>0</Add>
-            <Plus>＋</Plus>
-          </Add>
-        </ByAge>
-        <ByAge>
           <Type>중증 장애인</Type>
-          <Add>
-            <Minus>－ </Minus>
-            <Add>0</Add>
-            <Plus>＋</Plus>
-          </Add>
-        </ByAge>
-        <ByAge>
           <Type>경증 장애인</Type>
-          <Add>
-            <Minus>－ </Minus>
-            <Add>0</Add>
-            <Plus>＋</Plus>
-          </Add>
         </ByAge>
+        <ByCount>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+          <Add>
+            <Minus>－</Minus>0<Plus>＋</Plus>
+          </Add>
+        </ByCount>
       </MiddleBox>
 
       <OptionBox>
@@ -82,6 +61,7 @@ function PeopleSection() {
 
 const StartSectionWrapper = styled.div`
   text-align: center;
+  margin-top: 64px;
 `;
 
 const Age = styled.div`
@@ -92,36 +72,37 @@ const Age = styled.div`
 
 const FirstBox = styled.div`
   background-color: white;
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
-  width: 375px;
+  width: 100%;
   height: 45px;
 `;
 
 const AtLeast = styled.div`
   color: #686868;
+  background-color: #ededed;
   font-weight: 500;
   font-size: 12px;
   height: 17px;
+  padding-top: 5px;
 `;
 
 const Minus = styled.button`
   display: flex;
-  margin-left: 100px;
-  margin-right: 10px;
-  float: right;
+  border: none;
+  margin-right: 8px;
+  font-size: 20px;
 `;
 
 const Plus = styled.button`
   background-color: white;
   border: 1px solid black;
   border-radius: 20px;
-  height: 25px;
-  width: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8px;
+  margin: 0 10px 0 10px;
+  font-size: 20px;
 `;
 
 const SeatBox = styled.div`
@@ -133,7 +114,7 @@ const SeatBox = styled.div`
 `;
 
 const OneWay = styled.div`
-  width: 157px;
+  width: 50%;
   height: 45px;
   font-weight: bold;
   font-size: 25px;
@@ -145,7 +126,7 @@ const OneWay = styled.div`
 `;
 
 const BothWay = styled.div`
-  width: 157px;
+  width: 50%;
   height: 45px;
   font-weight: 500;
   font-weight: bold;
@@ -155,27 +136,31 @@ const BothWay = styled.div`
   align-items: center;
 `;
 const Total = styled.div`
-  font-weight: 600;
+  //font-weight: 600;
 `;
 
 const ByAge = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 10px;
-  font-size: 18px;
+  margin-left: 20px;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+  justify-content: space-evenly;
+  font-weight: 600;
+`;
+
+const ByCount = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const Blanck = styled.div``;
 
 const MiddleBox = styled.div`
   height: 330px;
-
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /* align-items: flex-start; */
-  font-weight: bold;
   background-color: #ededed;
 `;
 
@@ -209,6 +194,10 @@ const Type = styled.div`
   color: #000000;
 `;
 
-const Add = styled.div``;
+const Add = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+`;
 
 export default PeopleSection;
