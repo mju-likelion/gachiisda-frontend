@@ -1,15 +1,13 @@
 import React from 'react';
-// import Home from './Components/Home/Home';
-// import Header from './Components/Korail/Layout/Header';
-import BGPaymentPage1 from './Components/Korail/Beginner/BGPaymentPage1';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
 
 function App() {
   return (
     <div>
-      {/* <Header />
+      <Header />
       <Home />
-      <p>가치잇다</p> */}
-      <BGPaymentPage1 />
+      <p>가치잇다</p>
     </div>
   );
 }
