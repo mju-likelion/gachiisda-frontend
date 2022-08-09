@@ -7,16 +7,16 @@ function paymentPage1() {
   return (
     <All>
       <PaymentHeader>결제</PaymentHeader>
-      <DayDIV>
+      <DayDiv>
         <Day>2022년 n월 n일 (요일)</Day>
         <TrainWrap>
           <TrainType>열차 종류</TrainType>
           <TrainNum>열차 번호</TrainNum>
         </TrainWrap>
-      </DayDIV>
+      </DayDiv>
 
-      <StationDIVWrap>
-        <StationDIV>
+      <StationDivWrap>
+        <StationDiv>
           <GoWrap>
             <GoStation>서울</GoStation>
             <GoTime>출발 : 시간</GoTime>
@@ -28,36 +28,37 @@ function paymentPage1() {
             <ArrivedStation>부산</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
-        </StationDIV>
-      </StationDIVWrap>
+        </StationDiv>
+      </StationDivWrap>
 
-      <TicketInfoDIV>
+      <TicketInfoDiv>
         <TicketInfoWrap>
-          <TicketInfo>내 승차권 정보</TicketInfo>
-          <TicketInfo>(호차/좌석번호)</TicketInfo>
+          <div>내 승차권 정보</div>
+          <div>(호차/좌석번호)</div>
         </TicketInfoWrap>
         <DetailWrap>
           <Detail>상세</Detail>
         </DetailWrap>
-      </TicketInfoDIV>
+      </TicketInfoDiv>
 
-      <PriceDiscountDIV>
-        <PriceDIV>
+      <PriceDiscountDiv>
+        <PriceDiv>
           <PriceTitle>승차권</PriceTitle>
-          <PriceWrap>
+          <div>
             <Price>XX,XXX원</Price>
-          </PriceWrap>
-        </PriceDIV>
-        <DiscountDIV>
+          </div>
+        </PriceDiv>
+        <DiscountDiv>
           <DiscountTitle>할인 적용 전</DiscountTitle>
-          <DiscountWrap>
+          <div>
             <Discount>XX,XXX원 (총 XX,XXX원 할인)</Discount>
-          </DiscountWrap>
-        </DiscountDIV>
-      </PriceDiscountDIV>
-      <AnotherDiscountDIV>
+          </div>
+        </DiscountDiv>
+      </PriceDiscountDiv>
+
+      <div>
         <AnotherDiscount width='100%' />
-      </AnotherDiscountDIV>
+      </div>
     </All>
   );
 }
@@ -69,7 +70,8 @@ const All = styled.div`
   background-color: #f4f4f4;
   width: 100%;
   flex-direction: column;
-  margin-top: 64px;
+  padding-top: 64px;
+  padding-bottom: 252px;
 `;
 
 const PaymentHeader = styled.div`
@@ -99,7 +101,7 @@ const TrainNum = styled.div`
   color: #b76cda;
 `;
 
-const DayDIV = styled.div`
+const DayDiv = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
@@ -112,7 +114,7 @@ const TrainWrap = styled.div`
   justify-content: center;
 `;
 
-const StationDIV = styled.div`
+const StationDiv = styled.div`
   width: 95%;
   height: 105px;
   display: flex;
@@ -168,18 +170,17 @@ const ArrowWrap = styled.div`
   justify-content: center;
 `;
 
-const StationDIVWrap = styled.div`
+const StationDivWrap = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const TicketInfoDIV = styled.div`
+const TicketInfoDiv = styled.div`
   height: 66px;
   border-top: 1px solid #686868;
   border-bottom: 1px solid #686868;
 `;
 
-const TicketInfo = styled.div``;
 const Detail = styled.div`
   font-size: 16px;
   color: #686868;
@@ -199,13 +200,13 @@ const TicketInfoWrap = styled.div`
   margin-top: 13px;
 `;
 
-const PriceDIV = styled.div`
+const PriceDiv = styled.div`
   width: 220px;
   height: 26px;
   margin-top: 10px;
 `;
 
-const DiscountDIV = styled.div`
+const DiscountDiv = styled.div`
   width: 375px;
   height: 23px;
   margin-bottom: 10px;
@@ -232,15 +233,11 @@ const Discount = styled.div`
   float: right;
 `;
 
-const PriceWrap = styled.div``;
-const DiscountWrap = styled.div``;
-const PriceDiscountDIV = styled.div`
+const PriceDiscountDiv = styled.div`
   padding-left: 10px;
   border-bottom: 1px solid #686868;
   border: 5px solid #3f9cf1;
 `;
-
-const AnotherDiscountDIV = styled.div``;
 
 const DetailWrap = styled.div`
   float: right;

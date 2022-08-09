@@ -62,7 +62,7 @@ const BtnDIV = styled.div`
   height: 42px;
 `;
 const FooterDIV = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 140px;
 `;
