@@ -3,18 +3,16 @@ import styled from 'styled-components';
 
 function PaymentFooter() {
   return (
-    <div>
-      <FooterDIV>
-        <CostDIV>
-          <Number>총 1개</Number>
-          <Cost>XX,XXX원</Cost>
-        </CostDIV>
-        <BtnDIV>
-          <Cancel>예약취소</Cancel>
-          <Next>다음</Next>
-        </BtnDIV>
-      </FooterDIV>
-    </div>
+    <FooterDiv>
+      <CostDiv>
+        <Number>총 1개</Number>
+        <Cost>XX,XXX원</Cost>
+      </CostDiv>
+      <BtnDiv>
+        <Cancel>예약취소</Cancel>
+        <Next>다음</Next>
+      </BtnDiv>
+    </FooterDiv>
   );
 }
 
@@ -32,7 +30,7 @@ const Cost = styled.div`
   padding-left: 260px;
 `;
 
-const CostDIV = styled.div`
+const CostDiv = styled.div`
   background-color: #000000;
   opacity: 70%;
   width: 100%;
@@ -59,16 +57,17 @@ const Next = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 5px solid #3f9cf1;
 `;
 
-const BtnDIV = styled.div`
+const BtnDiv = styled.div`
   background-color: #c6dfee;
   display: flex;
   height: 42px;
 `;
 
-const FooterDIV = styled.div`
-  position: absolute;
+const FooterDiv = styled.div`
+  position: fixed;
   width: 100%;
   bottom: 140px;
 `;
