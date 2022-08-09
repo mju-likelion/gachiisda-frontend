@@ -129,6 +129,7 @@ const All = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 64px;
+  padding-bottom: 252px;
 `;
 
 const PaySelectDiv = styled.div`
