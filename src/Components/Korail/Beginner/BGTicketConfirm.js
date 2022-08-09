@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as MinAgo } from '../images/MinAgo.svg';
-import { ReactComponent as Qr } from '../images/Qr.svg';
+import { ReactComponent as QRIcon } from '../images/QRIcon.svg';
 
 import { ReactComponent as Train } from '../images/Train.svg';
 import { ReactComponent as Ticket } from '../images/Ticket.svg';
@@ -12,14 +12,14 @@ import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg
 function TicketConfirm() {
   return (
     <All>
-      <ConfirmHeaderWrap>
+      <div>
         <ConfirmHeader>승차권(1)</ConfirmHeader>
         <ConfirmHeader2>정기권패스</ConfirmHeader2>
-      </ConfirmHeaderWrap>
+      </div>
 
       <Day>2022년 n월 nn일 (요일)</Day>
-      <StationDIVWrap>
-        <StationDIV>
+      <StationDivWrap>
+        <StationDiv>
           <GoWrap>
             <GoStation>서울</GoStation>
             <GoTime>출발 : 시간</GoTime>
@@ -31,22 +31,22 @@ function TicketConfirm() {
             <ArrivedStation>부산</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
-        </StationDIV>
-      </StationDIVWrap>
+        </StationDiv>
+      </StationDivWrap>
 
-      <TrainNameDIV>
+      <TrainNameDiv>
         <TrainName>무궁화호 1211</TrainName>
-      </TrainNameDIV>
+      </TrainNameDiv>
 
-      <SeatDIV>
-        <SeatTitleDIV>
+      <SeatDiv>
+        <SeatTitleDiv>
           <SeatTitle>타는 곳 번호</SeatTitle>
           <SeatTitle>호차 번호</SeatTitle>
           <SeatTitle>좌석 번호</SeatTitle>
           <SeatTitle>운임 영수증</SeatTitle>
-        </SeatTitleDIV>
+        </SeatTitleDiv>
 
-        <SeatContentsDIV>
+        <SeatContentsDiv>
           <SeatContentsWrap>
             <MinAgo />
           </SeatContentsWrap>
@@ -60,10 +60,10 @@ function TicketConfirm() {
             <SeatNum>13</SeatNum>
           </SeatContentsWrap>
           <QrWrap>
-            <Qr />
+            <QRIcon />
           </QrWrap>
-        </SeatContentsDIV>
-      </SeatDIV>
+        </SeatContentsDiv>
+      </SeatDiv>
       <ConfirmFooter>
         <MainTrainbtn>
           <Train />
@@ -94,8 +94,6 @@ const All = styled.div`
   height: 100%;
   background-color: #ededed;
 `;
-
-const ConfirmHeaderWrap = styled.div``;
 
 const ConfirmHeader = styled.div`
   background-color: white;
@@ -135,7 +133,7 @@ const Day = styled.div`
   margin-left: 10px;
 `;
 
-const StationDIV = styled.div`
+const StationDiv = styled.div`
   background-color: #ffffff;
   width: 95%;
   height: 105px;
@@ -192,12 +190,12 @@ const ArrowWrap = styled.div`
   justify-content: center;
 `;
 
-const StationDIVWrap = styled.div`
+const StationDivWrap = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const TrainNameDIV = styled.div`
+const TrainNameDiv = styled.div`
   background-color: #e1e9f6;
   height: 52px;
   display: flex;
@@ -213,12 +211,12 @@ const TrainName = styled.div`
   font-size: 16px;
 `;
 
-const SeatDIV = styled.div`
+const SeatDiv = styled.div`
   width: 95%;
   margin-left: 10px;
 `;
 
-const SeatTitleDIV = styled.div`
+const SeatTitleDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,7 +234,7 @@ const SeatTitle = styled.div`
   justify-content: center;
 `;
 
-const SeatContentsDIV = styled.div`
+const SeatContentsDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
