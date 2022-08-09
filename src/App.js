@@ -3,6 +3,7 @@ import React from 'react';
 // import Header from './Components/Korail/Layout/Header';
 //import PeopleSection from './Components/Korail/BeginnerPeopleSection';
 import Korail from './Components/Korail/BeginnerCheckSection';
+
 function App() {
   return (
     <div>
