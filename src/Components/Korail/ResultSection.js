@@ -66,8 +66,8 @@ styled.button``;
 
 const All = styled.div`
   text-align: center;
-  height: '100%';
-  width: '100%';
+  height: 850px;
+  width: 390px;
   background-color: #eff3fa;
 `;
 
