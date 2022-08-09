@@ -16,48 +16,48 @@ function Main() {
       </div>
 
       <div>
-        <MainGoStationDIVStyle>
-          <MainGoStationDIV>
-            <MainGoMentDIV>
+        <MainGoStationDivStyle>
+          <MainGoStationDiv>
+            <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
               <MainGoStation>서울</MainGoStation>
-            </MainGoMentDIV>
+            </MainGoMentDiv>
 
-            <ArrowDIV>
+            <ArrowDiv>
               <MainSwitchBtn>
                 <Switch />
               </MainSwitchBtn>
               <GoArrow>
                 <Arrow />
               </GoArrow>
-            </ArrowDIV>
+            </ArrowDiv>
 
-            <MainArrivedMentDIV>
+            <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation>부산</MainArrivedStation>
-            </MainArrivedMentDIV>
-          </MainGoStationDIV>
+            </MainArrivedMentDiv>
+          </MainGoStationDiv>
           <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
-        </MainGoStationDIVStyle>
+        </MainGoStationDivStyle>
       </div>
 
-      <MainGoDIV>
+      <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div>2022년 n월 nn일 (요일) 시 : 분</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
+      </MainGoDiv>
 
-      <MainGoDIV>
+      <MainGoDiv>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>어른 1명</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
+      </MainGoDiv>
 
-      <MainGoDIV>
+      <MainGoDiv>
         <MainInfoMent>상세 옵션</MainInfoMent>
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
+      </MainGoDiv>
 
       <MainTrainInquire>열차 조회하기</MainTrainInquire>
       <MainTrainbtn>
@@ -102,7 +102,7 @@ const MainOneWay = styled.div`
   border-bottom: 2px solid #064a87;
 `;
 
-const MainGoMentDIV = styled.div`
+const MainGoMentDiv = styled.div`
   display: flex;
   width: 50%;
   height: 50%;
@@ -110,14 +110,14 @@ const MainGoMentDIV = styled.div`
   border: 5px solid #3f9cf1;
 `;
 
-const ArrowDIV = styled.div`
+const ArrowDiv = styled.div`
   display: flex;
   width: 15%;
   height: 40%;
   flex-direction: column;
 `;
 
-const MainArrivedMentDIV = styled.div`
+const MainArrivedMentDiv = styled.div`
   display: flex;
   width: 50%;
   height: 40%;
@@ -217,7 +217,7 @@ const MainTicketbtn = styled.button`
   height: 54px;
 `;
 
-const MainGoStationDIV = styled.div`
+const MainGoStationDiv = styled.div`
   width: 100%;
   height: 130px;
   display: flex;
@@ -225,13 +225,13 @@ const MainGoStationDIV = styled.div`
   align-items: center;
 `;
 
-const MainGoStationDIVStyle = styled.div`
+const MainGoStationDivStyle = styled.div`
   color: #000000;
   border-bottom: 1px solid #686868;
   padding-bottom: 10px;
 `;
 
-const MainGoDIV = styled.div`
+const MainGoDiv = styled.div`
   width: 100%;
   height: 98px;
   color: #000000;
