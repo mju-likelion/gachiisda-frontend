@@ -13,7 +13,7 @@ function CheckSection() {
         </BodyText>
         <Line></Line>
         <Body1>
-          <Body1Text>2022년 8월 2일 (화) 1매</Body1Text>
+          <Date>2022년 8월 2일 (화) 1매</Date>
           <Infomation>무궁화호 1211 열차</Infomation>
           <Infomation>서울(11:23) -{'>'} 부산(17:21)</Infomation>
           <Infomation>일반실</Infomation>
@@ -28,10 +28,10 @@ function CheckSection() {
         </Body2>
         <BodyBox>
           <Box1>
-            <Box1Text>좌석취소</Box1Text>
+            <Cancel>좌석취소</Cancel>
           </Box1>
           <Box2>
-            <Box1Text>결제하기</Box1Text>
+            <Cancel>결제하기</Cancel>
           </Box2>
         </BodyBox>
       </Body>
@@ -85,7 +85,7 @@ const Body2 = styled.div`
   font-weight: bold;
 `;
 
-const Body1Text = styled.div`
+const Date = styled.div`
   margin-left: 10px;
   color: #064a87;
   font-size: 16px;
@@ -145,7 +145,7 @@ const Box2 = styled.div`
   align-items: center;
 `;
 
-const Box1Text = styled.span`
+const Cancel = styled.span`
   font-size: 20px;
   color: #064a87;
   font-weight: bold;
