@@ -7,45 +7,45 @@ function PaymentPage2() {
   return (
     <All>
       <PaymentHeader>결제</PaymentHeader>
-      <PaySelectDIV>
+      <PaySelectDiv>
         <Card>카드결제</Card>
         <Easy>간편결제</Easy>
-      </PaySelectDIV>
+      </PaySelectDiv>
 
-      <PriceDiscountDIV>
-        <PriceDIV>
+      <PriceDiscountDiv>
+        <PriceDiv>
           <PriceTitle>승차권</PriceTitle>
-          <PriceWrap>
+          <div>
             <Price>XX,XXX원</Price>
-          </PriceWrap>
-        </PriceDIV>
-        <DiscountDIV>
+          </div>
+        </PriceDiv>
+        <DiscountDiv>
           <DiscountTitle>할인 적용 전</DiscountTitle>
-          <DiscountWrap>
+          <div>
             <Discount>XX,XXX원 (총 XX,XXX원 할인)</Discount>
-          </DiscountWrap>
-        </DiscountDIV>
-      </PriceDiscountDIV>
+          </div>
+        </DiscountDiv>
+      </PriceDiscountDiv>
 
-      <PointDIV>
+      <PointDiv>
         <PointTitle>포인트 사용 </PointTitle>
         <PointContent>미사용</PointContent>
         <PointArrow>▽</PointArrow>
-      </PointDIV>
-      <CardInfoDIV>
-        <CheckCardDIV>
-          <CheckCard>신용(체크) 카드 결제</CheckCard>
+      </PointDiv>
+      <div>
+        <CheckCardDiv>
+          <div>신용(체크) 카드 결제</div>
           <PointArrow>▽</PointArrow>
-        </CheckCardDIV>
+        </CheckCardDiv>
 
-        <ReturnDIV>
+        <ReturnDiv>
           <ReturnInput>다시 입력</ReturnInput>
           <ReturnImgWrap>
             <ReturnImg />
           </ReturnImgWrap>
-        </ReturnDIV>
+        </ReturnDiv>
         <Wrap>
-          <UsuallyDIV>
+          <UsuallyDiv>
             <Usually>자주쓰는 카드</Usually>
             <CardNumTitle>카드번호</CardNumTitle>
             <DdayTitle>유효기간</DdayTitle>
@@ -55,7 +55,7 @@ function PaymentPage2() {
             <AgreeCheck>
               <input type='checkbox'></input>
             </AgreeCheck>
-          </UsuallyDIV>
+          </UsuallyDiv>
 
           <InputWrap>
             <UsuInput>
@@ -64,7 +64,7 @@ function PaymentPage2() {
               </select>
             </UsuInput>
 
-            <CardNumDIV>
+            <CardNumDiv>
               <CardNum>
                 <input type='text' size='4' placeholder='5365'></input>
               </CardNum>
@@ -77,9 +77,9 @@ function PaymentPage2() {
               <CardNum>
                 <input type='text' size='4' placeholder='5365'></input>
               </CardNum>
-            </CardNumDIV>
+            </CardNumDiv>
 
-            <DdayDIV>
+            <DdayDiv>
               <DdayInput>
                 <input type='text' size='2'></input>
               </DdayInput>
@@ -88,23 +88,23 @@ function PaymentPage2() {
                 <input type='text' size='4'></input>
               </DdayInput>
               <DdayFix>년</DdayFix>
-            </DdayDIV>
+            </DdayDiv>
 
-            <PasswordDIV>
+            <PasswordDiv>
               <PasswordInput>
                 <input type='text' size='2'></input>
               </PasswordInput>
-              <PasswordFix>**</PasswordFix>
-            </PasswordDIV>
+              <div>**</div>
+            </PasswordDiv>
 
-            <PasswordDIV>
+            <PasswordDiv>
               <PasswordInput>
                 <input type='radio' value='개인'></input>개인
                 <input type='radio' value='법인'></input>법인
               </PasswordInput>
-            </PasswordDIV>
+            </PasswordDiv>
 
-            <PasswordDIV>
+            <PasswordDiv>
               <PasswordInput>
                 <select>
                   <option value='일시불'>일시불</option>
@@ -112,14 +112,14 @@ function PaymentPage2() {
                   <option value='3개월'>3개월</option>
                 </select>
               </PasswordInput>
-            </PasswordDIV>
+            </PasswordDiv>
 
-            <AgreeDIV>
+            <div>
               <Agree>개인정보 수집 및 이용 동의</Agree>
-            </AgreeDIV>
+            </div>
           </InputWrap>
         </Wrap>
-      </CardInfoDIV>
+      </div>
       <PaymentFooter />
     </All>
   );
@@ -130,12 +130,15 @@ const All = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 64px;
+  padding-bottom: 252px;
 `;
-const PaySelectDIV = styled.div`
+
+const PaySelectDiv = styled.div`
   text-align: center;
   display: flex;
   background-color: #ffffff;
 `;
+
 const Card = styled.div`
   text-align: center;
   font-size: 20px;
@@ -147,6 +150,7 @@ const Card = styled.div`
   height: 45px;
   border-bottom: 2px solid #70139c;
 `;
+
 const Easy = styled.div`
   text-align: center;
   font-size: 20px;
@@ -167,12 +171,14 @@ const PaymentHeader = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const PriceDIV = styled.div`
+
+const PriceDiv = styled.div`
   width: 220px;
   height: 26px;
   margin-top: 10px;
 `;
-const DiscountDIV = styled.div`
+
+const DiscountDiv = styled.div`
   width: 375px;
   height: 23px;
   margin-bottom: 10px;
@@ -183,111 +189,124 @@ const PriceTitle = styled.div`
   float: left;
   padding-left: 10px;
 `;
+
 const Price = styled.div`
   color: #70139c;
   font-weight: bold;
   font-size: 18px;
   float: right;
 `;
+
 const DiscountTitle = styled.div`
   font-size: 16px;
   float: left;
   padding-left: 10px;
 `;
+
 const Discount = styled.div`
   float: right;
 `;
 
-const PointDIV = styled.div`
+const PointDiv = styled.div`
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #686868;
 `;
+
 const PointTitle = styled.div`
   color: #70139c;
   font-size: 15px;
-  padding-top: 10px;
-  padding-bottom: 7px;
+  padding: 10px 0 7px 0;
 `;
+
 const PointArrow = styled.div`
   font-size: 15px;
   color: #70139c;
   padding-bottom: 10px;
 `;
+
 const PointContent = styled.div`
   font-size: 18px;
   padding-bottom: 7px;
 `;
-const PriceDiscountDIV = styled.div`
+
+const PriceDiscountDiv = styled.div`
   border-bottom: 1px solid #000000;
 `;
-const PriceWrap = styled.div``;
-const DiscountWrap = styled.div``;
-const CardInfoDIV = styled.div``;
-const ReturnDIV = styled.div`
+
+const ReturnDiv = styled.div`
   border-bottom: 1.5px dotted gray;
   height: 50px;
   width: 100%;
   background-color: #ededed;
 `;
+
 const ReturnImgWrap = styled.div`
   float: right;
-  padding-top: 15px;
-  padding-right: 15px;
+  padding: 15px 15px 0 0;
 `;
+
 const ReturnInput = styled.div`
   font-size: 20px;
   float: right;
-  padding-top: 15px;
-  padding-right: 20px;
+  padding: 15px 20px 0 0;
 `;
 
-const UsuallyDIV = styled.div`
+const UsuallyDiv = styled.div`
   width: 30%;
   height: 350px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px 0 0 10px;
 `;
+
 const Usually = styled.div`
   display: flex;
   padding-bottom: 10px;
 `;
+
 const UsuInput = styled.div`
   display: flex;
   padding-bottom: 10px;
 `;
-const CardNumDIV = styled.div`
+
+const CardNumDiv = styled.div`
   display: flex;
 `;
+
 const CardNumTitle = styled.div`
   display: flex;
   padding-bottom: 10px;
 `;
+
 const CardNum = styled.div`
-  padding-bottom: 10px;
-  padding-right: 2px;
+  padding: 0 2px 10px 0;
 `;
-const DdayDIV = styled.div`
+
+const DdayDiv = styled.div`
   display: flex;
 `;
+
 const DdayTitle = styled.div`
   display: flex;
   padding-bottom: 10px;
 `;
+
 const DdayInput = styled.div`
-  padding-bottom: 10px;
-  padding-right: 3px;
+  padding: 0 3px 10px 0;
 `;
+
 const DdayFix = styled.div`
   padding-right: 5px;
 `;
-const PasswordDIV = styled.div`
+
+const PasswordDiv = styled.div`
   display: flex;
 `;
+
 const PasswordTitle = styled.div`
   display: flex;
   padding-bottom: 10px;
 `;
+
 const AgreeCheck = styled.div`
   display: flex;
   padding-top: 10px;
@@ -295,10 +314,9 @@ const AgreeCheck = styled.div`
 `;
 
 const PasswordInput = styled.div`
-  padding-bottom: 10px;
-  padding-right: 5px;
+  padding: 0 5px 10px 0;
 `;
-const PasswordFix = styled.div``;
+
 const Wrap = styled.div`
   display: flex;
   background-color: #ededed;
@@ -309,19 +327,17 @@ const InputWrap = styled.div`
   height: 350px;
   padding-top: 10px;
 `;
-const CheckCardDIV = styled.div`
+
+const CheckCardDiv = styled.div`
   padding-top: 10px;
   border-bottom: 1px solid #000000;
 `;
 
-const CheckCard = styled.div``;
-const AgreeDIV = styled.div``;
 const Agree = styled.div`
   color: darkgrey;
   text-decoration: underline;
   font-size: 13px;
-  padding-top: 5px;
-  padding-right: 30px;
+  padding: 5px 30px 0 0;
 `;
 
 export default PaymentPage2;
