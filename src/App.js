@@ -1,7 +1,7 @@
 import React from 'react';
 // import Home from './Components/Home/Home';
 // import Header from './Components/Korail/Layout/Header';
-import PeopleSection from './Components/Korail/BeginnerPeopleSection';
+import BGMain from './Components/Korail/Beginner/BGMain';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       {/* <Header />
       <Home />
       <p>가치잇다</p> */}
-      <PeopleSection />
+      <BGMain />
     </div>
   );
 }

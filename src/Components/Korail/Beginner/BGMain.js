@@ -1,80 +1,85 @@
 import React from 'react';
 import styled from 'styled-components';
-import Switch from './images/MainSwitchBtn';
-import { ReactComponent as Train } from './images/MainTrain.svg';
-import { ReactComponent as Ticket } from './images/MainTicket.svg';
-import Arrow from './images/BlueArrow';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
-function Main() {
+import Switch from '../images/MainSwitchBtn';
+import { ReactComponent as Train } from '../images/MainTrain.svg';
+import { ReactComponent as Ticket } from '../images/MainTicket.svg';
+import Arrow from '../images/BlueArrow';
+import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
+
+function BGMain() {
   return (
     <MainAll>
-      <MainWaySelect>
+      <div>
         <MainOneWay>편도</MainOneWay>
         <MainAroundWay>왕복</MainAroundWay>
-      </MainWaySelect>
+      </div>
 
       <div>
-        <MainGoStationDIVStyle>
-          <MainGoStationDIV>
-            <MainGoMentDIV>
+        <MainGoStationDivStyle>
+          <MainGoStationDiv>
+            <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
               <MainGoStation>서울</MainGoStation>
-            </MainGoMentDIV>
+            </MainGoMentDiv>
 
-            <ArrowDIV>
+            <ArrowDiv>
               <MainSwitchBtn>
                 <Switch />
               </MainSwitchBtn>
               <GoArrow>
                 <Arrow />
               </GoArrow>
-            </ArrowDIV>
-            <MainArrivedMentDIV>
+            </ArrowDiv>
+
+            <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation>부산</MainArrivedStation>
-            </MainArrivedMentDIV>
-          </MainGoStationDIV>
+            </MainArrivedMentDiv>
+          </MainGoStationDiv>
           <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
-        </MainGoStationDIVStyle>
+        </MainGoStationDivStyle>
       </div>
 
-      <MainGoDIV>
+      <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div>2022년 n월 nn일 (요일) 시 : 분</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
-      <MainGoDIV>
+      </MainGoDiv>
+
+      <MainGoDiv>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>어른 1명</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
-      <MainGoDIV>
+      </MainGoDiv>
+
+      <MainGoDiv>
         <MainInfoMent>상세 옵션</MainInfoMent>
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDIV>
+      </MainGoDiv>
 
       <MainTrainInquire>열차 조회하기</MainTrainInquire>
       <MainTrainbtn>
-        <Train height='25px' />
+        <Train />
         <div>승차권예매</div>
       </MainTrainbtn>
+
       <MainNoneActbtn>
         <NoneTicket />
       </MainNoneActbtn>
+
       <MainNoneActbtn>
         <NoneTicket2 />
       </MainNoneActbtn>
+
       <MainTicketbtn>
-        <Ticket height='30px' />
+        <Ticket />
         <div>승차권확인</div>
       </MainTicketbtn>
     </MainAll>
   );
 }
-
-const MainWaySelect = styled.div``;
 
 const MainAroundWay = styled.div`
   background-color: white;
@@ -97,23 +102,22 @@ const MainOneWay = styled.div`
   border-bottom: 2px solid #064a87;
 `;
 
-const MainGoMentDIV = styled.div`
+const MainGoMentDiv = styled.div`
   display: flex;
   width: 50%;
-  height: 40%;
-
+  height: 50%;
   flex-direction: column;
+  border: 5px solid #3f9cf1;
 `;
 
-const ArrowDIV = styled.div`
+const ArrowDiv = styled.div`
   display: flex;
   width: 15%;
   height: 40%;
-
   flex-direction: column;
 `;
 
-const MainArrivedMentDIV = styled.div`
+const MainArrivedMentDiv = styled.div`
   display: flex;
   width: 50%;
   height: 40%;
@@ -188,7 +192,6 @@ const MainTrainInquire = styled.div`
   color: #064a87;
   font-size: 25px;
   font-weight: bold;
-  margin-top: 20px;
 `;
 
 const MainTrainbtn = styled.button`
@@ -214,7 +217,7 @@ const MainTicketbtn = styled.button`
   height: 54px;
 `;
 
-const MainGoStationDIV = styled.div`
+const MainGoStationDiv = styled.div`
   width: 100%;
   height: 130px;
   display: flex;
@@ -222,13 +225,13 @@ const MainGoStationDIV = styled.div`
   align-items: center;
 `;
 
-const MainGoStationDIVStyle = styled.div`
+const MainGoStationDivStyle = styled.div`
   color: #000000;
   border-bottom: 1px solid #686868;
   padding-bottom: 10px;
 `;
 
-const MainGoDIV = styled.div`
+const MainGoDiv = styled.div`
   width: 100%;
   height: 98px;
   color: #000000;
@@ -255,4 +258,4 @@ const MainAll = styled.div`
   margin-top: 64px;
 `;
 
-export default Main;
+export default BGMain;
