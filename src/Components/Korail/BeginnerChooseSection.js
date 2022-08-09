@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import arrow1 from '../Home/images/Arrow1.svg';
+import arrow from '../Home/images/Arrow.svg';
 import seat2 from '../Home/images/Seat2.svg';
 import seat1 from '../Home/images/Seat1.svg';
 
@@ -159,7 +159,7 @@ function ChooseSectionFirst() {
             {returnimg1(3)}
           </ImgBody2>
         </ImgBody>
-        <IImg img alt='Arrow1' src={arrow1} width={63} height={347}></IImg>
+        <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
         <ImgBody>
           <ImgBody2>
             {returnimg2()}
