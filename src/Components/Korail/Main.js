@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Layout/Header';
 import styled from 'styled-components';
 import Switch from './images/MainSwitchBtn';
 import { ReactComponent as Train } from './images/MainTrain.svg';
@@ -70,6 +71,7 @@ function Main() {
         <Ticket height='30px' />
         <div>승차권확인</div>
       </MainTicketbtn>
+      <Header />
     </MainAll>
   );
 }

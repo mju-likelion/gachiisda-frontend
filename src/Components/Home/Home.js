@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Kiosk from './images/KioskIcon.svg';
 import Dict from './images/DictionaryIcon.svg';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -15,13 +16,27 @@ function Home() {
           <HomeIconImg>
             <img alt='Kiosk' src={Kiosk} />
           </HomeIconImg>
-          <HomeIconBtn>키오스크 연습</HomeIconBtn>
+          <HomeIconBtn>
+            <Link
+              style={{ textDecoration: 'none', color: 'yellow' }}
+              to='/SelectLevel'
+            >
+              키오스크 연습
+            </Link>
+          </HomeIconBtn>
         </HomeIcon>
         <HomeIcon>
           <HomeIconImg>
             <img alt='DictionaryIcon' src={Dict} />
           </HomeIconImg>
-          <HomeIconBtn>외래어 사전</HomeIconBtn>
+          <HomeIconBtn>
+            <Link
+              style={{ textDecoration: 'none', color: 'yellow' }}
+              to='/DictionaryExplan'
+            >
+              외래어 사전
+            </Link>
+          </HomeIconBtn>
         </HomeIcon>
       </HomeAll>
     </div>
@@ -40,7 +55,7 @@ const HomeIconImg = styled.div`
   padding-top: 20px;
 `;
 
-const HomeIconBtn = styled.button`
+const HomeIconBtn = styled.div`
   width: 216px;
   height: 70px;
   background-color: #b3d5f2;
@@ -50,8 +65,11 @@ const HomeIconBtn = styled.button`
   font-size: 2em;
   font-weight: bold;
   align-items: center;
+  justify-content: center;
+  display: flex;
   border: 0;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 const HomeIcon = styled.div`

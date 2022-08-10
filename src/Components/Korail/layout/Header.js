@@ -28,6 +28,7 @@ const HeaderBackIcon = styled.button`
   background-color: #b3d5f2;
   cursor: pointer;
   font-size: 15px;
+  float: left;
 `;
 
 const HeaderBackIconMent = styled.div`
@@ -69,7 +70,7 @@ const HeaderHomeIconImg = styled.div`
 `;
 
 const HeaderAll = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 64px;
