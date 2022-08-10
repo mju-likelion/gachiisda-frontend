@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import Arrow from './images/Arrow';
-import { ReactComponent as Train } from './images/Train.svg';
-import { ReactComponent as Ticket } from './images/Ticket.svg';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import StationArrow from './images/StationArrow';
+import { ReactComponent as FooterTrainBtn } from './images/FooterTrainBtn.svg';
+import { ReactComponent as FooterTicketBtn } from './images/FooterTicketBtn.svg';
+import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
+import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -42,7 +42,7 @@ function StationSelect() {
       <PageHeader>
         <StationName>서울</StationName>
         <div>
-          <Arrow />
+          <StationArrow />
         </div>
         <StationName>부산</StationName>
       </PageHeader>
@@ -112,7 +112,7 @@ function StationSelect() {
       {modal === true ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
-          <Train />
+          <FooterTrainBtn />
           <TrainMent>승차권예매</TrainMent>
         </TrainBtn>
         <NoneBtnWrap>
@@ -122,7 +122,7 @@ function StationSelect() {
           <NoneTicket2 />
         </NoneBtnWrap>
         <TicketBtn>
-          <Ticket />
+          <FooterTicketBtn />
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>

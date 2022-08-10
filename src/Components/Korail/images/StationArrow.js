@@ -1,4 +1,4 @@
-const Arrow = ({ width = '20', height = '11' }) => {
+const StationArrow = ({ width = '20', height = '11' }) => {
   return (
     <svg
       width={width}
@@ -15,4 +15,4 @@ const Arrow = ({ width = '20', height = '11' }) => {
   );
 };
 
-export default Arrow;
+export default StationArrow;
