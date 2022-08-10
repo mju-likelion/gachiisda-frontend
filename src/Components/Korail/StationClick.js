@@ -43,10 +43,10 @@ function StationClick() {
             <SearchEnter />
           </SearchIcon>{' '}
         </SearchBar>
-        <StationListBox>
+        <div>
           <StationTitle>주요 역</StationTitle>
           <StationDetail>역 이름</StationDetail>
-        </StationListBox>
+        </div>
       </MainStationBox>
     </StationClickWrapper>
   );
@@ -108,6 +108,7 @@ const StationNameWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const StationStart = styled.div`
   display: flex;
   align-items: center;
@@ -204,8 +205,6 @@ const SearchIcon = styled.button`
   border: none;
   background: transparent;
 `;
-
-const StationListBox = styled.div``;
 
 const StationTitle = styled.div`
   background: #ededed;
