@@ -115,19 +115,23 @@ const SeatContents = styled.div`
   align-items: center;
   border-bottom: 0.65px solid #686868;
 `;
+
 const TrainNum = styled.div`
   font-size: 30px;
   color: #064a87;
 `;
+
 const TrainNumFix = styled.div`
   font-size: 13px;
   color: #064a87;
   padding-bottom: 4px;
 `;
+
 const SeatNum = styled.div`
   font-size: 30px;
   color: #064a87;
 `;
+
 const TrainNumWrap = styled.div`
   display: flex;
   align-items: flex-end;
