@@ -1,16 +1,13 @@
 import React from 'react';
-// import Home from './Components/Home/Home';
-// import Header from './Components/Korail/Layout/Header';
-//import PeopleSection from './Components/Korail/BeginnerPeopleSection';
-import Korail from './Components/Korail/BeginnerResultSection';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
 
 function App() {
   return (
     <div>
-      {/* <Header />
+      <Header />
       <Home />
-      <p>가치잇다</p> */}
-      <Korail />
+      <p>가치잇다</p>
     </div>
   );
 }

@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Arrow } from './images/Arrow.svg';
-import { ReactComponent as MinAgo } from './images/MinAgo.svg';
-import { ReactComponent as QR } from './images/QR.svg';
+import { ReactComponent as Arrow } from '../images/Arrow.svg';
+import { ReactComponent as MinAgo } from '../images/MinAgo.svg';
+import { ReactComponent as QrIcon } from '../images/QrIcon.svg';
 
-import { ReactComponent as Train } from './images/Train.svg';
-import { ReactComponent as Ticket } from './images/Ticket.svg';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import { ReactComponent as Train } from '../images/Train.svg';
+import { ReactComponent as Ticket } from '../images/Ticket.svg';
+import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 
-function TicketConfirm() {
+function BGTicketConfirm() {
   return (
     <All>
-      <ConfirmHeaderWrap>
+      <div>
         <ConfirmHeader>승차권(1)</ConfirmHeader>
         <ConfirmHeader2>정기권패스</ConfirmHeader2>
-      </ConfirmHeaderWrap>
+      </div>
 
       <Day>2022년 n월 nn일 (요일)</Day>
       <StationDivWrap>
@@ -59,9 +59,9 @@ function TicketConfirm() {
           <SeatContentsWrap>
             <SeatNum>13</SeatNum>
           </SeatContentsWrap>
-          <SeatContentsWrap>
-            <QR />
-          </SeatContentsWrap>
+          <QrWrap>
+            <QrIcon />
+          </QrWrap>
         </SeatContentsDiv>
       </SeatDiv>
       <ConfirmFooter>
@@ -76,7 +76,7 @@ function TicketConfirm() {
           <NoneTicket2 />
         </MainNoneActbtn>
         <MainTicketbtn>
-          <Ticket />
+          <Ticket height='27px' />
           <div>승차권확인</div>
         </MainTicketbtn>
       </ConfirmFooter>
@@ -94,8 +94,6 @@ const All = styled.div`
   height: 100%;
   background-color: #ededed;
 `;
-
-const ConfirmHeaderWrap = styled.div``;
 
 const ConfirmHeader = styled.div`
   background-color: white;
@@ -294,6 +292,7 @@ const MainTicketbtn = styled.button`
   float: left;
   width: 25%;
   height: 54px;
+  border: 5px solid #3f9cf1;
 `;
 
 const ConfirmFooter = styled.div`
@@ -304,4 +303,8 @@ const ConfirmFooter = styled.div`
   width: 100%;
 `;
 
-export default TicketConfirm;
+const QrWrap = styled.div`
+  border: 5px solid #3f9cf1;
+`;
+
+export default BGTicketConfirm;
