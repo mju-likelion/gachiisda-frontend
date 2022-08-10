@@ -5,26 +5,24 @@ import Dict from './images/DictionaryIcon.svg';
 
 function Home() {
   return (
-    <div>
-      <HomeAll>
-        <HomeTitleDiv>
-          <HomeTitle>원하는 기능을</HomeTitle>
-          <HomeTitle>눌러주세요</HomeTitle>
-        </HomeTitleDiv>
-        <HomeIcon>
-          <HomeIconImg>
-            <img alt='Kiosk' src={Kiosk} />
-          </HomeIconImg>
-          <HomeIconBtn>키오스크 연습</HomeIconBtn>
-        </HomeIcon>
-        <HomeIcon>
-          <HomeIconImg>
-            <img alt='DictionaryIcon' src={Dict} />
-          </HomeIconImg>
-          <HomeIconBtn>외래어 사전</HomeIconBtn>
-        </HomeIcon>
-      </HomeAll>
-    </div>
+    <HomeAll>
+      <HomeTitleDiv>
+        <HomeTitle>원하는 기능을</HomeTitle>
+        <HomeTitle>눌러주세요</HomeTitle>
+      </HomeTitleDiv>
+      <HomeIcon>
+        <HomeIconImg>
+          <img alt='Kiosk' src={Kiosk} />
+        </HomeIconImg>
+        <HomeIconBtn>키오스크 연습</HomeIconBtn>
+      </HomeIcon>
+      <HomeIcon>
+        <HomeIconImg>
+          <img alt='DictionaryIcon' src={Dict} />
+        </HomeIconImg>
+        <HomeIconBtn>외래어 사전</HomeIconBtn>
+      </HomeIcon>
+    </HomeAll>
   );
 }
 const HomeTitleDiv = styled.div`

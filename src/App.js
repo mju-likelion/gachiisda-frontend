@@ -1,10 +1,13 @@
 import React from 'react';
-//import Home from './Components/Home/Home';
-import Korail from './Components/Korail/ResultSection';
+import Home from './Components/Home/Home';
+import Header from './Components/Korail/Layout/Header';
+
 function App() {
   return (
     <div>
-      <Korail />
+      <Header />
+      <Home />
+      <p>가치잇다</p>
     </div>
   );
 }
