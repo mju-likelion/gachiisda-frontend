@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Layout/Header';
 import styled from 'styled-components';
 import Switch from './images/MainSwitchBtn';
 import { ReactComponent as Train } from './images/MainTrain.svg';
@@ -6,6 +7,8 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+
+import { Link } from 'react-router-dom';
 function Main() {
   return (
     <MainAll>
@@ -19,7 +22,9 @@ function Main() {
           <MainGoStationDiv>
             <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
-              <MainGoStation>서울</MainGoStation>
+              <MainGoStation>
+                <Link to='/StationClick'>서울</Link>
+              </MainGoStation>
             </MainGoMentDiv>
 
             <ArrowDiv>
@@ -32,7 +37,9 @@ function Main() {
             </ArrowDiv>
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
-              <MainArrivedStation>부산</MainArrivedStation>
+              <MainArrivedStation>
+                <Link to='/StationClick'>부산</Link>
+              </MainArrivedStation>
             </MainArrivedMentDiv>
           </MainGoStationDiv>
           <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
@@ -41,12 +48,16 @@ function Main() {
 
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
-        <div>2022년 n월 nn일 (요일) 시 : 분</div>
+        <div>
+          <Link to='/StartSection'> 2022년 n월 nn일 (요일) 시 : 분</Link>
+        </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
       <MainGoDiv>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
-        <div>어른 1명</div>
+        <div>
+          <Link to='/PeopleSection'> 어른 1명</Link>
+        </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
       <MainGoDiv>
@@ -55,7 +66,9 @@ function Main() {
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
 
-      <MainTrainInquire>열차 조회하기</MainTrainInquire>
+      <MainTrainInquire>
+        <Link to='/StationSelect'> 열차 조회하기</Link>
+      </MainTrainInquire>
       <MainTrainbtn>
         <Train height='25px' />
         <div>승차권예매</div>
@@ -70,6 +83,7 @@ function Main() {
         <Ticket height='30px' />
         <div>승차권확인</div>
       </MainTicketbtn>
+      <Header />
     </MainAll>
   );
 }

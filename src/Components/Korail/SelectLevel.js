@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function DifficultySelection() {
   return (
@@ -9,12 +10,21 @@ function DifficultySelection() {
       </LevelMent>
 
       <LevelBeginner>
-        <LevelBeginnerBtn>초급</LevelBeginnerBtn>
+        <LevelBeginnerBtn>
+          <Link style={{ textDecoration: 'none', color: 'yellow' }} to='/List'>
+            초급
+          </Link>
+        </LevelBeginnerBtn>
+
         <LevelBeginnerMent>안내에 따라 사용법을 배웁니다</LevelBeginnerMent>
       </LevelBeginner>
 
       <LevelAdvancer>
-        <LevelAdvancerBtn>고급</LevelAdvancerBtn>
+        <LevelAdvancerBtn>
+          <Link style={{ textDecoration: 'none', color: 'yellow' }} to='/List'>
+            고급
+          </Link>
+        </LevelAdvancerBtn>
         <LevelAdvancerMent>
           도움 없이 혼자서 사용법을 익힙니다
         </LevelAdvancerMent>
@@ -38,7 +48,7 @@ const LevelBeginnerBtn = styled.button`
   background-color: #b3d5f2;
   border: none;
   color: #064a87;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   border-radius: 10px;
   margin-bottom: 20px;

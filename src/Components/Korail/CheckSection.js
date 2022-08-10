@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function CheckSection() {
   return (
@@ -31,7 +32,9 @@ function CheckSection() {
             <Cancel>좌석취소</Cancel>
           </Box1>
           <Box2>
-            <Cancel>결제하기</Cancel>
+            <Cancel>
+              <Link to='/PaymentPage1'>결제하기</Link>
+            </Cancel>
           </Box2>
         </BodyBox>
       </Body>

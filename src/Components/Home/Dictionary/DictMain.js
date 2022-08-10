@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import BookImg from './images/BookImg';
-import SearchEnter from './images/SearchEnter';
+import BookImg from '../../Korail/images/BookImg';
+import SearchEnter from '../../Korail/images/SearchEnter';
 
 function DictMain() {
   return (

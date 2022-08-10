@@ -6,6 +6,7 @@ import { ReactComponent as FooterTrainBtn } from './images/FooterTrainBtn.svg';
 import { ReactComponent as FooterTicketBtn } from './images/FooterTicketBtn.svg';
 import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
+import { Link } from 'react-router-dom';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -29,10 +30,14 @@ function StationSelect() {
           <DetailBtnWrap>
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
-            <BtnMent>좌석선택</BtnMent>
+            <BtnMent>
+              <Link to='/ChooseSectionFirst'> 좌석선택</Link>
+            </BtnMent>
           </DetailBtnWrap>
         </SelectModal>
-        <TicketingBtn>예매</TicketingBtn>
+        <TicketingBtn>
+          <Link to='/PaymentPage1'>예매</Link>
+        </TicketingBtn>
       </div>
     );
   };
