@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function CheckSection() {
+function BGCheckSection() {
   return (
     <All>
       <Header></Header>
@@ -39,7 +39,7 @@ function CheckSection() {
   );
 }
 
-export default CheckSection;
+export default BGCheckSection;
 
 const All = styled.div`
   height: '100%';

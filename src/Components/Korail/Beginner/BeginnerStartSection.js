@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function StartSection() {
+function BGStartSection() {
   return (
     <div>
-      <StartSectionWrapper>
+      <BGStartSectionWrapper>
         <Blanck />
         <FirstBox>
           <OneWay>편도</OneWay>
@@ -105,12 +105,12 @@ function StartSection() {
 
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
-      </StartSectionWrapper>
+      </BGStartSectionWrapper>
     </div>
   );
 }
 
-const StartSectionWrapper = styled.div`
+const BGStartSectionWrapper = styled.div`
   text-align: center;
 `;
 
@@ -269,4 +269,4 @@ const DayDay = styled.div`
   color: #000000;
 `;
 
-export default StartSection;
+export default BGStartSection;

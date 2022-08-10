@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function PeopleSection() {
+function BGPeopleSection() {
   return (
     <StartSectionWrapper>
       <Blanck></Blanck>
@@ -200,4 +200,4 @@ const Add = styled.div`
   font-size: 20px;
 `;
 
-export default PeopleSection;
+export default BGPeopleSection;

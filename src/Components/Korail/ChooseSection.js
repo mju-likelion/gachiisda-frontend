@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import arrow from '../Home/images/Arrow.svg';
 import seat2 from '../Home/images/Seat2.svg';
 import seat1 from '../Home/images/Seat1.svg';
@@ -91,7 +91,9 @@ function ChooseSectionFirst() {
             </span>
           </SelectDiv2>
           <SelectDiv>
-            <span>선택 완료</span>
+            <span>
+              <Link to='/StationSelect'>선택 완료</Link>
+            </span>
           </SelectDiv>
         </ListDiv>
       </>

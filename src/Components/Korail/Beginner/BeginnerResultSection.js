@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ktximage from './images/Ktximage.svg';
+import Ktximage from '../images/Ktximage.svg';
 
-function ResultSection() {
+function BGResultSection() {
   return (
     <All>
       <Header>
@@ -172,4 +172,4 @@ const ReChallenge = styled.div`
   color: #064a87ff;
   box-shadow: 0px 5px 5px #a0a0a0;
 `;
-export default ResultSection;
+export default BGResultSection;

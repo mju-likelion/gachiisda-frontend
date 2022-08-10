@@ -32,7 +32,7 @@ function Home() {
           <HomeIconBtn>
             <Link
               style={{ textDecoration: 'none', color: 'yellow' }}
-              to='/DictionaryExplan'
+              to='/DictMain'
             >
               외래어 사전
             </Link>

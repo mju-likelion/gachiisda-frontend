@@ -11,10 +11,7 @@ function DifficultySelection() {
 
       <LevelBeginner>
         <LevelBeginnerBtn>
-          <Link
-            style={{ textDecoration: 'none', color: 'yellow' }}
-            to='/BGMain'
-          >
+          <Link style={{ textDecoration: 'none', color: 'yellow' }} to='/List'>
             초급
           </Link>
         </LevelBeginnerBtn>
@@ -24,7 +21,7 @@ function DifficultySelection() {
 
       <LevelAdvancer>
         <LevelAdvancerBtn>
-          <Link style={{ textDecoration: 'none', color: 'yellow' }} to='/Main'>
+          <Link style={{ textDecoration: 'none', color: 'yellow' }} to='/List'>
             고급
           </Link>
         </LevelAdvancerBtn>
