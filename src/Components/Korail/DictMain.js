@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import BookImg from './images/BookImg';
 import SearchEnter from './images/SearchEnter';
 
-const Item = ({ text }) => text;
-
 function DictMain() {
   return (
     <All>
@@ -13,7 +11,7 @@ function DictMain() {
       </IconWrap>{' '}
       <DictMent> 쉬운 우리말 사전 </DictMent>{' '}
       <DetailMent>
-        외국어 용어의 <Item text={<br />} />
+        외국어 용어의 <br />
         쉬운 우리말 표현 사전{' '}
       </DetailMent>{' '}
       <SearchBar>
