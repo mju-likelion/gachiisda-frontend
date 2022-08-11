@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Arrow } from './images/Arrow.svg';
+import { ReactComponent as BlueArrow } from './images/BlueArrow.svg';
 import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
-import PaymentFooter from './Layout/PaymentFooter1';
+import PaymentFooter from './Layouts/PaymentFooter1';
 
 function paymentPage1() {
   return (
@@ -23,7 +23,7 @@ function paymentPage1() {
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
-            <Arrow />
+            <BlueArrow />
           </ArrowWrap>
           <ArrivedWrap>
             <ArrivedStation>부산</ArrivedStation>

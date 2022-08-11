@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
-import PaymentFooter from '../Layout/PaymentFooter1';
+import PaymentFooter from '../Layouts/PaymentFooter1';
 
 function BGPaymentPage2() {
   return (
