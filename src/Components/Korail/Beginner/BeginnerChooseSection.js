@@ -5,7 +5,7 @@ import arrow from '../Home/images/Arrow.svg';
 import seat2 from '../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 
-function ChooseSectionFirst() {
+function BGChooseSectionFirst() {
   const [lis, setlis] = useState([
     false,
     false,
@@ -187,7 +187,7 @@ function ChooseSectionFirst() {
   );
 }
 
-export default ChooseSectionFirst;
+export default BGChooseSectionFirst;
 
 const All = styled.div`
   height: '100%';
