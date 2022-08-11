@@ -5,7 +5,7 @@ import Ktximage from './images/Ktximage.svg';
 function ResultSection() {
   return (
     <All>
-      <Header>
+      <ResultHeader>
         <div
           style={{
             display: 'flex',
@@ -22,7 +22,7 @@ function ResultSection() {
             marginBottom: '5px',
           }}
         ></div>
-      </Header>
+      </ResultHeader>
       {<Ktx img alt='Ktximage' width='95' height='95' src={Ktximage}></Ktx>}
       <PractiseText>(해당 연습 항목)</PractiseText>
       <PractiseText>(해당 난이도)</PractiseText>
@@ -71,7 +71,7 @@ const All = styled.div`
   background-color: #eff3fa;
 `;
 
-const Header = styled.div`
+const ResultHeader = styled.div`
   background-color: #b3d5f2;
   height: 64px;
   display: flex;
