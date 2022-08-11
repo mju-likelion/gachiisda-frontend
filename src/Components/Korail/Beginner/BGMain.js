@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Layout/Header';
+import Header from '../Layouts/Header';
 import styled from 'styled-components';
 import Switch from '../images/MainSwitchBtn';
 import { ReactComponent as Train } from '../images/MainTrain.svg';
