@@ -11,10 +11,7 @@ function Footer() {
         <Item text={<br />} />
         고급단계일 경우 : 해당 영역에 미션 문구 표시
       </MissionFooter>
-      <MainFooter type='submit'>
-        {' '}
-        도움이 필요하면 이 칸을 눌러 주세요{' '}
-      </MainFooter>
+      <MainFooter type='submit'>도움이 필요하면 이 칸을 눌러 주세요</MainFooter>
     </All>
   );
 }
