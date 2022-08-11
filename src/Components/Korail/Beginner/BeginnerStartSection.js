@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function StartSection() {
+function BGStartSection() {
   return (
     <div>
-      <StartSectionWrapper>
+      <BGStartSectionWrapper>
         <Blanck />
         <FirstBox>
           <OneWay>편도</OneWay>
@@ -21,48 +21,48 @@ function StartSection() {
         </CalendarBox>
         <MiddleBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜 <Week>월요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>화요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>수요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>목요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>금요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>토요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
+            <DayDay>요일</DayDay>
             <Date>
               날짜
               <Week>일요일</Week>
@@ -105,12 +105,12 @@ function StartSection() {
 
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
-      </StartSectionWrapper>
+      </BGStartSectionWrapper>
     </div>
   );
 }
 
-const StartSectionWrapper = styled.div`
+const BGStartSectionWrapper = styled.div`
   text-align: center;
 `;
 
@@ -160,6 +160,9 @@ const Date = styled.div`
   display: flex;
   font-size: 13px;
   flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  /* background-color: gray; */
   font-weight: bold;
 `;
 
@@ -260,10 +263,10 @@ const Blanck = styled.div`
   height: 64px;
 `;
 
-const DifferDay = styled.div`
+const DayDay = styled.div`
   font-size: 8px;
   font-weight: bold;
   color: #000000;
 `;
 
-export default StartSection;
+export default BGStartSection;

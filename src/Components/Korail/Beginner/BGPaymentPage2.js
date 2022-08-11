@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
-import PaymentFooter from '../Layout/PaymentFooter';
+import PaymentFooter from '../Layout/PaymentFooter1';
 
 function BGPaymentPage2() {
   return (
@@ -94,7 +94,7 @@ function BGPaymentPage2() {
               <PasswordInput>
                 <input type='text' size='2'></input>
               </PasswordInput>
-              <PasswordFix>**</PasswordFix>
+              <div>**</div>
             </PasswordDiv>
 
             <PasswordDiv>
@@ -218,8 +218,7 @@ const PointDiv = styled.div`
 const PointTitle = styled.div`
   color: #70139c;
   font-size: 15px;
-  padding-top: 10px;
-  padding-bottom: 7px;
+  padding: 10px 0 7px 0;
 `;
 
 const PointArrow = styled.div`
@@ -246,22 +245,19 @@ const ReturnDiv = styled.div`
 
 const ReturnImgWrap = styled.div`
   float: right;
-  padding-top: 15px;
-  padding-right: 15px;
+  padding: 15px 15px 0 0;
 `;
 
 const ReturnInput = styled.div`
   font-size: 20px;
   float: right;
-  padding-top: 15px;
-  padding-right: 20px;
+  padding: 15px 20px 0 0;
 `;
 
 const UsuallyDiv = styled.div`
   width: 30%;
   height: 350px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px 0 0 10px;
 `;
 
 const Usually = styled.div`
@@ -284,8 +280,7 @@ const CardNumTitle = styled.div`
 `;
 
 const CardNum = styled.div`
-  padding-bottom: 10px;
-  padding-right: 2px;
+  padding: 0 2px 10px 0;
 `;
 
 const DdayDiv = styled.div`
@@ -298,8 +293,7 @@ const DdayTitle = styled.div`
 `;
 
 const DdayInput = styled.div`
-  padding-bottom: 10px;
-  padding-right: 3px;
+  padding: 0 3px 10px 0;
 `;
 
 const DdayFix = styled.div`
@@ -322,11 +316,9 @@ const AgreeCheck = styled.div`
 `;
 
 const PasswordInput = styled.div`
-  padding-bottom: 10px;
-  padding-right: 5px;
+  padding: 0 5px 10px 0;
 `;
 
-const PasswordFix = styled.div``;
 const Wrap = styled.div`
   display: flex;
   background-color: #ededed;
@@ -348,8 +340,7 @@ const Agree = styled.div`
   color: darkgrey;
   text-decoration: underline;
   font-size: 13px;
-  padding-top: 5px;
-  padding-right: 30px;
+  padding: 5px 30px 0 0;
 `;
 
 export default BGPaymentPage2;

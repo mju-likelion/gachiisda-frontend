@@ -6,27 +6,27 @@ function DictionaryExplan() {
   return (
     <All>
       <InputWrap>
-        <InputDIV>
+        <InputDiv>
           <Input placeholder='검색할 외래어를 입력해주세요.' />
           <SearchBtn>
             <SearchIcon />
           </SearchBtn>
-        </InputDIV>
+        </InputDiv>
       </InputWrap>
 
-      <ExplanDIV>
+      <ExplanDiv>
         <Fix>쉬운 우리말</Fix>
         <Foreign>오픈 스페이스</Foreign>
         <KoreanWrap>
           <FixEqual>:</FixEqual>
           <Korean>열린 쉼터</Korean>
         </KoreanWrap>
-      </ExplanDIV>
+      </ExplanDiv>
 
-      <ExplanExampleDIV>
+      <ExplanExampleDiv>
         <ExplanWrap>
           <ExampleFix>바꾸어 쓴 예문</ExampleFix>
-          <ExampleDIV>
+          <ExampleDiv>
             <ExampleForeign>
               코로나19 장기화로 단지 내 오픈 스페이스에 관한 관심이 커졌다.
             </ExampleForeign>
@@ -34,9 +34,9 @@ function DictionaryExplan() {
             <ExampleKorean>
               코로나19 장기화로 단지 내 열린 쉼터에 관한 관심이 커졌다.
             </ExampleKorean>
-          </ExampleDIV>
+          </ExampleDiv>
         </ExplanWrap>
-      </ExplanExampleDIV>
+      </ExplanExampleDiv>
     </All>
   );
 }
@@ -52,7 +52,7 @@ const All = styled.div`
   padding-bottom: 250px;
 `;
 
-const InputDIV = styled.div`
+const InputDiv = styled.div`
   background-color: #b3d5f2;
   color: #7a7a7a;
   border-radius: 20px;
@@ -82,7 +82,7 @@ const SearchBtn = styled.button`
   padding-left: 30px;
 `;
 
-const ExplanDIV = styled.div`
+const ExplanDiv = styled.div`
   padding-bottom: 50px;
   padding-left: 30px;
 `;
@@ -106,7 +106,7 @@ const Korean = styled.div`
   font-weight: bold;
 `;
 
-const ExampleDIV = styled.div`
+const ExampleDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +121,7 @@ const ExplanWrap = styled.div`
   width: 80%;
 `;
 
-const ExplanExampleDIV = styled.div`
+const ExplanExampleDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 function PeopleSection() {
+  //const [item,setItem] = useState(0)
+  //const increment = () => setItem(item + 1)
+  // const decrement = () => setItem(item - 1)
   return (
     <StartSectionWrapper>
       <Blanck></Blanck>

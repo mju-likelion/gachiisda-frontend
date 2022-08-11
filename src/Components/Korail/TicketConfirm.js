@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
 import { ReactComponent as MinAgo } from './images/MinAgo.svg';
-import { ReactComponent as QR } from './images/QR.svg';
+import { ReactComponent as QR } from './images/QrIcon.svg';
 
 import { ReactComponent as Train } from './images/Train.svg';
 import { ReactComponent as Ticket } from './images/Ticket.svg';
@@ -12,10 +12,10 @@ import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg'
 function TicketConfirm() {
   return (
     <All>
-      <ConfirmHeaderWrap>
+      <div>
         <ConfirmHeader>승차권(1)</ConfirmHeader>
         <ConfirmHeader2>정기권패스</ConfirmHeader2>
-      </ConfirmHeaderWrap>
+      </div>
 
       <Day>2022년 n월 nn일 (요일)</Day>
       <StationDivWrap>
@@ -94,8 +94,6 @@ const All = styled.div`
   height: 100%;
   background-color: #ededed;
 `;
-
-const ConfirmHeaderWrap = styled.div``;
 
 const ConfirmHeader = styled.div`
   background-color: white;

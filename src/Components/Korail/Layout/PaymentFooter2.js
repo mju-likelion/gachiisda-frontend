@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function PaymentFooter() {
   return (
@@ -10,7 +11,9 @@ function PaymentFooter() {
       </CostDiv>
       <BtnDiv>
         <Cancel>예약취소</Cancel>
-        <Next>다음</Next>
+        <Next>
+          <Link to='/TicketConfirm'>다음</Link>
+        </Next>
       </BtnDiv>
     </FooterDiv>
   );
@@ -57,7 +60,6 @@ const Next = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5px solid #3f9cf1;
 `;
 
 const BtnDiv = styled.div`
