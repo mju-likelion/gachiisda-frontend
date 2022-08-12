@@ -23,7 +23,12 @@ function Main() {
             <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
               <MainGoStation>
-                <Link to='/StationClick'>서울</Link>
+                <Link
+                  style={{ textDecoration: 'none', color: '#064a87' }}
+                  to='/StationClick'
+                >
+                  서울
+                </Link>
               </MainGoStation>
             </MainGoMentDiv>
 
@@ -38,7 +43,12 @@ function Main() {
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation>
-                <Link to='/StationClick'>부산</Link>
+                <Link
+                  style={{ textDecoration: 'none', color: '#064a87' }}
+                  to='/StationClick'
+                >
+                  부산
+                </Link>
               </MainArrivedStation>
             </MainArrivedMentDiv>
           </MainGoStationDiv>
@@ -49,14 +59,24 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div>
-          <Link to='/StartSection'> 2022년 n월 nn일 (요일) 시 : 분</Link>
+          <Link
+            style={{ textDecoration: 'none', color: 'black' }}
+            to='/StartSection'
+          >
+            2022년 n월 nn일 (요일) 시 : 분
+          </Link>
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
       <MainGoDiv>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>
-          <Link to='/PeopleSection'> 어른 1명</Link>
+          <Link
+            style={{ textDecoration: 'none', color: 'black' }}
+            to='/PeopleSection'
+          >
+            어른 1명
+          </Link>
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
@@ -67,7 +87,12 @@ function Main() {
       </MainGoDiv>
 
       <MainTrainInquire>
-        <Link to='/StationSelect'> 열차 조회하기</Link>
+        <Link
+          style={{ textDecoration: 'none', color: 'black' }}
+          to='/StationSelect'
+        >
+          열차 조회하기
+        </Link>
       </MainTrainInquire>
       <MainTrainbtn>
         <Train height='25px' />
@@ -260,7 +285,6 @@ const MainSelectKTX = styled.button`
   border: 1px solid #686868;
   width: 90%;
   height: 29px;
-  cursor: pointer;
 `;
 
 const MainAll = styled.div`
