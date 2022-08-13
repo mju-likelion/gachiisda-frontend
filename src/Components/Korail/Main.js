@@ -7,24 +7,139 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 function Main() {
+  const GoClick = () => {
+    setShowResults(true);
+  };
+  let [seoul, setSeoul] = useState('서울');
+  const [showResults, setShowResults] = useState(false);
+
+  const Results = () => (
+    <div id='results'>
+      <StationTitle>주요 역</StationTitle>
+      <StationDetailWrap>
+        <div>
+          <StationDetail
+            onClick={() => setSeoul('서울') & setShowResults(false)}
+          >
+            서울
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('용산') & setShowResults(false)}
+          >
+            용산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('광명') & setShowResults(false)}
+          >
+            광명
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('영등포') & setShowResults(false)}
+          >
+            영등포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('수원') & setShowResults(false)}
+          >
+            수원
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('평택') & setShowResults(false)}
+          >
+            평택
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('천안') & setShowResults(false)}
+          >
+            천안
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('대전') & setShowResults(false)}
+          >
+            대전
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('김천구미') & setShowResults(false)}
+          >
+            김천구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('구미') & setShowResults(false)}
+          >
+            구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('부산') & setShowResults(false)}
+          >
+            부산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('대구') & setShowResults(false)}
+          >
+            대구
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('울산') & setShowResults(false)}
+          >
+            울산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('포항') & setShowResults(false)}
+          >
+            포항
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('강릉') & setShowResults(false)}
+          >
+            강릉
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('목포') & setShowResults(false)}
+          >
+            목포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('전주') & setShowResults(false)}
+          >
+            전주
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('동해') & setShowResults(false)}
+          >
+            동해
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('평창') & setShowResults(false)}
+          >
+            평창
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('안동') & setShowResults(false)}
+          >
+            안동
+          </StationDetail>
+        </div>
+      </StationDetailWrap>
+    </div>
+  );
+
   return (
     <MainAll>
-      <MainWaySelect>
+      <div>
         <MainOneWay>편도</MainOneWay>
         <MainAroundWay>왕복</MainAroundWay>
-      </MainWaySelect>
+      </div>
 
       <div>
         <MainGoStationDivStyle>
           <MainGoStationDiv>
             <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
-              <MainGoStation>
-                <Link to='/StationClick'>서울</Link>
-              </MainGoStation>
+              <MainGoStation onClick={GoClick}>{seoul}</MainGoStation>
             </MainGoMentDiv>
 
             <ArrowDiv>
@@ -84,11 +199,10 @@ function Main() {
         <div>승차권확인</div>
       </MainTicketbtn>
       <Header />
+      {showResults ? <Results /> : null}
     </MainAll>
   );
 }
-
-const MainWaySelect = styled.div``;
 
 const MainAroundWay = styled.div`
   background-color: white;
@@ -142,7 +256,7 @@ const MainGoMent = styled.div`
   align-items: center;
 `;
 
-const MainGoStation = styled.div`
+const MainGoStation = styled.button`
   color: #064a87;
   font-size: 30px;
   font-weight: bold;
@@ -150,6 +264,7 @@ const MainGoStation = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 10px;
+  border: none;
 `;
 
 const MainArrivedMent = styled.div`
@@ -269,4 +384,24 @@ const MainAll = styled.div`
   margin-top: 64px;
 `;
 
+const StationTitle = styled.div`
+  color: #064a87;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 9px 290px 9px 20px;
+`;
+
+const StationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+`;
+
+const StationDetailWrap = styled.div`
+  width: 375px;
+`;
 export default Main;
