@@ -127,6 +127,47 @@ function Main() {
     </div>
   );
 
+  const Another = () => (
+    <div id='another'>
+      <MainGoDiv>
+        <MainInfoMent>출발일</MainInfoMent>
+        <div>
+          <Link to='/StartSection'> 2022년 n월 nn일 (요일) 시 : 분</Link>
+        </div>
+        <MainInfoArrow>▽</MainInfoArrow>
+      </MainGoDiv>
+      <MainGoDiv>
+        <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
+        <div>
+          <Link to='/PeopleSection'> 어른 1명</Link>
+        </div>
+        <MainInfoArrow>▽</MainInfoArrow>
+      </MainGoDiv>
+      <MainGoDiv>
+        <MainInfoMent>상세 옵션</MainInfoMent>
+        <div>인접역 표출, SR 연계 표출</div>
+        <MainInfoArrow>▽</MainInfoArrow>
+      </MainGoDiv>
+      <MainTrainInquire>
+        <Link to='/StationSelect'> 열차 조회하기</Link>
+      </MainTrainInquire>
+      <MainTrainbtn>
+        <Train height='25px' />
+        <div>승차권예매</div>
+      </MainTrainbtn>
+      <MainNoneActbtn>
+        <NoneTicket />
+      </MainNoneActbtn>
+      <MainNoneActbtn>
+        <NoneTicket2 />
+      </MainNoneActbtn>
+      <MainTicketbtn>
+        <Ticket height='30px' />
+        <div>승차권확인</div>
+      </MainTicketbtn>
+    </div>
+  );
+
   return (
     <MainAll>
       <div>
@@ -161,45 +202,8 @@ function Main() {
         </MainGoStationDivStyle>
       </div>
 
-      <MainGoDiv>
-        <MainInfoMent>출발일</MainInfoMent>
-        <div>
-          <Link to='/StartSection'> 2022년 n월 nn일 (요일) 시 : 분</Link>
-        </div>
-        <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDiv>
-      <MainGoDiv>
-        <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
-        <div>
-          <Link to='/PeopleSection'> 어른 1명</Link>
-        </div>
-        <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDiv>
-      <MainGoDiv>
-        <MainInfoMent>상세 옵션</MainInfoMent>
-        <div>인접역 표출, SR 연계 표출</div>
-        <MainInfoArrow>▽</MainInfoArrow>
-      </MainGoDiv>
-
-      <MainTrainInquire>
-        <Link to='/StationSelect'> 열차 조회하기</Link>
-      </MainTrainInquire>
-      <MainTrainbtn>
-        <Train height='25px' />
-        <div>승차권예매</div>
-      </MainTrainbtn>
-      <MainNoneActbtn>
-        <NoneTicket />
-      </MainNoneActbtn>
-      <MainNoneActbtn>
-        <NoneTicket2 />
-      </MainNoneActbtn>
-      <MainTicketbtn>
-        <Ticket height='30px' />
-        <div>승차권확인</div>
-      </MainTicketbtn>
       <Header />
-      {showResults ? <Results /> : null}
+      {showResults ? <Results /> : <Another />}
     </MainAll>
   );
 }
