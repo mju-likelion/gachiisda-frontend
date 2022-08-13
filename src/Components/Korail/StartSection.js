@@ -5,13 +5,23 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function StartSection() {
-  const [data, setData] = useState(null);
+  const [day, setDay] = useState([]);
+  const [date, setDate] = useState([]);
+  const [time, setTime] = useState([]);
+
+  const [godate, setGoDate] = useState('');
+  const [goDay, setGoDay] = useState('');
+  const [goTime, setGoTime] = useState('');
 
   useEffect(() => {
     axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
-      setData(response.data);
+      setDay(response.data.data.next.nextDay);
+      setDate(response.data.data.next.nextDate);
+      setTime(response.data.data.timeTable);
+      console.log(response);
     });
   }, []);
+
   return (
     <div>
       <StartSectionWrapper>
@@ -25,7 +35,9 @@ function StartSection() {
         </FirstBox>
         <DateBox>
           <Type>출발일</Type>
-          <Total>2022년 n월 nn일 (요일) 시:분</Total>
+          <Total>
+            2022년 8월 {godate}일 ({goDay}) {goTime}시:분
+          </Total>
           <Type>△</Type>
         </DateBox>
         <CalendarBox>
@@ -33,31 +45,34 @@ function StartSection() {
         </CalendarBox>
         <MiddleBox>
           <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>날짜</Date>
-            <Week>
-              {data && (
-                <div>{JSON.stringify(data.data[0].next[0].nextDate)}</div>
-              )}
+            <DifferDay>
+              {day.map((day) => (
+                <InDay key={day.index} onClick={() => setGoDay(day)}>
+                  {day}
+                </InDay>
+              ))}
+            </DifferDay>
+            <Date>
+              {date.map((date) => (
+                <InDate key={date.index} onClick={() => setGoDate(date)}>
+                  {date}
+                </InDate>
+              ))}
+            </Date>
 
-              {/* {data.data[0].next[0].nextDate.map((user) => (
-                <div key={user}>{user}</div>
-              ))} */}
-            </Week>
+            <Week>일</Week>
           </DayBox>
         </MiddleBox>
         <HourWrap>
           <SecondMiddleBox>
-            <Number>숫자</Number>
-            <Si>시</Si>
-          </SecondMiddleBox>
-          <SecondMiddleBox>
-            <Number>숫자</Number>
-            <Si>시</Si>
-          </SecondMiddleBox>
-          <SecondMiddleBox>
-            <Number>숫자</Number>
-            <Si>시</Si>
+            <Number>
+              {time.map((time) => (
+                <InTime key={time.index} onClick={() => setGoTime(time)}>
+                  {time}
+                </InTime>
+              ))}
+            </Number>
+            {/* <Si>시</Si> */}
           </SecondMiddleBox>
         </HourWrap>
         <LineTwo />
@@ -88,7 +103,6 @@ const FirstBox = styled.div`
   justify-content: space-around;
   display: flex;
   height: 43px;
-  align-items: center;
 `;
 
 const DateBox = styled.div`
@@ -127,11 +141,30 @@ const DayBox = styled.div`
 const Date = styled.div`
   display: flex;
   font-size: 13px;
-  flex-direction: column;
   font-weight: bold;
+  /* width: 30px; */
+  /* height: 50px; */
+  /* padding: 0 10px 0 10px; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: blue; */
 `;
 
-const Week = styled.span`
+const InDate = styled.div`
+  display: flex;
+  padding: 0 10px 0 10px;
+`;
+
+const InDay = styled.div`
+  display: flex;
+  padding-right: 10px;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: yellow; */
+`;
+
+const Week = styled.div`
   font-size: 10px;
   font-weight: 400;
 `;
@@ -139,13 +172,13 @@ const Week = styled.span`
 const MiddleBox = styled.div`
   display: flex;
   background-color: #ededed;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   height: 90px;
 `;
 
 const SecondMiddleBox = styled.div`
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   background-color: #d9d9d9;
   height: 60px;
 `;
@@ -163,9 +196,13 @@ const Number = styled.div`
   align-items: center;
 `;
 
-const Si = styled.span`
-  font-size: 15px;
+const InTime = styled.div`
+  font-size: 18px;
 `;
+
+// const Si = styled.span`
+//   font-size: 15px;
+// `;
 
 const Type = styled.div`
   font-weight: bold;
@@ -237,6 +274,7 @@ const DifferDay = styled.div`
   font-size: 8px;
   font-weight: bold;
   color: #000000;
+  display: flex;
 `;
 
 const OneWayWrap = styled.div`
