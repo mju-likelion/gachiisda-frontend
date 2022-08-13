@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Layouts/Header';
+import Footer from './Layouts/Footer';
 import styled from 'styled-components';
 import Switch from './images/MainSwitchBtn';
 import { ReactComponent as Train } from './images/MainTrain.svg';
@@ -299,6 +300,10 @@ function Main() {
     </div>
   );
 
+  /*function MissionMent(props) {
+    return <p>{props.text}</p>;
+  }*/
+
   return (
     <MainAll>
       <div>
@@ -337,6 +342,7 @@ function Main() {
       {showResults || showAriResults ? null : <Another />}
       {showResults ? <Results /> : null}
       {showAriResults ? <ArrivedResults /> : null}
+      <Footer>{/* <MissionMent />*/}</Footer>
     </MainAll>
   );
 }
