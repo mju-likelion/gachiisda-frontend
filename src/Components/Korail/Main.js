@@ -14,8 +14,124 @@ function Main() {
   const GoClick = () => {
     setShowResults(true);
   };
+
+  const ArrivedClick = () => {
+    setShowAriResults(true);
+  };
   let [seoul, setSeoul] = useState('서울');
+  let [busan, setBusan] = useState('부산');
   const [showResults, setShowResults] = useState(false);
+  const [showAriResults, setShowAriResults] = useState(false);
+
+  const ArrivedResults = () => (
+    <div id='Arrivedresults'>
+      <StationTitle>주요 역</StationTitle>
+      <StationDetailWrap>
+        <div>
+          <StationDetail
+            onClick={() => setBusan('서울') & setShowAriResults(false)}
+          >
+            서울
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('용산') & setShowAriResults(false)}
+          >
+            용산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('광명') & setShowAriResults(false)}
+          >
+            광명
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('영등포') & setShowAriResults(false)}
+          >
+            영등포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('수원') & setShowAriResults(false)}
+          >
+            수원
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('평택') & setShowAriResults(false)}
+          >
+            평택
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('천안') & setShowAriResults(false)}
+          >
+            천안
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('대전') & setShowAriResults(false)}
+          >
+            대전
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('김천구미') & setShowAriResults(false)}
+          >
+            김천구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('구미') & setShowAriResults(false)}
+          >
+            구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('부산') & setShowAriResults(false)}
+          >
+            부산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('대구') & setShowAriResults(false)}
+          >
+            대구
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('울산') & setShowAriResults(false)}
+          >
+            울산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('포항') & setShowAriResults(false)}
+          >
+            포항
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('강릉') & setShowAriResults(false)}
+          >
+            강릉
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('목포') & setShowAriResults(false)}
+          >
+            목포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('전주') & setShowAriResults(false)}
+          >
+            전주
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('동해') & setShowAriResults(false)}
+          >
+            동해
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('평창') & setShowAriResults(false)}
+          >
+            평창
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('안동') & setShowAriResults(false)}
+          >
+            안동
+          </StationDetail>
+        </div>
+      </StationDetailWrap>
+    </div>
+  );
 
   const Results = () => (
     <div id='results'>
@@ -193,8 +309,8 @@ function Main() {
             </ArrowDiv>
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
-              <MainArrivedStation>
-                <Link to='/StationClick'>부산</Link>
+              <MainArrivedStation onClick={ArrivedClick}>
+                {busan}
               </MainArrivedStation>
             </MainArrivedMentDiv>
           </MainGoStationDiv>
@@ -203,7 +319,9 @@ function Main() {
       </div>
 
       <Header />
-      {showResults ? <Results /> : <Another />}
+      {showResults || showAriResults ? null : <Another />}
+      {showResults ? <Results /> : null}
+      {showAriResults ? <ArrivedResults /> : null}
     </MainAll>
   );
 }
@@ -260,7 +378,7 @@ const MainGoMent = styled.div`
   align-items: center;
 `;
 
-const MainGoStation = styled.button`
+const MainGoStation = styled.div`
   color: #064a87;
   font-size: 30px;
   font-weight: bold;
