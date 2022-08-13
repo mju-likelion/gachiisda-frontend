@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import SearchEnter from './images/SearchEnter';
 import ChangeArrow from './images/ChangeArrow.js';
 import Arrow from './images/Arrow.js';
 import Frame from './images/Frame.js';
 import Header from './Layouts/Header';
-import axios from 'axios';
+import { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import axios from 'axios';
 
 function StationClick() {
-  const [station, setStation] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get('http://13.125.225.34:3300/api/korail/stations')
-      .then((response) => {
-        setStation(response.data);
-      });
-  }, []);
+  let [seoul, setSeoul] = useState('서울');
 
   return (
     <StationClickWrapper>
@@ -38,7 +32,7 @@ function StationClick() {
       </StationWrap>
       <StationNameWrap>
         <StationStart>
-          <StationName>서울</StationName>
+          <StationName>{seoul}</StationName>
         </StationStart>
         <ArrowIcon>
           <Arrow />
@@ -65,11 +59,66 @@ function StationClick() {
               )}
             </StationDetail> */}
             <div>
-              {station.data.map((station) => (
-                <StationDetail key={station.id}>
-                  {station.station_name}
-                </StationDetail>
-              ))}
+              <StationDetail onClick={() => setSeoul('서울')}>
+                서울
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('용산')}>
+                용산
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('광명')}>
+                광명
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('영등포')}>
+                영등포
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('수원')}>
+                수원
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('평택')}>
+                평택
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('천안')}>
+                천안
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('대전')}>
+                대전
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('김천구미')}>
+                김천구미
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('구미')}>
+                구미
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('부산')}>
+                부산
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('대구')}>
+                대구
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('울산')}>
+                울산
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('포항')}>
+                포항
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('강릉')}>
+                강릉
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('목포')}>
+                목포
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('전주')}>
+                전주
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('동해')}>
+                동해
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('평창')}>
+                평창
+              </StationDetail>
+              <StationDetail onClick={() => setSeoul('안동')}>
+                안동
+              </StationDetail>
             </div>
           </StationDetailWrap>
         </div>
