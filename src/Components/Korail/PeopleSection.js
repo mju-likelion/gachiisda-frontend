@@ -1,10 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+// import React, {useState, useEffect} from 'react';
 
 function PeopleSection() {
   //const [item,setItem] = useState(0)
-  //const increment = () => setItem(item + 1)
-  // const decrement = () => setItem(item - 1)
+  //const [finalSum, setfinalSum] = useState();
+
+  // useEffect(() => {
+  //  setfinalSum(finalSum);
+  // });
+
+  //const plus = (id) => setItem(item + 1)
+  // const minus = (id) => setItem(item - 1)
+
+  // const totalSum = () => {
+  // let total = 0; ...
+
+  // }
   return (
     <StartSectionWrapper>
       <Blanck></Blanck>
@@ -15,12 +27,14 @@ function PeopleSection() {
 
       <SeatBox>
         <Age>승객 연령 및 좌석수</Age>
+        {/* 밑의 기능을 넣어서 합계 내기 */}
         <Total>어른 1명</Total>
         <Age> △ </Age>
       </SeatBox>
       <AtLeast>최소 1명 - 최대 9명</AtLeast>
 
       <MiddleBox>
+        {/* id로 묶기 */}
         <ByAge>
           <Type>어른(만 13세 이상)</Type> <Type>어린이(만 6세 ~12세)</Type>
           <Type>유아(만 6세 미만)</Type>
@@ -29,6 +43,7 @@ function PeopleSection() {
           <Type>경증 장애인</Type>
         </ByAge>
         <ByCount>
+          {/* OnClick, map함수로 구현 */}
           <Add>
             <Minus>－</Minus>0<Plus>＋</Plus>
           </Add>
