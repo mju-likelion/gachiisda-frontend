@@ -13,30 +13,26 @@ function Home() {
           <HomeTitle>눌러주세요</HomeTitle>
         </HomeTitleDiv>
         <HomeIcon>
-          <HomeIconImg>
-            <img alt='Kiosk' src={Kiosk} />
-          </HomeIconImg>
-          <HomeIconBtn>
-            <Link
-              style={{ textDecoration: 'none', color: 'yellow' }}
-              to='/SelectLevel'
-            >
-              키오스크 연습
-            </Link>
-          </HomeIconBtn>
+          <Link
+            style={{ textDecoration: 'none', color: '#064a87' }}
+            to='/SelectLevel'
+          >
+            <HomeIconImg>
+              <img alt='Kiosk' src={Kiosk} />
+            </HomeIconImg>
+            <HomeIconBtn>키오스크 연습</HomeIconBtn>
+          </Link>
         </HomeIcon>
         <HomeIcon>
-          <HomeIconImg>
-            <img alt='DictionaryIcon' src={Dict} />
-          </HomeIconImg>
-          <HomeIconBtn>
-            <Link
-              style={{ textDecoration: 'none', color: 'yellow' }}
-              to='/DictMain'
-            >
-              외래어 사전
-            </Link>
-          </HomeIconBtn>
+          <Link
+            style={{ textDecoration: 'none', color: '#064a87' }}
+            to='/DictMain'
+          >
+            <HomeIconImg>
+              <img alt='DictionaryIcon' src={Dict} />
+            </HomeIconImg>
+            <HomeIconBtn>외래어 사전</HomeIconBtn>
+          </Link>
         </HomeIcon>
       </HomeAll>
     </div>

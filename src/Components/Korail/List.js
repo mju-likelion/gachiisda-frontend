@@ -12,24 +12,28 @@ function List() {
         <Ktx />
       </KtxIcon>
       <ListH1>연습 목록을 선택해주세요</ListH1>
-      <KtxListMent type='submit'>
-        <Link to='/Main'>
-          수원역 - 부산역
-          <Item text={<br />} />
-          2022년 8월 5일 14:25
-          <Item text={<br />} />
-          새마을 일반석 1매
+      <div>
+        <Link to='/Main' style={{ textDecoration: 'none' }}>
+          <KtxListMent type='submit'>
+            수원역 - 부산역
+            <Item text={<br />} />
+            2022년 8월 5일 14:25
+            <Item text={<br />} />
+            새마을 일반석 1매
+          </KtxListMent>
         </Link>
-      </KtxListMent>
-      <KtxListMent type='submit'>
-        <Link to='/Main'>
-          서울역 - 김천구미역
-          <Item text={<br />} />
-          2022년 8월 15일 10:30
-          <Item text={<br />} />
-          KTX 일반석 2매 예매
+      </div>
+      <div>
+        <Link to='/Main' style={{ textDecoration: 'none' }}>
+          <KtxListMent type='submit'>
+            서울역 - 김천구미역
+            <Item text={<br />} />
+            2022년 8월 15일 10:30
+            <Item text={<br />} />
+            KTX 일반석 2매 예매
+          </KtxListMent>
         </Link>
-      </KtxListMent>
+      </div>
     </All>
   );
 }

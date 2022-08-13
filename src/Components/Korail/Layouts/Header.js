@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import BackIcon from '../images/BackIcon';
 import { ReactComponent as HomeIcon } from '../images/HomeIcon.svg';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderAll>
-      <HeaderBackIcon>
+      <HeaderBackIcon onClick={() => navigate(-1)}>
         <HeaderBackIconImg>
           <BackIcon />
         </HeaderBackIconImg>
@@ -14,7 +16,11 @@ function Header() {
       </HeaderBackIcon>
 
       <HeaderHomeIcon>
-        <HeaderHomeIconMent>처음화면</HeaderHomeIconMent>
+        <HeaderHomeIconMent>
+          <Link style={{ textDecoration: 'none', color: '#686868' }} to='/'>
+            처음화면
+          </Link>
+        </HeaderHomeIconMent>
         <HeaderHomeIconImg>
           <HomeIcon />
         </HeaderHomeIconImg>
