@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 import { Link } from 'react-router-dom';
 
 function CheckSection() {
@@ -38,6 +39,7 @@ function CheckSection() {
           </Box2>
         </BodyBox>
       </Body>
+      <Footer>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

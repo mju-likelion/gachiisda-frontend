@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import arrow from '../Home/images/Arrow.svg';
 import seat2 from '../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
+import Footer from './Layouts/Footer';
 
 function ChooseSectionFirst() {
   const [lis, setlis] = useState([
@@ -183,6 +184,7 @@ function ChooseSectionFirst() {
         </ImgBody>
       </MainBody>
       {lis.includes(true) == true ? show() : null}
+      <Footer>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

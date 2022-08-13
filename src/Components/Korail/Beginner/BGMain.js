@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Layouts/Header';
+import Footer from '../Layouts/Footer';
 import styled from 'styled-components';
 import Switch from '../images/MainSwitchBtn';
 import { ReactComponent as Train } from '../images/MainTrain.svg';
@@ -79,6 +80,12 @@ function BGMain() {
         <div>승차권확인</div>
       </MainTicketbtn>
       <Header />
+      <Footer>
+        1. 코레일톡에 접속하신 후, 하단의 선택 항목이 ‘승차권예매’로 되어 있는지
+        확인합니다.
+        {<br />}
+        2. 파란색 네모 칸영역을 눌러 출발역을 선택해주세요.
+      </Footer>
     </MainAll>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 
 function PeopleSection() {
   //const [item,setItem] = useState(0)
@@ -58,6 +59,7 @@ function PeopleSection() {
 
       <Line></Line>
       <Inquiry>열차 조회하기</Inquiry>
+      <Footer>미션을 수행해주세요 !</Footer>
     </StartSectionWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 
 function BGPeopleSection() {
   return (
@@ -55,6 +56,11 @@ function BGPeopleSection() {
 
       <Line></Line>
       <Inquiry>열차 조회하기</Inquiry>
+      <Footer>
+        경로 칸을 찾아주세요. +를 누르면 좌석수가 증가하고 -를 누르면 좌석수가
+        감소합니다. 해당 버튼을 조작해 알맞은 좌석수를 선택해주세요. 그런 뒤
+        열차 조회하기 버튼을 눌러주세요.
+      </Footer>
     </StartSectionWrapper>
   );
 }

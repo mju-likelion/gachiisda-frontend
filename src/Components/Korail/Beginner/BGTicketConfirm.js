@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as MinAgo } from '../images/MinAgo.svg';
 import { ReactComponent as QrIcon } from '../images/QrIcon.svg';
@@ -80,6 +81,11 @@ function BGTicketConfirm() {
           <div>승차권확인</div>
         </MainTicketbtn>
       </ConfirmFooter>
+      <Footer>
+        이 창이 뜨시면 예매 된 것입니다. 추후 승차권을 보여줘야할 상황이
+        생기시면 코레일톡에 접속하신 후 하단의 ‘승차권확인’을 누르시고
+        ‘운임영수증’에 있는 그림을 클릭해주시면 됩니다.
+      </Footer>
     </All>
   );
 }

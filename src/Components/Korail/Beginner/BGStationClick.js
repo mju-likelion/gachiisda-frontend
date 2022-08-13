@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 import SearchEnter from '../images/SearchEnter';
 import ChangeArrow from '../images/ChangeArrow.js';
 import Arrow from '../images/Arrow.js';
@@ -48,6 +49,11 @@ function BeginStationClick() {
           <StationDetail>역 이름</StationDetail>
         </div>
       </MainStationBox>
+      <Footer>
+        파란색 네모 칸영역을 눌러 도착역을 선택해주세요.
+        {<br />}역 목록 중, 출발할 역을 찾아서 선택해주세요. 파란색 네모칸
+        영역을 찾아서 선택하시면 됩니다.
+      </Footer>
     </StationClickWrapper>
   );
 }

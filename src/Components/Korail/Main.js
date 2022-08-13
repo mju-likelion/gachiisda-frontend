@@ -300,10 +300,6 @@ function Main() {
     </div>
   );
 
-  /*function MissionMent(props) {
-    return <p>{props.text}</p>;
-  }*/
-
   return (
     <MainAll>
       <div>
@@ -342,7 +338,7 @@ function Main() {
       {showResults || showAriResults ? null : <Another />}
       {showResults ? <Results /> : null}
       {showAriResults ? <ArrivedResults /> : null}
-      <Footer>{/* <MissionMent />*/}</Footer>
+      <Footer>미션을 수행해주세요 !</Footer>
     </MainAll>
   );
 }

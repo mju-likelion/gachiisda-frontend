@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 
 function BGStartSection() {
   return (
@@ -106,6 +107,11 @@ function BGStartSection() {
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
       </BGStartSectionWrapper>
+      <Footer>
+        출발 할 날짜와 시간을 골라주세요. 해당하는 날짜 및 시간이 없을 시,
+        영역에 손가락을 대고 왼쪽으로 밀면 그 다음 날짜와 시간이 나옵니다.
+        날짜와 시간을 선택하신 뒤 승객 연령 및 좌석수 칸을 눌러주세요
+      </Footer>
     </div>
   );
 }

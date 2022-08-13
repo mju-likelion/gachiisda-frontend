@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 import SearchEnter from './images/SearchEnter';
 import ChangeArrow from './images/ChangeArrow.js';
 import Arrow from './images/Arrow.js';
@@ -123,6 +124,7 @@ function StationClick() {
           </StationDetailWrap>
         </div>
       </MainStationBox>
+      <Footer>미션을 수행해주세요 !</Footer>
     </StationClickWrapper>
   );
 }

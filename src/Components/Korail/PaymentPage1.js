@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 import { ReactComponent as BlueArrow } from './images/BlueArrow.svg';
 import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
 import PaymentFooter from './Layouts/PaymentFooter1';
@@ -60,6 +61,7 @@ function paymentPage1() {
         <AnotherDiscount width='100%' />
       </div>
       <PaymentFooter />
+      <Footer>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

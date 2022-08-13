@@ -1,22 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-/*function Parent() {
-  return (
-    <MissionMent
-      text={' 수원역 - 부산역 2022년 8월 5일 14:25 새마을 일반석 1매 '}
-    />
-  );
-}*/
-
-function Footer() {
+const Footer = (props) => {
   return (
     <All>
-      <MissionFooter>{/* <MissionMent*/}</MissionFooter>
+      <MissionFooter>{props.children}</MissionFooter>
       <MainFooter type='submit'>도움이 필요하면 이 칸을 눌러 주세요</MainFooter>
     </All>
   );
-}
+};
 
 const MissionFooter = styled.div`
   width: 375px;

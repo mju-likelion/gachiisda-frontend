@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 
 function StartSection() {
   return (
@@ -106,6 +107,7 @@ function StartSection() {
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
       </StartSectionWrapper>
+      <Footer>미션을 수행해주세요 !</Footer>
     </div>
   );
 }

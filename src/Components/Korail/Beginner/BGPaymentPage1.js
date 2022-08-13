@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as AnotherDiscount } from '../images/AnotherDiscount.svg';
 import PaymentFooter from '../Layouts/PaymentFooter1';
@@ -61,6 +62,11 @@ function BGPaymentPage1() {
         <AnotherDiscount width='100%' />
       </div>
       <PaymentFooter />
+      <Footer>
+        승차권 가격을 확인 하신 후,
+        {<br />}
+        아래의 다음 버튼을 눌러주세요
+      </Footer>
     </All>
   );
 }

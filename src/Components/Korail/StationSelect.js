@@ -7,6 +7,7 @@ import { ReactComponent as FooterTicketBtn } from './images/FooterTicketBtn.svg'
 import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
+import Footer from './Layouts/Footer';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -131,6 +132,7 @@ function StationSelect() {
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>
+      <Footer>미션을 수행해주세요 !</Footer>
     </div>
   );
 }

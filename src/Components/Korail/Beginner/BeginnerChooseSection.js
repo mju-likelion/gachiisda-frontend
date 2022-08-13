@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import Footer from '../Layouts/Footer';
 import arrow from '../images/Arrow.svg';
 import seat2 from '../images/Seat2.svg';
 import seat1 from '../images/Seat1.svg';
@@ -181,6 +181,12 @@ function BGChooseSectionFirst() {
         </ImgBody>
       </MainBody>
       {lis.includes(true) == true ? show() : null}
+      <Footer>
+        상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 좌석을 선택해주세요.
+        회색으로 칠해져 있는 자리는 이미 예매된 좌석이라 선택 불가합니다.
+        {<br />}
+        좌석을 선택하신 후 선택완료 버튼을 눌러주세요
+      </Footer>
     </All>
   );
 }

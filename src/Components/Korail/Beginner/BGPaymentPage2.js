@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
 import PaymentFooter from '../Layouts/PaymentFooter1';
 
@@ -121,6 +122,12 @@ function BGPaymentPage2() {
         </Wrap>
       </div>
       <PaymentFooter />
+      <Footer>
+        해당 영역은 결제 창입니다. 카드 결제를 선택하신 뒤, 손가락을 위로 밀어
+        카드 정보 입력란을 찾습니다. 그 후 결제 카드 정보를 각 칸에 맞게
+        입력하시면 됩니다. 여기서는 연습을 위해, 작성했다고 가정하고 넘어갑니다.
+        따라서 별도의 조작 없이 다음 버튼만을 눌러주세요
+      </Footer>
     </All>
   );
 }

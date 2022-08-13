@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
 import Arrow from '../images/StationArrow';
 import { ReactComponent as Train } from '../images/FooterTrainBtn.svg';
 import { ReactComponent as Ticket } from '../images/FooterTicketBtn.svg';
@@ -126,6 +127,12 @@ function StationSelect() {
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>
+      <Footer>
+        해당 화면에서 특정 열차의 정보만 보기 위해, 파란색 네모 칸을 눌러주세요.
+        {<br />}
+        (미션에 맞는 열차)를 선택하신 뒤 원하는 시간 대의 열차를 선택해주세요.
+        그런 뒤, 좌석 선택을 눌러주세요.
+      </Footer>
     </div>
   );
 }
