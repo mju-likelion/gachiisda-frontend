@@ -1,13 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from './Layouts/Header';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function StartSection() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
+      setData(response.data);
+    });
+  }, []);
   return (
     <div>
       <StartSectionWrapper>
+        <Header />
         <Blanck />
         <FirstBox>
-          <OneWay>편도</OneWay>
+          <OneWayWrap>
+            <OneWay>편도</OneWay>
+          </OneWayWrap>
           <BothWay>왕복</BothWay>
         </FirstBox>
         <DateBox>
@@ -15,81 +28,38 @@ function StartSection() {
           <Total>2022년 n월 nn일 (요일) 시:분</Total>
           <Type>△</Type>
         </DateBox>
-
         <CalendarBox>
           <Calendar>달력에서 날짜 선택</Calendar>
         </CalendarBox>
         <MiddleBox>
           <DayBox>
             <DifferDay>요일</DifferDay>
-            <Date>
-              날짜 <Week>월요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>화요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>수요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>목요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>금요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>토요일</Week>
-            </Date>
-          </DayBox>
-          <DayBox>
-            <DifferDay>요일</DifferDay>
-            <Date>
-              날짜
-              <Week>일요일</Week>
-            </Date>
+            <Date>날짜</Date>
+            <Week>
+              {data && (
+                <div>{JSON.stringify(data.data[0].next[0].nextDate)}</div>
+              )}
+
+              {/* {data.data[0].next[0].nextDate.map((user) => (
+                <div key={user}>{user}</div>
+              ))} */}
+            </Week>
           </DayBox>
         </MiddleBox>
-
-        <SecondMiddleBox>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-          <Number>
-            숫자<Si>시</Si>
-          </Number>
-        </SecondMiddleBox>
+        <HourWrap>
+          <SecondMiddleBox>
+            <Number>숫자</Number>
+            <Si>시</Si>
+          </SecondMiddleBox>
+          <SecondMiddleBox>
+            <Number>숫자</Number>
+            <Si>시</Si>
+          </SecondMiddleBox>
+          <SecondMiddleBox>
+            <Number>숫자</Number>
+            <Si>시</Si>
+          </SecondMiddleBox>
+        </HourWrap>
         <LineTwo />
         <FirstThirdBox>
           <Type>승객 연령 및 좌석수</Type>
@@ -102,7 +72,6 @@ function StartSection() {
           <Total>인접역 표출, SR연계 표출</Total>
           <Type>▽</Type>
         </SecondThirdBox>
-
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
       </StartSectionWrapper>
@@ -156,7 +125,6 @@ const DayBox = styled.div`
 `;
 
 const Date = styled.div`
-  height: 50px;
   display: flex;
   font-size: 13px;
   flex-direction: column;
@@ -179,8 +147,12 @@ const SecondMiddleBox = styled.div`
   display: flex;
   align-items: center;
   background-color: #d9d9d9;
-  justify-content: space-around;
   height: 60px;
+`;
+
+const HourWrap = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 const Number = styled.div`
@@ -253,6 +225,7 @@ const BothWay = styled.div`
   color: #686868;
   font-weight: medium;
   font-size: 25px;
+  width: 50%;
 `;
 
 const Blanck = styled.div`
@@ -266,4 +239,8 @@ const DifferDay = styled.div`
   color: #000000;
 `;
 
+const OneWayWrap = styled.div`
+  border-bottom: 2px solid #064a87;
+  width: 50%;
+`;
 export default StartSection;
