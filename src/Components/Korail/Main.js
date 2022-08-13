@@ -7,55 +7,244 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 function Main() {
-  return (
-    <MainAll>
-      <MainWaySelect>
-        <MainOneWay>편도</MainOneWay>
-        <MainAroundWay>왕복</MainAroundWay>
-      </MainWaySelect>
+  const GoClick = () => {
+    setShowResults(true);
+  };
 
-      <div>
-        <MainGoStationDivStyle>
-          <MainGoStationDiv>
-            <MainGoMentDiv>
-              <MainGoMent>출발</MainGoMent>
-              <MainGoStation>
-                <Link
-                  style={{ textDecoration: 'none', color: '#064a87' }}
-                  to='/StationClick'
-                >
-                  서울
-                </Link>
-              </MainGoStation>
-            </MainGoMentDiv>
+  const ArrivedClick = () => {
+    setShowAriResults(true);
+  };
+  let [seoul, setSeoul] = useState('서울');
+  let [busan, setBusan] = useState('부산');
+  const [showResults, setShowResults] = useState(false);
+  const [showAriResults, setShowAriResults] = useState(false);
 
-            <ArrowDiv>
-              <MainSwitchBtn>
-                <Switch />
-              </MainSwitchBtn>
-              <GoArrow>
-                <Arrow />
-              </GoArrow>
-            </ArrowDiv>
-            <MainArrivedMentDiv>
-              <MainArrivedMent>도착</MainArrivedMent>
-              <MainArrivedStation>
-                <Link
-                  style={{ textDecoration: 'none', color: '#064a87' }}
-                  to='/StationClick'
-                >
-                  부산
-                </Link>
-              </MainArrivedStation>
-            </MainArrivedMentDiv>
-          </MainGoStationDiv>
-          <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
-        </MainGoStationDivStyle>
-      </div>
+  const ArrivedResults = () => (
+    <div id='Arrivedresults'>
+      <StationTitle>주요 역</StationTitle>
+      <StationDetailWrap>
+        <div>
+          <StationDetail
+            onClick={() => setBusan('서울') & setShowAriResults(false)}
+          >
+            서울
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('용산') & setShowAriResults(false)}
+          >
+            용산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('광명') & setShowAriResults(false)}
+          >
+            광명
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('영등포') & setShowAriResults(false)}
+          >
+            영등포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('수원') & setShowAriResults(false)}
+          >
+            수원
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('평택') & setShowAriResults(false)}
+          >
+            평택
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('천안') & setShowAriResults(false)}
+          >
+            천안
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('대전') & setShowAriResults(false)}
+          >
+            대전
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('김천구미') & setShowAriResults(false)}
+          >
+            김천구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('구미') & setShowAriResults(false)}
+          >
+            구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('부산') & setShowAriResults(false)}
+          >
+            부산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('대구') & setShowAriResults(false)}
+          >
+            대구
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('울산') & setShowAriResults(false)}
+          >
+            울산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('포항') & setShowAriResults(false)}
+          >
+            포항
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('강릉') & setShowAriResults(false)}
+          >
+            강릉
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('목포') & setShowAriResults(false)}
+          >
+            목포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('전주') & setShowAriResults(false)}
+          >
+            전주
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('동해') & setShowAriResults(false)}
+          >
+            동해
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('평창') & setShowAriResults(false)}
+          >
+            평창
+          </StationDetail>
+          <StationDetail
+            onClick={() => setBusan('안동') & setShowAriResults(false)}
+          >
+            안동
+          </StationDetail>
+        </div>
+      </StationDetailWrap>
+    </div>
+  );
 
+  const Results = () => (
+    <div id='results'>
+      <StationTitle>주요 역</StationTitle>
+      <StationDetailWrap>
+        <div>
+          <StationDetail
+            onClick={() => setSeoul('서울') & setShowResults(false)}
+          >
+            서울
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('용산') & setShowResults(false)}
+          >
+            용산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('광명') & setShowResults(false)}
+          >
+            광명
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('영등포') & setShowResults(false)}
+          >
+            영등포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('수원') & setShowResults(false)}
+          >
+            수원
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('평택') & setShowResults(false)}
+          >
+            평택
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('천안') & setShowResults(false)}
+          >
+            천안
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('대전') & setShowResults(false)}
+          >
+            대전
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('김천구미') & setShowResults(false)}
+          >
+            김천구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('구미') & setShowResults(false)}
+          >
+            구미
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('부산') & setShowResults(false)}
+          >
+            부산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('대구') & setShowResults(false)}
+          >
+            대구
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('울산') & setShowResults(false)}
+          >
+            울산
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('포항') & setShowResults(false)}
+          >
+            포항
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('강릉') & setShowResults(false)}
+          >
+            강릉
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('목포') & setShowResults(false)}
+          >
+            목포
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('전주') & setShowResults(false)}
+          >
+            전주
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('동해') & setShowResults(false)}
+          >
+            동해
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('평창') & setShowResults(false)}
+          >
+            평창
+          </StationDetail>
+          <StationDetail
+            onClick={() => setSeoul('안동') & setShowResults(false)}
+          >
+            안동
+          </StationDetail>
+        </div>
+      </StationDetailWrap>
+    </div>
+  );
+
+  const Another = () => (
+    <div id='another'>
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div>
@@ -85,7 +274,6 @@ function Main() {
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
-
       <MainTrainInquire>
         <Link
           style={{ textDecoration: 'none', color: 'black' }}
@@ -108,12 +296,50 @@ function Main() {
         <Ticket height='30px' />
         <div>승차권확인</div>
       </MainTicketbtn>
+    </div>
+  );
+
+  return (
+    <MainAll>
+      <div>
+        <MainOneWay>편도</MainOneWay>
+        <MainAroundWay>왕복</MainAroundWay>
+      </div>
+
+      <div>
+        <MainGoStationDivStyle>
+          <MainGoStationDiv>
+            <MainGoMentDiv>
+              <MainGoMent>출발</MainGoMent>
+              <MainGoStation onClick={GoClick}>{seoul}</MainGoStation>
+            </MainGoMentDiv>
+
+            <ArrowDiv>
+              <MainSwitchBtn>
+                <Switch />
+              </MainSwitchBtn>
+              <GoArrow>
+                <Arrow />
+              </GoArrow>
+            </ArrowDiv>
+            <MainArrivedMentDiv>
+              <MainArrivedMent>도착</MainArrivedMent>
+              <MainArrivedStation onClick={ArrivedClick}>
+                {busan}
+              </MainArrivedStation>
+            </MainArrivedMentDiv>
+          </MainGoStationDiv>
+          <MainSelectKTX>KTX역 선택 지도</MainSelectKTX>
+        </MainGoStationDivStyle>
+      </div>
+
       <Header />
+      {showResults || showAriResults ? null : <Another />}
+      {showResults ? <Results /> : null}
+      {showAriResults ? <ArrivedResults /> : null}
     </MainAll>
   );
 }
-
-const MainWaySelect = styled.div``;
 
 const MainAroundWay = styled.div`
   background-color: white;
@@ -175,6 +401,7 @@ const MainGoStation = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 10px;
+  border: none;
 `;
 
 const MainArrivedMent = styled.div`
@@ -293,4 +520,24 @@ const MainAll = styled.div`
   margin-top: 64px;
 `;
 
+const StationTitle = styled.div`
+  color: #064a87;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 9px 290px 9px 20px;
+`;
+
+const StationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+`;
+
+const StationDetailWrap = styled.div`
+  width: 375px;
+`;
 export default Main;
