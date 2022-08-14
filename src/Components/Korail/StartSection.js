@@ -72,7 +72,7 @@ function StartSection() {
             {/* <Si>시</Si> */}
           </SecondMiddleBox>
         </HourWrap>
-        <LineTwo />
+        {/* <LineTwo />
         <FirstThirdBox>
           <Type>승객 연령 및 좌석수</Type>
           <Total>어른 1명</Total>
@@ -84,8 +84,8 @@ function StartSection() {
           <Total>인접역 표출, SR연계 표출</Total>
           <Type>▽</Type>
         </SecondThirdBox>
-        <Line />
-        <Inquiry>열차 조회하기</Inquiry>
+        <Line /> */}
+        {/* <Inquiry>열차 조회하기</Inquiry> */}
         {/* <Footer /> */}
       </StartSectionWrapper>
     </div>
@@ -204,42 +204,42 @@ const Total = styled.div`
   font-weight: 600;
 `;
 
-const Inquiry = styled.div`
-  background-color: #c6dfee;
-  font-weight: bold;
-  font-size: 25px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #064a87;
-`;
+// const Inquiry = styled.div`
+//   background-color: #c6dfee;
+//   font-weight: bold;
+//   font-size: 25px;
+//   height: 50px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   color: #064a87;
+// `;
 
-const LineTwo = styled.div`
-  background-color: #ededed;
-  height: 10px;
-`;
+// const LineTwo = styled.div`
+//   background-color: #ededed;
+//   height: 10px;
+// `;
 
-const Line = styled.div`
-  height: 1.5px;
-  background-color: gray;
-`;
+// const Line = styled.div`
+//   height: 1.5px;
+//   background-color: gray;
+// `;
 
-const FirstThirdBox = styled.div`
-  height: 98px;
-  background-color: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
+// const FirstThirdBox = styled.div`
+//   height: 98px;
+//   background-color: #f5f5f5;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+// `;
 
-const SecondThirdBox = styled.div`
-  background-color: #f5f5f5;
-  height: 98px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
+// const SecondThirdBox = styled.div`
+//   background-color: #f5f5f5;
+//   height: 98px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+// `;
 
 // const OneWay = styled.div`
 //   color: #064a87;
