@@ -43,7 +43,6 @@ function Main() {
       setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
-      // console.log(response.data.data);
     });
   }, []);
 
@@ -104,7 +103,7 @@ function Main() {
     <div>
       <PeopleStartSectionWrapper>
         <SeatBox>
-          <PeopleTotal onClick={() => setShowPeople(false)}>
+          <div onClick={() => setShowPeople(false)}>
             <Age>승객 연령 및 좌석수</Age>
             <TotalBox>
               {audltCount > 0 && `어른 ${audltCount}명 `}
@@ -115,7 +114,7 @@ function Main() {
               {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
             </TotalBox>
             <Age> △ </Age>
-          </PeopleTotal>
+          </div>
         </SeatBox>
         <AtLeast>최소 1명 - 최대 9명</AtLeast>
 
@@ -623,8 +622,7 @@ const MainArrivedStation = styled.div`
 const MainSwitchBtn = styled.div`
   border: 0.5px solid #3f9cf1;
   border-radius: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
   margin-top: 5px;
   display: flex;
   justify-content: center;
@@ -873,7 +871,7 @@ const Plus = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
   font-size: 20px;
 `;
 
@@ -884,8 +882,6 @@ const SeatBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
-
-const PeopleTotal = styled.div``;
 
 const TotalBox = styled.div`
   gap: 0 10px;
