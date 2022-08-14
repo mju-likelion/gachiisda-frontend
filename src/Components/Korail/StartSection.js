@@ -216,6 +216,8 @@ const Number = styled.div`
 
 const InTime = styled.div`
   font-size: 20px;
+  white-space: nowrap;
+  padding: 0 5px 0 5px;
 `;
 
 // const Si = styled.span`
