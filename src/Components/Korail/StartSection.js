@@ -6,40 +6,9 @@ import axios from 'axios';
 // import Footer from './Layouts/Footer';
 
 function StartSection() {
-  // const [day, setDay] = useState([]);
+  const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
-  const Days = [
-    '월',
-    '화',
-    '수',
-    '목',
-    '금',
-    '토',
-    '일',
-    '월',
-    '화',
-    '수',
-    '목',
-    '금',
-    '토',
-    '일',
-    '월',
-    '화',
-    '수',
-    '목',
-    '금',
-    '토',
-    '일',
-    '월',
-    '화',
-    '수',
-    '목',
-    '금',
-    '토',
-    '일',
-  ];
-  // const DayList = Days.map((day) => <div key={day.index}>{day}</div>);
 
   const [godate, setGoDate] = useState('');
   // const [goDay, setGoDay] = useState('');
@@ -47,7 +16,7 @@ function StartSection() {
 
   useEffect(() => {
     axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
-      // setDay(response.data.data.next.nextDay);
+      setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
       console.log(response);
@@ -78,7 +47,7 @@ function StartSection() {
         <MiddleBox>
           <DayBox>
             <DifferDay>
-              {Days.map((day) => (
+              {day.map((day) => (
                 <InDay key={day.index}>{day}</InDay>
               ))}
             </DifferDay>
