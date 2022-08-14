@@ -6,17 +6,13 @@ import PaymentPage1 from './Components/Korail/PaymentPage1';
 import PaymentPage2 from './Components/Korail/PaymentPage2';
 import Main from './Components/Korail/Main';
 import SelectLevel from './Components/Korail/SelectLevel';
-import StationClick from './Components/Korail/StationClick';
 import CheckSection from './Components/Korail/CheckSection';
 import ChooseSectionFirst from './Components/Korail/ChooseSection';
 import Completion from './Components/Korail/Completion';
 import List from './Components/Korail/List';
-import PeopleSection from './Components/Korail/PeopleSection';
 import ResultSection from './Components/Korail/ResultSection';
-import StartSection from './Components/Korail/StartSection';
-import StationSelect from './Components/Korail/StationSelect';
 import TicketConfirm from './Components/Korail/TicketConfirm';
-
+import StationSelect from './Components/Korail/StationSelect';
 //초급
 import BGMain from './Components/Korail/Beginner/BGMain';
 import BGPaymentPage1 from './Components/Korail/Beginner/BGPaymentPage1';
@@ -41,17 +37,14 @@ function App() {
         <Route path='/Main' element={<Main />} />
         {/* 고급 */}
         <Route path='/CheckSection' element={<CheckSection />} />
-        <Route path='/StationClick' element={<StationClick />} />
         <Route path='/ChooseSectionFirst' element={<ChooseSectionFirst />} />
         <Route path='/Completion' element={<Completion />} />
         <Route path='/List' element={<List />} />
-        <Route path='/PeopleSection' element={<PeopleSection />} />
         <Route path='/ResultSection' element={<ResultSection />} />
-        <Route path='/StartSection' element={<StartSection />} />
-        <Route path='/StationSelect' element={<StationSelect />} />
         <Route path='/PaymentPage1' element={<PaymentPage1 />} />
         <Route path='/PaymentPage2' element={<PaymentPage2 />} />
         <Route path='/TicketConfirm' element={<TicketConfirm />} />
+        <Route path='/StationSelect' element={<StationSelect />} />
 
         {/* 초급 */}
         <Route path='/BGMain' element={<BGMain />} />
@@ -75,11 +68,3 @@ function App() {
 }
 
 export default App;
-
-// import React from 'react';
-// import AxiosPrac from './Components/Korail/AxiosPrac';
-
-// function App() {
-//   return <AxiosPrac></AxiosPrac>;
-// }
-// export default App;
