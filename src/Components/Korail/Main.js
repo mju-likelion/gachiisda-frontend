@@ -11,7 +11,6 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import StartSection from './StartSection';
-// import StartSection from './StartSection';
 import MainFooter from './Layouts/MainFooter';
 function Main() {
   const GoClick = () => {
@@ -27,6 +26,8 @@ function Main() {
   const [showResults, setShowResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
   const [showDate, setShowDate] = useState(false);
+
+  const StartSections = () => <StartSection />;
 
   const ArrivedResults = () => (
     <div id='Arrivedresults'>
@@ -338,7 +339,7 @@ function Main() {
       {showResults || showAriResults || showDate ? null : <Another />}
       {showResults ? <Results /> : null}
       {showAriResults ? <ArrivedResults /> : null}
-      {showDate ? <StartSection /> : null}
+      {showDate ? <StartSections /> : null}
     </MainAll>
   );
 }
