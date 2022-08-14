@@ -20,7 +20,6 @@ function StartSection() {
       setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
-      console.log(response);
     });
   }, []);
 
