@@ -13,6 +13,7 @@ function StartSection() {
   const [godate, setGoDate] = useState('');
   // const [goDay, setGoDay] = useState('');
   const [goTime, setGoTime] = useState('');
+  // 초기값fasle, 시간 목록을 보여줄지 결정하는 useState
 
   useEffect(() => {
     axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
@@ -26,14 +27,6 @@ function StartSection() {
   return (
     <div>
       <StartSectionWrapper>
-        {/* <Header />
-        <Blanck />
-        <FirstBox>
-          <OneWayWrap>
-            <OneWay>편도</OneWay>
-          </OneWayWrap>
-          <BothWay>왕복</BothWay>
-        </FirstBox> */}
         <DateBox>
           <Type>출발일</Type>
           <Total>
@@ -69,24 +62,8 @@ function StartSection() {
                 </InTime>
               ))}
             </Number>
-            {/* <Si>시</Si> */}
           </SecondMiddleBox>
         </HourWrap>
-        {/* <LineTwo />
-        <FirstThirdBox>
-          <Type>승객 연령 및 좌석수</Type>
-          <Total>어른 1명</Total>
-          <Type>▽</Type>
-        </FirstThirdBox>
-        <Line />
-        <SecondThirdBox>
-          <Type>상세 옵션</Type>
-          <Total>인접역 표출, SR연계 표출</Total>
-          <Type>▽</Type>
-        </SecondThirdBox>
-        <Line /> */}
-        {/* <Inquiry>열차 조회하기</Inquiry> */}
-        {/* <Footer /> */}
       </StartSectionWrapper>
     </div>
   );
@@ -95,13 +72,6 @@ function StartSection() {
 const StartSectionWrapper = styled.div`
   text-align: center;
 `;
-
-// const FirstBox = styled.div`
-//   background-color: white;
-//   justify-content: space-around;
-//   display: flex;
-//   height: 43px;
-// `;
 
 const DateBox = styled.div`
   background-color: #e1e9f6;
@@ -157,13 +127,11 @@ const InDay = styled.div`
 const MiddleBox = styled.div`
   display: flex;
   background-color: #ededed;
-  /* justify-content: space-around; */
   height: 90px;
 `;
 
 const SecondMiddleBox = styled.div`
   display: flex;
-  /* align-items: center; */
   background-color: #d9d9d9;
   height: 60px;
   overflow: scroll;
@@ -180,7 +148,6 @@ const Number = styled.div`
   align-items: center;
   justify-content: center;
   background-color: aliceblue;
-  /* overflow: scroll; */
 `;
 
 const InTime = styled.div`
@@ -188,10 +155,6 @@ const InTime = styled.div`
   white-space: nowrap;
   padding: 0 5px 0 5px;
 `;
-
-// const Si = styled.span`
-//   font-size: 15px;
-// `;
 
 const Type = styled.div`
   font-weight: bold;
@@ -204,61 +167,6 @@ const Total = styled.div`
   font-weight: 600;
 `;
 
-// const Inquiry = styled.div`
-//   background-color: #c6dfee;
-//   font-weight: bold;
-//   font-size: 25px;
-//   height: 50px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: #064a87;
-// `;
-
-// const LineTwo = styled.div`
-//   background-color: #ededed;
-//   height: 10px;
-// `;
-
-// const Line = styled.div`
-//   height: 1.5px;
-//   background-color: gray;
-// `;
-
-// const FirstThirdBox = styled.div`
-//   height: 98px;
-//   background-color: #f5f5f5;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-// `;
-
-// const SecondThirdBox = styled.div`
-//   background-color: #f5f5f5;
-//   height: 98px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-// `;
-
-// const OneWay = styled.div`
-//   color: #064a87;
-//   font-weight: medium;
-//   font-size: 25px;
-// `;
-
-// const BothWay = styled.div`
-//   color: #686868;
-//   font-weight: medium;
-//   font-size: 25px;
-//   width: 50%;
-// `;
-
-// const Blanck = styled.div`
-//   background-color: #b3d5f2;
-//   height: 64px;
-// `;
-
 const DifferDay = styled.div`
   font-size: 8px;
   font-weight: bold;
@@ -266,8 +174,4 @@ const DifferDay = styled.div`
   display: flex;
 `;
 
-// const OneWayWrap = styled.div`
-//   border-bottom: 2px solid #064a87;
-//   width: 50%;
-// `;
 export default StartSection;

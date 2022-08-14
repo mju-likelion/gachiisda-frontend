@@ -7,14 +7,14 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
-import StartSection from './StartSection';
 import MainFooter from './Layouts/MainFooter';
+import axios from 'axios';
 function Main() {
   const GoClick = () => {
-    setShowResults(true);
+    setshowGoResults(true);
   };
 
   const ArrivedClick = () => {
@@ -23,14 +23,76 @@ function Main() {
 
   const [seoul, setSeoul] = useState('서울');
   const [busan, setBusan] = useState('부산');
-  const [showResults, setShowResults] = useState(false);
+  const [showGoResults, setshowGoResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
   const [showDate, setShowDate] = useState(false);
+  const [day, setDay] = useState([]);
+  const [date, setDate] = useState([]);
+  const [time, setTime] = useState([]);
 
-  const StartSections = () => <StartSection />;
+  const [godate, setGoDate] = useState('');
+  // const [goDay, setGoDay] = useState('');
+  const [goTime, setGoTime] = useState('');
+  // 초기값fasle, 시간 목록을 보여줄지 결정하는 useState
+
+  useEffect(() => {
+    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
+      setDay(response.data.data.next.nextDay);
+      setDate(response.data.data.next.nextDate);
+      setTime(response.data.data.timeTable);
+      console.log(response);
+    });
+  }, []);
+
+  const StartSections = () => (
+    <div>
+      <StartSectionWrapper>
+        <DateBox>
+          <Type>출발일</Type>
+          <Total>
+            2022년 8월 {godate}일 {goTime} 00분
+          </Total>
+          <Type>△</Type>
+        </DateBox>
+        <CalendarBox>
+          <Calendar>달력에서 날짜 선택</Calendar>
+        </CalendarBox>
+        <MiddleBox>
+          <DayBox>
+            <DifferDay>
+              {day.map((day) => (
+                <InDay key={day.index}>{day}</InDay>
+              ))}
+            </DifferDay>
+            <Date>
+              {date.map((date) => (
+                <InDate key={date.index} onClick={() => setGoDate(date)}>
+                  {date}
+                </InDate>
+              ))}
+            </Date>
+          </DayBox>
+        </MiddleBox>
+        <HourWrap>
+          <SecondMiddleBox>
+            <Number>
+              {time.map((time) => (
+                <InTime
+                  key={time.index}
+                  onClick={() => setGoTime(time) & setShowDate(false)}
+                >
+                  {time}
+                </InTime>
+              ))}
+            </Number>
+          </SecondMiddleBox>
+        </HourWrap>
+      </StartSectionWrapper>
+    </div>
+  );
 
   const ArrivedResults = () => (
-    <div id='Arrivedresults'>
+    <div>
       <StationTitle>주요 역</StationTitle>
       <StationDetailWrap>
         <div>
@@ -139,108 +201,108 @@ function Main() {
     </div>
   );
 
-  const Results = () => (
-    <div id='results'>
+  const GoResults = () => (
+    <div>
       <StationTitle>주요 역</StationTitle>
       <StationDetailWrap>
         <div>
           <StationDetail
-            onClick={() => setSeoul('서울') & setShowResults(false)}
+            onClick={() => setSeoul('서울') & setshowGoResults(false)}
           >
             서울
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('용산') & setShowResults(false)}
+            onClick={() => setSeoul('용산') & setshowGoResults(false)}
           >
             용산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('광명') & setShowResults(false)}
+            onClick={() => setSeoul('광명') & setshowGoResults(false)}
           >
             광명
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('영등포') & setShowResults(false)}
+            onClick={() => setSeoul('영등포') & setshowGoResults(false)}
           >
             영등포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('수원') & setShowResults(false)}
+            onClick={() => setSeoul('수원') & setshowGoResults(false)}
           >
             수원
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평택') & setShowResults(false)}
+            onClick={() => setSeoul('평택') & setshowGoResults(false)}
           >
             평택
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('천안') & setShowResults(false)}
+            onClick={() => setSeoul('천안') & setshowGoResults(false)}
           >
             천안
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대전') & setShowResults(false)}
+            onClick={() => setSeoul('대전') & setshowGoResults(false)}
           >
             대전
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('김천구미') & setShowResults(false)}
+            onClick={() => setSeoul('김천구미') & setshowGoResults(false)}
           >
             김천구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('구미') & setShowResults(false)}
+            onClick={() => setSeoul('구미') & setshowGoResults(false)}
           >
             구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('부산') & setShowResults(false)}
+            onClick={() => setSeoul('부산') & setshowGoResults(false)}
           >
             부산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대구') & setShowResults(false)}
+            onClick={() => setSeoul('대구') & setshowGoResults(false)}
           >
             대구
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('울산') & setShowResults(false)}
+            onClick={() => setSeoul('울산') & setshowGoResults(false)}
           >
             울산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('포항') & setShowResults(false)}
+            onClick={() => setSeoul('포항') & setshowGoResults(false)}
           >
             포항
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('강릉') & setShowResults(false)}
+            onClick={() => setSeoul('강릉') & setshowGoResults(false)}
           >
             강릉
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('목포') & setShowResults(false)}
+            onClick={() => setSeoul('목포') & setshowGoResults(false)}
           >
             목포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('전주') & setShowResults(false)}
+            onClick={() => setSeoul('전주') & setshowGoResults(false)}
           >
             전주
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('동해') & setShowResults(false)}
+            onClick={() => setSeoul('동해') & setshowGoResults(false)}
           >
             동해
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평창') & setShowResults(false)}
+            onClick={() => setSeoul('평창') & setshowGoResults(false)}
           >
             평창
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('안동') & setShowResults(false)}
+            onClick={() => setSeoul('안동') & setshowGoResults(false)}
           >
             안동
           </StationDetail>
@@ -254,7 +316,7 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 n월 nn일 (요일) 시 : 분
+          2022년 8월 {godate}일 {goTime} 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
@@ -336,8 +398,8 @@ function Main() {
 
       <Header />
       <MainFooter />
-      {showResults || showAriResults || showDate ? null : <Another />}
-      {showResults ? <Results /> : null}
+      {showGoResults || showAriResults || showDate ? null : <Another />}
+      {showGoResults ? <GoResults /> : null}
       {showAriResults ? <ArrivedResults /> : null}
       {showDate ? <StartSections /> : null}
     </MainAll>
@@ -543,4 +605,109 @@ const StationDetail = styled.button`
 const StationDetailWrap = styled.div`
   width: 375px;
 `;
+const StartSectionWrapper = styled.div`
+  text-align: center;
+`;
+
+const DateBox = styled.div`
+  background-color: #e1e9f6;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const CalendarBox = styled.div`
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+`;
+
+const Calendar = styled.div`
+  border-radius: 20px;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+`;
+
+const DayBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: scroll;
+`;
+
+const Date = styled.div`
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+`;
+
+const InDate = styled.div`
+  display: flex;
+  padding: 0 5px 0 5px;
+`;
+
+const InDay = styled.div`
+  display: flex;
+  padding: 0 10px 0 10px;
+`;
+
+const MiddleBox = styled.div`
+  display: flex;
+  background-color: #ededed;
+  height: 90px;
+`;
+
+const SecondMiddleBox = styled.div`
+  display: flex;
+  background-color: #d9d9d9;
+  height: 60px;
+  overflow: scroll;
+`;
+
+const HourWrap = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Number = styled.div`
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+`;
+
+const InTime = styled.div`
+  font-size: 20px;
+  white-space: nowrap;
+  padding: 0 5px 0 5px;
+`;
+
+const Type = styled.div`
+  font-weight: bold;
+  font-size: 15px;
+  color: #3f9cf1;
+`;
+
+const Total = styled.div`
+  font-size: Mixed;
+  font-weight: 600;
+`;
+
+const DifferDay = styled.div`
+  font-size: 8px;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+`;
+
 export default Main;
