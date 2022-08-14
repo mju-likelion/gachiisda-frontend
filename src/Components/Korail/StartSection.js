@@ -3,19 +3,51 @@ import styled from 'styled-components';
 import Header from './Layouts/Header';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+// import Footer from './Layouts/Footer';
 
 function StartSection() {
-  const [day, setDay] = useState([]);
+  // const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
+  const Days = [
+    '월',
+    '화',
+    '수',
+    '목',
+    '금',
+    '토',
+    '일',
+    '월',
+    '화',
+    '수',
+    '목',
+    '금',
+    '토',
+    '일',
+    '월',
+    '화',
+    '수',
+    '목',
+    '금',
+    '토',
+    '일',
+    '월',
+    '화',
+    '수',
+    '목',
+    '금',
+    '토',
+    '일',
+  ];
+  // const DayList = Days.map((day) => <div key={day.index}>{day}</div>);
 
   const [godate, setGoDate] = useState('');
-  const [goDay, setGoDay] = useState('');
+  // const [goDay, setGoDay] = useState('');
   const [goTime, setGoTime] = useState('');
 
   useEffect(() => {
     axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
-      setDay(response.data.data.next.nextDay);
+      // setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
       console.log(response);
@@ -36,7 +68,7 @@ function StartSection() {
         <DateBox>
           <Type>출발일</Type>
           <Total>
-            2022년 8월 {godate}일 ({goDay}) {goTime}시:분
+            2022년 8월 {godate}일 {goTime} 00분
           </Total>
           <Type>△</Type>
         </DateBox>
@@ -46,10 +78,8 @@ function StartSection() {
         <MiddleBox>
           <DayBox>
             <DifferDay>
-              {day.map((day) => (
-                <InDay key={day.index} onClick={() => setGoDay(day)}>
-                  {day}
-                </InDay>
+              {Days.map((day) => (
+                <InDay key={day.index}>{day}</InDay>
               ))}
             </DifferDay>
             <Date>
@@ -59,8 +89,6 @@ function StartSection() {
                 </InDate>
               ))}
             </Date>
-
-            <Week>일</Week>
           </DayBox>
         </MiddleBox>
         <HourWrap>
@@ -89,6 +117,7 @@ function StartSection() {
         </SecondThirdBox>
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
+        {/* <Footer /> */}
       </StartSectionWrapper>
     </div>
   );
@@ -136,37 +165,24 @@ const Calendar = styled.div`
 const DayBox = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  overflow: scroll;
 `;
 
 const Date = styled.div`
   display: flex;
   font-size: 13px;
   font-weight: bold;
-  /* width: 30px; */
-  /* height: 50px; */
-  /* padding: 0 10px 0 10px; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* background-color: blue; */
 `;
 
 const InDate = styled.div`
   display: flex;
-  padding: 0 10px 0 10px;
+  padding: 0 5px 0 5px;
 `;
 
 const InDay = styled.div`
   display: flex;
-  padding-right: 10px;
-  display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* background-color: yellow; */
-`;
-
-const Week = styled.div`
-  font-size: 10px;
-  font-weight: 400;
+  padding: 0 10px 0 10px;
 `;
 
 const MiddleBox = styled.div`
@@ -181,6 +197,7 @@ const SecondMiddleBox = styled.div`
   /* align-items: center; */
   background-color: #d9d9d9;
   height: 60px;
+  overflow: scroll;
 `;
 
 const HourWrap = styled.div`
@@ -189,15 +206,16 @@ const HourWrap = styled.div`
 `;
 
 const Number = styled.div`
-  font-size: 22px;
   font-weight: bold;
-  height: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  /* overflow: scroll; */
 `;
 
 const InTime = styled.div`
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 // const Si = styled.span`

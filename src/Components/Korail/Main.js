@@ -18,8 +18,8 @@ function Main() {
   const ArrivedClick = () => {
     setShowAriResults(true);
   };
-  let [seoul, setSeoul] = useState('서울');
-  let [busan, setBusan] = useState('부산');
+  const [seoul, setSeoul] = useState('서울');
+  const [busan, setBusan] = useState('부산');
   const [showResults, setShowResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
 
