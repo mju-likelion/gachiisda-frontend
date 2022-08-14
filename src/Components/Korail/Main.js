@@ -10,6 +10,9 @@ import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg'
 import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import StartSection from './StartSection';
+// import StartSection from './StartSection';
+import MainFooter from './Layouts/MainFooter';
 function Main() {
   const GoClick = () => {
     setShowResults(true);
@@ -18,10 +21,12 @@ function Main() {
   const ArrivedClick = () => {
     setShowAriResults(true);
   };
-  let [seoul, setSeoul] = useState('서울');
-  let [busan, setBusan] = useState('부산');
+
+  const [seoul, setSeoul] = useState('서울');
+  const [busan, setBusan] = useState('부산');
   const [showResults, setShowResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
+  const [showDate, setShowDate] = useState(false);
 
   const ArrivedResults = () => (
     <div id='Arrivedresults'>
@@ -247,13 +252,8 @@ function Main() {
     <div id='another'>
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
-        <div>
-          <Link
-            style={{ textDecoration: 'none', color: 'black' }}
-            to='/StartSection'
-          >
-            2022년 n월 nn일 (요일) 시 : 분
-          </Link>
+        <div onClick={() => setShowDate(true)}>
+          2022년 n월 nn일 (요일) 시 : 분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
@@ -274,14 +274,14 @@ function Main() {
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
-      <MainTrainInquire>
+      {/* <MainTrainInquire>
         <Link
           style={{ textDecoration: 'none', color: 'black' }}
           to='/StationSelect'
         >
           열차 조회하기
         </Link>
-      </MainTrainInquire>
+      </MainTrainInquire> */}
       <MainTrainbtn>
         <Train height='25px' />
         <div>승차권예매</div>
@@ -334,9 +334,11 @@ function Main() {
       </div>
 
       <Header />
-      {showResults || showAriResults ? null : <Another />}
+      <MainFooter />
+      {showResults || showAriResults || showDate ? null : <Another />}
       {showResults ? <Results /> : null}
       {showAriResults ? <ArrivedResults /> : null}
+      {showDate ? <StartSection /> : null}
     </MainAll>
   );
 }
@@ -449,13 +451,13 @@ const MainInfoArrow = styled.div`
   color: #3f9cf1;
 `;
 
-const MainTrainInquire = styled.div`
-  background-color: #c6dfee;
-  color: #064a87;
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-`;
+// const MainTrainInquire = styled.div`
+//   background-color: #c6dfee;
+//   color: #064a87;
+//   font-size: 25px;
+//   font-weight: bold;
+//   margin-top: 20px;
+// `;
 
 const MainTrainbtn = styled.button`
   background-color: #f9f9f9;

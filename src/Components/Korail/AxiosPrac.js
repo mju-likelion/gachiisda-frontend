@@ -6,26 +6,24 @@ function AxiosPrac() {
 
   useEffect(() => {
     axios
-      .get('http://13.125.225.34:3300/api/korail/stations')
+      .get('http://15.164.225.225:3300/api/korail/stations')
       .then((response) => {
         setData(response.data);
+        console.log(response.data);
       });
   }, []);
   // return (
   //   <div>
-  //     <ul>
-  //       {users.map((user) => (
+  //     {/* <ul>
+  //       {data.data[0].map((user) => (
   //         <li key={user.id}>{user.id}</li>
   //       ))}
-  //     </ul>
+  //     </ul> */}
+  //     {data}
   //   </div>
   // );
 
-  return (
-    <div>
-      {data && <div>{JSON.stringify(data.data[0].station_name, null, 5)}</div>}
-    </div>
-  );
+  return <div>{data && <div>{JSON.stringify(data, null, 5)}</div>}</div>;
 }
 
 export default AxiosPrac;
