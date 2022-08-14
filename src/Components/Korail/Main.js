@@ -8,10 +8,28 @@ import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
-
 import MainFooter from './Layouts/MainFooter';
 import axios from 'axios';
+import Footer from './Layouts/Footer';
+
 function Main() {
+  //show useState
+  const [showGoResults, setshowGoResults] = useState(false);
+  const [showAriResults, setShowAriResults] = useState(false);
+  const [showDate, setShowDate] = useState(false);
+  const [showPeople, setShowPeople] = useState(false);
+
+  //axios부르는 useState
+  const [day, setDay] = useState([]);
+  const [date, setDate] = useState([]);
+  const [time, setTime] = useState([]);
+
+  //main 값 변경
+  const [seoul, setSeoul] = useState('서울');
+  const [busan, setBusan] = useState('부산');
+  const [godate, setGoDate] = useState('');
+  const [goTime, setGoTime] = useState('');
+
   const GoClick = () => {
     setshowGoResults(true);
   };
@@ -20,33 +38,23 @@ function Main() {
     setShowAriResults(true);
   };
 
-  const [seoul, setSeoul] = useState('서울');
-  const [busan, setBusan] = useState('부산');
-  const [showGoResults, setshowGoResults] = useState(false);
-  const [showAriResults, setShowAriResults] = useState(false);
-  const [showDate, setShowDate] = useState(false);
-  const [showPeople, setShowPeople] = useState(false);
-  const [day, setDay] = useState([]);
-  const [date, setDate] = useState([]);
-  const [time, setTime] = useState([]);
-
-  const [godate, setGoDate] = useState('');
-  // const [goDay, setGoDay] = useState('');
-  const [goTime, setGoTime] = useState('');
-
   useEffect(() => {
     axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
       setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
+      // console.log(response.data.data);
     });
   }, []);
+
+  //인원수 클릭 관련 useState
   const [audltCount, setAudltCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
   const [babyCount, setBabyCount] = useState(0);
   const [grandCount, setGrandCount] = useState(0);
   const [severeCount, setSevereCount] = useState(0);
   const [mildCount, setMildCount] = useState(0);
+
   const handleDecrease = (type) => {
     if (type == 'audlt' && audltCount > 0) {
       setAudltCount(audltCount - 1);
@@ -91,6 +99,7 @@ function Main() {
 
   useEffect(() => {}, [audltCount]);
 
+  //승객 연령 및 좌석수 Section
   const PeopleClick = () => (
     <div>
       <PeopleStartSectionWrapper>
@@ -156,13 +165,15 @@ function Main() {
     </div>
   );
 
+  //출발일 Section
   const DateClick = () => (
     <div>
       <StartSectionWrapper>
         <DateBox>
           <Type>출발일</Type>
           <Total>
-            2022년 8월 {godate}일 {goTime} 00분
+            2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일{' '}
+            {goTime} 00분
           </Total>
           <Type>△</Type>
         </DateBox>
@@ -179,7 +190,7 @@ function Main() {
             <Date>
               {date.map((date) => (
                 <InDate key={date.index} onClick={() => setGoDate(date)}>
-                  {date}
+                  {date.substring(3, 5)}
                 </InDate>
               ))}
             </Date>
@@ -203,6 +214,7 @@ function Main() {
     </div>
   );
 
+  //도착역 변경 Section
   const ArrivedResults = () => (
     <div>
       <StationTitle>주요 역</StationTitle>
@@ -313,6 +325,7 @@ function Main() {
     </div>
   );
 
+  //출발역 변경 Section
   const GoResults = () => (
     <div>
       <StationTitle>주요 역</StationTitle>
@@ -423,15 +436,18 @@ function Main() {
     </div>
   );
 
+  //바뀐 main 화면
   const Another = () => (
-    <div id='another'>
+    <div>
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 8월 {godate}일 {goTime} 00분
+          2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일 {goTime}{' '}
+          00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
+
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>
@@ -444,19 +460,13 @@ function Main() {
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
+
       <MainGoDiv>
         <MainInfoMent>상세 옵션</MainInfoMent>
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
-      {/* <MainTrainInquire>
-        <Link
-          style={{ textDecoration: 'none', color: 'black' }}
-          to='/StationSelect'
-        >
-          열차 조회하기
-        </Link>
-      </MainTrainInquire> */}
+
       <MainTrainbtn>
         <Train height='25px' />
         <div>승차권예매</div>
@@ -474,6 +484,7 @@ function Main() {
     </div>
   );
 
+  //리턴값
   return (
     <MainAll>
       <div>
@@ -497,6 +508,7 @@ function Main() {
                 <Arrow />
               </GoArrow>
             </ArrowDiv>
+
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation onClick={ArrivedClick}>
@@ -510,6 +522,8 @@ function Main() {
 
       <Header />
       <MainFooter />
+      <Footer />
+
       {showGoResults || showAriResults || showDate || showPeople ? null : (
         <Another />
       )}
@@ -521,6 +535,7 @@ function Main() {
   );
 }
 
+//스타일 컴포넌트
 const MainAroundWay = styled.div`
   background-color: white;
   color: #064a87;
@@ -546,7 +561,6 @@ const MainGoMentDiv = styled.div`
   display: flex;
   width: 50%;
   height: 40%;
-
   flex-direction: column;
 `;
 
@@ -554,7 +568,8 @@ const ArrowDiv = styled.div`
   display: flex;
   width: 15%;
   height: 40%;
-
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `;
 
@@ -630,14 +645,6 @@ const MainInfoMent = styled.div`
 const MainInfoArrow = styled.div`
   color: #3f9cf1;
 `;
-
-// const MainTrainInquire = styled.div`
-//   background-color: #c6dfee;
-//   color: #064a87;
-//   font-size: 25px;
-//   font-weight: bold;
-//   margin-top: 20px;
-// `;
 
 const MainTrainbtn = styled.button`
   background-color: #f9f9f9;
@@ -723,6 +730,7 @@ const StationDetail = styled.button`
 const StationDetailWrap = styled.div`
   width: 375px;
 `;
+
 const StartSectionWrapper = styled.div`
   text-align: center;
 `;
@@ -766,16 +774,19 @@ const Date = styled.div`
   display: flex;
   font-size: 13px;
   font-weight: bold;
+  padding: 5px 10px 0 10px;
 `;
 
 const InDate = styled.div`
   display: flex;
-  padding: 0 5px 0 5px;
+  font-size: 15px;
+  padding: 5px 10px 0 10.5px;
 `;
 
 const InDay = styled.div`
   display: flex;
-  padding: 0 10px 0 10px;
+  font-size: 12px;
+  padding: 5px 13px 0 12.8px;
 `;
 
 const MiddleBox = styled.div`
@@ -826,10 +837,11 @@ const DifferDay = styled.div`
   font-weight: bold;
   color: #000000;
   display: flex;
+  padding: 5px 10px 0 10px;
 `;
+
 const PeopleStartSectionWrapper = styled.div`
   text-align: center;
-  height: 812px;
 `;
 
 const Age = styled.div`
@@ -897,8 +909,6 @@ const ByCount = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
-
-// const Blanck = styled.div``;
 
 const PeopleMiddleBox = styled.div`
   height: 330px;
