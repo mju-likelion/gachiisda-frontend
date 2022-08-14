@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from './Layouts/Header';
+// import Header from './Layouts/Header';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 // import Footer from './Layouts/Footer';
@@ -26,14 +26,14 @@ function StartSection() {
   return (
     <div>
       <StartSectionWrapper>
-        <Header />
+        {/* <Header />
         <Blanck />
         <FirstBox>
           <OneWayWrap>
             <OneWay>편도</OneWay>
           </OneWayWrap>
           <BothWay>왕복</BothWay>
-        </FirstBox>
+        </FirstBox> */}
         <DateBox>
           <Type>출발일</Type>
           <Total>
@@ -96,12 +96,12 @@ const StartSectionWrapper = styled.div`
   text-align: center;
 `;
 
-const FirstBox = styled.div`
-  background-color: white;
-  justify-content: space-around;
-  display: flex;
-  height: 43px;
-`;
+// const FirstBox = styled.div`
+//   background-color: white;
+//   justify-content: space-around;
+//   display: flex;
+//   height: 43px;
+// `;
 
 const DateBox = styled.div`
   background-color: #e1e9f6;
@@ -241,23 +241,23 @@ const SecondThirdBox = styled.div`
   justify-content: space-evenly;
 `;
 
-const OneWay = styled.div`
-  color: #064a87;
-  font-weight: medium;
-  font-size: 25px;
-`;
+// const OneWay = styled.div`
+//   color: #064a87;
+//   font-weight: medium;
+//   font-size: 25px;
+// `;
 
-const BothWay = styled.div`
-  color: #686868;
-  font-weight: medium;
-  font-size: 25px;
-  width: 50%;
-`;
+// const BothWay = styled.div`
+//   color: #686868;
+//   font-weight: medium;
+//   font-size: 25px;
+//   width: 50%;
+// `;
 
-const Blanck = styled.div`
-  background-color: #b3d5f2;
-  height: 64px;
-`;
+// const Blanck = styled.div`
+//   background-color: #b3d5f2;
+//   height: 64px;
+// `;
 
 const DifferDay = styled.div`
   font-size: 8px;
@@ -266,8 +266,8 @@ const DifferDay = styled.div`
   display: flex;
 `;
 
-const OneWayWrap = styled.div`
-  border-bottom: 2px solid #064a87;
-  width: 50%;
-`;
+// const OneWayWrap = styled.div`
+//   border-bottom: 2px solid #064a87;
+//   width: 50%;
+// `;
 export default StartSection;
