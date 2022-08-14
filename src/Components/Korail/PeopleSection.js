@@ -53,14 +53,9 @@ function PeopleSection() {
   useEffect(() => {}, [audltCount]);
 
   return (
-    <StartSectionWrapper>
-      <FirstBox>
-        <OneWay>편도</OneWay>
-        <BothWay>왕복</BothWay>
-      </FirstBox>
-
+    <PeopleStartSectionWrapper>
       <SeatBox>
-        <Total>
+        <PeopleTotal>
           <Age>승객 연령 및 좌석수</Age>
           <TotalBox>
             {audltCount > 0 && `어른 ${audltCount}명 `}
@@ -71,18 +66,18 @@ function PeopleSection() {
             {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
           </TotalBox>
           <Age> △ </Age>
-        </Total>
+        </PeopleTotal>
       </SeatBox>
       <AtLeast>최소 1명 - 최대 9명</AtLeast>
 
-      <MiddleBox>
+      <PeopleMiddleBox>
         <ByAge>
-          <Type>어른(만 13세 이상)</Type>
-          <Type>어린이(만 6세 ~12세)</Type>
-          <Type>유아(만 6세 미만)</Type>
-          <Type>경로(만 65세 이상)</Type>
-          <Type>중증 장애인</Type>
-          <Type>경증 장애인</Type>
+          <PeopleType>어른(만 13세 이상)</PeopleType>
+          <PeopleType>어린이(만 6세 ~12세)</PeopleType>
+          <PeopleType>유아(만 6세 미만)</PeopleType>
+          <PeopleType>경로(만 65세 이상)</PeopleType>
+          <PeopleType>중증 장애인</PeopleType>
+          <PeopleType>경증 장애인</PeopleType>
         </ByAge>
         <ByCount>
           <Add>
@@ -116,21 +111,12 @@ function PeopleSection() {
             <Plus onClick={() => handleIncrease('mild')}>＋</Plus>
           </Add>
         </ByCount>
-      </MiddleBox>
-
-      <OptionBox>
-        <Age>상세 옵션</Age>
-        <Total>인접역 표출, SR연계 표출</Total>
-        <Age>▽</Age>
-      </OptionBox>
-
-      <Line></Line>
-      <Inquiry>열차 조회하기</Inquiry>
-    </StartSectionWrapper>
+      </PeopleMiddleBox>
+    </PeopleStartSectionWrapper>
   );
 }
 
-const StartSectionWrapper = styled.div`
+const PeopleStartSectionWrapper = styled.div`
   text-align: center;
   height: 812px;
 `;
@@ -139,14 +125,6 @@ const Age = styled.div`
   color: #3f9cf1;
   font-weight: bold;
   font-size: 15px;
-`;
-
-const FirstBox = styled.div`
-  background-color: white;
-  justify-content: center;
-  display: flex;
-  width: 100%;
-  height: 45px;
 `;
 
 const AtLeast = styled.div`
@@ -184,30 +162,7 @@ const SeatBox = styled.div`
   justify-content: space-evenly;
 `;
 
-const OneWay = styled.div`
-  width: 50%;
-  height: 45px;
-  font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #064a87;
-  border-bottom: 2px solid #064a87;
-`;
-
-const BothWay = styled.div`
-  width: 50%;
-  height: 45px;
-  font-weight: 500;
-  font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Total = styled.div``;
+const PeopleTotal = styled.div``;
 
 const TotalBox = styled.div`
   gap: 0 10px;
@@ -234,37 +189,13 @@ const ByCount = styled.div`
 
 // const Blanck = styled.div``;
 
-const MiddleBox = styled.div`
+const PeopleMiddleBox = styled.div`
   height: 330px;
   display: flex;
   background-color: #ededed;
 `;
 
-const OptionBox = styled.div`
-  background-color: #f5f5f5;
-  height: 98px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
-
-const Line = styled.div`
-  height: 1.5px;
-  background-color: gray;
-`;
-
-const Inquiry = styled.div`
-  background-color: #c6dfee;
-  font-weight: bold;
-  font-size: 25px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #064a87;
-`;
-
-const Type = styled.div`
+const PeopleType = styled.div`
   font-weight: Medium;
   font-size: 18px;
   color: #000000;
