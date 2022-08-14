@@ -1,28 +1,84 @@
-import React from 'react';
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 function PeopleSection() {
-  //const [item,setItem] = useState(0)
-  //const increment = () => setItem(item + 1)
-  // const decrement = () => setItem(item - 1)
+  const [audltCount, setAudltCount] = useState(0);
+  const [childCount, setChildCount] = useState(0);
+  const [babyCount, setBabyCount] = useState(0);
+  const [grandCount, setGrandCount] = useState(0);
+  const [severeCount, setSevereCount] = useState(0);
+  const [mildCount, setMildCount] = useState(0);
+  const handleDecrease = (type) => {
+    if (type == 'audlt' && audltCount > 0) {
+      setAudltCount(audltCount - 1);
+    }
+    if (type == 'child' && childCount > 0) {
+      setChildCount(childCount - 1);
+    }
+    if (type == 'baby' && babyCount > 0) {
+      setBabyCount(babyCount - 1);
+    }
+    if (type == 'oldman' && grandCount > 0) {
+      setGrandCount(grandCount - 1);
+    }
+    if (type == 'severe' && severeCount > 0) {
+      setSevereCount(severeCount - 1);
+    }
+    if (type == 'mild' && mildCount > 0) {
+      setMildCount(mildCount - 1);
+    }
+  };
+
+  const handleIncrease = (type) => {
+    if (type == 'audlt' && audltCount < 9) {
+      setAudltCount(audltCount + 1);
+    }
+    if (type == 'child' && childCount < 9) {
+      setChildCount(childCount + 1);
+    }
+    if (type == 'baby' && babyCount < 9) {
+      setBabyCount(babyCount + 1);
+    }
+    if (type == 'oldman' && grandCount < 9) {
+      setGrandCount(grandCount + 1);
+    }
+    if (type == 'severe' && severeCount < 9) {
+      setSevereCount(severeCount + 1);
+    }
+    if (type == 'mild' && mildCount < 9) {
+      setMildCount(mildCount + 1);
+    }
+  };
+
+  useEffect(() => {}, [audltCount]);
+
   return (
     <StartSectionWrapper>
-      <Blanck></Blanck>
       <FirstBox>
         <OneWay>편도</OneWay>
         <BothWay>왕복</BothWay>
       </FirstBox>
 
       <SeatBox>
-        <Age>승객 연령 및 좌석수</Age>
-        <Total>어른 1명</Total>
-        <Age> △ </Age>
+        <Total>
+          <Age>승객 연령 및 좌석수</Age>
+          <TotalBox>
+            {audltCount > 0 && `어른 ${audltCount}명 `}
+            {childCount > 0 && `어린이 ${childCount}명 `}
+            {babyCount > 0 && `유아 ${babyCount}명 `}
+            {grandCount > 0 && `경로 ${grandCount}명 `}
+            {severeCount > 0 && `중증 장애인 ${severeCount}명 `}
+            {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
+          </TotalBox>
+          <Age> △ </Age>
+        </Total>
       </SeatBox>
       <AtLeast>최소 1명 - 최대 9명</AtLeast>
 
       <MiddleBox>
         <ByAge>
-          <Type>어른(만 13세 이상)</Type> <Type>어린이(만 6세 ~12세)</Type>
+          <Type>어른(만 13세 이상)</Type>
+          <Type>어린이(만 6세 ~12세)</Type>
           <Type>유아(만 6세 미만)</Type>
           <Type>경로(만 65세 이상)</Type>
           <Type>중증 장애인</Type>
@@ -30,22 +86,34 @@ function PeopleSection() {
         </ByAge>
         <ByCount>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('audlt')}>－</Minus>
+            {audltCount}
+            <Plus onClick={() => handleIncrease('audlt')}>＋</Plus>
           </Add>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('child')}>－</Minus>
+            {childCount}
+            <Plus onClick={() => handleIncrease('child')}>＋</Plus>
           </Add>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('baby')}>－</Minus>
+            {babyCount}
+            <Plus onClick={() => handleIncrease('baby')}>＋</Plus>
           </Add>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('oldman')}>－</Minus>
+            {grandCount}
+            <Plus onClick={() => handleIncrease('oldman')}>＋</Plus>
           </Add>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('severe')}>－</Minus>
+            {severeCount}
+            <Plus onClick={() => handleIncrease('severe')}>＋</Plus>
           </Add>
           <Add>
-            <Minus>－</Minus>0<Plus>＋</Plus>
+            <Minus onClick={() => handleDecrease('mild')}>－</Minus>
+            {mildCount}
+            <Plus onClick={() => handleIncrease('mild')}>＋</Plus>
           </Add>
         </ByCount>
       </MiddleBox>
@@ -64,7 +132,7 @@ function PeopleSection() {
 
 const StartSectionWrapper = styled.div`
   text-align: center;
-  margin-top: 64px;
+  height: 812px;
 `;
 
 const Age = styled.div`
@@ -138,8 +206,13 @@ const BothWay = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Total = styled.div`
-  //font-weight: 600;
+
+const Total = styled.div``;
+
+const TotalBox = styled.div`
+  gap: 0 10px;
+  width: 315px;
+  margin: 8px auto 3px auto;
 `;
 
 const ByAge = styled.div`
@@ -159,7 +232,7 @@ const ByCount = styled.div`
   justify-content: space-evenly;
 `;
 
-const Blanck = styled.div``;
+// const Blanck = styled.div``;
 
 const MiddleBox = styled.div`
   height: 330px;
