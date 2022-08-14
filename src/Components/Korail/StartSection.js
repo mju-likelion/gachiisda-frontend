@@ -15,7 +15,7 @@ function StartSection() {
   const [goTime, setGoTime] = useState('');
 
   useEffect(() => {
-    axios.get('//15.164.225.225:3300/api/korail/date').then((response) => {
+    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
       setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
