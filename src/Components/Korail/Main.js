@@ -12,6 +12,8 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 function Main() {
+  const pop = () => alert('테스트');
+
   const GoClick = () => {
     setShowResults(true);
   };
@@ -338,7 +340,7 @@ function Main() {
       {showResults || showAriResults ? null : <Another />}
       {showResults ? <Results /> : null}
       {showAriResults ? <ArrivedResults /> : null}
-      <Footer>미션을 수행해주세요 !</Footer>
+      <Footer onClick={pop}>미션을 수행해주세요 !</Footer>
     </MainAll>
   );
 }
