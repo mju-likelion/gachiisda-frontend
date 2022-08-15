@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Footer from '../Layouts/Footer';
 import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as AnotherDiscount } from '../images/AnotherDiscount.svg';
-import PaymentFooter from '../Layouts/PaymentFooter1';
+import PaymentFooter from '../Layouts/BGPaymentFooter1';
 
 function BGPaymentPage1() {
   const handleClick = () => {

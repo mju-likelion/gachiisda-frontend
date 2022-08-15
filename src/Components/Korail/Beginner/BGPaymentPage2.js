@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Footer from '../Layouts/Footer';
 import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
-import PaymentFooter from '../Layouts/PaymentFooter1';
+import PaymentFooter from '../Layouts/BGPaymentFooter2';
 
 function BGPaymentPage2() {
   const handleClick = () => {

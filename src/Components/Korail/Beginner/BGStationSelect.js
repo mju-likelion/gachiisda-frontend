@@ -38,12 +38,12 @@ function StationSelect() {
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
             <BtnMent>
-              <Link to='/ChooseSectionFirst'> 좌석선택</Link>
+              <Link to='/BGChooseSectionFirst'> 좌석선택</Link>
             </BtnMent>
           </DetailBtnWrap>
         </SelectModal>
         <TicketingBtn>
-          <Link to='/PaymentPage1'>예매</Link>
+          <Link to='/BGPaymentPage1'>예매</Link>
         </TicketingBtn>
       </div>
     );

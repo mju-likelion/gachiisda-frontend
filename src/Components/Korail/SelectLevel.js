@@ -10,7 +10,7 @@ function DifficultySelection() {
       </LevelMent>
 
       <LevelBeginner>
-        <Link style={{ textDecoration: 'none', color: '#064a87' }} to='/List'>
+        <Link style={{ textDecoration: 'none', color: '#064a87' }} to='/BGList'>
           <LevelBeginnerBtn>초급</LevelBeginnerBtn>
         </Link>
 
@@ -18,7 +18,7 @@ function DifficultySelection() {
       </LevelBeginner>
 
       <LevelAdvancer>
-        <Link style={{ textDecoration: 'none', color: '#064a87' }} to='/Main'>
+        <Link style={{ textDecoration: 'none', color: '#064a87' }} to='/List'>
           <LevelAdvancerBtn>고급</LevelAdvancerBtn>
           <LevelAdvancerMent>
             도움 없이 혼자서 사용법을 익힙니다

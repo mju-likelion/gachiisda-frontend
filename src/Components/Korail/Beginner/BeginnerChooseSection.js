@@ -99,7 +99,7 @@ function BGChooseSectionFirst() {
           </SelectDiv2>
           <SelectDiv>
             <span>
-              <Link to='/StationSelect'>선택 완료</Link>
+              <Link to='/BGStationSelect'>선택 완료</Link>
             </span>
           </SelectDiv>
         </ListDiv>

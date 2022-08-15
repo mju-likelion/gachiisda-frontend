@@ -23,6 +23,7 @@ import BGPeopleSection from './Components/Korail/Beginner/BeginnerPeopleSection'
 import BGResultSection from './Components/Korail/Beginner/BeginnerResultSection';
 import BGStartSection from './Components/Korail/Beginner/BeginnerStartSection';
 import BGStationSelect from './Components/Korail/Beginner/BGStationSelect';
+import BGList from './Components/Korail/Beginner/BGList';
 //사전
 import DictMain from './Components/Home/Dictionary/DictMain';
 import DictionaryExplan from './Components/Home/Dictionary/DictionaryExplan';
@@ -48,6 +49,7 @@ function App() {
 
         {/* 초급 */}
         <Route path='/BGMain' element={<BGMain />} />
+        <Route path='/BGList' element={<BGList />} />
         <Route path='/BGPaymentPage1' element={<BGPaymentPage1 />} />
         <Route path='/BGPaymentPage2' element={<BGPaymentPage2 />} />
         <Route path='/BGTicketConfirm' element={<BGTicketConfirm />} />
