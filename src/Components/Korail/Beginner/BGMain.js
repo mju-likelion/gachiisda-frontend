@@ -8,7 +8,7 @@ import Arrow from '../images/BlueArrow';
 import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
-import MainFooter from '../Layouts/MainFooter';
+import BGMainFooter from '../Layouts/BGMainFooter';
 import axios from 'axios';
 import Footer from '../Layouts/Footer';
 
@@ -53,7 +53,7 @@ function Main() {
   }, []);
 
   //인원수 클릭 관련 useState
-  const [audltCount, setAudltCount] = useState(0);
+  const [adultCount, setAudltCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
   const [babyCount, setBabyCount] = useState(0);
   const [grandCount, setGrandCount] = useState(0);
@@ -61,8 +61,8 @@ function Main() {
   const [mildCount, setMildCount] = useState(0);
 
   const handleDecrease = (type) => {
-    if (type == 'audlt' && audltCount > 0) {
-      setAudltCount(audltCount - 1);
+    if (type == 'adult' && adultCount > 0) {
+      setAudltCount(adultCount - 1);
     }
     if (type == 'child' && childCount > 0) {
       setChildCount(childCount - 1);
@@ -82,8 +82,8 @@ function Main() {
   };
 
   const handleIncrease = (type) => {
-    if (type == 'audlt' && audltCount < 9) {
-      setAudltCount(audltCount + 1);
+    if (type == 'adult' && adultCount < 9) {
+      setAudltCount(adultCount + 1);
     }
     if (type == 'child' && childCount < 9) {
       setChildCount(childCount + 1);
@@ -102,7 +102,7 @@ function Main() {
     }
   };
 
-  useEffect(() => {}, [audltCount]);
+  useEffect(() => {}, [adultCount]);
 
   //승객 연령 및 좌석수 Section
   const PeopleClick = () => (
@@ -112,7 +112,7 @@ function Main() {
           <div onClick={() => setShowPeople(false)}>
             <Age>승객 연령 및 좌석수</Age>
             <TotalBox>
-              {audltCount > 0 && `어른 ${audltCount}명 `}
+              {adultCount > 0 && `어른 ${adultCount}명 `}
               {childCount > 0 && `어린이 ${childCount}명 `}
               {babyCount > 0 && `유아 ${babyCount}명 `}
               {grandCount > 0 && `경로 ${grandCount}명 `}
@@ -126,7 +126,7 @@ function Main() {
 
         <PeopleMiddleBox>
           <ByAge>
-            <PeopleType>어른(만 13세 이상)</PeopleType>
+            <AdultType>어른(만 13세 이상)</AdultType>
             <PeopleType>어린이(만 6세 ~12세)</PeopleType>
             <PeopleType>유아(만 6세 미만)</PeopleType>
             <PeopleType>경로(만 65세 이상)</PeopleType>
@@ -134,11 +134,11 @@ function Main() {
             <PeopleType>경증 장애인</PeopleType>
           </ByAge>
           <ByCount>
-            <Add>
-              <Minus onClick={() => handleDecrease('audlt')}>－</Minus>
-              {audltCount}
-              <Plus onClick={() => handleIncrease('audlt')}>＋</Plus>
-            </Add>
+            <AdultAdd>
+              <Minus onClick={() => handleDecrease('adult')}>－</Minus>
+              {adultCount}
+              <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
+            </AdultAdd>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
               {childCount}
@@ -456,7 +456,7 @@ function Main() {
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>
-          {audltCount > 0 && `어른 ${audltCount}명 `}
+          {adultCount > 0 && `어른 ${adultCount}명 `}
           {childCount > 0 && `어린이 ${childCount}명 `}
           {babyCount > 0 && `유아 ${babyCount}명 `}
           {grandCount > 0 && `경로 ${grandCount}명 `}
@@ -526,7 +526,7 @@ function Main() {
       </div>
 
       <Header />
-      <MainFooter />
+      <BGMainFooter />
       <Footer />
 
       {showGoResults || showAriResults || showDate || showPeople ? null : (
@@ -604,6 +604,8 @@ const MainGoStation = styled.div`
   padding-top: 10px;
   border: none;
   cursor: pointer;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainArrivedMent = styled.div`
@@ -624,6 +626,8 @@ const MainArrivedStation = styled.div`
   align-items: center;
   padding-top: 10px;
   cursor: pointer;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainSwitchBtn = styled.div`
@@ -657,6 +661,8 @@ const MainTrainbtn = styled.button`
   float: left;
   width: 25%;
   height: 54px;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainNoneActbtn = styled.div`
@@ -798,6 +804,8 @@ const MiddleBox = styled.div`
   display: flex;
   background-color: #ededed;
   height: 90px;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const SecondMiddleBox = styled.div`
@@ -929,6 +937,18 @@ const Add = styled.div`
   display: flex;
   justify-content: flex-end;
   font-size: 20px;
+`;
+
+const AdultType = styled.div`
+  padding-bottom: 3.5px;
+  border-bottom: 5px solid #3f9cf1;
+`;
+
+const AdultAdd = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  border-bottom: 5px solid #3f9cf1;
 `;
 
 export default Main;

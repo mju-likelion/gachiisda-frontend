@@ -5,6 +5,7 @@ import arrow from '../images/Arrow.svg';
 import seat2 from '../images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from '../Layouts/Footer';
+import Header from '../Layouts/Header';
 
 function BGChooseSectionFirst() {
   const [lis, setlis] = useState([
@@ -99,7 +100,7 @@ function BGChooseSectionFirst() {
           </SelectDiv2>
           <SelectDiv>
             <span>
-              <Link to='/StationSelect'>선택 완료</Link>
+              <Link to='/BGStationSelect'>선택 완료</Link>
             </span>
           </SelectDiv>
         </ListDiv>
@@ -191,6 +192,7 @@ function BGChooseSectionFirst() {
       </MainBody>
       {lis.includes(true) == true ? show() : null}
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
+      <Header />
     </All>
   );
 }
@@ -201,6 +203,7 @@ const All = styled.div`
   height: '100%';
   width: '100%';
   background-color: #f5f5f5;
+  margin-top: 64px;
 `;
 
 const Body = styled.div`
@@ -326,6 +329,7 @@ const SelectDiv = styled.div`
   align-items: center;
   font-size: 25px;
   font-weight: bold;
+  border: 5px solid #3f9cf1;
 `;
 
 const SelectDiv2 = styled.div`

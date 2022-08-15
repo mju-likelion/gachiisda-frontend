@@ -4,6 +4,7 @@ import Footer from './Layouts/Footer';
 import { ReactComponent as BlueArrow } from './images/BlueArrow.svg';
 import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
 import PaymentFooter from './Layouts/PaymentFooter1';
+import Header from './Layouts/Header';
 
 function paymentPage1() {
   const handleClick = () => {
@@ -65,6 +66,7 @@ function paymentPage1() {
       </div>
       <PaymentFooter />
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
+      <Header />
     </All>
   );
 }
