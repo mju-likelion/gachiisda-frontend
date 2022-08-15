@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import StationArrow from './images/StationArrow';
@@ -8,6 +8,7 @@ import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
 import Footer from './Layouts/Footer';
+import Axios from '../../axios';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -23,6 +24,16 @@ function StationSelect() {
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
+
+  // 환경변수 테스트
+  useEffect(() => {
+    Axios.get('/api/korail/date').then((response) => {
+      // setDay(response.data.data.next.nextDay);
+      // setDate(response.data.data.next.nextDate);
+      // setTime(response.data.data.timeTable);
+      console.log(response.data.data);
+    });
+  }, []);
 
   const modalPage = () => {
     return (
