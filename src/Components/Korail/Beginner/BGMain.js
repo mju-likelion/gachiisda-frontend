@@ -126,7 +126,7 @@ function Main() {
 
         <PeopleMiddleBox>
           <ByAge>
-            <PeopleType>어른(만 13세 이상)</PeopleType>
+            <AdultType>어른(만 13세 이상)</AdultType>
             <PeopleType>어린이(만 6세 ~12세)</PeopleType>
             <PeopleType>유아(만 6세 미만)</PeopleType>
             <PeopleType>경로(만 65세 이상)</PeopleType>
@@ -134,11 +134,11 @@ function Main() {
             <PeopleType>경증 장애인</PeopleType>
           </ByAge>
           <ByCount>
-            <Add>
+            <AdultAdd>
               <Minus onClick={() => handleDecrease('adult')}>－</Minus>
               {adultCount}
               <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
-            </Add>
+            </AdultAdd>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
               {childCount}
@@ -937,6 +937,18 @@ const Add = styled.div`
   display: flex;
   justify-content: flex-end;
   font-size: 20px;
+`;
+
+const AdultType = styled.div`
+  padding-bottom: 3.5px;
+  border-bottom: 5px solid #3f9cf1;
+`;
+
+const AdultAdd = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  border-bottom: 5px solid #3f9cf1;
 `;
 
 export default Main;

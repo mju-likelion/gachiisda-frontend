@@ -8,6 +8,7 @@ import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
 import Footer from './Layouts/Footer';
+import Header from './Layouts/Header';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
@@ -48,7 +49,7 @@ function StationSelect() {
   };
 
   return (
-    <div>
+    <All>
       <PageHeader>
         <StationName>서울</StationName>
         <div>
@@ -137,10 +138,13 @@ function StationSelect() {
         </TicketBtn>
       </PageFooter>
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
-    </div>
+      <Header />
+    </All>
   );
 }
-
+const All = styled.div`
+  margin-top: 64px;
+`;
 const PageHeader = styled.div`
   background-color: #dcf3f6;
   display: flex;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Footer from '../Layouts/Footer';
 import { ReactComponent as ReturnImg } from '../images/ReturnImg.svg';
 import PaymentFooter from '../Layouts/BGPaymentFooter2';
+import Header from '../Layouts/Header';
 
 function BGPaymentPage2() {
   const handleClick = () => {
@@ -128,6 +129,7 @@ function BGPaymentPage2() {
       </div>
       <PaymentFooter />
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
+      <Header />
     </All>
   );
 }

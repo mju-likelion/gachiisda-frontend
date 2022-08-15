@@ -18,10 +18,10 @@ import BGMain from './Components/Korail/Beginner/BGMain';
 import BGPaymentPage1 from './Components/Korail/Beginner/BGPaymentPage1';
 import BGPaymentPage2 from './Components/Korail/Beginner/BGPaymentPage2';
 import BGTicketConfirm from './Components/Korail/Beginner/BGTicketConfirm';
-import BGChooseSectionFirst from './Components/Korail/Beginner/BeginnerChooseSection';
-import BGPeopleSection from './Components/Korail/Beginner/BeginnerPeopleSection';
-import BGResultSection from './Components/Korail/Beginner/BeginnerResultSection';
-import BGStartSection from './Components/Korail/Beginner/BeginnerStartSection';
+import BGChooseSectionFirst from './Components/Korail/Beginner/BGChooseSection';
+import BGPeopleSection from './Components/Korail/Beginner/BGPeopleSection';
+import BGResultSection from './Components/Korail/Beginner/BGResultSection';
+import BGStartSection from './Components/Korail/Beginner/BGStartSection';
 import BGStationSelect from './Components/Korail/Beginner/BGStationSelect';
 import BGList from './Components/Korail/Beginner/BGList';
 //사전

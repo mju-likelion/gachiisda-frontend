@@ -9,6 +9,7 @@ import { ReactComponent as Train } from '../images/Train.svg';
 import { ReactComponent as Ticket } from '../images/Ticket.svg';
 import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
+import Header from '../Layouts/Header';
 
 function BGTicketConfirm() {
   const handleClick = () => {
@@ -87,6 +88,7 @@ function BGTicketConfirm() {
         </MainTicketbtn>
       </ConfirmFooter>
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
+      <Header />
     </All>
   );
 }
