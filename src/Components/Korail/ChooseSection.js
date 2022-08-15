@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import arrow from '../Home/images/Arrow.svg';
 import seat2 from '../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
+import Footer from './Layouts/Footer';
 
 function ChooseSectionFirst() {
   const [lis, setlis] = useState([
@@ -17,6 +18,10 @@ function ChooseSectionFirst() {
   ]);
 
   const [nsns, setnsns] = useState(0);
+
+  const handleClick = () => {
+    alert('필요한 인원 수만큼 의자를 선택하세요 ');
+  };
 
   const SelectBox = () => {
     return (
@@ -183,6 +188,7 @@ function ChooseSectionFirst() {
         </ImgBody>
       </MainBody>
       {lis.includes(true) == true ? show() : null}
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

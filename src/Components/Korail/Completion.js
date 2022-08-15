@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 import BlackArrow from './images/BlackArrow';
 import TimeImage from './images/TimeImage';
 import Qr from './images/Qr';
@@ -48,6 +49,7 @@ function Completion() {
           </SeatContentsWrap>
         </SeatContents>
       </SeatTable>
+      <Footer>수고하셨습니다 !</Footer>
     </All>
   );
 }

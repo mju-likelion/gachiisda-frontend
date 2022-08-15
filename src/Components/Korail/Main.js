@@ -30,6 +30,10 @@ function Main() {
   const [godate, setGoDate] = useState('');
   const [goTime, setGoTime] = useState('');
 
+  const handleClick = () => {
+    alert('출발역과 도착역을 누르고 시작해보세요 ');
+  };
+
   const GoClick = () => {
     setshowGoResults(true);
   };
@@ -530,6 +534,7 @@ function Main() {
       {showAriResults ? <ArrivedResults /> : null}
       {showDate ? <DateClick /> : null}
       {showPeople ? <PeopleClick /> : null}
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </MainAll>
   );
 }

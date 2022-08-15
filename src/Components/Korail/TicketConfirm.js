@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from './Layouts/Footer';
 import { ReactComponent as Arrow } from './images/Arrow.svg';
 import { ReactComponent as MinAgo } from './images/MinAgo.svg';
 import { ReactComponent as QR } from './images/QrIcon.svg';
@@ -80,6 +81,7 @@ function TicketConfirm() {
           <div>승차권확인</div>
         </MainTicketbtn>
       </ConfirmFooter>
+      <Footer>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

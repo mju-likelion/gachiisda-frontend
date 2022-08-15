@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import arrow from '../images/Arrow.svg';
 import seat2 from '../images/Seat2.svg';
-import seat1 from '../images/Seat1.svg';
+// import seat1 from '../Home/images/Seat1.svg';
+import Footer from '../Layouts/Footer';
 
 function BGChooseSectionFirst() {
   const [lis, setlis] = useState([
@@ -17,6 +18,12 @@ function BGChooseSectionFirst() {
   ]);
 
   const [nsns, setnsns] = useState(0);
+
+  const handleClick = () => {
+    alert(
+      '상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 좌석을 선택해주세요.\n회색으로 칠해져 있는 자리는 이미 예매된 좌석이라 선택 불가합니다.\n좌석을 선택하신 후 선택완료 버튼을 눌러주세요',
+    );
+  };
 
   const SelectBox = () => {
     return (
@@ -43,9 +50,9 @@ function BGChooseSectionFirst() {
 
   useEffect(() => {}, [lis]);
 
-  const returnimg2 = () => {
+  /*   const returnimg2 = () => {
     return <IImg img alt='seat1' src={seat1}></IImg>;
-  };
+   };*/
 
   const returnimg1 = (num) => {
     return (
@@ -91,7 +98,9 @@ function BGChooseSectionFirst() {
             </span>
           </SelectDiv2>
           <SelectDiv>
-            <span>선택 완료</span>
+            <span>
+              <Link to='/StationSelect'>선택 완료</Link>
+            </span>
           </SelectDiv>
         </ListDiv>
       </>
@@ -142,45 +151,46 @@ function BGChooseSectionFirst() {
       <MainBody>
         <ImgBody>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(8)}
             {returnimg1(0)}
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(9)}
             {returnimg1(1)}
           </ImgBody2>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(10)}
             {returnimg1(2)}
           </ImgBody2>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(11)}
             {returnimg1(3)}
           </ImgBody2>
         </ImgBody>
         <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
         <ImgBody>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(12)}
             {returnimg1(4)}
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(13)}
             {returnimg1(5)}
           </ImgBody2>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(14)}
             {returnimg1(6)}
           </ImgBody2>
           <ImgBody2>
-            {returnimg2()}
+            {returnimg1(15)}
             {returnimg1(7)}
           </ImgBody2>
         </ImgBody>
       </MainBody>
       {lis.includes(true) == true ? show() : null}
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

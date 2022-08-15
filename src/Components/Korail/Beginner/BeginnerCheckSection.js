@@ -39,8 +39,6 @@ function BGCheckSection() {
   );
 }
 
-export default BGCheckSection;
-
 const All = styled.div`
   height: '100%';
   width: '100%';
@@ -150,3 +148,5 @@ const Cancel = styled.span`
   color: #064a87;
   font-weight: bold;
 `;
+
+export default BGCheckSection;

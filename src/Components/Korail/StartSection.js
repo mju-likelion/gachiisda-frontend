@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from '../Layouts/Footer';
+import Footer from './Layouts/Footer';
 
-function BGStartSection() {
+function StartSection() {
   return (
     <div>
-      <BGStartSectionWrapper>
+      <StartSectionWrapper>
         <Blanck />
         <FirstBox>
           <OneWay>편도</OneWay>
@@ -22,48 +22,48 @@ function BGStartSection() {
         </CalendarBox>
         <MiddleBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜 <Week>월요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>화요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>수요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>목요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>금요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>토요일</Week>
             </Date>
           </DayBox>
           <DayBox>
-            <DayDay>요일</DayDay>
+            <DifferDay>요일</DifferDay>
             <Date>
               날짜
               <Week>일요일</Week>
@@ -106,17 +106,13 @@ function BGStartSection() {
 
         <Line />
         <Inquiry>열차 조회하기</Inquiry>
-      </BGStartSectionWrapper>
-      <Footer>
-        출발 할 날짜와 시간을 골라주세요. 해당하는 날짜 및 시간이 없을 시,
-        영역에 손가락을 대고 왼쪽으로 밀면 그 다음 날짜와 시간이 나옵니다.
-        날짜와 시간을 선택하신 뒤 승객 연령 및 좌석수 칸을 눌러주세요
-      </Footer>
+      </StartSectionWrapper>
+      <Footer>미션을 수행해주세요 !</Footer>
     </div>
   );
 }
 
-const BGStartSectionWrapper = styled.div`
+const StartSectionWrapper = styled.div`
   text-align: center;
 `;
 
@@ -166,9 +162,6 @@ const Date = styled.div`
   display: flex;
   font-size: 13px;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-  /* background-color: gray; */
   font-weight: bold;
 `;
 
@@ -269,10 +262,10 @@ const Blanck = styled.div`
   height: 64px;
 `;
 
-const DayDay = styled.div`
+const DifferDay = styled.div`
   font-size: 8px;
   font-weight: bold;
   color: #000000;
 `;
 
-export default BGStartSection;
+export default StartSection;
