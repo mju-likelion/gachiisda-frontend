@@ -9,7 +9,8 @@ import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
 import MainFooter from './Layouts/MainFooter';
-import axios from 'axios';
+// import axios from 'axios';
+import Axios from '../../axios';
 import Footer from './Layouts/Footer';
 
 function Main() {
@@ -43,7 +44,7 @@ function Main() {
   };
 
   useEffect(() => {
-    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
+    Axios.get('/api/korail/date').then((response) => {
       setDay(response.data.data.next.nextDay);
       setDate(response.data.data.next.nextDate);
       setTime(response.data.data.timeTable);
