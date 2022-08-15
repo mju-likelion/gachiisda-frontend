@@ -102,7 +102,7 @@ function Main() {
 
   useEffect(() => {}, [audltCount]);
 
-  //승객 연령 및 좌석수 Section
+  //승객 연령 및 좌석수 클릭시 Section
   const PeopleClick = () => (
     <div>
       <PeopleStartSectionWrapper>
@@ -168,17 +168,19 @@ function Main() {
     </div>
   );
 
-  //출발일 Section
+  //출발일 클릭시 Section
   const DateClick = () => (
     <div>
       <StartSectionWrapper>
         <DateBox>
-          <Type>출발일</Type>
-          <Total>
-            2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일{' '}
-            {goTime} 00분
-          </Total>
-          <Type>△</Type>
+          <div onClick={() => setShowDate(false)}>
+            <Type>출발일</Type>
+            <Total>
+              2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일{' '}
+              {goTime} 00분
+            </Total>
+            <Type>△</Type>
+          </div>
         </DateBox>
         <CalendarBox>
           <Calendar>달력에서 날짜 선택</Calendar>
