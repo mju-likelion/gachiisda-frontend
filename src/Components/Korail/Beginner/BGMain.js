@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from './Layouts/Header';
+import Header from '../Layouts/Header';
 import styled from 'styled-components';
-import Switch from './images/MainSwitchBtn';
-import { ReactComponent as Train } from './images/MainTrain.svg';
-import { ReactComponent as Ticket } from './images/MainTicket.svg';
-import Arrow from './images/BlueArrow';
-import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
-import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
+import Switch from '../images/MainSwitchBtn';
+import { ReactComponent as Train } from '../images/MainTrain.svg';
+import { ReactComponent as Ticket } from '../images/MainTicket.svg';
+import Arrow from '../images/BlueArrow';
+import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
+import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
-import MainFooter from './Layouts/MainFooter';
+import MainFooter from '../Layouts/MainFooter';
 import axios from 'axios';
-import Footer from './Layouts/Footer';
+import Footer from '../Layouts/Footer';
 
 function Main() {
   //show useState
