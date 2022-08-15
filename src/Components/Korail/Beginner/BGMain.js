@@ -604,6 +604,8 @@ const MainGoStation = styled.div`
   padding-top: 10px;
   border: none;
   cursor: pointer;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainArrivedMent = styled.div`
@@ -624,6 +626,8 @@ const MainArrivedStation = styled.div`
   align-items: center;
   padding-top: 10px;
   cursor: pointer;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainSwitchBtn = styled.div`
@@ -657,6 +661,8 @@ const MainTrainbtn = styled.button`
   float: left;
   width: 25%;
   height: 54px;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const MainNoneActbtn = styled.div`
@@ -798,6 +804,8 @@ const MiddleBox = styled.div`
   display: flex;
   background-color: #ededed;
   height: 90px;
+  border-bottom: 2px solid #70139c;
+  border: 5px solid #3f9cf1;
 `;
 
 const SecondMiddleBox = styled.div`

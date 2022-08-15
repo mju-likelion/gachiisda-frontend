@@ -326,6 +326,7 @@ const SelectDiv = styled.div`
   align-items: center;
   font-size: 25px;
   font-weight: bold;
+  border: 5px solid #3f9cf1;
 `;
 
 const SelectDiv2 = styled.div`
