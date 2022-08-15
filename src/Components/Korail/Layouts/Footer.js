@@ -7,7 +7,11 @@ const Footer = (props) => {
       <MissionWrap>
         <MissionFooter>{props.children}</MissionFooter>
       </MissionWrap>
-      <MainFooter onClick={props.children}>
+      <MainFooter
+        onClick={() => {
+          props.onClick();
+        }}
+      >
         도움이 필요하면 이 칸을 눌러 주세요
       </MainFooter>
     </All>

@@ -19,6 +19,10 @@ function ChooseSectionFirst() {
 
   const [nsns, setnsns] = useState(0);
 
+  const handleClick = () => {
+    alert('필요한 인원 수만큼 의자를 선택하세요 ');
+  };
+
   const SelectBox = () => {
     return (
       <Selectn>
@@ -184,7 +188,7 @@ function ChooseSectionFirst() {
         </ImgBody>
       </MainBody>
       {lis.includes(true) == true ? show() : null}
-      <Footer>미션을 수행해주세요 !</Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

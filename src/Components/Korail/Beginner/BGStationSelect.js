@@ -1,19 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import Footer from '../Layouts/Footer';
-import Arrow from '../images/StationArrow';
-import { ReactComponent as Train } from '../images/FooterTrainBtn.svg';
-import { ReactComponent as Ticket } from '../images/FooterTicketBtn.svg';
+import StationArrow from '../images/StationArrow';
+import { ReactComponent as FooterTrainBtn } from '../images/FooterTrainBtn.svg';
+import { ReactComponent as FooterTicketBtn } from '../images/FooterTicketBtn.svg';
 import { ReactComponent as NoneTicket } from '../images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from '../images/FooterTicket2.svg';
+import { Link } from 'react-router-dom';
+import Footer from '../Layouts/Footer';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '..'];
+  const selectList = ['직통', '경우'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
+
+  const handleClick = () => {
+    alert(
+      '해당 화면에서 특정 열차의 정보만 보기 위해, 파란색 네모 칸을 눌러주세요.\n(미션에 맞는 열차)를 선택하신 뒤 원하는 시간 대의 열차를 선택해주세요.\n그런 뒤, 좌석 선택을 눌러주세요.',
+    );
+  };
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
@@ -30,10 +37,14 @@ function StationSelect() {
           <DetailBtnWrap>
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
-            <BtnMent>좌석선택</BtnMent>
+            <BtnMent>
+              <Link to='/ChooseSectionFirst'> 좌석선택</Link>
+            </BtnMent>
           </DetailBtnWrap>
         </SelectModal>
-        <TicketingBtn>예매</TicketingBtn>
+        <TicketingBtn>
+          <Link to='/PaymentPage1'>예매</Link>
+        </TicketingBtn>
       </div>
     );
   };
@@ -43,7 +54,7 @@ function StationSelect() {
       <PageHeader>
         <StationName>서울</StationName>
         <div>
-          <Arrow />
+          <StationArrow />
         </div>
         <StationName>부산</StationName>
       </PageHeader>
@@ -113,7 +124,7 @@ function StationSelect() {
       {modal === true ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
-          <Train />
+          <FooterTrainBtn />
           <TrainMent>승차권예매</TrainMent>
         </TrainBtn>
         <NoneBtnWrap>
@@ -123,16 +134,11 @@ function StationSelect() {
           <NoneTicket2 />
         </NoneBtnWrap>
         <TicketBtn>
-          <Ticket />
+          <FooterTicketBtn />
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>
-      <Footer>
-        해당 화면에서 특정 열차의 정보만 보기 위해, 파란색 네모 칸을 눌러주세요.
-        {<br />}
-        (미션에 맞는 열차)를 선택하신 뒤 원하는 시간 대의 열차를 선택해주세요.
-        그런 뒤, 좌석 선택을 눌러주세요.
-      </Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </div>
   );
 }
@@ -203,7 +209,7 @@ const SelectSeatBut = styled.select`
 
 const SelectBut = styled.select`
   width: 64px;
-  border: 1px solid #686868;
+  border: 0.5px solid #686868;
 `;
 
 const ListWrap = styled.div`
@@ -340,7 +346,7 @@ const NoneBtnWrap = styled.div`
 `;
 
 const SelectModal = styled.div`
-  background: #000000b3;
+  background: rgba(0, 0, 0, 0.7);
 `;
 
 const TimeMent = styled.div`

@@ -6,6 +6,9 @@ import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg'
 import PaymentFooter from './Layouts/PaymentFooter1';
 
 function paymentPage1() {
+  const handleClick = () => {
+    alert('정보를 확인한 후 다음을 눌러주세요 ');
+  };
   return (
     <All>
       <PaymentHeader>결제</PaymentHeader>
@@ -61,7 +64,7 @@ function paymentPage1() {
         <AnotherDiscount width='100%' />
       </div>
       <PaymentFooter />
-      <Footer>미션을 수행해주세요 !</Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

@@ -10,6 +10,11 @@ import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 
 function BGMain() {
+  const handleClick = () => {
+    alert(
+      '1. 코레일톡에 접속하신 후, 하단의 선택 항목이 ‘승차권예매’로 되어 있는지 확인합니다. \n2. 파란색 네모 칸영역을 눌러 출발역을 선택해주세요.',
+    );
+  };
   return (
     <MainAll>
       <div>
@@ -80,12 +85,7 @@ function BGMain() {
         <div>승차권확인</div>
       </MainTicketbtn>
       <Header />
-      <Footer>
-        1. 코레일톡에 접속하신 후, 하단의 선택 항목이 ‘승차권예매’로 되어 있는지
-        확인합니다.
-        {<br />}
-        2. 파란색 네모 칸영역을 눌러 출발역을 선택해주세요.
-      </Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </MainAll>
   );
 }

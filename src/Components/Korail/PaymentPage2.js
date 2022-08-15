@@ -5,6 +5,9 @@ import { ReactComponent as ReturnImg } from './images/ReturnImg.svg';
 import PaymentFooter from './Layouts/PaymentFooter2';
 
 function PaymentPage2() {
+  const handleClick = () => {
+    alert('카드에 써있는 정보를 그대로 입력해주세요 ');
+  };
   return (
     <All>
       <PaymentHeader>결제</PaymentHeader>
@@ -122,7 +125,7 @@ function PaymentPage2() {
         </Wrap>
       </div>
       <PaymentFooter />
-      <Footer>미션을 수행해주세요 !</Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }

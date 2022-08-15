@@ -16,6 +16,10 @@ function StationSelect() {
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
 
+  const handleClick = () => {
+    alert('미션에 나타나있는 시간대를 찾아보세요 ');
+  };
+
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
@@ -132,7 +136,7 @@ function StationSelect() {
           <TicketMent>승차권확인</TicketMent>
         </TicketBtn>
       </PageFooter>
-      <Footer>미션을 수행해주세요 !</Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </div>
   );
 }

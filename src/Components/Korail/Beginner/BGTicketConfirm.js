@@ -11,6 +11,11 @@ import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 
 function BGTicketConfirm() {
+  const handleClick = () => {
+    alert(
+      '이 창이 뜨시면 예매 된 것입니다.\n추후 승차권을 보여줘야할 상황이생기시면 코레일톡에 접속하신 후 하단의 ‘승차권확인’을 누르시고\n‘운임영수증’에 있는 그림을 클릭해주시면 됩니다.',
+    );
+  };
   return (
     <All>
       <div>
@@ -81,11 +86,7 @@ function BGTicketConfirm() {
           <div>승차권확인</div>
         </MainTicketbtn>
       </ConfirmFooter>
-      <Footer>
-        이 창이 뜨시면 예매 된 것입니다. 추후 승차권을 보여줘야할 상황이
-        생기시면 코레일톡에 접속하신 후 하단의 ‘승차권확인’을 누르시고
-        ‘운임영수증’에 있는 그림을 클릭해주시면 됩니다.
-      </Footer>
+      <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
     </All>
   );
 }
