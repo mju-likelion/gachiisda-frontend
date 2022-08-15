@@ -7,17 +7,39 @@ import { ReactComponent as FooterTicketBtn } from './images/FooterTicketBtn.svg'
 import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
+// import axios from 'axios';
+// import * as main from './Main.js';
 
 function StationSelect() {
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '..'];
+  const selectList = ['직통', '경유'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
+
+  // const [train, setTrain] = useState([]);
+  // const [start, setStart] = useState([]);
+  // const [arr, setArr] = useState([]);
+  // const [nomal, setNomal] = useState([]);
+  // const [upgrade, setUpgrade] = useState([]);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       'http://3.38.82.208:3300/api/korail/trains?depPlaceId=1&arrPlaceId=:9&depPlandTime=:${}',
+  //     )
+  //     .then((response) => {
+  //       setTrain(response.);
+  //       setStart(response.);
+  //       setArr(response.);
+  //       setNomal(response.);
+  //       setUpgrade(response.);
+  //     });
+  // }, []);
 
   const modalPage = () => {
     return (
@@ -42,6 +64,10 @@ function StationSelect() {
     );
   };
 
+  // const selectTime = () => {
+  //   return main.DateClick();
+  // };
+
   return (
     <div>
       <PageHeader>
@@ -54,7 +80,8 @@ function StationSelect() {
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>2022년 n월 nn일 (요일)</Date>
+          {<Date>2022년 n월 nn일 (요일)</Date>}
+          {/*<Date>{selectTime}</Date>*/}
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>
