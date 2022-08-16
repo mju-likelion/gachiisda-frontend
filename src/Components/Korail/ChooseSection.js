@@ -87,7 +87,6 @@ function ChooseSectionFirst() {
             >
               선택좌석
             </span>
-            <span>▲</span>
             <span
               style={{
                 color: 'white',
@@ -97,9 +96,12 @@ function ChooseSectionFirst() {
             </span>
           </SelectDiv2>
           <SelectDiv>
-            <span>
-              <Link to='/PaymentPage1'>선택 완료</Link>
-            </span>
+            <Link
+              style={{ textDecoration: 'none', color: '#064a87' }}
+              to='/PaymentPage1'
+            >
+              선택 완료
+            </Link>
           </SelectDiv>
         </ListDiv>
       </>
@@ -314,8 +316,11 @@ const IImg = styled.img`
 `;
 
 const ListDiv = styled.div`
-  height: 150px;
+  position: fixed;
+  width: 100%;
+  height: 130px;
   background-color: gray;
+  bottom: 140px;
 `;
 
 const SelectDiv = styled.div`
@@ -330,7 +335,7 @@ const SelectDiv = styled.div`
 `;
 
 const SelectDiv2 = styled.div`
-  height: 90px;
+  height: 70px;
   background-color: #00000040;
   display: flex;
   flex-direction: column;

@@ -481,21 +481,22 @@ function Main() {
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
-
-      <MainTrainbtn>
-        <Train height='25px' />
-        <div>승차권예매</div>
-      </MainTrainbtn>
-      <MainNoneActbtn>
-        <NoneTicket />
-      </MainNoneActbtn>
-      <MainNoneActbtn>
-        <NoneTicket2 />
-      </MainNoneActbtn>
-      <MainTicketbtn>
-        <Ticket height='30px' />
-        <div>승차권확인</div>
-      </MainTicketbtn>
+      <MainBtnWrap>
+        <MainTrainbtn>
+          <Train height='25px' />
+          <div>승차권예매</div>
+        </MainTrainbtn>
+        <MainNoneActbtn>
+          <NoneTicket />
+        </MainNoneActbtn>
+        <MainNoneActbtn>
+          <NoneTicket2 />
+        </MainNoneActbtn>
+        <MainTicketbtn>
+          <Ticket height='30px' />
+          <div>승차권확인</div>
+        </MainTicketbtn>
+      </MainBtnWrap>
     </div>
   );
 
@@ -674,6 +675,10 @@ const MainNoneActbtn = styled.div`
   height: 54px;
   float: left;
   width: 25%;
+`;
+
+const MainBtnWrap = styled.div`
+  padding-top: 32px;
 `;
 
 const MainTicketbtn = styled.button`
@@ -857,6 +862,7 @@ const DifferDay = styled.div`
 
 const PeopleStartSectionWrapper = styled.div`
   text-align: center;
+  padding: 0 0 180px 0;
 `;
 
 const Age = styled.div`
