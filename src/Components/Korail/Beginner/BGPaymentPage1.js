@@ -11,7 +11,7 @@ import {
   startStation,
   arrivalStation,
   startDate,
-} from '../../../Atoms/Stations';
+} from '../../../atoms/Stations';
 
 function BGPaymentPage1() {
   const startStValue = useRecoilValue(startStation);
