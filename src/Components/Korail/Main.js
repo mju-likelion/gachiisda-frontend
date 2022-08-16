@@ -12,11 +12,7 @@ import Footer from './Layouts/Footer';
 import { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Axios from '../../axios';
-import {
-  arrivalStation,
-  startStation,
-  startDate,
-} from './../../Atoms/Stations';
+import { arrivalStation, startStation, startDate } from '../../Atoms/Stations';
 
 function Main() {
   //useRecoilState

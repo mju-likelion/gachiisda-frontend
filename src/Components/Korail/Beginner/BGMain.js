@@ -17,7 +17,7 @@ import {
   startStation,
   arrivalStation,
   startDate,
-} from './../../../Atoms/Stations';
+} from '../../../Atoms/Stations';
 
 function Main() {
   //useRecoilState
