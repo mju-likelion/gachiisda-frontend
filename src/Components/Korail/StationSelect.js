@@ -11,7 +11,7 @@ import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
+import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);

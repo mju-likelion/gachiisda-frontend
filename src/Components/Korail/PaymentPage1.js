@@ -7,7 +7,7 @@ import PaymentFooter from './Layouts/PaymentFooter1';
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
+import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
 
 function paymentPage1() {
   const startStValue = useRecoilValue(startStation);
