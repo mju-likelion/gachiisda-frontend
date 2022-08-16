@@ -5,8 +5,14 @@ import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as AnotherDiscount } from '../images/AnotherDiscount.svg';
 import PaymentFooter from '../Layouts/BGPaymentFooter1';
 import Header from '../Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation } from '../../../Atoms/Stations';
 
 function BGPaymentPage1() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+
   const handleClick = () => {
     alert('승차권 가격을 확인 하신 후,\n아래의 다음 버튼을 눌러주세요');
   };
@@ -24,14 +30,14 @@ function BGPaymentPage1() {
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <Arrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>

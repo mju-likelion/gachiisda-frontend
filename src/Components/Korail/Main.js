@@ -7,13 +7,18 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
-import { useState, useEffect } from 'react';
 import MainFooter from './Layouts/MainFooter';
-// import axios from 'axios';
-import Axios from '../../axios';
 import Footer from './Layouts/Footer';
+import { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import Axios from '../../axios';
+import { arrivalStation, startStation } from './../../Atoms/Stations';
 
 function Main() {
+  //useRecoilState
+  const [startSt, setStartSt] = useRecoilState(startStation);
+  const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
+
   //show useState
   const [showGoResults, setshowGoResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
@@ -26,8 +31,8 @@ function Main() {
   const [time, setTime] = useState([]);
 
   //main 값 변경
-  const [seoul, setSeoul] = useState('서울');
-  const [busan, setBusan] = useState('부산');
+  // const [seoul, setSeoul] = useState('서울');
+  // const [busan, setBusan] = useState('부산');
   const [godate, setGoDate] = useState('');
   const [goTime, setGoTime] = useState('');
 
@@ -227,102 +232,102 @@ function Main() {
       <StationDetailWrap>
         <div>
           <StationDetail
-            onClick={() => setBusan('서울') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('서울') & setShowAriResults(false)}
           >
             서울
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('용산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('용산') & setShowAriResults(false)}
           >
             용산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('광명') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('광명') & setShowAriResults(false)}
           >
             광명
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('영등포') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('영등포') & setShowAriResults(false)}
           >
             영등포
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('수원') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('수원') & setShowAriResults(false)}
           >
             수원
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('평택') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('평택') & setShowAriResults(false)}
           >
             평택
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('천안') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('천안') & setShowAriResults(false)}
           >
             천안
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('대전') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('대전') & setShowAriResults(false)}
           >
             대전
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('김천구미') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('김천구미') & setShowAriResults(false)}
           >
             김천구미
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('구미') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('구미') & setShowAriResults(false)}
           >
             구미
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('부산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('부산') & setShowAriResults(false)}
           >
             부산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('대구') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('대구') & setShowAriResults(false)}
           >
             대구
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('울산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('울산') & setShowAriResults(false)}
           >
             울산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('포항') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('포항') & setShowAriResults(false)}
           >
             포항
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('강릉') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('강릉') & setShowAriResults(false)}
           >
             강릉
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('목포') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('목포') & setShowAriResults(false)}
           >
             목포
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('전주') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('전주') & setShowAriResults(false)}
           >
             전주
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('동해') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('동해') & setShowAriResults(false)}
           >
             동해
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('평창') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('평창') & setShowAriResults(false)}
           >
             평창
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('안동') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('안동') & setShowAriResults(false)}
           >
             안동
           </StationDetail>
@@ -338,102 +343,102 @@ function Main() {
       <StationDetailWrap>
         <div>
           <StationDetail
-            onClick={() => setSeoul('서울') & setshowGoResults(false)}
+            onClick={() => setStartSt('서울') & setshowGoResults(false)}
           >
             서울
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('용산') & setshowGoResults(false)}
+            onClick={() => setStartSt('용산') & setshowGoResults(false)}
           >
             용산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('광명') & setshowGoResults(false)}
+            onClick={() => setStartSt('광명') & setshowGoResults(false)}
           >
             광명
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('영등포') & setshowGoResults(false)}
+            onClick={() => setStartSt('영등포') & setshowGoResults(false)}
           >
             영등포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('수원') & setshowGoResults(false)}
+            onClick={() => setStartSt('수원') & setshowGoResults(false)}
           >
             수원
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평택') & setshowGoResults(false)}
+            onClick={() => setStartSt('평택') & setshowGoResults(false)}
           >
             평택
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('천안') & setshowGoResults(false)}
+            onClick={() => setStartSt('천안') & setshowGoResults(false)}
           >
             천안
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대전') & setshowGoResults(false)}
+            onClick={() => setStartSt('대전') & setshowGoResults(false)}
           >
             대전
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('김천구미') & setshowGoResults(false)}
+            onClick={() => setStartSt('김천구미') & setshowGoResults(false)}
           >
             김천구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('구미') & setshowGoResults(false)}
+            onClick={() => setStartSt('구미') & setshowGoResults(false)}
           >
             구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('부산') & setshowGoResults(false)}
+            onClick={() => setStartSt('부산') & setshowGoResults(false)}
           >
             부산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대구') & setshowGoResults(false)}
+            onClick={() => setStartSt('대구') & setshowGoResults(false)}
           >
             대구
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('울산') & setshowGoResults(false)}
+            onClick={() => setStartSt('울산') & setshowGoResults(false)}
           >
             울산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('포항') & setshowGoResults(false)}
+            onClick={() => setStartSt('포항') & setshowGoResults(false)}
           >
             포항
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('강릉') & setshowGoResults(false)}
+            onClick={() => setStartSt('강릉') & setshowGoResults(false)}
           >
             강릉
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('목포') & setshowGoResults(false)}
+            onClick={() => setStartSt('목포') & setshowGoResults(false)}
           >
             목포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('전주') & setshowGoResults(false)}
+            onClick={() => setStartSt('전주') & setshowGoResults(false)}
           >
             전주
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('동해') & setshowGoResults(false)}
+            onClick={() => setStartSt('동해') & setshowGoResults(false)}
           >
             동해
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평창') & setshowGoResults(false)}
+            onClick={() => setStartSt('평창') & setshowGoResults(false)}
           >
             평창
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('안동') & setshowGoResults(false)}
+            onClick={() => setStartSt('안동') & setshowGoResults(false)}
           >
             안동
           </StationDetail>
@@ -502,7 +507,7 @@ function Main() {
           <MainGoStationDiv>
             <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
-              <MainGoStation onClick={GoClick}>{seoul}</MainGoStation>
+              <MainGoStation onClick={GoClick}>{startSt}</MainGoStation>
             </MainGoMentDiv>
 
             <ArrowDiv>
@@ -517,7 +522,7 @@ function Main() {
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation onClick={ArrivedClick}>
-                {busan}
+                {arrivalSt}
               </MainArrivedStation>
             </MainArrivedMentDiv>
           </MainGoStationDiv>

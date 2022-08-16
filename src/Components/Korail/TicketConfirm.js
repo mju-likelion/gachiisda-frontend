@@ -10,8 +10,12 @@ import { ReactComponent as Ticket } from './images/Ticket.svg';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 import Header from './Layouts/Header';
-
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation } from '../../Atoms/Stations';
 function TicketConfirm() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
   return (
     <All>
       <div>
@@ -23,14 +27,14 @@ function TicketConfirm() {
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <Arrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>

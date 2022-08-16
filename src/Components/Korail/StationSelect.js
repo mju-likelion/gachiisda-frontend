@@ -9,8 +9,14 @@ import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation } from '../../Atoms/Stations';
 
 function StationSelect() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
   const selectList = ['직통', '..'];
@@ -51,11 +57,11 @@ function StationSelect() {
   return (
     <All>
       <PageHeader>
-        <StationName>서울</StationName>
+        <StationName>{startStValue}</StationName>
         <div>
           <StationArrow />
         </div>
-        <StationName>부산</StationName>
+        <StationName>{arrivalStvalue}</StationName>
       </PageHeader>
       <SelectWrap>
         <DayWrap>

@@ -5,8 +5,13 @@ import { ReactComponent as BlueArrow } from './images/BlueArrow.svg';
 import { ReactComponent as AnotherDiscount } from './images/AnotherDiscount.svg';
 import PaymentFooter from './Layouts/PaymentFooter1';
 import Header from './Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation } from '../../Atoms/Stations';
 
 function paymentPage1() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
   const handleClick = () => {
     alert('정보를 확인한 후 다음을 눌러주세요 ');
   };
@@ -24,14 +29,14 @@ function paymentPage1() {
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <BlueArrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>
