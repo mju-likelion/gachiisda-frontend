@@ -86,7 +86,8 @@ function StationSelect() {
           <DayButton>이전날</DayButton>
           <Date>
             {' '}
-            2022년 8월 {startDtValue.date}일 ({startDtValue.day})
+            {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
+            {startDtValue.day})
           </Date>
           <DayButton>다음날</DayButton>
         </DayWrap>

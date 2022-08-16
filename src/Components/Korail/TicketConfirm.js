@@ -27,7 +27,8 @@ function TicketConfirm() {
       </div>
 
       <Day>
-        2022년 n월 {startDtValue.date}일 ({startDtValue.day})
+        {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
+        {startDtValue.day})
       </Day>
       <StationDivWrap>
         <StationDiv>

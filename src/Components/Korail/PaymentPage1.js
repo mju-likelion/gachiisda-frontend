@@ -22,7 +22,8 @@ function paymentPage1() {
       <PaymentHeader>결제</PaymentHeader>
       <DayDiv>
         <Day>
-          2022년 n월 {startDtValue.date}일 ({startDtValue.day})
+          {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
+          {startDtValue.day})
         </Day>
         <TrainWrap>
           <TrainType>열차 종류</TrainType>
