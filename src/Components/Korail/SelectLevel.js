@@ -85,7 +85,7 @@ const LevelAdvancerMent = styled.div`
 const LevelAll = styled.div`
   text-align: center;
   background-color: #eff3fa;
-  padding-bottom: 220px;
+  height: 100vh;
 `;
 
 export default DifficultySelection;

@@ -37,7 +37,7 @@ function StationSelect() {
       <div>
         <SelectModal>
           <TimeWrap>
-            <TimeMent>일반식 5시간 58분 소요</TimeMent>
+            <TimeMent>일반석</TimeMent>
             <CloseBtn onClick={() => setModal(false)}>x</CloseBtn>
           </TimeWrap>
           <DetailBtnWrap>
@@ -79,7 +79,8 @@ function StationSelect() {
         <DayWrap>
           <DayButton>이전날</DayButton>
           <Date>
-            2022년 8월 {startDtValue.date}일 ({startDtValue.day})
+            {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
+            {startDtValue.day})
           </Date>
           <DayButton>다음날</DayButton>
         </DayWrap>
@@ -387,7 +388,7 @@ const CloseBtn = styled.button`
   font-size: 15px;
   color: #ffffff;
   background: transparent;
-  margin-left: 50%;
+  margin-left: 75%;
 `;
 
 const TimeWrap = styled.div`
