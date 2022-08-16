@@ -10,8 +10,19 @@ import { ReactComponent as Ticket } from '../images/Ticket.svg';
 import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 import Header from '../Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+} from '../../../Atoms/Stations';
 
 function BGTicketConfirm() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
+
   const handleClick = () => {
     alert(
       '이 창이 뜨시면 예매 된 것입니다.\n추후 승차권을 보여줘야할 상황이생기시면 코레일톡에 접속하신 후 하단의 ‘승차권확인’을 누르시고\n‘운임영수증’에 있는 그림을 클릭해주시면 됩니다.',
@@ -24,18 +35,21 @@ function BGTicketConfirm() {
         <ConfirmHeader2>정기권패스</ConfirmHeader2>
       </div>
 
-      <Day>2022년 n월 nn일 (요일)</Day>
+      <Day>
+        {' '}
+        2022년 n월 {startDtValue.date}일 ({startDtValue.day})
+      </Day>
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <Arrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>

@@ -89,7 +89,6 @@ function BGChooseSectionFirst() {
             >
               선택좌석
             </span>
-            <span>▲</span>
             <span
               style={{
                 color: 'white',
@@ -99,9 +98,12 @@ function BGChooseSectionFirst() {
             </span>
           </SelectDiv2>
           <SelectDiv>
-            <span>
-              <Link to='/BGStationSelect'>선택 완료</Link>
-            </span>
+            <Link
+              style={{ textDecoration: 'none', color: '#064a87' }}
+              to='/BGStationSelect'
+            >
+              선택 완료
+            </Link>
           </SelectDiv>
         </ListDiv>
       </>
@@ -316,12 +318,15 @@ const IImg = styled.img`
 `;
 
 const ListDiv = styled.div`
-  height: 150px;
+  position: fixed;
+  width: 100%;
+  height: 130px;
   background-color: gray;
+  bottom: 140px;
 `;
 
 const SelectDiv = styled.div`
-  height: 60px;
+  height: 50px;
   background-color: #c6dfee;
   color: #064a87;
   display: flex;
@@ -333,7 +338,7 @@ const SelectDiv = styled.div`
 `;
 
 const SelectDiv2 = styled.div`
-  height: 90px;
+  height: 70px;
   background-color: #00000040;
   display: flex;
   flex-direction: column;

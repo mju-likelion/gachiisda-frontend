@@ -7,13 +7,22 @@ import { ReactComponent as Ticket } from './images/MainTicket.svg';
 import Arrow from './images/BlueArrow';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
-import { useState, useEffect } from 'react';
 import MainFooter from './Layouts/MainFooter';
-// import axios from 'axios';
-import Axios from '../../axios';
 import Footer from './Layouts/Footer';
+import { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import Axios from '../../axios';
+import {
+  arrivalStation,
+  startStation,
+  startDate,
+} from './../../Atoms/Stations';
 
 function Main() {
+  //useRecoilState
+  const [startSt, setStartSt] = useRecoilState(startStation);
+  const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
+
   //show useState
   const [showGoResults, setshowGoResults] = useState(false);
   const [showAriResults, setShowAriResults] = useState(false);
@@ -26,10 +35,11 @@ function Main() {
   const [time, setTime] = useState([]);
 
   //main 값 변경
-  const [seoul, setSeoul] = useState('서울');
-  const [busan, setBusan] = useState('부산');
-  const [godate, setGoDate] = useState('');
+  // const [seoul, setSeoul] = useState('서울');
+  // const [busan, setBusan] = useState('부산');
+  // const [godate, setGoDate] = useState('');
   const [goTime, setGoTime] = useState('');
+  const [startGoDt, setStartGoDt] = useRecoilState(startDate);
 
   const handleClick = () => {
     alert('출발역과 도착역을 누르고 시작해보세요 ');
@@ -52,7 +62,7 @@ function Main() {
   }, []);
 
   //인원수 클릭 관련 useState
-  const [audltCount, setAudltCount] = useState(0);
+  const [adultCount, setAudltCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
   const [babyCount, setBabyCount] = useState(0);
   const [grandCount, setGrandCount] = useState(0);
@@ -60,8 +70,8 @@ function Main() {
   const [mildCount, setMildCount] = useState(0);
 
   const handleDecrease = (type) => {
-    if (type == 'audlt' && audltCount > 0) {
-      setAudltCount(audltCount - 1);
+    if (type == 'adult' && adultCount > 0) {
+      setAudltCount(adultCount - 1);
     }
     if (type == 'child' && childCount > 0) {
       setChildCount(childCount - 1);
@@ -81,8 +91,8 @@ function Main() {
   };
 
   const handleIncrease = (type) => {
-    if (type == 'audlt' && audltCount < 9) {
-      setAudltCount(audltCount + 1);
+    if (type == 'adult' && adultCount < 9) {
+      setAudltCount(adultCount + 1);
     }
     if (type == 'child' && childCount < 9) {
       setChildCount(childCount + 1);
@@ -101,7 +111,7 @@ function Main() {
     }
   };
 
-  useEffect(() => {}, [audltCount]);
+  useEffect(() => {}, [adultCount]);
 
   //승객 연령 및 좌석수 클릭시 Section
   const PeopleClick = () => (
@@ -111,7 +121,7 @@ function Main() {
           <div onClick={() => setShowPeople(false)}>
             <Age>승객 연령 및 좌석수</Age>
             <TotalBox>
-              {audltCount > 0 && `어른 ${audltCount}명 `}
+              {adultCount > 0 && `어른 ${adultCount}명 `}
               {childCount > 0 && `어린이 ${childCount}명 `}
               {babyCount > 0 && `유아 ${babyCount}명 `}
               {grandCount > 0 && `경로 ${grandCount}명 `}
@@ -134,9 +144,9 @@ function Main() {
           </ByAge>
           <ByCount>
             <Add>
-              <Minus onClick={() => handleDecrease('audlt')}>－</Minus>
-              {audltCount}
-              <Plus onClick={() => handleIncrease('audlt')}>＋</Plus>
+              <Minus onClick={() => handleDecrease('adult')}>－</Minus>
+              {adultCount}
+              <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
             </Add>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
@@ -178,7 +188,7 @@ function Main() {
           <div onClick={() => setShowDate(false)}>
             <Type>출발일</Type>
             <Total>
-              2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+              2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
             </Total>
             <Type>△</Type>
           </div>
@@ -195,7 +205,7 @@ function Main() {
             </DifferDay>
             <Date>
               {date.map((date) => (
-                <InDate key={date.date} onClick={() => setGoDate(date)}>
+                <InDate key={date.date} onClick={() => setStartGoDt(date)}>
                   {date.date}
                 </InDate>
               ))}
@@ -227,102 +237,102 @@ function Main() {
       <StationDetailWrap>
         <div>
           <StationDetail
-            onClick={() => setBusan('서울') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('서울') & setShowAriResults(false)}
           >
             서울
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('용산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('용산') & setShowAriResults(false)}
           >
             용산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('광명') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('광명') & setShowAriResults(false)}
           >
             광명
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('영등포') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('영등포') & setShowAriResults(false)}
           >
             영등포
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('수원') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('수원') & setShowAriResults(false)}
           >
             수원
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('평택') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('평택') & setShowAriResults(false)}
           >
             평택
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('천안') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('천안') & setShowAriResults(false)}
           >
             천안
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('대전') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('대전') & setShowAriResults(false)}
           >
             대전
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('김천구미') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('김천구미') & setShowAriResults(false)}
           >
             김천구미
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('구미') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('구미') & setShowAriResults(false)}
           >
             구미
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('부산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('부산') & setShowAriResults(false)}
           >
             부산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('대구') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('대구') & setShowAriResults(false)}
           >
             대구
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('울산') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('울산') & setShowAriResults(false)}
           >
             울산
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('포항') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('포항') & setShowAriResults(false)}
           >
             포항
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('강릉') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('강릉') & setShowAriResults(false)}
           >
             강릉
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('목포') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('목포') & setShowAriResults(false)}
           >
             목포
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('전주') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('전주') & setShowAriResults(false)}
           >
             전주
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('동해') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('동해') & setShowAriResults(false)}
           >
             동해
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('평창') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('평창') & setShowAriResults(false)}
           >
             평창
           </StationDetail>
           <StationDetail
-            onClick={() => setBusan('안동') & setShowAriResults(false)}
+            onClick={() => setArrivalSt('안동') & setShowAriResults(false)}
           >
             안동
           </StationDetail>
@@ -338,102 +348,102 @@ function Main() {
       <StationDetailWrap>
         <div>
           <StationDetail
-            onClick={() => setSeoul('서울') & setshowGoResults(false)}
+            onClick={() => setStartSt('서울') & setshowGoResults(false)}
           >
             서울
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('용산') & setshowGoResults(false)}
+            onClick={() => setStartSt('용산') & setshowGoResults(false)}
           >
             용산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('광명') & setshowGoResults(false)}
+            onClick={() => setStartSt('광명') & setshowGoResults(false)}
           >
             광명
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('영등포') & setshowGoResults(false)}
+            onClick={() => setStartSt('영등포') & setshowGoResults(false)}
           >
             영등포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('수원') & setshowGoResults(false)}
+            onClick={() => setStartSt('수원') & setshowGoResults(false)}
           >
             수원
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평택') & setshowGoResults(false)}
+            onClick={() => setStartSt('평택') & setshowGoResults(false)}
           >
             평택
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('천안') & setshowGoResults(false)}
+            onClick={() => setStartSt('천안') & setshowGoResults(false)}
           >
             천안
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대전') & setshowGoResults(false)}
+            onClick={() => setStartSt('대전') & setshowGoResults(false)}
           >
             대전
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('김천구미') & setshowGoResults(false)}
+            onClick={() => setStartSt('김천구미') & setshowGoResults(false)}
           >
             김천구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('구미') & setshowGoResults(false)}
+            onClick={() => setStartSt('구미') & setshowGoResults(false)}
           >
             구미
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('부산') & setshowGoResults(false)}
+            onClick={() => setStartSt('부산') & setshowGoResults(false)}
           >
             부산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('대구') & setshowGoResults(false)}
+            onClick={() => setStartSt('대구') & setshowGoResults(false)}
           >
             대구
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('울산') & setshowGoResults(false)}
+            onClick={() => setStartSt('울산') & setshowGoResults(false)}
           >
             울산
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('포항') & setshowGoResults(false)}
+            onClick={() => setStartSt('포항') & setshowGoResults(false)}
           >
             포항
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('강릉') & setshowGoResults(false)}
+            onClick={() => setStartSt('강릉') & setshowGoResults(false)}
           >
             강릉
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('목포') & setshowGoResults(false)}
+            onClick={() => setStartSt('목포') & setshowGoResults(false)}
           >
             목포
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('전주') & setshowGoResults(false)}
+            onClick={() => setStartSt('전주') & setshowGoResults(false)}
           >
             전주
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('동해') & setshowGoResults(false)}
+            onClick={() => setStartSt('동해') & setshowGoResults(false)}
           >
             동해
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('평창') & setshowGoResults(false)}
+            onClick={() => setStartSt('평창') & setshowGoResults(false)}
           >
             평창
           </StationDetail>
           <StationDetail
-            onClick={() => setSeoul('안동') & setshowGoResults(false)}
+            onClick={() => setStartSt('안동') & setshowGoResults(false)}
           >
             안동
           </StationDetail>
@@ -448,7 +458,7 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+          2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
@@ -456,7 +466,7 @@ function Main() {
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>
-          {audltCount > 0 && `어른 ${audltCount}명 `}
+          {adultCount > 0 && `어른 ${adultCount}명 `}
           {childCount > 0 && `어린이 ${childCount}명 `}
           {babyCount > 0 && `유아 ${babyCount}명 `}
           {grandCount > 0 && `경로 ${grandCount}명 `}
@@ -471,21 +481,22 @@ function Main() {
         <div>인접역 표출, SR 연계 표출</div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
-
-      <MainTrainbtn>
-        <Train height='25px' />
-        <div>승차권예매</div>
-      </MainTrainbtn>
-      <MainNoneActbtn>
-        <NoneTicket />
-      </MainNoneActbtn>
-      <MainNoneActbtn>
-        <NoneTicket2 />
-      </MainNoneActbtn>
-      <MainTicketbtn>
-        <Ticket height='30px' />
-        <div>승차권확인</div>
-      </MainTicketbtn>
+      <MainBtnWrap>
+        <MainTrainbtn>
+          <Train height='25px' />
+          <div>승차권예매</div>
+        </MainTrainbtn>
+        <MainNoneActbtn>
+          <NoneTicket />
+        </MainNoneActbtn>
+        <MainNoneActbtn>
+          <NoneTicket2 />
+        </MainNoneActbtn>
+        <MainTicketbtn>
+          <Ticket height='30px' />
+          <div>승차권확인</div>
+        </MainTicketbtn>
+      </MainBtnWrap>
     </div>
   );
 
@@ -502,7 +513,7 @@ function Main() {
           <MainGoStationDiv>
             <MainGoMentDiv>
               <MainGoMent>출발</MainGoMent>
-              <MainGoStation onClick={GoClick}>{seoul}</MainGoStation>
+              <MainGoStation onClick={GoClick}>{startSt}</MainGoStation>
             </MainGoMentDiv>
 
             <ArrowDiv>
@@ -517,7 +528,7 @@ function Main() {
             <MainArrivedMentDiv>
               <MainArrivedMent>도착</MainArrivedMent>
               <MainArrivedStation onClick={ArrivedClick}>
-                {busan}
+                {arrivalSt}
               </MainArrivedStation>
             </MainArrivedMentDiv>
           </MainGoStationDiv>
@@ -664,6 +675,10 @@ const MainNoneActbtn = styled.div`
   height: 54px;
   float: left;
   width: 25%;
+`;
+
+const MainBtnWrap = styled.div`
+  padding-top: 32px;
 `;
 
 const MainTicketbtn = styled.button`
@@ -847,6 +862,7 @@ const DifferDay = styled.div`
 
 const PeopleStartSectionWrapper = styled.div`
   text-align: center;
+  padding: 0 0 180px 0;
 `;
 
 const Age = styled.div`

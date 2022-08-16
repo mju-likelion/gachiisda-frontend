@@ -5,8 +5,19 @@ import { ReactComponent as Arrow } from '../images/Arrow.svg';
 import { ReactComponent as AnotherDiscount } from '../images/AnotherDiscount.svg';
 import PaymentFooter from '../Layouts/BGPaymentFooter1';
 import Header from '../Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+} from '../../../Atoms/Stations';
 
 function BGPaymentPage1() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
+
   const handleClick = () => {
     alert('승차권 가격을 확인 하신 후,\n아래의 다음 버튼을 눌러주세요');
   };
@@ -14,7 +25,10 @@ function BGPaymentPage1() {
     <All>
       <PaymentHeader>결제</PaymentHeader>
       <DayDiv>
-        <Day>2022년 n월 n일 (요일)</Day>
+        <Day>
+          {' '}
+          2022년 n월 {startDtValue.date}일 ({startDtValue.day})
+        </Day>
         <TrainWrap>
           <TrainType>열차 종류</TrainType>
           <TrainNum>열차 번호</TrainNum>
@@ -24,14 +38,14 @@ function BGPaymentPage1() {
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <Arrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>

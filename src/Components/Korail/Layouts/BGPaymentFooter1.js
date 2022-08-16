@@ -12,7 +12,12 @@ function BGPaymentFooter1() {
       <BtnDiv>
         <Cancel>예약취소</Cancel>
         <Next>
-          <Link to='/BGPaymentPage2'>다음</Link>
+          <Link
+            style={{ textDecoration: 'none', color: '#064A87' }}
+            to='/BGPaymentPage2'
+          >
+            다음
+          </Link>{' '}
         </Next>
       </BtnDiv>
     </FooterDiv>

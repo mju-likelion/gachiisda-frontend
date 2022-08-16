@@ -55,7 +55,7 @@ const All = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: 130px;
+  height: 140px;
   background-color: #b3d5f2;
   display: flex;
   flex-direction: column;

@@ -10,8 +10,15 @@ import { ReactComponent as Ticket } from './images/Ticket.svg';
 import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 import Header from './Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
 
 function TicketConfirm() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
+
   return (
     <All>
       <div>
@@ -19,18 +26,20 @@ function TicketConfirm() {
         <ConfirmHeader2>정기권패스</ConfirmHeader2>
       </div>
 
-      <Day>2022년 n월 nn일 (요일)</Day>
+      <Day>
+        2022년 n월 {startDtValue.date}일 ({startDtValue.day})
+      </Day>
       <StationDivWrap>
         <StationDiv>
           <GoWrap>
-            <GoStation>서울</GoStation>
+            <GoStation>{startStValue}</GoStation>
             <GoTime>출발 : 시간</GoTime>
           </GoWrap>
           <ArrowWrap>
             <Arrow />
           </ArrowWrap>
           <ArrivedWrap>
-            <ArrivedStation>부산</ArrivedStation>
+            <ArrivedStation>{arrivalStvalue}</ArrivedStation>
             <ArrivedTime>도착 : 시간</ArrivedTime>
           </ArrivedWrap>
         </StationDiv>

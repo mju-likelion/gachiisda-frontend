@@ -9,8 +9,19 @@ import { ReactComponent as NoneTicket2 } from '../images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
+//useRecoilValue
+import { useRecoilValue } from 'recoil';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+} from '../../../Atoms/Stations';
 
 function StationSelect() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
+
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
   const selectList = ['직통', '경우'];
@@ -38,13 +49,24 @@ function StationSelect() {
           <DetailBtnWrap>
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
-            <BtnMent>
-              <Link to='/BGChooseSectionFirst'> 좌석선택</Link>
-            </BtnMent>
+            <SeatBtnMent>
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to='/ChooseSectionFirst'
+              >
+                {' '}
+                좌석선택
+              </Link>
+            </SeatBtnMent>
           </DetailBtnWrap>
         </SelectModal>
         <TicketingBtn>
-          <Link to='/BGPaymentPage1'>예매</Link>
+          <Link
+            style={{ textDecoration: 'none', color: '#064A87' }}
+            to='/BGPaymentPage1'
+          >
+            예매
+          </Link>
         </TicketingBtn>
       </div>
     );
@@ -53,16 +75,19 @@ function StationSelect() {
   return (
     <All>
       <PageHeader>
-        <StationName>서울</StationName>
+        <StationName>{startStValue}</StationName>
         <div>
           <StationArrow />
         </div>
-        <StationName>부산</StationName>
+        <StationName>{arrivalStvalue}</StationName>
       </PageHeader>
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>2022년 n월 nn일 (요일)</Date>
+          <Date>
+            {' '}
+            2022년 8월 {startDtValue.date}일 ({startDtValue.day})
+          </Date>
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>
@@ -122,7 +147,7 @@ function StationSelect() {
           </EtcWrap>
         </TableContent>
       </ListWrap>
-      {modal === true ? modalPage() : null}
+      {modal ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
           <FooterTrainBtn />
@@ -244,6 +269,8 @@ const TableContent = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  width: 100%;
 `;
 
 const TrainWrap = styled.div`
@@ -381,18 +408,25 @@ const DetailBtnWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-const BtnMent = styled.button`
+const SeatBtnMent = styled.button`
   width: 33%;
-  width: 100%;
   height: 42px;
   background: transparent;
   font-weight: 700;
   font-size: 15px;
   color: #ffffff;
-  border-width: 0px 1px;
-  border-style: solid;
-  border-color: #ffffff;
+  border: none;
+`;
+
+const BtnMent = styled.button`
+  width: 33%;
+  height: 42px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  border: none;
+  border-right: 1px solid #ffffff;
 `;
 
 const TicketingBtn = styled.button`
