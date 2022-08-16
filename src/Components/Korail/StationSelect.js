@@ -43,13 +43,24 @@ function StationSelect() {
           <DetailBtnWrap>
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
-            <BtnMent>
-              <Link to='/ChooseSectionFirst'> 좌석선택</Link>
-            </BtnMent>
+            <SeatBtnMent>
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to='/ChooseSectionFirst'
+              >
+                {' '}
+                좌석선택
+              </Link>
+            </SeatBtnMent>
           </DetailBtnWrap>
         </SelectModal>
         <TicketingBtn>
-          <Link to='/PaymentPage1'>예매</Link>
+          <Link
+            style={{ textDecoration: 'none', color: '#064A87' }}
+            to='/PaymentPage1'
+          >
+            예매
+          </Link>
         </TicketingBtn>
       </div>
     );
@@ -129,7 +140,7 @@ function StationSelect() {
           </EtcWrap>
         </TableContent>
       </ListWrap>
-      {modal === true ? modalPage() : null}
+      {modal ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
           <FooterTrainBtn />
@@ -249,6 +260,8 @@ const TableContent = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  width: 100%;
 `;
 
 const TrainWrap = styled.div`
@@ -387,17 +400,25 @@ const DetailBtnWrap = styled.div`
   justify-content: center;
 `;
 
-const BtnMent = styled.button`
+const SeatBtnMent = styled.button`
   width: 33%;
-  width: 100%;
   height: 42px;
   background: transparent;
   font-weight: 700;
   font-size: 15px;
   color: #ffffff;
-  border-width: 0px 1px;
-  border-style: solid;
-  border-color: #ffffff;
+  border: none;
+`;
+
+const BtnMent = styled.button`
+  width: 33%;
+  height: 42px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  border: none;
+  border-right: 1px solid #ffffff;
 `;
 
 const TicketingBtn = styled.button`

@@ -39,7 +39,6 @@ function Main() {
   // const [busan, setBusan] = useState('부산');
   // const [godate, setGoDate] = useState('');
   const [goTime, setGoTime] = useState('');
-
   const [startGoDt, setStartGoDt] = useRecoilState(startDate);
 
   const handleClick = () => {
