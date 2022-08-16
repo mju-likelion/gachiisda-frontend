@@ -9,7 +9,7 @@ import { ReactComponent as NoneTicket } from '../images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from '../images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
 import BGMainFooter from '../Layouts/BGMainFooter';
-import axios from 'axios';
+import Axios from '../../../axios';
 import Footer from '../Layouts/Footer';
 
 function Main() {
@@ -20,7 +20,6 @@ function Main() {
   const [showPeople, setShowPeople] = useState(false);
 
   //axios부르는 useState
-  const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
 
@@ -45,15 +44,15 @@ function Main() {
   };
 
   useEffect(() => {
-    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
-      setDay(response.data.data.next.nextDay);
-      setDate(response.data.data.next.nextDate);
+    Axios.get('/api/korail/date').then((response) => {
+      // setDay();
+      setDate(response.data.data.dates);
       setTime(response.data.data.timeTable);
     });
   }, []);
 
   //인원수 클릭 관련 useState
-  const [adultCount, setAudltCount] = useState(0);
+  const [audltCount, setAudltCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
   const [babyCount, setBabyCount] = useState(0);
   const [grandCount, setGrandCount] = useState(0);
@@ -61,8 +60,8 @@ function Main() {
   const [mildCount, setMildCount] = useState(0);
 
   const handleDecrease = (type) => {
-    if (type == 'adult' && adultCount > 0) {
-      setAudltCount(adultCount - 1);
+    if (type == 'audlt' && audltCount > 0) {
+      setAudltCount(audltCount - 1);
     }
     if (type == 'child' && childCount > 0) {
       setChildCount(childCount - 1);
@@ -82,8 +81,8 @@ function Main() {
   };
 
   const handleIncrease = (type) => {
-    if (type == 'adult' && adultCount < 9) {
-      setAudltCount(adultCount + 1);
+    if (type == 'audlt' && audltCount < 9) {
+      setAudltCount(audltCount + 1);
     }
     if (type == 'child' && childCount < 9) {
       setChildCount(childCount + 1);
@@ -102,9 +101,9 @@ function Main() {
     }
   };
 
-  useEffect(() => {}, [adultCount]);
+  useEffect(() => {}, [audltCount]);
 
-  //승객 연령 및 좌석수 Section
+  //승객 연령 및 좌석수 클릭시 Section
   const PeopleClick = () => (
     <div>
       <PeopleStartSectionWrapper>
@@ -112,7 +111,7 @@ function Main() {
           <div onClick={() => setShowPeople(false)}>
             <Age>승객 연령 및 좌석수</Age>
             <TotalBox>
-              {adultCount > 0 && `어른 ${adultCount}명 `}
+              {audltCount > 0 && `어른 ${audltCount}명 `}
               {childCount > 0 && `어린이 ${childCount}명 `}
               {babyCount > 0 && `유아 ${babyCount}명 `}
               {grandCount > 0 && `경로 ${grandCount}명 `}
@@ -135,9 +134,9 @@ function Main() {
           </ByAge>
           <ByCount>
             <AdultAdd>
-              <Minus onClick={() => handleDecrease('adult')}>－</Minus>
-              {adultCount}
-              <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
+              <Minus onClick={() => handleDecrease('audlt')}>－</Minus>
+              {audltCount}
+              <Plus onClick={() => handleIncrease('audlt')}>＋</Plus>
             </AdultAdd>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
@@ -170,17 +169,19 @@ function Main() {
     </div>
   );
 
-  //출발일 Section
+  //출발일 클릭시 Section
   const DateClick = () => (
     <div>
       <StartSectionWrapper>
         <DateBox>
-          <Type>출발일</Type>
-          <Total>
-            2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일{' '}
-            {goTime} 00분
-          </Total>
-          <Type>△</Type>
+          <div onClick={() => setShowDate(false)}>
+            {' '}
+            <Type>출발일</Type>
+            <Total>
+              2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+            </Total>
+            <Type>△</Type>
+          </div>
         </DateBox>
         <CalendarBox>
           <Calendar>달력에서 날짜 선택</Calendar>
@@ -188,14 +189,14 @@ function Main() {
         <MiddleBox>
           <DayBox>
             <DifferDay>
-              {day.map((day) => (
-                <InDay key={day.index}>{day}</InDay>
+              {date.map((date) => (
+                <InDay key={date.date}>{date.day}</InDay>
               ))}
             </DifferDay>
             <Date>
               {date.map((date) => (
-                <InDate key={date.index} onClick={() => setGoDate(date)}>
-                  {date.substring(3, 5)}
+                <InDate key={date.date} onClick={() => setGoDate(date)}>
+                  {date.date}
                 </InDate>
               ))}
             </Date>
@@ -209,7 +210,7 @@ function Main() {
                   key={time.index}
                   onClick={() => setGoTime(time) & setShowDate(false)}
                 >
-                  {time}
+                  {time}시
                 </InTime>
               ))}
             </Number>
@@ -447,8 +448,7 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일 {goTime}{' '}
-          00분
+          2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
@@ -456,7 +456,7 @@ function Main() {
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
         <div>
-          {adultCount > 0 && `어른 ${adultCount}명 `}
+          {audltCount > 0 && `어른 ${audltCount}명 `}
           {childCount > 0 && `어린이 ${childCount}명 `}
           {babyCount > 0 && `유아 ${babyCount}명 `}
           {grandCount > 0 && `경로 ${grandCount}명 `}

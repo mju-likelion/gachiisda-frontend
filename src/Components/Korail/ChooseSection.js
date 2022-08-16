@@ -98,7 +98,7 @@ function ChooseSectionFirst() {
           </SelectDiv2>
           <SelectDiv>
             <span>
-              <Link to='/StationSelect'>선택 완료</Link>
+              <Link to='/PaymentPage1'>선택 완료</Link>
             </span>
           </SelectDiv>
         </ListDiv>

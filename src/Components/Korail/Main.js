@@ -9,7 +9,8 @@ import { ReactComponent as NoneTicket } from './images/NoneClickTicketBtn.svg';
 import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg';
 import { useState, useEffect } from 'react';
 import MainFooter from './Layouts/MainFooter';
-import axios from 'axios';
+// import axios from 'axios';
+import Axios from '../../axios';
 import Footer from './Layouts/Footer';
 
 function Main() {
@@ -20,7 +21,7 @@ function Main() {
   const [showPeople, setShowPeople] = useState(false);
 
   //axios부르는 useState
-  const [day, setDay] = useState([]);
+  // const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
 
@@ -43,9 +44,9 @@ function Main() {
   };
 
   useEffect(() => {
-    axios.get('http://15.164.225.225:3300/api/korail/date').then((response) => {
-      setDay(response.data.data.next.nextDay);
-      setDate(response.data.data.next.nextDate);
+    Axios.get('/api/korail/date').then((response) => {
+      // setDay();
+      setDate(response.data.data.dates);
       setTime(response.data.data.timeTable);
     });
   }, []);
@@ -102,7 +103,7 @@ function Main() {
 
   useEffect(() => {}, [audltCount]);
 
-  //승객 연령 및 좌석수 Section
+  //승객 연령 및 좌석수 클릭시 Section
   const PeopleClick = () => (
     <div>
       <PeopleStartSectionWrapper>
@@ -168,17 +169,19 @@ function Main() {
     </div>
   );
 
-  //출발일 Section
+  //출발일 클릭시 Section
   const DateClick = () => (
     <div>
       <StartSectionWrapper>
         <DateBox>
-          <Type>출발일</Type>
-          <Total>
-            2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일{' '}
-            {goTime} 00분
-          </Total>
-          <Type>△</Type>
+          {' '}
+          <div onClick={() => setShowDate(false)}>
+            <Type>출발일</Type>
+            <Total>
+              2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+            </Total>
+            <Type>△</Type>
+          </div>
         </DateBox>
         <CalendarBox>
           <Calendar>달력에서 날짜 선택</Calendar>
@@ -186,14 +189,14 @@ function Main() {
         <MiddleBox>
           <DayBox>
             <DifferDay>
-              {day.map((day) => (
-                <InDay key={day.index}>{day}</InDay>
+              {date.map((date) => (
+                <InDay key={date.date}>{date.day}</InDay>
               ))}
             </DifferDay>
             <Date>
               {date.map((date) => (
-                <InDate key={date.index} onClick={() => setGoDate(date)}>
-                  {date.substring(3, 5)}
+                <InDate key={date.date} onClick={() => setGoDate(date)}>
+                  {date.date}
                 </InDate>
               ))}
             </Date>
@@ -207,7 +210,7 @@ function Main() {
                   key={time.index}
                   onClick={() => setGoTime(time) & setShowDate(false)}
                 >
-                  {time}
+                  {time}시
                 </InTime>
               ))}
             </Number>
@@ -445,8 +448,7 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 {godate.substring(1, 2)}월 {godate.substring(3, 5)}일 {goTime}{' '}
-          00분
+          2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
