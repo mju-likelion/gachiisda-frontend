@@ -19,7 +19,7 @@ import {
   startDate,
 } from '../../../Atoms/Stations';
 
-function Main() {
+function BGMain() {
   //useRecoilState
   const [startSt, setStartSt] = useRecoilState(startStation);
   const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
@@ -57,6 +57,7 @@ function Main() {
       // setDay();
       setDate(response.data.data.dates);
       setTime(response.data.data.timeTable);
+      console.log(response.data.data.dates);
     });
   }, []);
 
@@ -215,14 +216,23 @@ function Main() {
         <HourWrap>
           <SecondMiddleBox>
             <Number>
-              {time.map((time) => (
-                <InTime
-                  key={time.index}
-                  onClick={() => setGoTime(time) & setShowDate(false)}
-                >
-                  {time}시
-                </InTime>
-              ))}
+              {time.map((time) => {
+                return time == 10 ? (
+                  <MissionTime
+                    key={time.index}
+                    onClick={() => setGoTime(time) & setShowDate(false)}
+                  >
+                    {time}시
+                  </MissionTime>
+                ) : (
+                  <InTime
+                    key={time.index}
+                    onClick={() => setGoTime(time) & setShowDate(false)}
+                  >
+                    {time}시
+                  </InTime>
+                );
+              })}
             </Number>
           </SecondMiddleBox>
         </HourWrap>
@@ -286,11 +296,11 @@ function Main() {
           >
             구미
           </StationDetail>
-          <StationDetail
+          <BusanStationDetail
             onClick={() => setArrivalSt('부산') & setShowAriResults(false)}
           >
             부산
-          </StationDetail>
+          </BusanStationDetail>
           <StationDetail
             onClick={() => setArrivalSt('대구') & setShowAriResults(false)}
           >
@@ -367,11 +377,11 @@ function Main() {
           >
             영등포
           </StationDetail>
-          <StationDetail
+          <SuwonStationDetail
             onClick={() => setStartSt('수원') & setshowGoResults(false)}
           >
             수원
-          </StationDetail>
+          </SuwonStationDetail>
           <StationDetail
             onClick={() => setStartSt('평택') & setshowGoResults(false)}
           >
@@ -742,6 +752,29 @@ const StationTitle = styled.div`
   padding: 9px 290px 9px 20px;
 `;
 
+const SuwonStationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  border: 5px solid #3f9cf1;
+  cursor: pointer;
+  border: 5px solid #3f9cf1;
+`;
+
+const BusanStationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  border: 5px solid #3f9cf1;
+  cursor: pointer;
+`;
+
 const StationDetail = styled.button`
   font-weight: 500;
   font-size: 18px;
@@ -840,6 +873,13 @@ const Number = styled.div`
   align-items: center;
   justify-content: center;
   background-color: aliceblue;
+`;
+
+const MissionTime = styled.div`
+  font-size: 20px;
+  white-space: nowrap;
+  padding: 0 5px 0 5px;
+  border: 5px solid #3f9cf1;
 `;
 
 const InTime = styled.div`
@@ -967,4 +1007,4 @@ const AdultAdd = styled.div`
   border-bottom: 5px solid #3f9cf1;
 `;
 
-export default Main;
+export default BGMain;

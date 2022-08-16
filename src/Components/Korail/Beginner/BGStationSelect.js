@@ -52,7 +52,7 @@ function StationSelect() {
             <SeatBtnMent>
               <Link
                 style={{ textDecoration: 'none', color: '#fff' }}
-                to='/ChooseSectionFirst'
+                to='/BGChooseSectionFirst'
               >
                 {' '}
                 좌석선택

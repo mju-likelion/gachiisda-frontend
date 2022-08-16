@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import arrow from '../images/Arrow.svg';
-import seat2 from '../images/Seat2.svg';
+import arrow from '../../Home/images/Arrow.svg';
+import seat2 from '../../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
