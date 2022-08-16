@@ -43,7 +43,7 @@ function StationSelect() {
       <div>
         <SelectModal>
           <TimeWrap>
-            <TimeMent>일반식 5시간 58분 소요</TimeMent>
+            <TimeMent>일반석</TimeMent>
             <CloseBtn onClick={() => setModal(false)}>x</CloseBtn>
           </TimeWrap>
           <DetailBtnWrap>
@@ -397,7 +397,7 @@ const CloseBtn = styled.button`
   font-size: 15px;
   color: #ffffff;
   background: transparent;
-  margin-left: 50%;
+  margin-left: 75%;
 `;
 
 const TimeWrap = styled.div`
