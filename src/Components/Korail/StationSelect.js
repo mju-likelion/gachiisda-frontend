@@ -11,11 +11,12 @@ import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation } from '../../Atoms/Stations';
+import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);
   const arrivalStvalue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
 
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
@@ -66,7 +67,9 @@ function StationSelect() {
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>2022년 n월 nn일 (요일)</Date>
+          <Date>
+            2022년 8월 {startDtValue.date}일 ({startDtValue.day})
+          </Date>
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>

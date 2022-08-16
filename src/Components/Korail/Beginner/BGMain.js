@@ -13,12 +13,17 @@ import { useState, useEffect } from 'react';
 import Axios from '../../../axios';
 //useRecoilState
 import { useRecoilState } from 'recoil';
-import { startStation, arrivalStation } from './../../../Atoms/Stations';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+} from './../../../Atoms/Stations';
 
 function Main() {
   //useRecoilState
   const [startSt, setStartSt] = useRecoilState(startStation);
   const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
+  const [startGoDt, setStartGoDt] = useRecoilState(startDate);
 
   //show useState
   const [showGoResults, setshowGoResults] = useState(false);
@@ -31,7 +36,6 @@ function Main() {
   const [time, setTime] = useState([]);
 
   //main 값 변경
-  const [godate, setGoDate] = useState('');
   const [goTime, setGoTime] = useState('');
 
   const handleClick = () => {
@@ -183,7 +187,7 @@ function Main() {
             {' '}
             <Type>출발일</Type>
             <Total>
-              2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+              2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
             </Total>
             <Type>△</Type>
           </div>
@@ -200,7 +204,7 @@ function Main() {
             </DifferDay>
             <Date>
               {date.map((date) => (
-                <InDate key={date.date} onClick={() => setGoDate(date)}>
+                <InDate key={date.date} onClick={() => setStartGoDt(date)}>
                   {date.date}
                 </InDate>
               ))}
@@ -453,7 +457,7 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 8월 {godate.date}일 ({godate.day}) {goTime}시 00분
+          2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
