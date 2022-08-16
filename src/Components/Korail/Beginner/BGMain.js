@@ -57,7 +57,6 @@ function Main() {
       // setDay();
       setDate(response.data.data.dates);
       setTime(response.data.data.timeTable);
-      console.log(response.data.data.dates);
     });
   }, []);
 

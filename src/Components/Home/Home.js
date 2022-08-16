@@ -76,7 +76,7 @@ const HomeIcon = styled.div`
 const HomeAll = styled.div`
   text-align: center;
   background-color: #eff3fa;
-  padding-bottom: 80px;
+  height: 100vh;
 `;
 
 export default Home;
