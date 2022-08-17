@@ -6,8 +6,17 @@ import { ReactComponent as Seat2 } from '../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
+import Axios from '../../axios';
 
 function ChooseSectionFirst() {
+  const [seatNum, setSeatNum] = useState([]);
+  useEffect(() => {
+    Axios.get('/api/korail/trains/1/1').then((response) => {
+      setSeatNum(response.data.data[0].Seats);
+      // console.log(response.data.data[0].Seats);
+    });
+  }, []);
+
   const [list, setList] = useState([
     false,
     false,
@@ -18,7 +27,7 @@ function ChooseSectionFirst() {
     false,
   ]);
 
-  const [selected, setSelected] = useState(0);
+  // const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
@@ -53,6 +62,9 @@ function ChooseSectionFirst() {
   /*   const returnimg2 = () => {
     return <IImg img alt='seat1' src={seat1}></IImg>;
    };*/
+  const SeatNums = seatNum.map((num) => (
+    <div key={num.id}>{num.seat_name}</div>
+  ));
 
   const returnimg1 = (check) => {
     return (
@@ -61,7 +73,7 @@ function ChooseSectionFirst() {
         height={67}
         onClick={() => {
           Appendlis(check);
-          setSelected(selected + 1);
+          // setSelected(selected + 1);
           {
             list[check] ? setCount(count + 1) : setCount(count - 1);
           }
@@ -72,7 +84,7 @@ function ChooseSectionFirst() {
           backgroundColor: list[check] ? '#064A87a1' : null,
           borderRadius: 20,
         }}
-      ></Seat2>
+      />
     );
   };
 
@@ -150,46 +162,96 @@ function ChooseSectionFirst() {
           <span>역방향</span>
         </SectionBardiv>
       </SectionBar>
+
       <MainBody>
         <ImgBody>
           <ImgBody2>
-            {returnimg1(8)}
-            {returnimg1(0)}
+            <SeatWrap>
+              {returnimg1(0)}
+              {SeatNums[0]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(1)}
+              {SeatNums[1]}
+            </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg1(9)}
-            {returnimg1(1)}
+            <SeatWrap>
+              {returnimg1(4)}
+              {SeatNums[4]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(5)}
+              {SeatNums[5]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(10)}
-            {returnimg1(2)}
+            <SeatWrap>
+              {returnimg1(8)}
+              {SeatNums[8]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(9)}
+              {SeatNums[9]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(11)}
-            {returnimg1(3)}
+            <SeatWrap>
+              {returnimg1(12)}
+              {SeatNums[12]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(13)}
+              {SeatNums[13]}
+            </SeatWrap>
           </ImgBody2>
         </ImgBody>
         <Arrow width={63} height={347}></Arrow>
         <ImgBody>
           <ImgBody2>
-            {returnimg1(12)}
-            {returnimg1(4)}
+            <SeatWrap>
+              {returnimg1(2)}
+              {SeatNums[2]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(3)}
+              {SeatNums[3]}
+            </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg1(13)}
-            {returnimg1(5)}
+            <SeatWrap>
+              {returnimg1(6)}
+              {SeatNums[6]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(7)}
+              {SeatNums[7]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(14)}
-            {returnimg1(6)}
+            <SeatWrap>
+              {returnimg1(10)}
+              {SeatNums[10]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(11)}
+              {SeatNums[11]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(15)}
-            {returnimg1(7)}
+            <SeatWrap>
+              {returnimg1(14)}
+              {SeatNums[14]}
+            </SeatWrap>
+            <SeatWrap>
+              {returnimg1(15)}
+              {SeatNums[15]}
+            </SeatWrap>
           </ImgBody2>
         </ImgBody>
+        {/* <SeatNums /> */}
       </MainBody>
       {list.includes(true) ? show() : null}
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
@@ -288,7 +350,7 @@ const Circlewhite = styled.div`
 `;
 
 const MainBody = styled.div`
-  height: 380px;
+  height: 60vh;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
@@ -299,11 +361,15 @@ const ImgBody = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+const SeatWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const ImgBody2 = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const ListDiv = styled.div`
