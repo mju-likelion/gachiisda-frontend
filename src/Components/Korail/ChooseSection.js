@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import arrow from '../Home/images/Arrow.svg';
-import seat2 from '../Home/images/Seat2.svg';
+import { ReactComponent as Arrow } from '../Home/images/Arrow.svg';
+import { ReactComponent as Seat2 } from '../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 
 function ChooseSectionFirst() {
-  const [lis, setlis] = useState([
+  const [list, setList] = useState([
     false,
     false,
     false,
@@ -18,7 +18,7 @@ function ChooseSectionFirst() {
     false,
   ]);
 
-  const [nsns, setnsns] = useState(0);
+  const [selected, setSelected] = useState(0);
 
   const handleClick = () => {
     alert('필요한 인원 수만큼 의자를 선택하세요 ');
@@ -41,13 +41,13 @@ function ChooseSectionFirst() {
   };
 
   const Appendlis = (num) => {
-    let ls = lis;
+    let ls = list;
     ls[num] = !ls[num];
 
-    setlis(ls);
+    setList(ls);
   };
 
-  useEffect(() => {}, [lis]);
+  useEffect(() => {}, [list]);
 
   /*   const returnimg2 = () => {
     return <IImg img alt='seat1' src={seat1}></IImg>;
@@ -55,23 +55,20 @@ function ChooseSectionFirst() {
 
   const returnimg1 = (num) => {
     return (
-      <img
-        img
-        alt='seat2'
-        src={seat2}
+      <Seat2
         width={67}
         height={67}
         onClick={() => {
           Appendlis(num);
-          setnsns(nsns + 1);
+          setSelected(selected + 1);
         }}
         style={{
           marginleft: 10,
           marginbottom: 10,
-          backgroundColor: lis[num] == true ? '#064A87a1' : null,
+          backgroundColor: list[num] == true ? '#064A87a1' : null,
           borderRadius: 20,
         }}
-      ></img>
+      ></Seat2>
     );
   };
 
@@ -169,7 +166,7 @@ function ChooseSectionFirst() {
             {returnimg1(3)}
           </ImgBody2>
         </ImgBody>
-        <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
+        <Arrow width={63} height={347}></Arrow>
         <ImgBody>
           <ImgBody2>
             {returnimg1(12)}
@@ -190,14 +187,12 @@ function ChooseSectionFirst() {
           </ImgBody2>
         </ImgBody>
       </MainBody>
-      {lis.includes(true) == true ? show() : null}
+      {list.includes(true) ? show() : null}
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
       <Header />
     </All>
   );
 }
-
-export default ChooseSectionFirst;
 
 const All = styled.div`
   height: '100%';
@@ -299,20 +294,12 @@ const ImgBody = styled.div`
   height: 284px;
   display: flex;
   flex-direction: column;
-  // justify-content: space-evenly;
-  // margin-left: 12px;
-  // margin-right: 12px;
 `;
 
 const ImgBody2 = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-`;
-
-const IImg = styled.img`
-  margin-left: 10px;
-  margin-bottom: ${(props) => (props.current ? 10 : null)}px;
 `;
 
 const ListDiv = styled.div`
@@ -347,3 +334,4 @@ const Selectn = styled.select`
   border: 1px solid;
   height: 30px;
 `;
+export default ChooseSectionFirst;
