@@ -142,11 +142,13 @@ function BGMain() {
             <PeopleType>경증 장애인</PeopleType>
           </ByAge>
           <ByCount>
-            <AdultAdd>
+            <Add>
               <Minus onClick={() => handleDecrease('adult')}>－</Minus>
               {adultCount}
-              <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
-            </AdultAdd>
+              <AddPlusWrap>
+                <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
+              </AddPlusWrap>
+            </Add>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
               {childCount}
@@ -933,6 +935,10 @@ const Minus = styled.button`
   font-size: 20px;
 `;
 
+const AddPlusWrap = styled.div`
+  border: 5px solid #3f9cf1;
+`;
+
 const Plus = styled.button`
   background-color: white;
   border: 1px solid black;
@@ -996,13 +1002,6 @@ const Add = styled.div`
 
 const AdultType = styled.div`
   padding-bottom: 3.5px;
-  border-bottom: 5px solid #3f9cf1;
-`;
-
-const AdultAdd = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  font-size: 20px;
   border-bottom: 5px solid #3f9cf1;
 `;
 
