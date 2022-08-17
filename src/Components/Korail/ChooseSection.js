@@ -19,6 +19,7 @@ function ChooseSectionFirst() {
   ]);
 
   const [selected, setSelected] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
     alert('필요한 인원 수만큼 의자를 선택하세요 ');
@@ -28,13 +29,13 @@ function ChooseSectionFirst() {
     return (
       <Selectn>
         <option key='second' value='second'>
-          2호차 (23석)
+          2호차 (16석)
         </option>
         <option key='third' value='third'>
-          3호차 (23석)
+          3호차 (16석)
         </option>
         <option key='fourth' value='fourth'>
-          4호차 (23석)
+          4호차 (16석)
         </option>
       </Selectn>
     );
@@ -53,19 +54,22 @@ function ChooseSectionFirst() {
     return <IImg img alt='seat1' src={seat1}></IImg>;
    };*/
 
-  const returnimg1 = (num) => {
+  const returnimg1 = (check) => {
     return (
       <Seat2
         width={67}
         height={67}
         onClick={() => {
-          Appendlis(num);
+          Appendlis(check);
           setSelected(selected + 1);
+          {
+            list[check] ? setCount(count + 1) : setCount(count - 1);
+          }
         }}
         style={{
           marginleft: 10,
           marginbottom: 10,
-          backgroundColor: list[num] == true ? '#064A87a1' : null,
+          backgroundColor: list[check] ? '#064A87a1' : null,
           borderRadius: 20,
         }}
       ></Seat2>
@@ -89,7 +93,7 @@ function ChooseSectionFirst() {
                 color: 'white',
               }}
             >
-              1명 좌석 선택 / 총 2명 1호차 10
+              {count}명 좌석 선택 / 총 2명 1호차 10
             </span>
           </SelectDiv2>
           <SelectDiv>
@@ -119,7 +123,7 @@ function ChooseSectionFirst() {
             }}
           >
             <TrainNumber>해당열차 열차번호 (일반실)</TrainNumber>
-            <LeftSeat>잔여 23석 / 전체 72석</LeftSeat>
+            <LeftSeat>잔여 16석 / 전체 72석</LeftSeat>
           </div>
           <DayBotton>다음칸</DayBotton>
         </Body2>
