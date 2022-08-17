@@ -11,12 +11,14 @@ import {
   startStation,
   arrivalStation,
   startDate,
+  seatName,
 } from '../../../atoms/Stations';
 
 function BGPaymentPage1() {
   const startStValue = useRecoilValue(startStation);
   const arrivalStvalue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const seatNmValue = useRecoilValue(seatName);
 
   const handleClick = () => {
     alert('승차권 가격을 확인 하신 후,\n아래의 다음 버튼을 눌러주세요');
@@ -55,7 +57,7 @@ function BGPaymentPage1() {
       <TicketInfoDiv>
         <TicketInfoWrap>
           <div>내 승차권 정보</div>
-          <div>(호차/좌석번호)</div>
+          <div>(1호차/{seatNmValue})</div>
         </TicketInfoWrap>
         <DetailWrap>
           <Detail>상세</Detail>
@@ -222,6 +224,7 @@ const TicketInfoWrap = styled.div`
   float: left;
   margin-left: 140px;
   margin-top: 13px;
+  width: 30%;
 `;
 
 const PriceDiv = styled.div`

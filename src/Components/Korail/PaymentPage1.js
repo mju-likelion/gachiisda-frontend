@@ -7,12 +7,18 @@ import PaymentFooter from './Layouts/PaymentFooter1';
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+  seatName,
+} from '../../atoms/Stations';
 
 function paymentPage1() {
   const startStValue = useRecoilValue(startStation);
   const arrivalStvalue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const seatNmValue = useRecoilValue(seatName);
 
   const handleClick = () => {
     alert('정보를 확인한 후 다음을 눌러주세요 ');
@@ -50,7 +56,7 @@ function paymentPage1() {
       <TicketInfoDiv>
         <TicketInfoWrap>
           <div>내 승차권 정보</div>
-          <div>(호차/좌석번호)</div>
+          <div>(1호차/{seatNmValue})</div>
         </TicketInfoWrap>
         <DetailWrap>
           <Detail>상세</Detail>
@@ -214,6 +220,7 @@ const TicketInfoWrap = styled.div`
   flex-direction: column;
   float: left;
   margin: 13px 0 0 140px;
+  width: 30%;
 `;
 
 const PriceDiv = styled.div`
