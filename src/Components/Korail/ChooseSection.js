@@ -7,12 +7,14 @@ import { ReactComponent as Seat2 } from '../Home/images/Seat2.svg';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 import Axios from '../../axios';
-import { seatName } from '../../atoms/Stations';
-import { useRecoilState } from 'recoil';
+import { seatName, manyPerson } from '../../atoms/Stations';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 function ChooseSectionFirst() {
   const [seatNum, setSeatNum] = useState([]);
   const [seatNm, setSeatNm] = useRecoilState(seatName);
+  const PersonValue = useRecoilValue(manyPerson);
+
   useEffect(() => {
     Axios.get('/api/korail/trains/1/1').then((response) => {
       setSeatNum(response.data.data[0].Seats);
@@ -33,7 +35,7 @@ function ChooseSectionFirst() {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    alert('필요한 인원 수만큼 의자를 선택하세요 ');
+    alert(`${PersonValue}개의 의자를 선택하세요 `);
   };
 
   const SelectBox = () => {
@@ -108,7 +110,7 @@ function ChooseSectionFirst() {
                 color: 'white',
               }}
             >
-              {count}명 좌석 선택 / 총 2명 1호차{seatNm}
+              {count}명 좌석 선택 / 총 {PersonValue}명 1호차{seatNm}
             </div>
           </SelectDiv2>
           <SelectDiv>

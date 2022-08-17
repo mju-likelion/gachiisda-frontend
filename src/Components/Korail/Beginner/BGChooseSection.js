@@ -7,12 +7,14 @@ import { ReactComponent as Seat2 } from '../../Home/images/Seat2.svg';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
 import Axios from '../../../axios';
-import { seatName } from '../../../atoms/Stations';
-import { useRecoilState } from 'recoil';
+import { seatName, manyPerson } from '../../../atoms/Stations';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 function BGChooseSectionFirst() {
   const [seatNum, setSeatNum] = useState([]);
   const [seatNm, setSeatNm] = useRecoilState(seatName);
+  const PersonValue = useRecoilValue(manyPerson);
+
   useEffect(() => {
     Axios.get('/api/korail/trains/1/1').then((response) => {
       setSeatNum(response.data.data[0].Seats);
@@ -34,7 +36,7 @@ function BGChooseSectionFirst() {
 
   const handleClick = () => {
     alert(
-      '상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 좌석을 선택해주세요.\n회색으로 칠해져 있는 자리는 이미 예매된 좌석이라 선택 불가합니다.\n좌석을 선택하신 후 선택완료 버튼을 눌러주세요',
+      `상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 ${PersonValue}개의 좌석을 선택해주세요. \n좌석을 선택하신 후 선택완료 버튼을 눌러주세요`,
     );
   };
 
@@ -108,7 +110,7 @@ function BGChooseSectionFirst() {
                 color: 'white',
               }}
             >
-              {count}명 좌석 선택 / 총 2명 1호차{seatNm}{' '}
+              {count}명 좌석 선택 / 총 {PersonValue}명 1호차{seatNm}
             </div>
           </SelectDiv2>
           <SelectDiv>
