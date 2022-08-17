@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import arrow from '../images/Arrow.svg';
-import seat2 from '../images/Seat2.svg';
+import { ReactComponent as Arrow } from '../../Home/images/Arrow.svg';
+import { ReactComponent as Seat2 } from '../../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
 
 function BGChooseSectionFirst() {
-  const [lis, setlis] = useState([
+  const [list, setList] = useState([
     false,
     false,
     false,
@@ -18,7 +18,8 @@ function BGChooseSectionFirst() {
     false,
   ]);
 
-  const [nsns, setnsns] = useState(0);
+  const [selected, setSelected] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
     alert(
@@ -30,50 +31,50 @@ function BGChooseSectionFirst() {
     return (
       <Selectn>
         <option key='second' value='second'>
-          2호차 (23석)
+          2호차 (16석)
         </option>
         <option key='third' value='third'>
-          3호차 (23석)
+          3호차 (16석)
         </option>
         <option key='fourth' value='fourth'>
-          4호차 (23석)
+          4호차 (16석)
         </option>
       </Selectn>
     );
   };
 
   const Appendlis = (num) => {
-    let ls = lis;
+    let ls = list;
     ls[num] = !ls[num];
 
-    setlis(ls);
+    setList(ls);
   };
 
-  useEffect(() => {}, [lis]);
+  useEffect(() => {}, [list]);
 
   /*   const returnimg2 = () => {
     return <IImg img alt='seat1' src={seat1}></IImg>;
    };*/
 
-  const returnimg1 = (num) => {
+  const returnimg1 = (check) => {
     return (
-      <img
-        img
-        alt='seat2'
-        src={seat2}
+      <Seat2
         width={67}
         height={67}
         onClick={() => {
-          Appendlis(num);
-          setnsns(nsns + 1);
+          Appendlis(check);
+          setSelected(selected + 1);
+          {
+            list[check] ? setCount(count + 1) : setCount(count - 1);
+          }
         }}
         style={{
           marginleft: 10,
           marginbottom: 10,
-          backgroundColor: lis[num] == true ? '#064A87a1' : null,
+          backgroundColor: list[check] == true ? '#064A87a1' : null,
           borderRadius: 20,
         }}
-      ></img>
+      ></Seat2>
     );
   };
 
@@ -94,7 +95,7 @@ function BGChooseSectionFirst() {
                 color: 'white',
               }}
             >
-              1명 좌석 선택 / 총 2명 1호차 10
+              {count}명 좌석 선택 / 총 2명 1호차 10
             </span>
           </SelectDiv2>
           <SelectDiv>
@@ -124,7 +125,7 @@ function BGChooseSectionFirst() {
             }}
           >
             <TrainNumber>해당열차 열차번호 (일반실)</TrainNumber>
-            <LeftSeat>잔여 23석 / 전체 72석</LeftSeat>
+            <LeftSeat>잔여 16석 / 전체 72석</LeftSeat>
           </div>
           <DayBotton>다음칸</DayBotton>
         </Body2>
@@ -171,7 +172,7 @@ function BGChooseSectionFirst() {
             {returnimg1(3)}
           </ImgBody2>
         </ImgBody>
-        <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
+        <Arrow width={63} height={347}></Arrow>
         <ImgBody>
           <ImgBody2>
             {returnimg1(12)}
@@ -192,7 +193,7 @@ function BGChooseSectionFirst() {
           </ImgBody2>
         </ImgBody>
       </MainBody>
-      {lis.includes(true) == true ? show() : null}
+      {list.includes(true) == true ? show() : null}
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
       <Header />
     </All>
@@ -310,11 +311,6 @@ const ImgBody2 = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-`;
-
-const IImg = styled.img`
-  margin-left: 10px;
-  margin-bottom: ${(props) => (props.current ? 10 : null)}px;
 `;
 
 const ListDiv = styled.div`
