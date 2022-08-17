@@ -10,6 +10,8 @@ import Axios from '../../../axios';
 
 function BGChooseSectionFirst() {
   const [seatNum, setSeatNum] = useState([]);
+  const [selecSt, setSelecSt] = useState('');
+
   useEffect(() => {
     Axios.get('/api/korail/trains/1/1').then((response) => {
       setSeatNum(response.data.data[0].Seats);
@@ -40,13 +42,13 @@ function BGChooseSectionFirst() {
     return (
       <Selectn>
         <option key='second' value='second'>
-          2호차 (16석)
+          1호차 (16석)
         </option>
         <option key='third' value='third'>
-          3호차 (16석)
+          2호차 (16석)
         </option>
         <option key='fourth' value='fourth'>
-          4호차 (16석)
+          3호차 (16석)
         </option>
       </Selectn>
     );
@@ -102,13 +104,13 @@ function BGChooseSectionFirst() {
             >
               선택좌석
             </span>
-            <span
+            <div
               style={{
                 color: 'white',
               }}
             >
-              {count}명 좌석 선택 / 총 2명 1호차 10
-            </span>
+              {count}명 좌석 선택 / 총 2명 1호차{selecSt}
+            </div>
           </SelectDiv2>
           <SelectDiv>
             <Link
@@ -167,42 +169,74 @@ function BGChooseSectionFirst() {
       <MainBody>
         <ImgBody>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[0]);
+              }}
+            >
               {returnimg1(0)}
               {SeatNums[0]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[1]);
+              }}
+            >
               {returnimg1(1)}
               {SeatNums[1]}
             </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[4]);
+              }}
+            >
               {returnimg1(4)}
               {SeatNums[4]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[5]);
+              }}
+            >
               {returnimg1(5)}
               {SeatNums[5]}
             </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[8]);
+              }}
+            >
               {returnimg1(8)}
               {SeatNums[8]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[9]);
+              }}
+            >
               {returnimg1(9)}
               {SeatNums[9]}
             </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[12]);
+              }}
+            >
               {returnimg1(12)}
               {SeatNums[12]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[13]);
+              }}
+            >
               {returnimg1(13)}
               {SeatNums[13]}
             </SeatWrap>
@@ -211,42 +245,74 @@ function BGChooseSectionFirst() {
         <Arrow width={63} height={347}></Arrow>
         <ImgBody>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[2]);
+              }}
+            >
               {returnimg1(2)}
               {SeatNums[2]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[3]);
+              }}
+            >
               {returnimg1(3)}
               {SeatNums[3]}
             </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[6]);
+              }}
+            >
               {returnimg1(6)}
               {SeatNums[6]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[7]);
+              }}
+            >
               {returnimg1(7)}
               {SeatNums[7]}
             </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[10]);
+              }}
+            >
               {returnimg1(10)}
               {SeatNums[10]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[11]);
+              }}
+            >
               {returnimg1(11)}
               {SeatNums[11]}
             </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[14]);
+              }}
+            >
               {returnimg1(14)}
               {SeatNums[14]}
             </SeatWrap>
-            <SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSelecSt(SeatNums[15]);
+              }}
+            >
               {returnimg1(15)}
               {SeatNums[15]}
             </SeatWrap>
@@ -353,7 +419,7 @@ const Circlewhite = styled.div`
 `;
 
 const MainBody = styled.div`
-  height: 60vh;
+  height: 80vh;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
