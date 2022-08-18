@@ -70,18 +70,35 @@ function ChooseSectionFirst() {
   const SeatNums = seatNum.map((num) => (
     <span key={num.id}> {num.seat_name}</span>
   ));
-
+  // PersonValue: 인원수 선택한 합계
+  //Appendlis : 좌석 클릭되는 모양
+  //Appendlis(check)
   const returnimg1 = (check) => {
     return (
       <Seat2
         width={67}
         height={67}
         onClick={() => {
-          Appendlis(check);
-          // setSelected(selected + 1);
           {
-            list[check] ? setCount(count + 1) : setCount(count - 1);
+            PersonValue > count //첫번째 경우
+              ? list[check] //두번째 경우
+                ? Appendlis(check)
+                : Appendlis(check)
+              : null;
           }
+          // setSelected(selected + 1);
+
+          {
+            PersonValue > count
+              ? list[check]
+                ? setCount(count + 1)
+                : setCount(count - 1)
+              : null;
+          }
+
+          // {
+          //   list[check] ? setCount(count + 1) : setCount(count - 1);
+          // }
         }}
         style={{
           marginleft: 10,

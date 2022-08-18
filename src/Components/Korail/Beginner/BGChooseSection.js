@@ -77,10 +77,20 @@ function BGChooseSectionFirst() {
         width={67}
         height={67}
         onClick={() => {
-          Appendlis(check);
+          {
+            PersonValue > count //첫번째 경우
+              ? list[check] //두번째 경우
+                ? Appendlis(check)
+                : Appendlis(check)
+              : null;
+          }
           // setSelected(selected + 1);
           {
-            list[check] ? setCount(count + 1) : setCount(count - 1);
+            PersonValue > count
+              ? list[check]
+                ? setCount(count + 1)
+                : setCount(count - 1)
+              : null;
           }
         }}
         style={{
