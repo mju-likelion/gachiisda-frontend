@@ -5,6 +5,8 @@ import Ktx from '../images/Ktx.js';
 import { Link } from 'react-router-dom';
 import Axios from '../../../axios.js';
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { manyPerson } from '../../../atoms/Stations';
 
 const Item = ({ text }) => text;
 
@@ -12,6 +14,9 @@ function BGList() {
   const [todayDate, setTodayDate] = useState('');
   const [todayMonth, setTodayMonth] = useState('');
   const [todayYear, setTodayYear] = useState('');
+  const [totalCount, setTotalCount] = useRecoilState(manyPerson);
+  setTotalCount(0);
+  totalCount;
 
   useEffect(() => {
     Axios.get('/api/korail/date').then((response) => {
