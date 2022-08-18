@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from './images/SearchIcon.svg';
+import {
+  inputLoanValue,
+  loanMeaningValue,
+  exampleLoanValue,
+  exampleKoreanValue,
+} from '../../../atoms/LoanWords';
+import Axios from '../../../axios';
 
 function DictionaryExplan() {
+  const setLoanWord = useRecoilValue(inputLoanValue);
+  const [meaning, setMeaning] = useRecoilState(loanMeaningValue);
+  const [exampleLoan, setExampleLoan] = useRecoilState(exampleLoanValue);
+  const [exampleKorean, setExampleKorean] = useRecoilState(exampleKoreanValue);
+
+  const getLoanWords = async () => {
+    const res = await Axios.get('/api/dictionary/words', {
+      params: { keyword: setLoanWord },
+    });
+    console.log(res);
+    setMeaning(res.data.data.meaning);
+    setExampleLoan(res.data.data); //뒤에 더 있어야함
+    setExampleKorean(res.data.data); //뒤에 더 있어야함
+  };
+
+  useEffect(() => {
+    getLoanWords();
+  }, []);
+
   return (
     <All>
       <InputWrap>
@@ -16,10 +43,10 @@ function DictionaryExplan() {
 
       <ExplanDiv>
         <Fix>쉬운 우리말</Fix>
-        <Foreign>오픈 스페이스</Foreign>
+        <Foreign>{setLoanWord}</Foreign>
         <KoreanWrap>
           <FixEqual>:</FixEqual>
-          <Korean>열린 쉼터</Korean>
+          <Korean>{meaning}</Korean>
         </KoreanWrap>
       </ExplanDiv>
 
@@ -27,19 +54,29 @@ function DictionaryExplan() {
         <ExplanWrap>
           <ExampleFix>바꾸어 쓴 예문</ExampleFix>
           <ExampleDiv>
-            <ExampleForeign>
-              코로나19 장기화로 단지 내 오픈 스페이스에 관한 관심이 커졌다.
-            </ExampleForeign>
+            <ExampleForeign>{exampleLoan}</ExampleForeign>
             <Arrow>▽</Arrow>
-            <ExampleKorean>
-              코로나19 장기화로 단지 내 열린 쉼터에 관한 관심이 커졌다.
-            </ExampleKorean>
+            <ExampleKorean>{exampleKorean}</ExampleKorean>
           </ExampleDiv>
         </ExplanWrap>
       </ExplanExampleDiv>
     </All>
   );
 }
+
+//   const getLoanWords = async () => {
+//     const res = await Axios.get('api/dictionary/words');
+//     console.log(res.data);
+//   };
+
+//   useEffect(() => {
+//     console.log(setLoanWord);
+//     getLoanWords();
+//   }, []);
+
+//   Axios.get('/api/dictionary/words',{params:
+//     keyword:''
+// })
 
 const All = styled.div`
   display: flex;
