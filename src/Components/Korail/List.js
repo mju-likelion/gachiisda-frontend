@@ -3,9 +3,24 @@ import styled from 'styled-components';
 import Ktx from './images/Ktx.js';
 
 import { Link } from 'react-router-dom';
+import Axios from '../../axios.js';
+import { useEffect, useState } from 'react';
+
 const Item = ({ text }) => text;
 
 function List() {
+  const [todayDate, setTodayDate] = useState('');
+  const [todayMonth, setTodayMonth] = useState('');
+  const [todayYear, setTodayYear] = useState('');
+
+  useEffect(() => {
+    Axios.get('/api/korail/date').then((response) => {
+      setTodayDate(parseInt(response.data.data.dates[0].date));
+      setTodayMonth(response.data.data.dates[0].month);
+      setTodayYear(response.data.data.dates[0].year);
+    });
+  }, []);
+
   return (
     <All>
       <KtxIcon>
@@ -17,7 +32,7 @@ function List() {
           <KtxListMent type='submit'>
             수원역 - 부산역
             <Item text={<br />} />
-            2022년 8월 5일 14:25
+            {todayYear}년 {todayMonth}월 {todayDate + 1}일 14:25
             <Item text={<br />} />
             새마을 일반석 1매
           </KtxListMent>
@@ -28,9 +43,9 @@ function List() {
           <KtxListMent type='submit'>
             서울역 - 김천구미역
             <Item text={<br />} />
-            2022년 8월 15일 10:30
+            {todayYear}년 {todayMonth}월 {todayDate + 5}일 10:30
             <Item text={<br />} />
-            KTX 일반석 2매 예매
+            KTX 일반석 2매
           </KtxListMent>
         </Link>
       </div>
@@ -74,7 +89,7 @@ const KtxListMent = styled.button`
 const All = styled.div`
   background-color: #eff3fa;
   text-align: center;
-  padding-bottom: 114px;
+  height: 100vh;
 `;
 
 export default List;
