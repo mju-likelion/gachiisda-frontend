@@ -20,7 +20,7 @@ function DictionaryExplan() {
     const res = await Axios.get('/api/dictionary/words', {
       params: { keyword: setLoanWord },
     });
-    console.log(res.data);
+    // console.log(res.data);
     setMeaning(res.data.data.meaning);
     setExampleLoan(res.data.data.ex_loan);
     setExampleKorean(res.data.data.ex_korean);
