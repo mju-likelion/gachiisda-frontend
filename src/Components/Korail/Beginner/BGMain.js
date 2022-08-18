@@ -482,23 +482,23 @@ function BGMain() {
     <div>
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
-        <div onClick={() => setShowDate(true)}>
+        <Day onClick={() => setShowDate(true)}>
           {startGoDt.year}년 {startGoDt.month}월 {startGoDt.date}일 (
           {startGoDt.day}) {goTime}시 00분
-        </div>
+        </Day>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
 
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
-        <div>
+        <People>
           {adultCount > 0 && `어른 ${adultCount}명 `}
           {childCount > 0 && `어린이 ${childCount}명 `}
           {babyCount > 0 && `유아 ${babyCount}명 `}
           {grandCount > 0 && `경로 ${grandCount}명 `}
           {severeCount > 0 && `중증 장애인 ${severeCount}명 `}
           {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
-        </div>
+        </People>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
 
@@ -679,6 +679,16 @@ const MainSwitchBtn = styled.div`
 
 const GoArrow = styled.div`
   padding-top: 15px;
+`;
+
+const Day = styled.div`
+  border: 5px solid #3f9cf1;
+  padding: 8px;
+`;
+
+const People = styled.div`
+  border: 5px solid #3f9cf1;
+  padding: 7px;
 `;
 
 const MainInfoMent = styled.div`

@@ -417,6 +417,7 @@ const SeatBtnMent = styled.button`
   font-size: 15px;
   color: #ffffff;
   border: none;
+  border: 5px solid #3f9cf1;
 `;
 
 const BtnMent = styled.button`
@@ -438,6 +439,10 @@ const TicketingBtn = styled.button`
   font-size: 25px;
   color: #064a87;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #3f9cf1;
 `;
 
 export default StationSelect;
