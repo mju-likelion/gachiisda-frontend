@@ -14,6 +14,7 @@ function BGChooseSectionFirst() {
   const [seatNum, setSeatNum] = useState([]);
   const [seatNm, setSeatNm] = useRecoilState(seatName);
   const PersonValue = useRecoilValue(manyPerson);
+  const [disable, setDisable] = useState(false);
 
   useEffect(() => {
     Axios.get('/api/korail/trains/1/1').then((response) => {
@@ -76,13 +77,14 @@ function BGChooseSectionFirst() {
       <Seat2
         width={67}
         height={67}
+        disable={disable}
         onClick={() => {
           {
             PersonValue > count //첫번째 경우
               ? list[check] //두번째 경우
                 ? Appendlis(check)
                 : Appendlis(check)
-              : null;
+              : setDisable(true);
           }
           // setSelected(selected + 1);
           {
@@ -90,7 +92,7 @@ function BGChooseSectionFirst() {
               ? list[check]
                 ? setCount(count + 1)
                 : setCount(count - 1)
-              : null;
+              : setDisable(true);
           }
         }}
         style={{

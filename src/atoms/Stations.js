@@ -22,5 +22,5 @@ export const startDate = atom({
 
 export const seatName = atom({
   key: 'seatName',
-  default: '',
+  default: [],
 });

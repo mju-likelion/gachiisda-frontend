@@ -14,6 +14,7 @@ function ChooseSectionFirst() {
   const [seatNum, setSeatNum] = useState([]);
   const [seatNm, setSeatNm] = useRecoilState(seatName);
   const PersonValue = useRecoilValue(manyPerson);
+  const [disable, setDisable] = useState(false);
 
   useEffect(() => {
     Axios.get('/api/korail/trains/1/1').then((response) => {
@@ -73,18 +74,20 @@ function ChooseSectionFirst() {
   // PersonValue: 인원수 선택한 합계
   //Appendlis : 좌석 클릭되는 모양
   //Appendlis(check)
+
   const returnimg1 = (check) => {
     return (
       <Seat2
         width={67}
         height={67}
+        disable={disable}
         onClick={() => {
           {
             PersonValue > count //첫번째 경우
               ? list[check] //두번째 경우
                 ? Appendlis(check)
                 : Appendlis(check)
-              : null;
+              : setDisable(true);
           }
           // setSelected(selected + 1);
 
@@ -93,7 +96,7 @@ function ChooseSectionFirst() {
               ? list[check]
                 ? setCount(count + 1)
                 : setCount(count - 1)
-              : null;
+              : setDisable(true);
           }
 
           // {
