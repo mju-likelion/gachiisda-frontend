@@ -1,82 +1,45 @@
-import React, { useEffect } from 'react';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from './images/SearchIcon.svg';
-import {
-  inputLoanValue,
-  loanMeaningValue,
-  exampleLoanValue,
-  exampleKoreanValue,
-} from '../../../atoms/LoanWords';
-import Axios from '../../../axios';
 
 function DictionaryExplan() {
-  const setLoanWord = useRecoilValue(inputLoanValue);
-  const [meaning, setMeaning] = useRecoilState(loanMeaningValue);
-  const [exampleLoan, setExampleLoan] = useRecoilState(exampleLoanValue);
-  const [exampleKorean, setExampleKorean] = useRecoilState(exampleKoreanValue);
-
-  const getLoanWords = async () => {
-    const res = await Axios.get('/api/dictionary/words', {
-      params: { keyword: setLoanWord },
-    });
-    console.log(res.data);
-    setMeaning(res.data.data.meaning);
-    setExampleLoan(res.data.data.ex_loan);
-    setExampleKorean(res.data.data.ex_korean);
-  };
-
-  useEffect(() => {
-    getLoanWords();
-  }, []);
-
   return (
     <All>
       <InputWrap>
-        <InputDiv>
+        <InputDIV>
           <Input placeholder='검색할 외래어를 입력해주세요.' />
           <SearchBtn>
             <SearchIcon />
           </SearchBtn>
-        </InputDiv>
+        </InputDIV>
       </InputWrap>
 
-      <ExplanDiv>
+      <ExplanDIV>
         <Fix>쉬운 우리말</Fix>
-        <Foreign>{setLoanWord}</Foreign>
+        <Foreign>오픈 스페이스</Foreign>
         <KoreanWrap>
           <FixEqual>:</FixEqual>
-          <Korean>{meaning}</Korean>
+          <Korean>열린 쉼터</Korean>
         </KoreanWrap>
-      </ExplanDiv>
+      </ExplanDIV>
 
-      <ExplanExampleDiv>
+      <ExplanExampleDIV>
         <ExplanWrap>
           <ExampleFix>바꾸어 쓴 예문</ExampleFix>
-          <ExampleDiv>
-            <ExampleForeign>{exampleLoan}</ExampleForeign>
+          <ExampleDIV>
+            <ExampleForeign>
+              코로나19 장기화로 단지 내 오픈 스페이스에 관한 관심이 커졌다.
+            </ExampleForeign>
             <Arrow>▽</Arrow>
-            <ExampleKorean>{exampleKorean}</ExampleKorean>
-          </ExampleDiv>
+            <ExampleKorean>
+              코로나19 장기화로 단지 내 열린 쉼터에 관한 관심이 커졌다.
+            </ExampleKorean>
+          </ExampleDIV>
         </ExplanWrap>
-      </ExplanExampleDiv>
+      </ExplanExampleDIV>
     </All>
   );
 }
-
-//   const getLoanWords = async () => {
-//     const res = await Axios.get('api/dictionary/words');
-//     console.log(res.data);
-//   };
-
-//   useEffect(() => {
-//     console.log(setLoanWord);
-//     getLoanWords();
-//   }, []);
-
-//   Axios.get('/api/dictionary/words',{params:
-//     keyword:''
-// })
 
 const All = styled.div`
   display: flex;
@@ -89,7 +52,7 @@ const All = styled.div`
   padding-bottom: 250px;
 `;
 
-const InputDiv = styled.div`
+const InputDIV = styled.div`
   background-color: #b3d5f2;
   color: #7a7a7a;
   border-radius: 20px;
@@ -119,7 +82,7 @@ const SearchBtn = styled.button`
   padding-left: 30px;
 `;
 
-const ExplanDiv = styled.div`
+const ExplanDIV = styled.div`
   padding-bottom: 50px;
   padding-left: 30px;
 `;
@@ -139,11 +102,11 @@ const Foreign = styled.div`
 `;
 
 const Korean = styled.div`
-  font-size: 20px;
+  font-size: 50px;
   font-weight: bold;
 `;
 
-const ExampleDiv = styled.div`
+const ExampleDIV = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +121,7 @@ const ExplanWrap = styled.div`
   width: 80%;
 `;
 
-const ExplanExampleDiv = styled.div`
+const ExplanExampleDIV = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
