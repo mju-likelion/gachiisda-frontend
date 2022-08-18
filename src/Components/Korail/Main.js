@@ -12,11 +12,7 @@ import Footer from './Layouts/Footer';
 import { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Axios from '../../axios';
-import {
-  arrivalStation,
-  startStation,
-  startDate,
-} from './../../Atoms/Stations';
+import { arrivalStation, startStation, startDate } from '../../atoms/Stations';
 
 function Main() {
   //useRecoilState
@@ -188,7 +184,8 @@ function Main() {
           <div onClick={() => setShowDate(false)}>
             <Type>출발일</Type>
             <Total>
-              2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
+              {startGoDt.year}년 {startGoDt.month}월 {startGoDt.date}일 (
+              {startGoDt.day}) {goTime}시 00분
             </Total>
             <Type>△</Type>
           </div>
@@ -458,7 +455,8 @@ function Main() {
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
         <div onClick={() => setShowDate(true)}>
-          2022년 8월 {startGoDt.date}일 ({startGoDt.day}) {goTime}시 00분
+          {startGoDt.year}년 {startGoDt.month}월 {startGoDt.date}일 (
+          {startGoDt.day}) {goTime}시 00분
         </div>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>

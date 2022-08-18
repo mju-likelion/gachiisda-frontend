@@ -1,5 +1,5 @@
-// import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StationArrow from './images/StationArrow';
 import { ReactComponent as FooterTrainBtn } from './images/FooterTrainBtn.svg';
@@ -8,40 +8,54 @@ import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
 import { Link } from 'react-router-dom';
 import Footer from './Layouts/Footer';
-// import Axios from '../../axios';
-// import { useRecoilValue } from 'recoil';
-// import { startStation, arrivalStation, startDate } from '../../Atoms/Station';
+import Header from './Layouts/Header';
+//useRecoilValue
+import Axios from '../../axios';
+import { useRecoilValue } from 'recoil';
+import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
 
 function StationSelect() {
+  const startStValue = useRecoilValue(startStation);
+  const arrivalStValue = useRecoilValue(arrivalStation);
+  const startDtValue = useRecoilValue(startDate);
+
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '경유'];
+  const selectList = ['직통', '..'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
-
-  // const startStValue = useRecoilValue(startStation);
-  // const arrivalStValue = useRecoilValue(arrivalStation);
-  // const startDateValue = useRecoilValue(startDate);
-
   // axios
   /*
-  const [trainNameId, setTrainNameId] = useState([]);
-  const [startTimeId, setStartTime] = useState([]);
-  const [ArrTime, setArrTime] = useState([]);
+    const [trainNameId, setTrainNameId] = useState([]);
+    const [startTimeId, setStartTime] = useState([]);
+    const [ArrTime, setArrTime] = useState([]);
 
-  const [roomName, setRoomName] = useState([]);
-  const [takeTime, setTakeTime] = useState([]);
-  */
+    const [roomName, setRoomName] = useState([]);
+    const [takeTime, setTakeTime] = useState([]);
+    */
 
-  // const getList(() => {
-  //   Axios.get('/api/korail/trains', {
-  //     params: {
-  //       depPlaceId: startStValue,
-  //       arrPlaceId: arrivalStValue,
-  //       depPlandTime: startDateValue,
-  //     },
-  //   });
-  // }, []);
+  const getList = async () => {
+    try {
+      console.log('axios실행');
+      console.log(startStValue, arrivalStValue, startDtValue);
+      const data = await Axios.get('/api/korail/trains', {
+        params: {
+          depPlaceId: startStValue,
+          arrPlaceId: arrivalStValue,
+          depPlandTime: startDtValue,
+        },
+      });
+      console.log(data, '입니다');
+      console.log('dd');
+    } catch {
+      console.log('에러입니다');
+    }
+  };
+
+  useEffect(() => {
+    getList();
+    console.log('useEffect실행');
+  }, []);
 
   // // {"data":{"hourDiff":1,"minuteDiff":15}}
   // useEffect(() => {
@@ -65,37 +79,51 @@ function StationSelect() {
       <div>
         <SelectModal>
           <TimeWrap>
-            <TimeMent>일반식 5시간 58분 소요</TimeMent>
+            <TimeMent>일반석</TimeMent>
             <CloseBtn onClick={() => setModal(false)}>x</CloseBtn>
           </TimeWrap>
           <DetailBtnWrap>
             <BtnMent>열차시각</BtnMent>
             <BtnMent>운임요금</BtnMent>
-            <BtnMent>
-              <Link to='/ChooseSectionFirst'> 좌석선택</Link>
-            </BtnMent>
+            <SeatBtnMent>
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to='/ChooseSectionFirst'
+              >
+                {' '}
+                좌석선택
+              </Link>
+            </SeatBtnMent>
           </DetailBtnWrap>
         </SelectModal>
         <TicketingBtn>
-          <Link to='/PaymentPage1'>예매</Link>
+          <Link
+            style={{ textDecoration: 'none', color: '#064A87' }}
+            to='/PaymentPage1'
+          >
+            예매
+          </Link>
         </TicketingBtn>
       </div>
     );
   };
 
   return (
-    <div>
+    <All>
       <PageHeader>
-        <StationName>서울</StationName>
+        <StationName>{startStValue}</StationName>
         <div>
           <StationArrow />
         </div>
-        <StationName>부산</StationName>
+        <StationName>{arrivalStValue}</StationName>
       </PageHeader>
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>2022년 n월 nn일 (요일)</Date>
+          <Date>
+            {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
+            {startDtValue.day})
+          </Date>
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>
@@ -155,7 +183,7 @@ function StationSelect() {
           </EtcWrap>
         </TableContent>
       </ListWrap>
-      {modal === true ? modalPage() : null}
+      {modal ? modalPage() : null}
       <PageFooter>
         <TrainBtn>
           <FooterTrainBtn />
@@ -173,10 +201,13 @@ function StationSelect() {
         </TicketBtn>
       </PageFooter>
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
-    </div>
+      <Header />
+    </All>
   );
 }
-
+const All = styled.div`
+  margin-top: 64px;
+`;
 const PageHeader = styled.div`
   background-color: #dcf3f6;
   display: flex;
@@ -272,6 +303,8 @@ const TableContent = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  width: 100%;
 `;
 
 const TrainWrap = styled.div`
@@ -397,7 +430,7 @@ const CloseBtn = styled.button`
   font-size: 15px;
   color: #ffffff;
   background: transparent;
-  margin-left: 50%;
+  margin-left: 75%;
 `;
 
 const TimeWrap = styled.div`
@@ -410,17 +443,25 @@ const DetailBtnWrap = styled.div`
   justify-content: center;
 `;
 
-const BtnMent = styled.button`
+const SeatBtnMent = styled.button`
   width: 33%;
-  width: 100%;
   height: 42px;
   background: transparent;
   font-weight: 700;
   font-size: 15px;
   color: #ffffff;
-  border-width: 0px 1px;
-  border-style: solid;
-  border-color: #ffffff;
+  border: none;
+`;
+
+const BtnMent = styled.button`
+  width: 33%;
+  height: 42px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  border: none;
+  border-right: 1px solid #ffffff;
 `;
 
 const TicketingBtn = styled.button`

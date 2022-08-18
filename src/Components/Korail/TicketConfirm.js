@@ -12,7 +12,7 @@ import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg'
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
+import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
 
 function TicketConfirm() {
   const startStValue = useRecoilValue(startStation);

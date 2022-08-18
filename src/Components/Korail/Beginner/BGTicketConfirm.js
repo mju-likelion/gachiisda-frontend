@@ -16,7 +16,7 @@ import {
   startStation,
   arrivalStation,
   startDate,
-} from '../../../Atoms/Stations';
+} from '../../../atoms/Stations';
 
 function BGTicketConfirm() {
   const startStValue = useRecoilValue(startStation);
