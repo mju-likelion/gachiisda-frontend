@@ -1,25 +1,48 @@
-import React from 'react';
+//import { Axios } from 'axios';
+//import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+//import React from 'react';
 import styled from 'styled-components';
 import BookImg from '../../Korail/images/BookImg';
 import SearchEnter from '../../Korail/images/SearchEnter';
+//import Axios from '../../axios';
+import { inputLoanValue } from '../../../atoms/LoanWords';
+import { useRecoilState } from 'recoil';
 
 function DictMain() {
+  const [inputLoan, setInputLoan] = useRecoilState(inputLoanValue);
+
+  const onChangeWord = (e) => {
+    setInputLoan(e.target.value);
+  };
+
+  const onClickWord = () => {
+    setInputLoan(inputLoan);
+  };
+
   return (
     <All>
       <IconWrap>
         <BookImg />
-      </IconWrap>{' '}
-      <DictMent> 쉬운 우리말 사전 </DictMent>{' '}
+      </IconWrap>
+      <DictMent> 쉬운 우리말 사전 </DictMent>
       <DetailMent>
         외국어 용어의 <br />
-        쉬운 우리말 표현 사전{' '}
-      </DetailMent>{' '}
+        쉬운 우리말 표현 사전
+      </DetailMent>
       <SearchBar>
-        <SearchInput placeholder='검색할 외래어를 입력해주세요.' />
+        <SearchInput
+          placeholder='검색할 외래어를 입력해주세요.'
+          type='text'
+          value={inputLoan}
+          onChange={onChangeWord}
+        />
         <SearchIcon>
-          <SearchEnter />
-        </SearchIcon>{' '}
-      </SearchBar>{' '}
+          <Link to='/DictionaryExplan' onClick={onClickWord}>
+            <SearchEnter />
+          </Link>
+        </SearchIcon>
+      </SearchBar>
     </All>
   );
 }
