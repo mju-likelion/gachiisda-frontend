@@ -46,7 +46,6 @@ function StationSelect() {
         },
       });
       console.log(data, '입니다');
-      console.log('dd');
     } catch {
       console.log('에러입니다');
     }
@@ -57,14 +56,37 @@ function StationSelect() {
     console.log('useEffect실행');
   }, []);
 
-  // // {"data":{"hourDiff":1,"minuteDiff":15}}
-  // useEffect(() => {
-  //   Axios.get('/api/korail/trains', {
-  //     params: {
-  //       id: getList.params,
-  //     },
-  //   });
-  // }, []);
+  const [list, setList] = useState < Array < getList >> [];
+  const [listId, setListId] = useState([]);
+
+  const getAllList = async () => {
+    const listData = await Axios.get('/api/korail/trains');
+    const { data } = listData.data;
+    setList(data);
+  };
+
+  const getListById = async (id) => {
+    if (id) {
+      try {
+        const byId = await Axios.get(`/getAllList/${id}`);
+        const { data } = byId.data;
+        setListId(data);
+      } catch {
+        console.log('에러입니다');
+      }
+    }
+  };
+
+  useEffect(
+    () => {
+      getAllList();
+      if (list.id) {
+        getListById(listId.id);
+      }
+    },
+    [listId.id],
+    [list.id],
+  );
 
   const handleClick = () => {
     alert('미션에 나타나있는 시간대를 찾아보세요 ');
@@ -164,6 +186,7 @@ function StationSelect() {
           }}
         >
           <TrainWrap>
+            {/**/}
             <TrainName>해당 열차</TrainName>
             <TrainNum>열차 번호</TrainNum>
           </TrainWrap>
