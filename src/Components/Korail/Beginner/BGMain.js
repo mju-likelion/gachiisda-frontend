@@ -20,7 +20,7 @@ import {
   manyPerson,
 } from '../../../atoms/Stations';
 
-function Main() {
+function BGMain() {
   //useRecoilState
   const [startSt, setStartSt] = useRecoilState(startStation);
   const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
@@ -156,11 +156,13 @@ function Main() {
             <PeopleType>경증 장애인</PeopleType>
           </ByAge>
           <ByCount>
-            <AdultAdd>
+            <Add>
               <Minus onClick={() => handleDecrease('adult')}>－</Minus>
               {adultCount}
-              <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
-            </AdultAdd>
+              <AddPlusWrap>
+                <Plus onClick={() => handleIncrease('adult')}>＋</Plus>
+              </AddPlusWrap>
+            </Add>
             <Add>
               <Minus onClick={() => handleDecrease('child')}>－</Minus>
               {childCount}
@@ -229,14 +231,23 @@ function Main() {
         <HourWrap>
           <SecondMiddleBox>
             <Number>
-              {time.map((time) => (
-                <InTime
-                  key={time.index}
-                  onClick={() => setGoTime(time) & setShowDate(false)}
-                >
-                  {time}시
-                </InTime>
-              ))}
+              {time.map((time) => {
+                return time == 14 ? (
+                  <MissionTime
+                    key={time.index}
+                    onClick={() => setGoTime(time) & setShowDate(false)}
+                  >
+                    {time}시
+                  </MissionTime>
+                ) : (
+                  <InTime
+                    key={time.index}
+                    onClick={() => setGoTime(time) & setShowDate(false)}
+                  >
+                    {time}시
+                  </InTime>
+                );
+              })}
             </Number>
           </SecondMiddleBox>
         </HourWrap>
@@ -300,11 +311,11 @@ function Main() {
           >
             구미
           </StationDetail>
-          <StationDetail
+          <BusanStationDetail
             onClick={() => setArrivalSt('부산') & setShowAriResults(false)}
           >
             부산
-          </StationDetail>
+          </BusanStationDetail>
           <StationDetail
             onClick={() => setArrivalSt('대구') & setShowAriResults(false)}
           >
@@ -381,11 +392,11 @@ function Main() {
           >
             영등포
           </StationDetail>
-          <StationDetail
+          <SuwonStationDetail
             onClick={() => setStartSt('수원') & setshowGoResults(false)}
           >
             수원
-          </StationDetail>
+          </SuwonStationDetail>
           <StationDetail
             onClick={() => setStartSt('평택') & setshowGoResults(false)}
           >
@@ -471,23 +482,23 @@ function Main() {
     <div>
       <MainGoDiv>
         <MainInfoMent>출발일</MainInfoMent>
-        <div onClick={() => setShowDate(true)}>
+        <Day onClick={() => setShowDate(true)}>
           {startGoDt.year}년 {startGoDt.month}월 {startGoDt.date}일 (
           {startGoDt.day}) {goTime}시 00분
-        </div>
+        </Day>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
 
       <MainGoDiv onClick={() => setShowPeople(true)}>
         <MainInfoMent>승객 연령 및 좌석수</MainInfoMent>
-        <div>
+        <People>
           {adultCount > 0 && `어른 ${adultCount}명 `}
           {childCount > 0 && `어린이 ${childCount}명 `}
           {babyCount > 0 && `유아 ${babyCount}명 `}
           {grandCount > 0 && `경로 ${grandCount}명 `}
           {severeCount > 0 && `중증 장애인 ${severeCount}명 `}
           {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
-        </div>
+        </People>
         <MainInfoArrow>▽</MainInfoArrow>
       </MainGoDiv>
 
@@ -670,6 +681,16 @@ const GoArrow = styled.div`
   padding-top: 15px;
 `;
 
+const Day = styled.div`
+  border: 5px solid #3f9cf1;
+  padding: 8px;
+`;
+
+const People = styled.div`
+  border: 5px solid #3f9cf1;
+  padding: 7px;
+`;
+
 const MainInfoMent = styled.div`
   color: #3f9cf1;
   font-size: 15px;
@@ -754,6 +775,29 @@ const StationTitle = styled.div`
   font-weight: 700;
   font-size: 18px;
   padding: 9px 290px 9px 20px;
+`;
+
+const SuwonStationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  border: 5px solid #3f9cf1;
+  cursor: pointer;
+  border: 5px solid #3f9cf1;
+`;
+
+const BusanStationDetail = styled.button`
+  font-weight: 500;
+  font-size: 18px;
+  width: 186px;
+  height: 66px;
+  display: inline-block;
+  border: none;
+  border: 5px solid #3f9cf1;
+  cursor: pointer;
 `;
 
 const StationDetail = styled.button`
@@ -856,6 +900,13 @@ const Number = styled.div`
   background-color: aliceblue;
 `;
 
+const MissionTime = styled.div`
+  font-size: 20px;
+  white-space: nowrap;
+  padding: 0 5px 0 5px;
+  border: 5px solid #3f9cf1;
+`;
+
 const InTime = styled.div`
   font-size: 20px;
   white-space: nowrap;
@@ -906,6 +957,10 @@ const Minus = styled.button`
   border: none;
   margin-right: 8px;
   font-size: 20px;
+`;
+
+const AddPlusWrap = styled.div`
+  border: 5px solid #3f9cf1;
 `;
 
 const Plus = styled.button`
@@ -974,11 +1029,4 @@ const AdultType = styled.div`
   border-bottom: 5px solid #3f9cf1;
 `;
 
-const AdultAdd = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  font-size: 20px;
-  border-bottom: 5px solid #3f9cf1;
-`;
-
-export default Main;
+export default BGMain;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { ReactComponent as SearchIcon } from './images/SearchIcon.svg';
+// import { ReactComponent as SearchIcon } from './images/SearchIcon.svg';
 import {
   inputLoanValue,
   loanMeaningValue,
@@ -9,6 +9,7 @@ import {
   exampleKoreanValue,
 } from '../../../atoms/LoanWords';
 import Axios from '../../../axios';
+import Header from '../../Korail/Layouts/Header';
 
 function DictionaryExplan() {
   const setLoanWord = useRecoilValue(inputLoanValue);
@@ -32,21 +33,22 @@ function DictionaryExplan() {
 
   return (
     <All>
-      <InputWrap>
+      <Header />
+      {/* <InputWrap>
         <InputDiv>
           <Input placeholder='검색할 외래어를 입력해주세요.' />
           <SearchBtn>
             <SearchIcon />
           </SearchBtn>
         </InputDiv>
-      </InputWrap>
+      </InputWrap> */}
 
       <ExplanDiv>
         <Fix>쉬운 우리말</Fix>
         <Foreign>{setLoanWord}</Foreign>
         <KoreanWrap>
-          <FixEqual>:</FixEqual>
-          <Korean>{meaning}</Korean>
+          <FixEqual></FixEqual>
+          <Korean>: {meaning}</Korean>
         </KoreanWrap>
       </ExplanDiv>
 
@@ -64,60 +66,44 @@ function DictionaryExplan() {
   );
 }
 
-//   const getLoanWords = async () => {
-//     const res = await Axios.get('api/dictionary/words');
-//     console.log(res.data);
-//   };
-
-//   useEffect(() => {
-//     console.log(setLoanWord);
-//     getLoanWords();
-//   }, []);
-
-//   Axios.get('/api/dictionary/words',{params:
-//     keyword:''
-// })
-
 const All = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #eff3fa;
-  margin-top: 64px;
-  padding-bottom: 250px;
 `;
 
-const InputDiv = styled.div`
-  background-color: #b3d5f2;
-  color: #7a7a7a;
-  border-radius: 20px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  width: 80%;
-`;
+// const InputDiv = styled.div`
+//   background-color: #b3d5f2;
+//   color: #7a7a7a;
+//   border-radius: 20px;
+//   margin-top: 20px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 5px;
+//   width: 80%;
+// `;
 
-const Input = styled.input`
-  border: none;
-  background: transparent;
-  width: 80%;
-`;
+// const Input = styled.input`
+//   border: none;
+//   background: transparent;
+//   width: 80%;
+// `;
 
-const InputWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const InputWrap = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
-const SearchBtn = styled.button`
-  border: none;
-  background: transparent;
-  padding-left: 30px;
-`;
+// const SearchBtn = styled.button`
+//   border: none;
+//   background: transparent;
+//   padding-left: 30px;
+// `;
 
 const ExplanDiv = styled.div`
   padding-bottom: 50px;
@@ -125,7 +111,7 @@ const ExplanDiv = styled.div`
 `;
 
 const Fix = styled.div`
-  background-color: #f2b544;
+  background-color: #ffe77a;
   font-size: 16px;
   width: 85px;
   height: 23px;
@@ -136,11 +122,15 @@ const Fix = styled.div`
 
 const Foreign = styled.div`
   font-size: 25px;
+  color: #195190;
 `;
 
 const Korean = styled.div`
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  color: #00539c;
 `;
 
 const ExampleDiv = styled.div`
@@ -165,7 +155,7 @@ const ExplanExampleDiv = styled.div`
 `;
 
 const ExampleFix = styled.div`
-  background-color: #f2b544;
+  background-color: #ffe77a;
   width: 140px;
   height: 28px;
   display: flex;
@@ -175,8 +165,7 @@ const ExampleFix = styled.div`
 `;
 
 const ExampleForeign = styled.div`
-  color: #686868;
-  font-weight: bold;
+  color: #2e3c7e;
 `;
 
 const Arrow = styled.div`
@@ -185,8 +174,7 @@ const Arrow = styled.div`
 `;
 
 const ExampleKorean = styled.div`
-  color: #686868;
-  font-weight: bold;
+  color: #2e3c7e;
 `;
 const FixEqual = styled.div`
   font-size: 50px;
@@ -195,6 +183,9 @@ const FixEqual = styled.div`
 
 const KoreanWrap = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px 0 0;
 `;
 
 export default DictionaryExplan;

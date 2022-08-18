@@ -439,12 +439,10 @@ const MainBody = styled.div`
 `;
 
 const ImgBody = styled.div`
-  height: 284px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  // justify-content: space-evenly;
-  // margin-left: 12px;
-  // margin-right: 12px;
+  border: 5px solid #3f9cf1;
 `;
 const SeatWrap = styled.div`
   display: flex;
