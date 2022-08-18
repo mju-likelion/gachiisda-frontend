@@ -12,12 +12,18 @@ import { ReactComponent as NoneTicket2 } from './images/NoneClickTicketBtn2.svg'
 import Header from './Layouts/Header';
 //useRecoilValue
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../Atoms/Stations';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+  seatName,
+} from '../../atoms/Stations';
 
 function TicketConfirm() {
   const startStValue = useRecoilValue(startStation);
   const arrivalStvalue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const seatNmValue = useRecoilValue(seatName);
 
   return (
     <All>
@@ -69,7 +75,7 @@ function TicketConfirm() {
             </TrainNumWrap>
           </SeatContentsWrap>
           <SeatContentsWrap>
-            <SeatNum>13</SeatNum>
+            <SeatNum>{seatNmValue}</SeatNum>
           </SeatContentsWrap>
           <SeatContentsWrap>
             <QR />

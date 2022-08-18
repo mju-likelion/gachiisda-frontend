@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import arrow from '../../Home/images/Arrow.svg';
-import seat2 from '../../Home/images/Seat2.svg';
+import { ReactComponent as Arrow } from '../../Home/images/Arrow.svg';
+import { ReactComponent as Seat2 } from '../../Home/images/Seat2.svg';
 // import seat1 from '../Home/images/Seat1.svg';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
+import Axios from '../../../axios';
+import { seatName, manyPerson } from '../../../atoms/Stations';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 function BGChooseSectionFirst() {
-  const [lis, setlis] = useState([
+  const [seatNum, setSeatNum] = useState([]);
+  const [seatNm, setSeatNm] = useRecoilState(seatName);
+  const PersonValue = useRecoilValue(manyPerson);
+  const [disable, setDisable] = useState(false);
+
+  useEffect(() => {
+    Axios.get('/api/korail/trains/1/1').then((response) => {
+      setSeatNum(response.data.data[0].Seats);
+    });
+  }, []);
+
+  const [list, setList] = useState([
     false,
     false,
     false,
@@ -18,11 +32,12 @@ function BGChooseSectionFirst() {
     false,
   ]);
 
-  const [nsns, setnsns] = useState(0);
+  // const [selected, setSelected] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
     alert(
-      '상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 좌석을 선택해주세요.\n회색으로 칠해져 있는 자리는 이미 예매된 좌석이라 선택 불가합니다.\n좌석을 선택하신 후 선택완료 버튼을 눌러주세요',
+      `상단에서 원하는 호차를 선택해주세요. 그런 뒤 원하는 ${PersonValue}개의 좌석을 선택해주세요. \n좌석을 선택하신 후 선택완료 버튼을 눌러주세요`,
     );
   };
 
@@ -30,50 +45,63 @@ function BGChooseSectionFirst() {
     return (
       <Selectn>
         <option key='second' value='second'>
-          2호차 (23석)
+          1호차 (16석)
         </option>
         <option key='third' value='third'>
-          3호차 (23석)
+          2호차 (16석)
         </option>
         <option key='fourth' value='fourth'>
-          4호차 (23석)
+          3호차 (16석)
         </option>
       </Selectn>
     );
   };
 
   const Appendlis = (num) => {
-    let ls = lis;
+    let ls = list;
     ls[num] = !ls[num];
 
-    setlis(ls);
+    setList(ls);
   };
 
-  useEffect(() => {}, [lis]);
+  useEffect(() => {}, [list]);
 
   /*   const returnimg2 = () => {
     return <IImg img alt='seat1' src={seat1}></IImg>;
    };*/
-
-  const returnimg1 = (num) => {
+  const SeatNums = seatNum.map((num) => (
+    <span key={num.id}> {num.seat_name}</span>
+  ));
+  const returnimg1 = (check) => {
     return (
-      <img
-        img
-        alt='seat2'
-        src={seat2}
+      <Seat2
         width={67}
         height={67}
+        disable={disable}
         onClick={() => {
-          Appendlis(num);
-          setnsns(nsns + 1);
+          {
+            PersonValue > count //첫번째 경우
+              ? list[check] //두번째 경우
+                ? Appendlis(check)
+                : Appendlis(check)
+              : setDisable(true);
+          }
+          // setSelected(selected + 1);
+          {
+            PersonValue > count
+              ? list[check]
+                ? setCount(count + 1)
+                : setCount(count - 1)
+              : setDisable(true);
+          }
         }}
         style={{
           marginleft: 10,
           marginbottom: 10,
-          backgroundColor: lis[num] == true ? '#064A87a1' : null,
+          backgroundColor: list[check] == true ? '#064A87a1' : null,
           borderRadius: 20,
         }}
-      ></img>
+      />
     );
   };
 
@@ -89,13 +117,13 @@ function BGChooseSectionFirst() {
             >
               선택좌석
             </span>
-            <span
+            <div
               style={{
                 color: 'white',
               }}
             >
-              1명 좌석 선택 / 총 2명 1호차 10
-            </span>
+              {count}명 좌석 선택 / 총 {PersonValue}명 1호차{seatNm}
+            </div>
           </SelectDiv2>
           <SelectDiv>
             <Link
@@ -124,7 +152,7 @@ function BGChooseSectionFirst() {
             }}
           >
             <TrainNumber>해당열차 열차번호 (일반실)</TrainNumber>
-            <LeftSeat>잔여 23석 / 전체 72석</LeftSeat>
+            <LeftSeat>잔여 16석 / 전체 72석</LeftSeat>
           </div>
           <DayBotton>다음칸</DayBotton>
         </Body2>
@@ -154,45 +182,158 @@ function BGChooseSectionFirst() {
       <MainBody>
         <ImgBody>
           <ImgBody2>
-            {returnimg1(8)}
-            {returnimg1(0)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[0]);
+              }}
+            >
+              {returnimg1(0)}
+              {SeatNums[0]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[1]);
+              }}
+            >
+              {returnimg1(1)}
+              {SeatNums[1]}
+            </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg1(9)}
-            {returnimg1(1)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[4]);
+              }}
+            >
+              {returnimg1(4)}
+              {SeatNums[4]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[5]);
+              }}
+            >
+              {returnimg1(5)}
+              {SeatNums[5]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(10)}
-            {returnimg1(2)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[8]);
+              }}
+            >
+              {returnimg1(8)}
+              {SeatNums[8]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[9]);
+              }}
+            >
+              {returnimg1(9)}
+              {SeatNums[9]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(11)}
-            {returnimg1(3)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[12]);
+              }}
+            >
+              {returnimg1(12)}
+              {SeatNums[12]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[13]);
+              }}
+            >
+              {returnimg1(13)}
+              {SeatNums[13]}
+            </SeatWrap>
           </ImgBody2>
         </ImgBody>
-        <IImg img alt='Arrow' src={arrow} width={63} height={347}></IImg>
+        <Arrow width={63} height={347}></Arrow>
         <ImgBody>
           <ImgBody2>
-            {returnimg1(12)}
-            {returnimg1(4)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[2]);
+              }}
+            >
+              {returnimg1(2)}
+              {SeatNums[2]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[3]);
+              }}
+            >
+              {returnimg1(3)}
+              {SeatNums[3]}
+            </SeatWrap>
           </ImgBody2>
 
           <ImgBody2>
-            {returnimg1(13)}
-            {returnimg1(5)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[6]);
+              }}
+            >
+              {returnimg1(6)}
+              {SeatNums[6]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[7]);
+              }}
+            >
+              {returnimg1(7)}
+              {SeatNums[7]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(14)}
-            {returnimg1(6)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[10]);
+              }}
+            >
+              {returnimg1(10)}
+              {SeatNums[10]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[11]);
+              }}
+            >
+              {returnimg1(11)}
+              {SeatNums[11]}
+            </SeatWrap>
           </ImgBody2>
           <ImgBody2>
-            {returnimg1(15)}
-            {returnimg1(7)}
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[14]);
+              }}
+            >
+              {returnimg1(14)}
+              {SeatNums[14]}
+            </SeatWrap>
+            <SeatWrap
+              onClick={() => {
+                setSeatNm(SeatNums[15]);
+              }}
+            >
+              {returnimg1(15)}
+              {SeatNums[15]}
+            </SeatWrap>
           </ImgBody2>
         </ImgBody>
+        {/* <SeatNums /> */}
       </MainBody>
-      {lis.includes(true) == true ? show() : null}
+      {list.includes(true) == true ? show() : null}
       <Footer onClick={handleClick}>미션을 수행해주세요 !</Footer>
       <Header />
     </All>
@@ -291,7 +432,7 @@ const Circlewhite = styled.div`
 `;
 
 const MainBody = styled.div`
-  height: 380px;
+  height: 80vh;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
@@ -305,16 +446,16 @@ const ImgBody = styled.div`
   // margin-left: 12px;
   // margin-right: 12px;
 `;
-
+const SeatWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const ImgBody2 = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-`;
-
-const IImg = styled.img`
-  margin-left: 10px;
-  margin-bottom: ${(props) => (props.current ? 10 : null)}px;
+  margin-top: 10px;
 `;
 
 const ListDiv = styled.div`

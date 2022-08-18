@@ -15,7 +15,7 @@ import {
   startStation,
   arrivalStation,
   startDate,
-} from '../../../Atoms/Stations';
+} from '../../../atoms/Stations';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);

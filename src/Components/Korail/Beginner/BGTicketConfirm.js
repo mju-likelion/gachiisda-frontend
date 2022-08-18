@@ -16,12 +16,14 @@ import {
   startStation,
   arrivalStation,
   startDate,
-} from '../../../Atoms/Stations';
+  seatName,
+} from '../../../atoms/Stations';
 
 function BGTicketConfirm() {
   const startStValue = useRecoilValue(startStation);
   const arrivalStvalue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const seatNmValue = useRecoilValue(seatName);
 
   const handleClick = () => {
     alert(
@@ -79,7 +81,7 @@ function BGTicketConfirm() {
             </TrainNumWrap>
           </SeatContentsWrap>
           <SeatContentsWrap>
-            <SeatNum>13</SeatNum>
+            <SeatNum>{seatNmValue}</SeatNum>
           </SeatContentsWrap>
           <QrWrap>
             <QrIcon />

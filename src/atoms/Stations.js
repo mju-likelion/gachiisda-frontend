@@ -10,12 +10,17 @@ export const arrivalStation = atom({
   default: '부산',
 });
 
-// export const manyPerson = atom({
-//   key: 'manyPerson',
-//   default: 0,
-// });
+export const manyPerson = atom({
+  key: 'manyPerson',
+  default: 0,
+});
 
 export const startDate = atom({
   key: 'startDate',
+  default: [],
+});
+
+export const seatName = atom({
+  key: 'seatName',
   default: [],
 });
