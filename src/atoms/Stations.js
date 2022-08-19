@@ -24,3 +24,12 @@ export const seatName = atom({
   key: 'seatName',
   default: [],
 });
+
+export const startStationId = atom({
+  key: 'startStationId',
+  default: 0,
+});
+export const arrivalStationId = atom({
+  key: 'arrivalStationId',
+  default: 0,
+});
