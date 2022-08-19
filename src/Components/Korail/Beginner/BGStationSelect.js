@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StationArrow from '../images/StationArrow';
 import { ReactComponent as FooterTrainBtn } from '../images/FooterTrainBtn.svg';
@@ -10,23 +10,58 @@ import { Link } from 'react-router-dom';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
 //useRecoilValue
+import Axios from '../../../axios';
 import { useRecoilValue } from 'recoil';
 import {
   startStation,
   arrivalStation,
   startDate,
+  startStationId,
+  arrivalStationId,
+  // startTime,
 } from '../../../atoms/Stations';
+import { getHours, getMinutes, subHours } from 'date-fns';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);
-  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const arrivalStValue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const startStIdValue = useRecoilValue(startStationId);
+  const arrivalStIdValue = useRecoilValue(arrivalStationId);
 
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '경우'];
+  const selectList = ['직통', '경유'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
+
+  const dtYear = String(startDtValue.year);
+  const dtMonth = String(startDtValue.month);
+  const dtDate = startDtValue.date;
+  // const dtTime = startTime;
+
+  const [testData, setTestData] = useState([]);
+
+  const getDtAll = dtYear + '-' + dtMonth + '-' + dtDate;
+
+  const getList = async () => {
+    try {
+      const data = await Axios.get('/api/korail/trains', {
+        params: {
+          depPlaceId: startStIdValue,
+          arrPlaceId: arrivalStIdValue,
+          depPlandTime: getDtAll,
+        },
+      });
+      setTestData(data.data.data);
+    } catch {
+      alert('error');
+    }
+  };
+
+  useEffect(() => {
+    getList();
+  }, []);
 
   const handleClick = () => {
     alert(
@@ -52,7 +87,7 @@ function StationSelect() {
             <SeatBtnMent>
               <Link
                 style={{ textDecoration: 'none', color: '#fff' }}
-                to='/BGChooseSectionFirst'
+                to='/ChooseSectionFirst'
               >
                 {' '}
                 좌석선택
@@ -63,7 +98,7 @@ function StationSelect() {
         <TicketingBtn>
           <Link
             style={{ textDecoration: 'none', color: '#064A87' }}
-            to='/BGPaymentPage1'
+            to='/PaymentPage1'
           >
             예매
           </Link>
@@ -79,16 +114,15 @@ function StationSelect() {
         <div>
           <StationArrow />
         </div>
-        <StationName>{arrivalStvalue}</StationName>
+        <StationName>{arrivalStValue}</StationName>
       </PageHeader>
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>
-            {' '}
+          <DateWrap>
             {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
             {startDtValue.day})
-          </Date>
+          </DateWrap>
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>
@@ -123,30 +157,49 @@ function StationSelect() {
           <Title>일반실</Title>
           <Title>특/우등</Title>
         </TableHeader>
-        <TableContent
-          onClick={() => {
-            setModal(!modal);
-          }}
-        >
-          <TrainWrap>
-            <TrainName>해당 열차</TrainName>
-            <TrainNum>열차 번호</TrainNum>
-          </TrainWrap>
-          <StartTimeWrap>
-            <Time>시간:몇분</Time>
-            <Station>출발역</Station>
-          </StartTimeWrap>
-          <ArrivalTimeWrap>
-            <Time>시간:몇분</Time>
-            <Station>도착역</Station>
-          </ArrivalTimeWrap>
-          <NormalWrap>
-            <Price>XX,XXX원</Price>
-          </NormalWrap>
-          <EtcWrap>
-            <Price>XX,XXX원</Price>
-          </EtcWrap>
-        </TableContent>
+        {testData.map((item) => (
+          <TableContent
+            onClick={() => {
+              setModal(!modal);
+            }}
+            key={item.id}
+          >
+            <TrainWrap>
+              <TrainName>{item.train_grade_name}</TrainName>
+              <TrainNum>{item.id}</TrainNum>
+            </TrainWrap>
+            <StartTimeWrap>
+              <Time>
+                {getHours(new Date(item.dep_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+                :
+                {getMinutes(new Date(item.dep_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+              </Time>
+              <Station>{item.dep_place_name}</Station>
+            </StartTimeWrap>
+            <ArrivalTimeWrap>
+              <Time>
+                {getHours(subHours(new Date(item.arr_pland_time), 9))
+                  .toString()
+                  .padStart(2, '0')}
+                :
+                {getMinutes(new Date(item.arr_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+              </Time>
+              <Station>{item.arr_place_name}</Station>
+            </ArrivalTimeWrap>
+            <NormalWrap>
+              <Price>XX,XXX원</Price>
+            </NormalWrap>
+            <EtcWrap>
+              <Price>XX,XXX원</Price>
+            </EtcWrap>
+          </TableContent>
+        ))}
       </ListWrap>
       {modal ? modalPage() : null}
       <PageFooter>
@@ -170,11 +223,9 @@ function StationSelect() {
     </All>
   );
 }
-
 const All = styled.div`
   margin-top: 64px;
 `;
-
 const PageHeader = styled.div`
   background-color: #dcf3f6;
   display: flex;
@@ -213,7 +264,7 @@ const DayButton = styled.button`
   font-size: 15px;
 `;
 
-const Date = styled.div`
+const DateWrap = styled.div`
   margin: 20px 36px;
   align-items: center;
   font-weight: bold;
@@ -409,6 +460,7 @@ const DetailBtnWrap = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const SeatBtnMent = styled.button`
   width: 33%;
   height: 42px;
@@ -417,7 +469,6 @@ const SeatBtnMent = styled.button`
   font-size: 15px;
   color: #ffffff;
   border: none;
-  border: 5px solid #3f9cf1;
 `;
 
 const BtnMent = styled.button`
@@ -439,10 +490,6 @@ const TicketingBtn = styled.button`
   font-size: 25px;
   color: #064a87;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid #3f9cf1;
 `;
 
 export default StationSelect;

@@ -43,12 +43,9 @@ function StationSelect() {
   const [testData, setTestData] = useState([]);
 
   const getDtAll = dtYear + '-' + dtMonth + '-' + dtDate;
-  console.log(getDtAll);
 
   const getList = async () => {
     try {
-      console.log('axios실행');
-      console.log(startStIdValue, arrivalStIdValue, startDtValue);
       const data = await Axios.get('/api/korail/trains', {
         params: {
           depPlaceId: startStIdValue,
@@ -57,15 +54,13 @@ function StationSelect() {
         },
       });
       setTestData(data.data.data);
-      console.log(data, '입니다');
     } catch {
-      console.log('에러입니다');
+      alert('error');
     }
   };
 
   useEffect(() => {
     getList();
-    console.log('useEffect실행');
   }, []);
 
   const handleClick = () => {
