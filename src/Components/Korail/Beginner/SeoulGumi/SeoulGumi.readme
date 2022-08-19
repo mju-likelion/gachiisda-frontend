@@ -1,1 +1,10 @@
-코레일 초급 단계 서울-김천구미역 미션 폴더입니다.
+import React from 'react';
+import styled from 'styled-components';
+import Ktx from '../images/Ktx.js';
+
+import { Link } from 'react-router-dom';
+import Axios from '../../../axios.js';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { manyPerson } from '../../../atoms/Stations';
+
