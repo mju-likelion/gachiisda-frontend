@@ -18,8 +18,9 @@ import {
   startDate,
   startStationId,
   arrivalStationId,
+  // startTime,
 } from '../../atoms/Stations';
-import { getHours, getMinutes } from 'date-fns';
+import { getHours, getMinutes, subHours } from 'date-fns';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);
@@ -30,13 +31,14 @@ function StationSelect() {
 
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '..'];
+  const selectList = ['직통', '경유'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
 
   const dtYear = String(startDtValue.year);
   const dtMonth = String(startDtValue.month);
   const dtDate = startDtValue.date;
+  // const dtTime = startTime;
 
   const [testData, setTestData] = useState([]);
 
@@ -183,7 +185,7 @@ function StationSelect() {
             </StartTimeWrap>
             <ArrivalTimeWrap>
               <Time>
-                {getHours(new Date(item.arr_pland_time))
+                {getHours(subHours(new Date(item.arr_pland_time), 9))
                   .toString()
                   .padStart(2, '0')}
                 :
