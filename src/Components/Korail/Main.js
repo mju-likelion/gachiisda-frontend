@@ -35,7 +35,6 @@ function Main() {
   // const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
-
   //main 값 변경
   // const [seoul, setSeoul] = useState('서울');
   // const [busan, setBusan] = useState('부산');
