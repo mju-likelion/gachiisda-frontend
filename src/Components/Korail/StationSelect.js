@@ -6,7 +6,7 @@ import { ReactComponent as FooterTrainBtn } from './images/FooterTrainBtn.svg';
 import { ReactComponent as FooterTicketBtn } from './images/FooterTicketBtn.svg';
 import { ReactComponent as NoneTicket } from './images/FooterTicket.svg';
 import { ReactComponent as NoneTicket2 } from './images/FooterTicket2.svg';
-import { Link } from 'react-router-dom';
+import ModalPage from './ModalPage';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 //useRecoilValue
@@ -34,6 +34,10 @@ function StationSelect() {
   const selectList = ['직통', '경유'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(!modal);
+  };
 
   const dtYear = String(startDtValue.year);
   const dtMonth = String(startDtValue.month);
@@ -69,40 +73,6 @@ function StationSelect() {
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
-  };
-
-  const modalPage = () => {
-    return (
-      <div>
-        <SelectModal>
-          <TimeWrap>
-            <TimeMent>일반석</TimeMent>
-            <CloseBtn onClick={() => setModal(false)}>x</CloseBtn>
-          </TimeWrap>
-          <DetailBtnWrap>
-            <BtnMent>열차시각</BtnMent>
-            <BtnMent>운임요금</BtnMent>
-            <SeatBtnMent>
-              <Link
-                style={{ textDecoration: 'none', color: '#fff' }}
-                to='/ChooseSectionFirst'
-              >
-                {' '}
-                좌석선택
-              </Link>
-            </SeatBtnMent>
-          </DetailBtnWrap>
-        </SelectModal>
-        <TicketingBtn>
-          <Link
-            style={{ textDecoration: 'none', color: '#064A87' }}
-            to='/PaymentPage1'
-          >
-            예매
-          </Link>
-        </TicketingBtn>
-      </div>
-    );
   };
 
   return (
@@ -158,7 +128,7 @@ function StationSelect() {
         {testData.map((item) => (
           <TableContent
             onClick={() => {
-              setModal(!modal);
+              openModal();
             }}
             key={item.id}
           >
@@ -199,7 +169,7 @@ function StationSelect() {
           </TableContent>
         ))}
       </ListWrap>
-      {modal ? modalPage() : null}
+      {modal && <ModalPage />}
       <PageFooter>
         <TrainBtn>
           <FooterTrainBtn />
@@ -426,68 +396,6 @@ const NoneBtnWrap = styled.div`
   background-color: #f9f9f9;
   height: 54px;
   width: 25%;
-`;
-
-const SelectModal = styled.div`
-  background: rgba(0, 0, 0, 0.7);
-`;
-
-const TimeMent = styled.div`
-  padding: 10px;
-  align-items: flex-start;
-  font-weight: 700;
-  font-size: 12px;
-  color: #ffffff;
-`;
-
-const CloseBtn = styled.button`
-  border-style: none;
-  font-weight: 700;
-  font-size: 15px;
-  color: #ffffff;
-  background: transparent;
-  margin-left: 75%;
-`;
-
-const TimeWrap = styled.div`
-  display: flex;
-`;
-
-const DetailBtnWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const SeatBtnMent = styled.button`
-  width: 33%;
-  height: 42px;
-  background: transparent;
-  font-weight: 700;
-  font-size: 15px;
-  color: #ffffff;
-  border: none;
-`;
-
-const BtnMent = styled.button`
-  width: 33%;
-  height: 42px;
-  background: transparent;
-  font-weight: 700;
-  font-size: 15px;
-  color: #ffffff;
-  border: none;
-  border-right: 1px solid #ffffff;
-`;
-
-const TicketingBtn = styled.button`
-  background: #c6dfee;
-  width: 100%;
-  height: 40px;
-  font-weight: 700;
-  font-size: 25px;
-  color: #064a87;
-  border: none;
 `;
 
 export default StationSelect;
