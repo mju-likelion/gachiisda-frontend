@@ -6,7 +6,7 @@ const ModalPage = () => {
     <ModalWrap>
       <SelectModal>
         <TimeWrap>
-          <TimeMent>일반석</TimeMent>
+          {/* <TimeMent>일반석</TimeMent> */}
           <CloseBtn>x</CloseBtn>
         </TimeWrap>
         <DetailBtnWrap>
@@ -45,13 +45,13 @@ const SelectModal = styled.div`
   z-index: 100;
 `;
 
-const TimeMent = styled.div`
-  padding: 10px;
-  align-items: flex-start;
-  font-weight: 700;
-  font-size: 12px;
-  color: #ffffff;
-`;
+// const TimeMent = styled.div`
+//   padding: 10px;
+//   align-items: flex-start;
+//   font-weight: 700;
+//   font-size: 12px;
+//   color: #ffffff;
+// `;
 
 const CloseBtn = styled.button`
   border-style: none;
