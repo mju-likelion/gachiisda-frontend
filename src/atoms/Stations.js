@@ -33,3 +33,8 @@ export const arrivalStationId = atom({
   key: 'arrivalStationId',
   default: 0,
 });
+
+// export const startTime = atom({
+//   key: 'startTime',
+//   default: '',
+// });

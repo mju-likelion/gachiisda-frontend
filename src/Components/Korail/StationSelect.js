@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StationArrow from './images/StationArrow';
 import { ReactComponent as FooterTrainBtn } from './images/FooterTrainBtn.svg';
@@ -10,19 +10,63 @@ import { Link } from 'react-router-dom';
 import Footer from './Layouts/Footer';
 import Header from './Layouts/Header';
 //useRecoilValue
+import Axios from '../../axios';
 import { useRecoilValue } from 'recoil';
-import { startStation, arrivalStation, startDate } from '../../atoms/Stations';
+import {
+  startStation,
+  arrivalStation,
+  startDate,
+  startStationId,
+  arrivalStationId,
+  // startTime,
+} from '../../atoms/Stations';
+import { getHours, getMinutes, subHours } from 'date-fns';
 
 function StationSelect() {
   const startStValue = useRecoilValue(startStation);
-  const arrivalStvalue = useRecoilValue(arrivalStation);
+  const arrivalStValue = useRecoilValue(arrivalStation);
   const startDtValue = useRecoilValue(startDate);
+  const startStIdValue = useRecoilValue(startStationId);
+  const arrivalStIdValue = useRecoilValue(arrivalStationId);
 
   const selectTrainList = ['전체', 'KTX', '새마을', '무궁화'];
   const selectSeatList = ['일반석', '우등석', '특석'];
-  const selectList = ['직통', '..'];
+  const selectList = ['직통', '경유'];
   const [Selected, setSelected] = useState('');
   const [modal, setModal] = useState(false);
+
+  const dtYear = String(startDtValue.year);
+  const dtMonth = String(startDtValue.month);
+  const dtDate = startDtValue.date;
+  // const dtTime = startTime;
+
+  const [testData, setTestData] = useState([]);
+
+  const getDtAll = dtYear + '-' + dtMonth + '-' + dtDate;
+  console.log(getDtAll);
+
+  const getList = async () => {
+    try {
+      console.log('axios실행');
+      console.log(startStIdValue, arrivalStIdValue, startDtValue);
+      const data = await Axios.get('/api/korail/trains', {
+        params: {
+          depPlaceId: startStIdValue,
+          arrPlaceId: arrivalStIdValue,
+          depPlandTime: getDtAll,
+        },
+      });
+      setTestData(data.data.data);
+      console.log(data, '입니다');
+    } catch {
+      console.log('에러입니다');
+    }
+  };
+
+  useEffect(() => {
+    getList();
+    console.log('useEffect실행');
+  }, []);
 
   const handleClick = () => {
     alert('미션에 나타나있는 시간대를 찾아보세요 ');
@@ -73,15 +117,15 @@ function StationSelect() {
         <div>
           <StationArrow />
         </div>
-        <StationName>{arrivalStvalue}</StationName>
+        <StationName>{arrivalStValue}</StationName>
       </PageHeader>
       <SelectWrap>
         <DayWrap>
           <DayButton>이전날</DayButton>
-          <Date>
+          <DateWrap>
             {startDtValue.year}년 {startDtValue.month}월 {startDtValue.date}일 (
             {startDtValue.day})
-          </Date>
+          </DateWrap>
           <DayButton>다음날</DayButton>
         </DayWrap>
         <SelectButWrap>
@@ -116,30 +160,49 @@ function StationSelect() {
           <Title>일반실</Title>
           <Title>특/우등</Title>
         </TableHeader>
-        <TableContent
-          onClick={() => {
-            setModal(!modal);
-          }}
-        >
-          <TrainWrap>
-            <TrainName>해당 열차</TrainName>
-            <TrainNum>열차 번호</TrainNum>
-          </TrainWrap>
-          <StartTimeWrap>
-            <Time>시간:몇분</Time>
-            <Station>출발역</Station>
-          </StartTimeWrap>
-          <ArrivalTimeWrap>
-            <Time>시간:몇분</Time>
-            <Station>도착역</Station>
-          </ArrivalTimeWrap>
-          <NormalWrap>
-            <Price>XX,XXX원</Price>
-          </NormalWrap>
-          <EtcWrap>
-            <Price>XX,XXX원</Price>
-          </EtcWrap>
-        </TableContent>
+        {testData.map((item) => (
+          <TableContent
+            onClick={() => {
+              setModal(!modal);
+            }}
+            key={item.id}
+          >
+            <TrainWrap>
+              <TrainName>{item.train_grade_name}</TrainName>
+              <TrainNum>{item.id}</TrainNum>
+            </TrainWrap>
+            <StartTimeWrap>
+              <Time>
+                {getHours(new Date(item.dep_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+                :
+                {getMinutes(new Date(item.dep_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+              </Time>
+              <Station>{item.dep_place_name}</Station>
+            </StartTimeWrap>
+            <ArrivalTimeWrap>
+              <Time>
+                {getHours(subHours(new Date(item.arr_pland_time), 9))
+                  .toString()
+                  .padStart(2, '0')}
+                :
+                {getMinutes(new Date(item.arr_pland_time))
+                  .toString()
+                  .padStart(2, '0')}
+              </Time>
+              <Station>{item.arr_place_name}</Station>
+            </ArrivalTimeWrap>
+            <NormalWrap>
+              <Price>XX,XXX원</Price>
+            </NormalWrap>
+            <EtcWrap>
+              <Price>XX,XXX원</Price>
+            </EtcWrap>
+          </TableContent>
+        ))}
       </ListWrap>
       {modal ? modalPage() : null}
       <PageFooter>
@@ -204,7 +267,7 @@ const DayButton = styled.button`
   font-size: 15px;
 `;
 
-const Date = styled.div`
+const DateWrap = styled.div`
   margin: 20px 36px;
   align-items: center;
   font-weight: bold;
