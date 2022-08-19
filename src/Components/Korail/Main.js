@@ -259,21 +259,21 @@ function Main() {
         <div>
           <StationDetail
             onClick={() =>
-              setArrivalSt('서울') & setShowAriResults(false) & setArrivalId(0)
+              setArrivalSt('서울') & setShowAriResults(false) & setArrivalId(1)
             }
           >
             서울
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('용산') & setShowAriResults(false) & setArrivalId(1)
+              setArrivalSt('용산') & setShowAriResults(false) & setArrivalId(2)
             }
           >
             용산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('광명') & setShowAriResults(false) & setArrivalId(2)
+              setArrivalSt('광명') & setShowAriResults(false) & setArrivalId(3)
             }
           >
             광명
@@ -282,35 +282,35 @@ function Main() {
             onClick={() =>
               setArrivalSt('영등포') &
               setShowAriResults(false) &
-              setArrivalId(3)
+              setArrivalId(4)
             }
           >
             영등포
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('수원') & setShowAriResults(false) & setArrivalId(4)
+              setArrivalSt('수원') & setShowAriResults(false) & setArrivalId(5)
             }
           >
             수원
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('평택') & setShowAriResults(false) & setArrivalId(5)
+              setArrivalSt('평택') & setShowAriResults(false) & setArrivalId(6)
             }
           >
             평택
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('천안') & setShowAriResults(false) & setArrivalId(6)
+              setArrivalSt('천안') & setShowAriResults(false) & setArrivalId(7)
             }
           >
             천안
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('대전') & setShowAriResults(false) & setArrivalId(7)
+              setArrivalSt('대전') & setShowAriResults(false) & setArrivalId(8)
             }
           >
             대전
@@ -319,84 +319,84 @@ function Main() {
             onClick={() =>
               setArrivalSt('김천구미') &
               setShowAriResults(false) &
-              setArrivalId(8)
+              setArrivalId(9)
             }
           >
             김천구미
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('구미') & setShowAriResults(false) & setArrivalId(9)
+              setArrivalSt('구미') & setShowAriResults(false) & setArrivalId(10)
             }
           >
             구미
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('부산') & setShowAriResults(false) & setArrivalId(10)
+              setArrivalSt('부산') & setShowAriResults(false) & setArrivalId(11)
             }
           >
             부산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('대구') & setShowAriResults(false) & setArrivalId(11)
+              setArrivalSt('대구') & setShowAriResults(false) & setArrivalId(12)
             }
           >
             대구
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('울산') & setShowAriResults(false) & setArrivalId(12)
+              setArrivalSt('울산') & setShowAriResults(false) & setArrivalId(13)
             }
           >
             울산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('포항') & setShowAriResults(false) & setArrivalId(13)
+              setArrivalSt('포항') & setShowAriResults(false) & setArrivalId(14)
             }
           >
             포항
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('강릉') & setShowAriResults(false) & setArrivalId(14)
+              setArrivalSt('강릉') & setShowAriResults(false) & setArrivalId(15)
             }
           >
             강릉
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('목포') & setShowAriResults(false) & setArrivalId(15)
+              setArrivalSt('목포') & setShowAriResults(false) & setArrivalId(16)
             }
           >
             목포
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('전주') & setShowAriResults(false) & setArrivalId(16)
+              setArrivalSt('전주') & setShowAriResults(false) & setArrivalId(17)
             }
           >
             전주
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('동해') & setShowAriResults(false) & setArrivalId(17)
+              setArrivalSt('동해') & setShowAriResults(false) & setArrivalId(18)
             }
           >
             동해
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('평창') & setShowAriResults(false) & setArrivalId(18)
+              setArrivalSt('평창') & setShowAriResults(false) & setArrivalId(19)
             }
           >
             평창
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setArrivalSt('안동') & setShowAriResults(false) & setArrivalId(19)
+              setArrivalSt('안동') & setShowAriResults(false) & setArrivalId(20)
             }
           >
             안동
@@ -414,140 +414,140 @@ function Main() {
         <div>
           <StationDetail
             onClick={() =>
-              setStartSt('서울') & setshowGoResults(false) & setStartId(0)
+              setStartSt('서울') & setshowGoResults(false) & setStartId(1)
             }
           >
             서울
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('용산') & setshowGoResults(false) & setStartId(1)
+              setStartSt('용산') & setshowGoResults(false) & setStartId(2)
             }
           >
             용산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('광명') & setshowGoResults(false) & setStartId(2)
+              setStartSt('광명') & setshowGoResults(false) & setStartId(3)
             }
           >
             광명
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('영등포') & setshowGoResults(false) & setStartId(3)
+              setStartSt('영등포') & setshowGoResults(false) & setStartId(4)
             }
           >
             영등포
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('수원') & setshowGoResults(false) & setStartId(4)
+              setStartSt('수원') & setshowGoResults(false) & setStartId(5)
             }
           >
             수원
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('평택') & setshowGoResults(false) & setStartId(5)
+              setStartSt('평택') & setshowGoResults(false) & setStartId(6)
             }
           >
             평택
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('천안') & setshowGoResults(false) & setStartId(6)
+              setStartSt('천안') & setshowGoResults(false) & setStartId(7)
             }
           >
             천안
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('대전') & setshowGoResults(false) & setStartId(7)
+              setStartSt('대전') & setshowGoResults(false) & setStartId(8)
             }
           >
             대전
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('김천구미') & setshowGoResults(false) & setStartId(8)
+              setStartSt('김천구미') & setshowGoResults(false) & setStartId(9)
             }
           >
             김천구미
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('구미') & setshowGoResults(false) & setStartId(9)
+              setStartSt('구미') & setshowGoResults(false) & setStartId(10)
             }
           >
             구미
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('부산') & setshowGoResults(false) & setStartId(10)
+              setStartSt('부산') & setshowGoResults(false) & setStartId(11)
             }
           >
             부산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('대구') & setshowGoResults(false) & setStartId(11)
+              setStartSt('대구') & setshowGoResults(false) & setStartId(12)
             }
           >
             대구
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('울산') & setshowGoResults(false) & setStartId(12)
+              setStartSt('울산') & setshowGoResults(false) & setStartId(13)
             }
           >
             울산
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('포항') & setshowGoResults(false) & setStartId(13)
+              setStartSt('포항') & setshowGoResults(false) & setStartId(14)
             }
           >
             포항
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('강릉') & setshowGoResults(false) & setStartId(14)
+              setStartSt('강릉') & setshowGoResults(false) & setStartId(15)
             }
           >
             강릉
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('목포') & setshowGoResults(false) & setStartId(15)
+              setStartSt('목포') & setshowGoResults(false) & setStartId(16)
             }
           >
             목포
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('전주') & setshowGoResults(false) & setStartId(16)
+              setStartSt('전주') & setshowGoResults(false) & setStartId(17)
             }
           >
             전주
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('동해') & setshowGoResults(false) & setStartId(17)
+              setStartSt('동해') & setshowGoResults(false) & setStartId(18)
             }
           >
             동해
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('평창') & setshowGoResults(false) & setStartId(18)
+              setStartSt('평창') & setshowGoResults(false) & setStartId(19)
             }
           >
             평창
           </StationDetail>
           <StationDetail
             onClick={() =>
-              setStartSt('안동') & setshowGoResults(false) & setStartId(19)
+              setStartSt('안동') & setshowGoResults(false) & setStartId(20)
             }
           >
             안동
