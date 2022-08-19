@@ -43,7 +43,7 @@ function BGList() {
         </Link>
       </div>
       <div>
-        <Link to='/BGMain' style={{ textDecoration: 'none' }}>
+        <Link to='/SGMain' style={{ textDecoration: 'none' }}>
           <KtxListMent type='submit'>
             서울역 - 김천구미역
             <Item text={<br />} />

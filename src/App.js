@@ -25,6 +25,9 @@ import BGStartSection from './Components/Korail/Beginner/BGStartSection';
 import BGStationSelect from './Components/Korail/Beginner/BGStationSelect';
 import BGList from './Components/Korail/Beginner/BGList';
 import BGCheckSection from './Components/Korail/Beginner/BGCheckSection';
+//초급 서울김천구미
+import SGMain from './Components/Korail/Beginner/SeoulGumi/SGMain';
+
 //사전
 import DictMain from './Components/Home/Dictionary/DictMain';
 import DictionaryExplan from './Components/Home/Dictionary/DictionaryExplan';
@@ -63,6 +66,7 @@ function App() {
         <Route path='/BGStartSection' element={<BGStartSection />} />
         <Route path='/BGStationSelect' element={<BGStationSelect />} />
         <Route path='/BGCheckSection' element={<BGCheckSection />} />
+        <Route path='/SGMain' element={<SGMain />} />
 
         {/* 사전 */}
         <Route path='/DictMain' element={<DictMain />} />
