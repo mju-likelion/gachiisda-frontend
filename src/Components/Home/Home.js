@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import Kiosk from './images/KioskIcon.svg';
 import Dict from './images/DictionaryIcon.svg';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { manyPerson } from '../../atoms/Stations';
 
 function Home() {
+  const [totalCount, setTotalCount] = useRecoilState(manyPerson);
+  setTotalCount(0);
+  totalCount;
   return (
     <div>
       <HomeAll>

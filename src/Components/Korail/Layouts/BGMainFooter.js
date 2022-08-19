@@ -8,16 +8,24 @@ import { Link } from 'react-router-dom';
 
 const MainFooter = () => {
   return (
-    <MainTrainInquire>
-      <Link
-        style={{ textDecoration: 'none', color: 'black' }}
-        to='/BGStationSelect'
-      >
-        열차 조회하기
-      </Link>
-    </MainTrainInquire>
+    <All>
+      <MainTrainInquire>
+        <Link
+          style={{ textDecoration: 'none', color: 'black' }}
+          to='/BGStationSelect'
+        >
+          열차 조회하기
+        </Link>
+      </MainTrainInquire>
+    </All>
   );
 };
+
+const All = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const MainTrainInquire = styled.div`
   background-color: #c6dfee;
@@ -27,11 +35,12 @@ const MainTrainInquire = styled.div`
   margin-top: 20px;
   position: fixed;
   bottom: 140px;
-  width: 100%;
-  height: 40px;
+  width: 98%;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 5px solid #3f9cf1;
 `;
 
 export default MainFooter;

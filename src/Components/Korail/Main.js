@@ -12,12 +12,18 @@ import Footer from './Layouts/Footer';
 import { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Axios from '../../axios';
-import { arrivalStation, startStation, startDate } from '../../atoms/Stations';
+import {
+  arrivalStation,
+  startStation,
+  startDate,
+  manyPerson,
+} from '../../atoms/Stations';
 
 function Main() {
   //useRecoilState
   const [startSt, setStartSt] = useRecoilState(startStation);
   const [arrivalSt, setArrivalSt] = useRecoilState(arrivalStation);
+  const [totalCount, setTotalCount] = useRecoilState(manyPerson);
 
   //show useState
   const [showGoResults, setshowGoResults] = useState(false);
@@ -29,7 +35,6 @@ function Main() {
   // const [day, setDay] = useState([]);
   const [date, setDate] = useState([]);
   const [time, setTime] = useState([]);
-
   //main 값 변경
   // const [seoul, setSeoul] = useState('서울');
   // const [busan, setBusan] = useState('부산');
@@ -68,42 +73,54 @@ function Main() {
   const handleDecrease = (type) => {
     if (type == 'adult' && adultCount > 0) {
       setAudltCount(adultCount - 1);
+      setTotalCount(totalCount - 1);
     }
     if (type == 'child' && childCount > 0) {
       setChildCount(childCount - 1);
+      setTotalCount(totalCount - 1);
     }
     if (type == 'baby' && babyCount > 0) {
       setBabyCount(babyCount - 1);
+      setTotalCount(totalCount - 1);
     }
     if (type == 'oldman' && grandCount > 0) {
       setGrandCount(grandCount - 1);
+      setTotalCount(totalCount - 1);
     }
     if (type == 'severe' && severeCount > 0) {
       setSevereCount(severeCount - 1);
+      setTotalCount(totalCount - 1);
     }
     if (type == 'mild' && mildCount > 0) {
       setMildCount(mildCount - 1);
+      setTotalCount(totalCount - 1);
     }
   };
 
   const handleIncrease = (type) => {
     if (type == 'adult' && adultCount < 9) {
       setAudltCount(adultCount + 1);
+      setTotalCount(totalCount + 1);
     }
     if (type == 'child' && childCount < 9) {
       setChildCount(childCount + 1);
+      setTotalCount(totalCount + 1);
     }
     if (type == 'baby' && babyCount < 9) {
       setBabyCount(babyCount + 1);
+      setTotalCount(totalCount + 1);
     }
     if (type == 'oldman' && grandCount < 9) {
       setGrandCount(grandCount + 1);
+      setTotalCount(totalCount + 1);
     }
     if (type == 'severe' && severeCount < 9) {
       setSevereCount(severeCount + 1);
+      setTotalCount(totalCount + 1);
     }
     if (type == 'mild' && mildCount < 9) {
       setMildCount(mildCount + 1);
+      setTotalCount(totalCount + 1);
     }
   };
 
@@ -123,6 +140,7 @@ function Main() {
               {grandCount > 0 && `경로 ${grandCount}명 `}
               {severeCount > 0 && `중증 장애인 ${severeCount}명 `}
               {mildCount > 0 && `경증 장애인 ${mildCount}명 `}
+              <div /> 총 인원 수 : {totalCount}
             </TotalBox>
             <Age> △ </Age>
           </div>
