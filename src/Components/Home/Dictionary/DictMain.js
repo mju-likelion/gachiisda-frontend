@@ -29,7 +29,7 @@ function DictMain() {
       </IconWrap>
       <DictMent> 쉬운 우리말 사전 </DictMent>
       <DetailMent>
-        온라인 예매 및 주문에서 자주 쓰이는 말을 <br /> 쉬운 우리말로
+        일상생활 및 온라인 예매에서 자주 쓰이는 말을 <br /> 쉬운 우리말로
         표현합니다.
       </DetailMent>
       <SearchBar>
