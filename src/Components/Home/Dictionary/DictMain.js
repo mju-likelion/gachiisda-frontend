@@ -8,6 +8,7 @@ import SearchEnter from '../../Korail/images/SearchEnter';
 //import Axios from '../../axios';
 import { inputLoanValue } from '../../../atoms/LoanWords';
 import { useRecoilState } from 'recoil';
+import Header from '../../Korail/Layouts/Header';
 
 function DictMain() {
   const [inputLoan, setInputLoan] = useRecoilState(inputLoanValue);
@@ -22,6 +23,7 @@ function DictMain() {
 
   return (
     <All>
+      <Header />
       <IconWrap>
         <BookImg />
       </IconWrap>
