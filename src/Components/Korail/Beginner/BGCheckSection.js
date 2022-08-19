@@ -1,65 +1,93 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Layouts/Footer';
+import Header from '../Layouts/Header';
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import {
+  arrivalStation,
+  startStation,
+  startDate,
+  manyPerson,
+} from '../../../atoms/Stations';
 
 function BGCheckSection() {
+  const ArrivalSt = useRecoilValue(arrivalStation);
+  const StartSt = useRecoilValue(startStation);
+  const StartDt = useRecoilValue(startDate);
+  const ManyPs = useRecoilValue(manyPerson);
+
   return (
     <All>
       <Header></Header>
-      <Body>
-        <Line2></Line2>
-
-        <BodyText>
-          <span>승차권 정보 확인</span>
-        </BodyText>
-        <Line></Line>
-        <Body1>
-          <Date>2022년 8월 2일 (화) 1매</Date>
-          <Infomation>무궁화호 1211 열차</Infomation>
-          <Infomation>서울(11:23) -{'>'} 부산(17:21)</Infomation>
-          <Infomation>일반실</Infomation>
-          <Infomation>1호차 13,14</Infomation>
-        </Body1>
-        <Body2>
-          <Guide>
-            비회원은 예약 완료 후, 바로 결제하지 않으면 자동으로 예약이
-            취소됩니다.
-          </Guide>
-          <Guide>승차권을 발권받은 스마트폰에서만 확인할 수 있습니다.</Guide>
-        </Body2>
-        <BodyBox>
-          <Box1>
-            <Cancel>좌석취소</Cancel>
-          </Box1>
-          <Box2>
-            <Cancel>결제하기</Cancel>
-          </Box2>
-        </BodyBox>
-      </Body>
+      <BodyAll>
+        <Body>
+          <BodyText>
+            <span>승차권 정보 확인</span>
+          </BodyText>
+          <Line></Line>
+          <Body1>
+            <Date>
+              {StartDt.year}년 {StartDt.month}월 {StartDt.date}일 ({StartDt.day}
+              ) {ManyPs}매
+            </Date>
+            <Infomation>무궁화호 1211 열차</Infomation>
+            <Infomation>
+              {StartSt}(11:23) -{'>'} {ArrivalSt}(17:21)
+            </Infomation>
+            <Infomation>일반실</Infomation>
+            <Infomation>1호차 13,14</Infomation>
+          </Body1>
+          <Body2>
+            <Guide>
+              비회원은 예약 완료 후, 바로 결제하지 않으면 자동으로 예약이
+              취소됩니다.
+            </Guide>
+            <Guide>승차권을 발권받은 스마트폰에서만 확인할 수 있습니다.</Guide>
+          </Body2>
+          <BodyBox>
+            <Box1>
+              <Cancel>좌석취소</Cancel>
+            </Box1>
+            <Box2>
+              <Cancel>
+                <Link
+                  style={{ textDecoration: 'none', color: '#064a87' }}
+                  to='/BGPaymentPage1'
+                >
+                  결제하기
+                </Link>
+              </Cancel>
+            </Box2>
+          </BodyBox>
+        </Body>
+      </BodyAll>
+      <Footer />
     </All>
   );
 }
 
+export default BGCheckSection;
+
 const All = styled.div`
   height: '100%';
   width: '100%';
-  background-color: #b3b3b3;
-`;
-
-const Header = styled.div`
-  background-color: #b3d5f2;
-  height: 64px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: 64px; */
 `;
 
 const Body = styled.div`
-  background-color: white;
+  margin-top: 64px;
+`;
 
-  height: 389px;
-  margin-left: 14px;
-  margin-right: 14px;
-  margin-top: 152px;
+const BodyAll = styled.div`
+  height: 100vh;
+  /* margin-left: 14px; */
+  /* margin-right: 14px; */
+  /* margin-top: 152px; */
 `;
 
 const Body1 = styled.div`
@@ -103,7 +131,7 @@ const BodyText = styled.div`
   font-size: 20px;
   color: #064a87;
   font-weight: bold;
-  margin-top: 21px;
+  padding-top: 30%;
   margin-left: 22px;
 `;
 
@@ -120,10 +148,6 @@ const Line = styled.div`
   margin-top: 6px;
   margin-left: 22px;
   margin-right: 22px;
-`;
-
-const Line2 = styled.div`
-  height: 0.1px;
 `;
 
 const Box1 = styled.div`
@@ -148,5 +172,3 @@ const Cancel = styled.span`
   color: #064a87;
   font-weight: bold;
 `;
-
-export default BGCheckSection;

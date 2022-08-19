@@ -136,7 +136,7 @@ function ChooseSectionFirst() {
           <SelectDiv>
             <Link
               style={{ textDecoration: 'none', color: '#064a87' }}
-              to='/PaymentPage1'
+              to='/CheckSection'
             >
               선택 완료
             </Link>

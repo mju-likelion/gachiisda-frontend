@@ -128,7 +128,7 @@ function BGChooseSectionFirst() {
           <SelectDiv>
             <Link
               style={{ textDecoration: 'none', color: '#064a87' }}
-              to='/BGStationSelect'
+              to='/BGCheckSection'
             >
               선택 완료
             </Link>
