@@ -27,7 +27,8 @@ function DictMain() {
       </IconWrap>
       <DictMent> 쉬운 우리말 사전 </DictMent>
       <DetailMent>
-        온라인 예매 및 주문에서 자주 쓰이는 말을 쉬운 우리말로 표현합니다.
+        온라인 예매 및 주문에서 자주 쓰이는 말을 <br /> 쉬운 우리말로
+        표현합니다.
       </DetailMent>
       <SearchBar>
         <SearchInput
@@ -106,8 +107,9 @@ const DictMent = styled.div`
 const DetailMent = styled.div`
   font-weight: 400;
   font-size: 20px;
-  margin: 0px 120px 36px 35px;
+  margin: 0px 90px 36px 35px;
   color: #2e3c7e;
+  width: auto;
 `;
 
 const SearchBar = styled.div`
